@@ -1,0 +1,31 @@
+{
+ "task_id": "drug_exposure.route_source_value",
+ "table": "drug_exposure",
+ "column": "route_source_value",
+ "kind": "placeholder",
+ "reference": {
+  "table": "drug_exposure",
+  "column": "route_source_value"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS TEXT)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:concept_seed.concept_id"
+  ],
+  "reference": [
+   "r.drug_source_concept_id"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

@@ -1,0 +1,33 @@
+{
+ "type": "array",
+ "items": {
+  "type": "object",
+  "required": [
+   "table",
+   "lhs",
+   "rhs",
+   "side"
+  ],
+  "properties": {
+   "side": {
+    "const": "source"
+   },
+   "table": {
+    "type": "string"
+   },
+   "lhs": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   },
+   "rhs": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "$schema": "http://json-schema.org/draft-07/schema#"
+}

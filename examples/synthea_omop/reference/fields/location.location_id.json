@@ -1,0 +1,32 @@
+{
+ "task_id": "location.location_id",
+ "table": "location",
+ "column": "location_id",
+ "kind": "keygen",
+ "reference": {
+  "table": "location",
+  "column": "location_id"
+ },
+ "expressions": [
+  {
+   "branch": "over_union",
+   "expr": "ROW_NUMBER() OVER (ORDER BY state, city, address_1)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.ADDRESS",
+   "b2:organizations.ADDRESS"
+  ],
+  "reference": [
+   "r.address_1"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled in PILOT.md",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

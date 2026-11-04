@@ -1,0 +1,6 @@
+{
+ "doc_label": "OMOP documentation",
+ "rule_table": "domain",
+ "rule_label": "OMOP documentation: domain table description",
+ "empty_markers": ["", "NA"]
+}

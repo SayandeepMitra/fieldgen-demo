@@ -1,0 +1,31 @@
+{
+ "task_id": "provider.year_of_birth",
+ "table": "provider",
+ "column": "year_of_birth",
+ "kind": "placeholder",
+ "reference": {
+  "table": "provider",
+  "column": "year_of_birth"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS INT)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:providers.Id"
+  ],
+  "reference": [
+   "r.provider_source_value"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

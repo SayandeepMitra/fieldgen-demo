@@ -1,0 +1,23 @@
+{
+ "table": "person",
+ "grain": "one row per patient",
+ "combine": "none",
+ "group_by": null,
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM patients"
+  }
+ ],
+ "table_roles": {
+  "patients": "driver"
+ },
+ "keys": [
+  {
+   "column": "person_id",
+   "order_by": [
+    "person_source_value"
+   ]
+  }
+ ]
+}

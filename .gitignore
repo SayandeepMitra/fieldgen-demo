@@ -1,0 +1,12 @@
+.env
+*.key
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+runs/
+run/
+*.duckdb
+*.egg-info/
+build/
+dist/

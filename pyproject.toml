@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fieldgen"
+version = "1.2.dev0"
+description = "LLM-assisted generation of field-level SQL transformations (demo release v1.0-demo)"
+requires-python = ">=3.10"
+dependencies = ["duckdb", "httpx", "jinja2", "jsonschema", "pyyaml", "sqlglot", "pytz"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+fieldgen = "fieldgen.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+fieldgen = ["prompts/*.md", "schemas/**/*.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests"]
+testpaths = ["tests"]

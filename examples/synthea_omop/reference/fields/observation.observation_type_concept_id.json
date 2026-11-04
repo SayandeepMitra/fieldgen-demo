@@ -1,0 +1,31 @@
+{
+ "task_id": "observation.observation_type_concept_id",
+ "table": "observation",
+ "column": "observation_type_concept_id",
+ "kind": "excluded",
+ "reference": {
+  "table": "observation",
+  "column": "observation_type_concept_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "32817"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:concept_seed.concept_id"
+  ],
+  "reference": [
+   "r.observation_source_concept_id"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": "constant not derivable (reference value [32817])"
+}

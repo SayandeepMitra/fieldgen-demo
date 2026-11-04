@@ -1,0 +1,16 @@
+{
+ "table": "concept_ancestor",
+ "grain": "one row per row of the reference program's result (inlined compiled reference program)",
+ "combine": "none",
+ "group_by": null,
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM (WITH cte_concept_ancestor_lower AS (SELECT \"ancestor_concept_id\" AS ancestor_concept_id, \"descendant_concept_id\" AS descendant_concept_id, \"min_levels_of_separation\" AS min_levels_of_separation, \"max_levels_of_separation\" AS max_levels_of_separation FROM concept_ancestor_seed) SELECT * FROM cte_concept_ancestor_lower) AS stg_vocabulary__concept_ancestor"
+  }
+ ],
+ "table_roles": {
+  "concept_ancestor_seed": "driver"
+ },
+ "passthrough": true
+}

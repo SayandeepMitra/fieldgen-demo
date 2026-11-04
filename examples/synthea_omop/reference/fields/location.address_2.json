@@ -1,0 +1,36 @@
+{
+ "task_id": "location.address_2",
+ "table": "location",
+ "column": "address_2",
+ "kind": "placeholder",
+ "reference": {
+  "table": "location",
+  "column": "address_2"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS TEXT)"
+  },
+  {
+   "branch": "b2",
+   "expr": "CAST(NULL AS TEXT)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.ADDRESS",
+   "b2:organizations.ADDRESS"
+  ],
+  "reference": [
+   "r.address_1"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled in PILOT.md",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

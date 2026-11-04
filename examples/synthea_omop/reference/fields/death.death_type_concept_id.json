@@ -1,0 +1,31 @@
+{
+ "task_id": "death.death_type_concept_id",
+ "table": "death",
+ "column": "death_type_concept_id",
+ "kind": "excluded",
+ "reference": {
+  "table": "death",
+  "column": "death_type_concept_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "32817"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:encounters.START"
+  ],
+  "reference": [
+   "r.death_date"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": "constant not derivable (reference value [32817])"
+}

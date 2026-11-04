@@ -1,0 +1,110 @@
+{
+ "type": "object",
+ "properties": {
+  "reference_tables": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "target_table": {
+      "type": "string"
+     },
+     "source_relation": {
+      "type": "string"
+     },
+     "id_column": {
+      "type": "string"
+     },
+     "label_column": {
+      "type": "string"
+     },
+     "group_column": {
+      "type": "string"
+     },
+     "default_filters": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "column": {
+         "type": "string"
+        },
+        "equals": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "column",
+        "equals"
+       ],
+       "additionalProperties": false
+      }
+     }
+    },
+    "required": [
+     "target_table",
+     "source_relation",
+     "id_column",
+     "default_filters"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "field_filters": {
+   "type": "object",
+   "patternProperties": {
+    "^[a-z_0-9]+\\.[a-z_0-9]+$": {
+     "type": "object",
+     "properties": {
+      "reference_filter": {
+       "type": "object",
+       "properties": {
+        "column": {
+         "type": "string"
+        },
+        "equals": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "column",
+        "equals"
+       ],
+       "additionalProperties": false
+      },
+      "extra_filters": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "column": {
+          "type": "string"
+         },
+         "equals": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "column",
+         "equals"
+        ],
+        "additionalProperties": false
+       }
+      }
+     },
+     "required": [
+      "reference_filter"
+     ],
+     "additionalProperties": false
+    }
+   },
+   "additionalProperties": false
+  }
+ },
+ "required": [
+  "reference_tables",
+  "field_filters"
+ ],
+ "additionalProperties": false,
+ "$schema": "http://json-schema.org/draft-07/schema#"
+}

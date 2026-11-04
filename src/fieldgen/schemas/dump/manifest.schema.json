@@ -1,0 +1,79 @@
+{
+ "type": "object",
+ "properties": {
+  "version": {
+   "type": "string"
+  },
+  "package": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "version": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "name",
+    "version"
+   ],
+   "additionalProperties": false
+  },
+  "seed": {
+   "const": 2026
+  },
+  "build_parameters": {
+   "type": "object",
+   "properties": {
+    "include_target_samples": {
+     "type": "boolean"
+    },
+    "reads_answer_key": {
+     "const": false
+    },
+    "reads_reference_data": {
+     "type": "boolean"
+    },
+    "depth_of_overlap": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "include_target_samples",
+    "reads_answer_key",
+    "reads_reference_data",
+    "depth_of_overlap"
+   ],
+   "additionalProperties": false
+  },
+  "caps": {
+   "type": "object"
+  },
+  "counts": {
+   "type": "object"
+  },
+  "content_hashes": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "string",
+    "pattern": "^[0-9a-f]{64}$"
+   }
+  },
+  "input_hashes": {
+   "type": "object"
+  }
+ },
+ "required": [
+  "version",
+  "package",
+  "seed",
+  "build_parameters",
+  "caps",
+  "counts",
+  "content_hashes",
+  "input_hashes"
+ ],
+ "additionalProperties": false,
+ "$schema": "http://json-schema.org/draft-07/schema#"
+}

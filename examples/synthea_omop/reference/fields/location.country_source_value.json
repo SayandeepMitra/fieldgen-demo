@@ -1,0 +1,36 @@
+{
+ "task_id": "location.country_source_value",
+ "table": "location",
+ "column": "country_source_value",
+ "kind": "placeholder",
+ "reference": {
+  "table": "location",
+  "column": "country_source_value"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS TEXT)"
+  },
+  {
+   "branch": "b2",
+   "expr": "CAST(NULL AS TEXT)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.ADDRESS",
+   "b2:organizations.ADDRESS"
+  ],
+  "reference": [
+   "r.address_1"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled in PILOT.md",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

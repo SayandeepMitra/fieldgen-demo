@@ -1,0 +1,31 @@
+{
+ "task_id": "person.birth_datetime",
+ "table": "person",
+ "column": "birth_datetime",
+ "kind": "placeholder",
+ "reference": {
+  "table": "person",
+  "column": "birth_datetime"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS TIMESTAMP)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.Id"
+  ],
+  "reference": [
+   "r.person_source_value"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": true,
+  "reason": "source has BIRTHDATE (a date); the target is optional; the reference leaves it NULL",
+  "source": "assistant_proposal"
+ },
+ "exclusion_reason": null
+}

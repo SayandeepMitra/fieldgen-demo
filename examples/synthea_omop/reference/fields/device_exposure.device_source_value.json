@@ -1,0 +1,31 @@
+{
+ "task_id": "device_exposure.device_source_value",
+ "table": "device_exposure",
+ "column": "device_source_value",
+ "kind": "value",
+ "reference": {
+  "table": "device_exposure",
+  "column": "device_source_value"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "SUBSTRING(d.device_code, 1, 50)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:devices.START"
+  ],
+  "reference": [
+   "r.device_exposure_start_date"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

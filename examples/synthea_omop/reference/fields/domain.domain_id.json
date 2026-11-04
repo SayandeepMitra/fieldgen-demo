@@ -1,0 +1,32 @@
+{
+ "task_id": "domain.domain_id",
+ "table": "domain",
+ "column": "domain_id",
+ "kind": "value",
+ "reference": {
+  "table": "domain",
+  "column": "domain_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "stg_vocabulary__domain.domain_id"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:domain_seed.domain_id"
+  ],
+  "reference": [
+   "r.domain_id"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null,
+ "passthrough": true
+}

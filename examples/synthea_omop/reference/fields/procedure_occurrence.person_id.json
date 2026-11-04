@@ -1,0 +1,33 @@
+{
+ "task_id": "procedure_occurrence.person_id",
+ "table": "procedure_occurrence",
+ "column": "person_id",
+ "kind": "excluded",
+ "reference": {
+  "table": "procedure_occurrence",
+  "column": "person_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "po.person_id"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:procedures.STOP",
+   "b1:concept_seed.concept_id"
+  ],
+  "reference": [
+   "r.procedure_end_datetime",
+   "r.procedure_source_concept_id"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": "reference derived from a generated key with tied order; not reproducible"
+}

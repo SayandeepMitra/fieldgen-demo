@@ -1,0 +1,31 @@
+{
+ "task_id": "observation.value_as_number",
+ "table": "observation",
+ "column": "value_as_number",
+ "kind": "placeholder",
+ "reference": {
+  "table": "observation",
+  "column": "value_as_number"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS REAL)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:concept_seed.concept_id"
+  ],
+  "reference": [
+   "r.observation_source_concept_id"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

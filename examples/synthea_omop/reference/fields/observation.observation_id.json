@@ -1,0 +1,31 @@
+{
+ "task_id": "observation.observation_id",
+ "table": "observation",
+ "column": "observation_id",
+ "kind": "keygen",
+ "reference": {
+  "table": "observation",
+  "column": "observation_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "ROW_NUMBER() OVER (ORDER BY person_id)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:concept_seed.concept_id"
+  ],
+  "reference": [
+   "r.observation_source_concept_id"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

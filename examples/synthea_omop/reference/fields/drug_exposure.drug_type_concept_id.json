@@ -1,0 +1,31 @@
+{
+ "task_id": "drug_exposure.drug_type_concept_id",
+ "table": "drug_exposure",
+ "column": "drug_type_concept_id",
+ "kind": "value",
+ "reference": {
+  "table": "drug_exposure",
+  "column": "drug_type_concept_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "drug_type_concept_id"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:concept_seed.concept_id"
+  ],
+  "reference": [
+   "r.drug_source_concept_id"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

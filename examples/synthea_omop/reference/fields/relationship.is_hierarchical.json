@@ -1,0 +1,32 @@
+{
+ "task_id": "relationship.is_hierarchical",
+ "table": "relationship",
+ "column": "is_hierarchical",
+ "kind": "value",
+ "reference": {
+  "table": "relationship",
+  "column": "is_hierarchical"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "stg_vocabulary__relationship.is_hierarchical"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:relationship_seed.relationship_id"
+  ],
+  "reference": [
+   "r.relationship_id"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null,
+ "passthrough": true
+}

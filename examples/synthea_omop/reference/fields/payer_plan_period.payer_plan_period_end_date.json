@@ -1,0 +1,31 @@
+{
+ "task_id": "payer_plan_period.payer_plan_period_end_date",
+ "table": "payer_plan_period",
+ "column": "payer_plan_period_end_date",
+ "kind": "value",
+ "reference": {
+  "table": "payer_plan_period",
+  "column": "payer_plan_period_end_date"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "pt.coverage_end_date"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:payer_transitions.END_YEAR"
+  ],
+  "reference": [
+   "r.payer_plan_period_end_date"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

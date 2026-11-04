@@ -1,0 +1,31 @@
+{
+ "task_id": "cdm_source.vocabulary_version",
+ "table": "cdm_source",
+ "column": "vocabulary_version",
+ "kind": "value",
+ "reference": {
+  "table": "cdm_source",
+  "column": "vocabulary_version"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "vocabulary_version"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:vocabulary_seed.vocabulary_version"
+  ],
+  "reference": [
+   "r.vocabulary_version"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

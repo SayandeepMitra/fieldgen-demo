@@ -1,0 +1,36 @@
+{
+ "task_id": "location.location_source_value",
+ "table": "location",
+ "column": "location_source_value",
+ "kind": "value",
+ "reference": {
+  "table": "location",
+  "column": "location_source_value"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "SUBSTRING(MD5(COALESCE(patients.ADDRESS, '') || COALESCE(patients.CITY, '') || COALESCE(states.state_abbreviation, '') || COALESCE(patients.ZIP, '') || COALESCE(patients.COUNTY, '')), 1, 50)"
+  },
+  {
+   "branch": "b2",
+   "expr": "SUBSTRING(MD5(COALESCE(organizations.ADDRESS, '') || COALESCE(organizations.CITY, '') || COALESCE(organizations.STATE, '') || COALESCE(organizations.ZIP, '') || COALESCE(CAST(NULL AS TEXT), '')), 1, 50)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.ADDRESS",
+   "b2:organizations.ADDRESS"
+  ],
+  "reference": [
+   "r.address_1"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": true,
+  "reason": "nothing says concatenation vs hash, or which columns; the reference uses an MD5 recipe",
+  "source": "assistant_proposal"
+ },
+ "exclusion_reason": null
+}

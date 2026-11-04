@@ -1,0 +1,31 @@
+{
+ "task_id": "payer_plan_period.sponsor_source_value",
+ "table": "payer_plan_period",
+ "column": "sponsor_source_value",
+ "kind": "placeholder",
+ "reference": {
+  "table": "payer_plan_period",
+  "column": "sponsor_source_value"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS TEXT)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:payer_transitions.END_YEAR"
+  ],
+  "reference": [
+   "r.payer_plan_period_end_date"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

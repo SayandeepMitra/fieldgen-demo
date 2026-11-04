@@ -1,0 +1,31 @@
+{
+ "task_id": "provider.gender_source_concept_id",
+ "table": "provider",
+ "column": "gender_source_concept_id",
+ "kind": "value",
+ "reference": {
+  "table": "provider",
+  "column": "gender_source_concept_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "gender_source_concept_id"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:providers.Id"
+  ],
+  "reference": [
+   "r.provider_source_value"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

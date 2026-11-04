@@ -1,0 +1,31 @@
+{
+ "table": "location",
+ "grain": "one row per distinct address; patient addresses and organization addresses together",
+ "combine": "union_distinct",
+ "group_by": null,
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM patients LEFT JOIN states ON patients.STATE = states.state_name"
+  },
+  {
+   "id": "b2",
+   "from": "FROM organizations"
+  }
+ ],
+ "table_roles": {
+  "patients": "driver",
+  "organizations": "driver",
+  "states": "lookup"
+ },
+ "keys": [
+  {
+   "column": "location_id",
+   "order_by": [
+    "state",
+    "city",
+    "address_1"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+{
+ "task_id": "visit_occurrence.care_site_id",
+ "table": "visit_occurrence",
+ "column": "care_site_id",
+ "kind": "placeholder",
+ "reference": {
+  "table": "visit_occurrence",
+  "column": "care_site_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS INT)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:encounters.START"
+  ],
+  "reference": [
+   "r.visit_start_date"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

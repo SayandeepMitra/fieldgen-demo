@@ -1,0 +1,32 @@
+{
+ "task_id": "relationship.defines_ancestry",
+ "table": "relationship",
+ "column": "defines_ancestry",
+ "kind": "value",
+ "reference": {
+  "table": "relationship",
+  "column": "defines_ancestry"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "stg_vocabulary__relationship.defines_ancestry"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:relationship_seed.relationship_id"
+  ],
+  "reference": [
+   "r.relationship_id"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null,
+ "passthrough": true
+}

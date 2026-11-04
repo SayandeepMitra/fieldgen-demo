@@ -1,0 +1,16 @@
+{
+ "table": "concept",
+ "grain": "one row per row of the reference program's result (inlined compiled reference program)",
+ "combine": "none",
+ "group_by": null,
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM (WITH cte_concept_lower AS (SELECT \"concept_id\" AS concept_id, \"concept_name\" AS concept_name, \"domain_id\" AS domain_id, \"vocabulary_id\" AS vocabulary_id, \"concept_class_id\" AS concept_class_id, \"standard_concept\" AS standard_concept, \"concept_code\" AS concept_code, \"valid_start_date\" AS valid_start_date, \"valid_end_date\" AS valid_end_date, \"invalid_reason\" AS invalid_reason FROM concept_seed) SELECT * FROM cte_concept_lower) AS stg_vocabulary__concept"
+  }
+ ],
+ "table_roles": {
+  "concept_seed": "driver"
+ },
+ "passthrough": true
+}

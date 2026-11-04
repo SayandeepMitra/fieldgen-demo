@@ -1,0 +1,31 @@
+{
+ "task_id": "death.person_id",
+ "table": "death",
+ "column": "person_id",
+ "kind": "value",
+ "reference": {
+  "table": "death",
+  "column": "person_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "e.person_id"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:encounters.START"
+  ],
+  "reference": [
+   "r.death_date"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

@@ -1,0 +1,33 @@
+{
+ "task_id": "condition_occurrence.condition_concept_id",
+ "table": "condition_occurrence",
+ "column": "condition_concept_id",
+ "kind": "value",
+ "reference": {
+  "table": "condition_occurrence",
+  "column": "condition_concept_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "srctostdvm.target_concept_id"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:conditions.START",
+   "b1:concept_seed.concept_id"
+  ],
+  "reference": [
+   "r.condition_start_date",
+   "r.condition_source_concept_id"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

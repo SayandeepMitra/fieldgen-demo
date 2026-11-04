@@ -1,0 +1,31 @@
+{
+ "task_id": "device_exposure.production_id",
+ "table": "device_exposure",
+ "column": "production_id",
+ "kind": "placeholder",
+ "reference": {
+  "table": "device_exposure",
+  "column": "production_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS TEXT)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:devices.START"
+  ],
+  "reference": [
+   "r.device_exposure_start_date"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

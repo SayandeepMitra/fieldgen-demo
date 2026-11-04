@@ -1,0 +1,31 @@
+{
+ "task_id": "cdm_source.source_description",
+ "table": "cdm_source",
+ "column": "source_description",
+ "kind": "excluded",
+ "reference": {
+  "table": "cdm_source",
+  "column": "source_description"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "'An OMOP CDM derived from a Synthea dataset using dbt.'"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:vocabulary_seed.vocabulary_version"
+  ],
+  "reference": [
+   "r.vocabulary_version"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": "constant not derivable (reference value [An OMOP CDM derived from a Synthea dataset using dbt.])"
+}

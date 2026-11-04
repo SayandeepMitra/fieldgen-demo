@@ -1,0 +1,299 @@
+{
+ "reference_tables": [
+  {
+   "target_table": "concept",
+   "source_relation": "concept_seed",
+   "id_column": "concept_id",
+   "label_column": "concept_name",
+   "group_column": "domain_id",
+   "default_filters": [
+    {
+     "column": "standard_concept",
+     "equals": "S"
+    }
+   ]
+  },
+  {
+   "target_table": "concept_class",
+   "source_relation": "concept_class_seed",
+   "id_column": "concept_class_id",
+   "label_column": "concept_class_name",
+   "default_filters": []
+  },
+  {
+   "target_table": "domain",
+   "source_relation": "domain_seed",
+   "id_column": "domain_id",
+   "label_column": "domain_name",
+   "default_filters": []
+  },
+  {
+   "target_table": "relationship",
+   "source_relation": "relationship_seed",
+   "id_column": "relationship_id",
+   "label_column": "relationship_name",
+   "default_filters": []
+  },
+  {
+   "target_table": "vocabulary",
+   "source_relation": "vocabulary_seed",
+   "id_column": "vocabulary_id",
+   "label_column": "vocabulary_name",
+   "default_filters": []
+  }
+ ],
+ "field_filters": {
+  "person.gender_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Gender"
+   }
+  },
+  "person.race_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Race"
+   }
+  },
+  "person.ethnicity_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Ethnicity"
+   }
+  },
+  "observation_period.period_type_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Type Concept"
+   }
+  },
+  "visit_occurrence.visit_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Visit"
+   }
+  },
+  "visit_occurrence.visit_type_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Type Concept"
+   }
+  },
+  "visit_occurrence.admitted_from_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Visit"
+   }
+  },
+  "visit_occurrence.discharged_to_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Visit"
+   }
+  },
+  "visit_detail.visit_detail_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Visit"
+   }
+  },
+  "visit_detail.visit_detail_type_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Type Concept"
+   }
+  },
+  "visit_detail.admitted_from_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Visit"
+   }
+  },
+  "visit_detail.discharged_to_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Visit"
+   }
+  },
+  "condition_occurrence.condition_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Condition"
+   }
+  },
+  "condition_occurrence.condition_type_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Type Concept"
+   }
+  },
+  "condition_occurrence.condition_status_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Condition Status"
+   }
+  },
+  "drug_exposure.drug_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Drug"
+   }
+  },
+  "drug_exposure.drug_type_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Type Concept"
+   }
+  },
+  "drug_exposure.route_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Route"
+   }
+  },
+  "procedure_occurrence.procedure_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Procedure"
+   }
+  },
+  "procedure_occurrence.procedure_type_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Type Concept"
+   }
+  },
+  "device_exposure.device_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Device"
+   }
+  },
+  "device_exposure.device_type_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Type Concept"
+   }
+  },
+  "device_exposure.unit_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Unit"
+   }
+  },
+  "measurement.measurement_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Measurement"
+   }
+  },
+  "measurement.measurement_type_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Type Concept"
+   }
+  },
+  "measurement.unit_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Unit"
+   }
+  },
+  "observation.observation_type_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Type Concept"
+   }
+  },
+  "observation.unit_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Unit"
+   }
+  },
+  "death.death_type_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Type Concept"
+   }
+  },
+  "note.note_type_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Type Concept"
+   }
+  },
+  "specimen.specimen_type_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Type Concept"
+   }
+  },
+  "provider.gender_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Gender"
+   }
+  },
+  "drug_era.drug_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Drug"
+   },
+   "extra_filters": [
+    {
+     "column": "concept_class_id",
+     "equals": "Ingredient"
+    }
+   ]
+  },
+  "dose_era.drug_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Drug"
+   },
+   "extra_filters": [
+    {
+     "column": "concept_class_id",
+     "equals": "Ingredient"
+    }
+   ]
+  },
+  "dose_era.unit_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Unit"
+   }
+  },
+  "condition_era.condition_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Condition"
+   }
+  },
+  "episode.episode_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Episode"
+   }
+  },
+  "episode.episode_object_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Procedure, Regimen"
+   }
+  },
+  "episode.episode_type_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Type Concept"
+   }
+  },
+  "episode_event.episode_event_field_concept_id": {
+   "reference_filter": {
+    "column": "domain_id",
+    "equals": "Metadata"
+   }
+  }
+ }
+}

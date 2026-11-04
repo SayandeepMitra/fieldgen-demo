@@ -1,0 +1,31 @@
+{
+ "task_id": "cost.total_paid",
+ "table": "cost",
+ "column": "total_paid",
+ "kind": "placeholder",
+ "reference": {
+  "table": "cost",
+  "column": "total_paid"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS REAL)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:@const"
+  ],
+  "reference": [
+   "1"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

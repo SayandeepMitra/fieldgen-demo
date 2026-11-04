@@ -1,0 +1,20 @@
+fieldgen demo release: third-party materials
+
+This repository includes material from the Apache-2.0 licensed projects below. The material is used under the Apache License, Version 2.0
+(http://www.apache.org/licenses/LICENSE-2.0). Copyright in that material belongs to the authors of the respective projects (see their repositories).
+Changes made by this project are stated for each item. This file does not choose a licence for the fieldgen code and documents of this repository.
+
+1. OHDSI CommonDataModel (https://github.com/OHDSI/CommonDataModel, tag v5.5.0; Apache-2.0)
+   Used in: examples/synthea_omop/package/target/tables.json, field_docs.json, field_domains.json, provenance.json
+   What: the table and column definitions of the OMOP CDM v5.4 and the text of OMOP_CDMv5.4_Field_Level.csv and the table-level CSV of the same tag
+         (user guidance, ETL conventions, foreign-key domains, table descriptions).
+   Changes: reformatted into JSON; the text is word for word. Empty values written as NA in the CSV are kept as NA.
+
+2. dbt-synthea (https://github.com/OHDSI/dbt-synthea; Apache-2.0)
+   Used in: examples/synthea_omop/package/source/tables.json, matches/matches.json, and examples/synthea_omop/reference/recipes/, reference/fields/
+   - source/tables.json: the column descriptions are copied from models/staging/synthea/_synthea__models.yml; the column names and types are those of the Synthea CSV files.
+   - matches/matches.json: matches of source columns to target columns derived from the SQL lineage of the dbt-synthea models (some matches were made noisy on purpose).
+   - reference/recipes and reference/fields: the reference conversion, derived from the compiled SQL of the dbt-synthea models, split per target table and column; alignment data added by this project.
+   Changes: the original files were not copied unchanged. They were reformatted, split, annotated and combined. They are not endorsed by the dbt-synthea project.
+
+3. Not included, so not covered by this notice: the Synthea sample data, the OMOP vocabulary seed files, and the reference tables built from them (see LICENSES.md).

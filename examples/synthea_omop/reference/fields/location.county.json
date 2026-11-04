@@ -1,0 +1,36 @@
+{
+ "task_id": "location.county",
+ "table": "location",
+ "column": "county",
+ "kind": "value",
+ "reference": {
+  "table": "location",
+  "column": "county"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "SUBSTRING(patients.COUNTY, 1, 20)"
+  },
+  {
+   "branch": "b2",
+   "expr": "SUBSTRING(CAST(NULL AS TEXT), 1, 20)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.ADDRESS",
+   "b2:organizations.ADDRESS"
+  ],
+  "reference": [
+   "r.address_1"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled in PILOT.md",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

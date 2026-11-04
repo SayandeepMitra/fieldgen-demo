@@ -1,0 +1,36 @@
+{
+ "task_id": "location.address_1",
+ "table": "location",
+ "column": "address_1",
+ "kind": "value",
+ "reference": {
+  "table": "location",
+  "column": "address_1"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "SUBSTRING(patients.ADDRESS, 1, 50)"
+  },
+  {
+   "branch": "b2",
+   "expr": "SUBSTRING(organizations.ADDRESS, 1, 50)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.ADDRESS",
+   "b2:organizations.ADDRESS"
+  ],
+  "reference": [
+   "r.address_1"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled in PILOT.md",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

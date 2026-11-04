@@ -1,0 +1,34 @@
+{
+ "task_id": "concept_ancestor.min_levels_of_separation",
+ "table": "concept_ancestor",
+ "column": "min_levels_of_separation",
+ "kind": "value",
+ "reference": {
+  "table": "concept_ancestor",
+  "column": "min_levels_of_separation"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "stg_vocabulary__concept_ancestor.min_levels_of_separation"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:concept_ancestor_seed.ancestor_concept_id",
+   "b1:concept_ancestor_seed.descendant_concept_id"
+  ],
+  "reference": [
+   "r.ancestor_concept_id",
+   "r.descendant_concept_id"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null,
+ "passthrough": true
+}

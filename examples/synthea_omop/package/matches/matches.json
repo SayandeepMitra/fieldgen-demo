@@ -1,0 +1,1418 @@
+{
+ "person.person_id": [],
+ "person.gender_concept_id": [
+  {
+   "relation": "patients",
+   "column": "GENDER"
+  }
+ ],
+ "person.year_of_birth": [
+  {
+   "relation": "patients",
+   "column": "BIRTHDATE"
+  }
+ ],
+ "person.month_of_birth": [
+  {
+   "relation": "patients",
+   "column": "BIRTHDATE"
+  }
+ ],
+ "person.day_of_birth": [
+  {
+   "relation": "patients",
+   "column": "BIRTHDATE"
+  }
+ ],
+ "person.birth_datetime": [],
+ "person.race_concept_id": [
+  {
+   "relation": "patients",
+   "column": "RACE"
+  }
+ ],
+ "person.ethnicity_concept_id": [
+  {
+   "relation": "patients",
+   "column": "ETHNICITY"
+  }
+ ],
+ "person.location_id": [],
+ "person.provider_id": [],
+ "person.care_site_id": [],
+ "person.person_source_value": [
+  {
+   "relation": "patients",
+   "column": "Id"
+  }
+ ],
+ "person.gender_source_value": [
+  {
+   "relation": "patients",
+   "column": "GENDER"
+  }
+ ],
+ "person.gender_source_concept_id": [],
+ "person.race_source_value": [
+  {
+   "relation": "patients",
+   "column": "RACE"
+  }
+ ],
+ "person.race_source_concept_id": [],
+ "person.ethnicity_source_value": [
+  {
+   "relation": "patients",
+   "column": "ETHNICITY"
+  }
+ ],
+ "person.ethnicity_source_concept_id": [],
+ "observation_period.observation_period_id": [],
+ "observation_period.person_id": [],
+ "observation_period.observation_period_start_date": [
+  {
+   "relation": "encounters",
+   "column": "START"
+  }
+ ],
+ "observation_period.observation_period_end_date": [
+  {
+   "relation": "encounters",
+   "column": "START"
+  },
+  {
+   "relation": "encounters",
+   "column": "STOP"
+  }
+ ],
+ "observation_period.period_type_concept_id": [],
+ "visit_occurrence.visit_occurrence_id": [],
+ "visit_occurrence.person_id": [],
+ "visit_occurrence.visit_concept_id": [
+  {
+   "relation": "encounters",
+   "column": "ENCOUNTERCLASS"
+  }
+ ],
+ "visit_occurrence.visit_start_date": [
+  {
+   "relation": "encounters",
+   "column": "START"
+  }
+ ],
+ "visit_occurrence.visit_start_datetime": [],
+ "visit_occurrence.visit_end_date": [
+  {
+   "relation": "encounters",
+   "column": "START"
+  },
+  {
+   "relation": "encounters",
+   "column": "STOP"
+  }
+ ],
+ "visit_occurrence.visit_end_datetime": [],
+ "visit_occurrence.visit_type_concept_id": [],
+ "visit_occurrence.provider_id": [],
+ "visit_occurrence.care_site_id": [],
+ "visit_occurrence.visit_source_value": [
+  {
+   "relation": "encounters",
+   "column": "ENCOUNTERCLASS"
+  }
+ ],
+ "visit_occurrence.visit_source_concept_id": [],
+ "visit_occurrence.admitted_from_concept_id": [],
+ "visit_occurrence.admitted_from_source_value": [],
+ "visit_occurrence.discharged_to_concept_id": [],
+ "visit_occurrence.discharged_to_source_value": [],
+ "visit_occurrence.preceding_visit_occurrence_id": [],
+ "visit_detail.visit_detail_id": [],
+ "visit_detail.person_id": [],
+ "visit_detail.visit_detail_concept_id": [
+  {
+   "relation": "encounters",
+   "column": "ENCOUNTERCLASS"
+  }
+ ],
+ "visit_detail.visit_detail_start_date": [
+  {
+   "relation": "encounters",
+   "column": "START"
+  }
+ ],
+ "visit_detail.visit_detail_start_datetime": [
+  {
+   "relation": "encounters",
+   "column": "START"
+  }
+ ],
+ "visit_detail.visit_detail_end_date": [
+  {
+   "relation": "encounters",
+   "column": "START"
+  },
+  {
+   "relation": "encounters",
+   "column": "STOP"
+  }
+ ],
+ "visit_detail.visit_detail_end_datetime": [
+  {
+   "relation": "encounters",
+   "column": "START"
+  },
+  {
+   "relation": "encounters",
+   "column": "STOP"
+  }
+ ],
+ "visit_detail.visit_detail_type_concept_id": [],
+ "visit_detail.provider_id": [],
+ "visit_detail.care_site_id": [],
+ "visit_detail.visit_detail_source_value": [
+  {
+   "relation": "encounters",
+   "column": "ENCOUNTERCLASS"
+  }
+ ],
+ "visit_detail.visit_detail_source_concept_id": [],
+ "visit_detail.admitted_from_concept_id": [],
+ "visit_detail.admitted_from_source_value": [],
+ "visit_detail.discharged_to_source_value": [],
+ "visit_detail.discharged_to_concept_id": [],
+ "visit_detail.preceding_visit_detail_id": [],
+ "visit_detail.parent_visit_detail_id": [],
+ "visit_detail.visit_occurrence_id": [],
+ "condition_occurrence.condition_occurrence_id": [],
+ "condition_occurrence.person_id": [],
+ "condition_occurrence.condition_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  },
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "target_concept_id"
+  }
+ ],
+ "condition_occurrence.condition_start_date": [
+  {
+   "relation": "conditions",
+   "column": "START"
+  }
+ ],
+ "condition_occurrence.condition_start_datetime": [],
+ "condition_occurrence.condition_end_date": [
+  {
+   "relation": "conditions",
+   "column": "STOP"
+  }
+ ],
+ "condition_occurrence.condition_end_datetime": [],
+ "condition_occurrence.condition_type_concept_id": [],
+ "condition_occurrence.condition_status_concept_id": [],
+ "condition_occurrence.stop_reason": [],
+ "condition_occurrence.provider_id": [],
+ "condition_occurrence.visit_occurrence_id": [],
+ "condition_occurrence.visit_detail_id": [],
+ "condition_occurrence.condition_source_value": [
+  {
+   "relation": "conditions",
+   "column": "CODE"
+  }
+ ],
+ "condition_occurrence.condition_source_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  }
+ ],
+ "condition_occurrence.condition_status_source_value": [],
+ "drug_exposure.drug_exposure_id": [],
+ "drug_exposure.person_id": [],
+ "drug_exposure.drug_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  },
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "target_concept_id"
+  }
+ ],
+ "drug_exposure.drug_exposure_start_date": [
+  {
+   "relation": "immunizations",
+   "column": "DATE"
+  },
+  {
+   "relation": "medications",
+   "column": "START"
+  }
+ ],
+ "drug_exposure.drug_exposure_start_datetime": [
+  {
+   "relation": "immunizations",
+   "column": "DATE"
+  },
+  {
+   "relation": "medications",
+   "column": "START"
+  }
+ ],
+ "drug_exposure.drug_exposure_end_date": [
+  {
+   "relation": "immunizations",
+   "column": "DATE"
+  },
+  {
+   "relation": "medications",
+   "column": "START"
+  },
+  {
+   "relation": "medications",
+   "column": "STOP"
+  }
+ ],
+ "drug_exposure.drug_exposure_end_datetime": [
+  {
+   "relation": "immunizations",
+   "column": "DATE"
+  },
+  {
+   "relation": "medications",
+   "column": "START"
+  },
+  {
+   "relation": "medications",
+   "column": "STOP"
+  }
+ ],
+ "drug_exposure.verbatim_end_date": [
+  {
+   "relation": "immunizations",
+   "column": "DATE"
+  },
+  {
+   "relation": "medications",
+   "column": "STOP"
+  }
+ ],
+ "drug_exposure.drug_type_concept_id": [],
+ "drug_exposure.stop_reason": [],
+ "drug_exposure.refills": [],
+ "drug_exposure.quantity": [],
+ "drug_exposure.days_supply": [
+  {
+   "relation": "medications",
+   "column": "START"
+  },
+  {
+   "relation": "medications",
+   "column": "STOP"
+  }
+ ],
+ "drug_exposure.sig": [],
+ "drug_exposure.route_concept_id": [],
+ "drug_exposure.lot_number": [],
+ "drug_exposure.provider_id": [],
+ "drug_exposure.visit_occurrence_id": [],
+ "drug_exposure.visit_detail_id": [],
+ "drug_exposure.drug_source_value": [
+  {
+   "relation": "immunizations",
+   "column": "CODE"
+  },
+  {
+   "relation": "medications",
+   "column": "CODE"
+  }
+ ],
+ "drug_exposure.drug_source_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  }
+ ],
+ "drug_exposure.route_source_value": [],
+ "drug_exposure.dose_unit_source_value": [],
+ "procedure_occurrence.procedure_occurrence_id": [],
+ "procedure_occurrence.person_id": [],
+ "procedure_occurrence.procedure_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  },
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "target_concept_id"
+  }
+ ],
+ "procedure_occurrence.procedure_date": [
+  {
+   "relation": "procedures",
+   "column": "START"
+  }
+ ],
+ "procedure_occurrence.procedure_datetime": [
+  {
+   "relation": "procedures",
+   "column": "START"
+  }
+ ],
+ "procedure_occurrence.procedure_end_date": [
+  {
+   "relation": "procedures",
+   "column": "STOP"
+  }
+ ],
+ "procedure_occurrence.procedure_end_datetime": [
+  {
+   "relation": "procedures",
+   "column": "STOP"
+  }
+ ],
+ "procedure_occurrence.procedure_type_concept_id": [],
+ "procedure_occurrence.modifier_concept_id": [],
+ "procedure_occurrence.quantity": [],
+ "procedure_occurrence.provider_id": [],
+ "procedure_occurrence.visit_occurrence_id": [],
+ "procedure_occurrence.visit_detail_id": [],
+ "procedure_occurrence.procedure_source_value": [
+  {
+   "relation": "procedures",
+   "column": "CODE"
+  }
+ ],
+ "procedure_occurrence.procedure_source_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  }
+ ],
+ "procedure_occurrence.modifier_source_value": [],
+ "device_exposure.device_exposure_id": [],
+ "device_exposure.person_id": [],
+ "device_exposure.device_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  },
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "target_concept_id"
+  }
+ ],
+ "device_exposure.device_exposure_start_date": [
+  {
+   "relation": "devices",
+   "column": "START"
+  }
+ ],
+ "device_exposure.device_exposure_start_datetime": [
+  {
+   "relation": "devices",
+   "column": "START"
+  }
+ ],
+ "device_exposure.device_exposure_end_date": [
+  {
+   "relation": "devices",
+   "column": "STOP"
+  }
+ ],
+ "device_exposure.device_exposure_end_datetime": [
+  {
+   "relation": "devices",
+   "column": "STOP"
+  }
+ ],
+ "device_exposure.device_type_concept_id": [],
+ "device_exposure.unique_device_id": [
+  {
+   "relation": "devices",
+   "column": "UDI"
+  }
+ ],
+ "device_exposure.production_id": [],
+ "device_exposure.quantity": [],
+ "device_exposure.provider_id": [],
+ "device_exposure.visit_occurrence_id": [],
+ "device_exposure.visit_detail_id": [],
+ "device_exposure.device_source_value": [
+  {
+   "relation": "devices",
+   "column": "CODE"
+  }
+ ],
+ "device_exposure.device_source_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  }
+ ],
+ "device_exposure.unit_concept_id": [],
+ "device_exposure.unit_source_value": [],
+ "device_exposure.unit_source_concept_id": [],
+ "measurement.measurement_id": [],
+ "measurement.person_id": [],
+ "measurement.measurement_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  },
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "target_concept_id"
+  }
+ ],
+ "measurement.measurement_date": [
+  {
+   "relation": "observations",
+   "column": "DATE"
+  },
+  {
+   "relation": "procedures",
+   "column": "START"
+  }
+ ],
+ "measurement.measurement_datetime": [
+  {
+   "relation": "observations",
+   "column": "DATE"
+  },
+  {
+   "relation": "procedures",
+   "column": "START"
+  }
+ ],
+ "measurement.measurement_time": [
+  {
+   "relation": "observations",
+   "column": "DATE"
+  },
+  {
+   "relation": "procedures",
+   "column": "START"
+  }
+ ],
+ "measurement.measurement_type_concept_id": [],
+ "measurement.operator_concept_id": [],
+ "measurement.value_as_number": [
+  {
+   "relation": "observations",
+   "column": "VALUE"
+  }
+ ],
+ "measurement.value_as_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  },
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "target_concept_id"
+  }
+ ],
+ "measurement.unit_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  },
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "target_concept_id"
+  }
+ ],
+ "measurement.range_low": [],
+ "measurement.range_high": [],
+ "measurement.provider_id": [],
+ "measurement.visit_occurrence_id": [],
+ "measurement.visit_detail_id": [],
+ "measurement.measurement_source_value": [
+  {
+   "relation": "observations",
+   "column": "CODE"
+  },
+  {
+   "relation": "procedures",
+   "column": "CODE"
+  }
+ ],
+ "measurement.measurement_source_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  }
+ ],
+ "measurement.unit_source_value": [
+  {
+   "relation": "observations",
+   "column": "UNITS"
+  }
+ ],
+ "measurement.unit_source_concept_id": [],
+ "measurement.value_source_value": [
+  {
+   "relation": "observations",
+   "column": "VALUE"
+  }
+ ],
+ "measurement.measurement_event_id": [],
+ "measurement.meas_event_field_concept_id": [],
+ "observation.observation_id": [],
+ "observation.person_id": [],
+ "observation.observation_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  },
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "target_concept_id"
+  }
+ ],
+ "observation.observation_date": [
+  {
+   "relation": "allergies",
+   "column": "START"
+  },
+  {
+   "relation": "conditions",
+   "column": "START"
+  },
+  {
+   "relation": "observations",
+   "column": "DATE"
+  }
+ ],
+ "observation.observation_datetime": [
+  {
+   "relation": "allergies",
+   "column": "START"
+  },
+  {
+   "relation": "conditions",
+   "column": "START"
+  },
+  {
+   "relation": "observations",
+   "column": "DATE"
+  }
+ ],
+ "observation.observation_type_concept_id": [],
+ "observation.value_as_number": [],
+ "observation.value_as_string": [],
+ "observation.value_as_concept_id": [],
+ "observation.qualifier_concept_id": [],
+ "observation.unit_concept_id": [],
+ "observation.provider_id": [],
+ "observation.visit_occurrence_id": [],
+ "observation.visit_detail_id": [],
+ "observation.observation_source_value": [
+  {
+   "relation": "allergies",
+   "column": "CODE"
+  },
+  {
+   "relation": "conditions",
+   "column": "CODE"
+  },
+  {
+   "relation": "observations",
+   "column": "CODE"
+  }
+ ],
+ "observation.observation_source_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  }
+ ],
+ "observation.unit_source_value": [],
+ "observation.qualifier_source_value": [],
+ "observation.value_source_value": [],
+ "observation.observation_event_id": [],
+ "observation.obs_event_field_concept_id": [],
+ "death.person_id": [],
+ "death.death_date": [
+  {
+   "relation": "encounters",
+   "column": "START"
+  }
+ ],
+ "death.death_datetime": [
+  {
+   "relation": "encounters",
+   "column": "START"
+  }
+ ],
+ "death.death_type_concept_id": [],
+ "death.cause_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  },
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "target_concept_id"
+  }
+ ],
+ "death.cause_source_value": [
+  {
+   "relation": "encounters",
+   "column": "REASONCODE"
+  }
+ ],
+ "death.cause_source_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  },
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "source_concept_id"
+  }
+ ],
+ "note.note_id": [],
+ "note.person_id": [],
+ "note.note_date": [],
+ "note.note_datetime": [],
+ "note.note_type_concept_id": [],
+ "note.note_class_concept_id": [],
+ "note.note_title": [],
+ "note.note_text": [],
+ "note.encoding_concept_id": [],
+ "note.language_concept_id": [],
+ "note.provider_id": [],
+ "note.visit_occurrence_id": [],
+ "note.visit_detail_id": [],
+ "note.note_source_value": [],
+ "note.note_event_id": [],
+ "note.note_event_field_concept_id": [],
+ "note_nlp.note_nlp_id": [],
+ "note_nlp.note_id": [],
+ "note_nlp.section_concept_id": [],
+ "note_nlp.snippet": [],
+ "note_nlp.offset": [],
+ "note_nlp.lexical_variant": [],
+ "note_nlp.note_nlp_concept_id": [],
+ "note_nlp.note_nlp_source_concept_id": [],
+ "note_nlp.nlp_system": [],
+ "note_nlp.nlp_date": [],
+ "note_nlp.nlp_datetime": [],
+ "note_nlp.term_exists": [],
+ "note_nlp.term_temporal": [],
+ "note_nlp.term_modifiers": [],
+ "specimen.specimen_id": [],
+ "specimen.person_id": [],
+ "specimen.specimen_concept_id": [],
+ "specimen.specimen_type_concept_id": [],
+ "specimen.specimen_date": [],
+ "specimen.specimen_datetime": [],
+ "specimen.quantity": [],
+ "specimen.unit_concept_id": [],
+ "specimen.anatomic_site_concept_id": [],
+ "specimen.disease_status_concept_id": [],
+ "specimen.specimen_source_id": [],
+ "specimen.specimen_source_value": [],
+ "specimen.unit_source_value": [],
+ "specimen.anatomic_site_source_value": [],
+ "specimen.disease_status_source_value": [],
+ "fact_relationship.domain_concept_id_1": [],
+ "fact_relationship.fact_id_1": [],
+ "fact_relationship.domain_concept_id_2": [],
+ "fact_relationship.fact_id_2": [],
+ "fact_relationship.relationship_concept_id": [],
+ "location.location_id": [],
+ "location.address_1": [
+  {
+   "relation": "organizations",
+   "column": "ADDRESS"
+  },
+  {
+   "relation": "patients",
+   "column": "ADDRESS"
+  }
+ ],
+ "location.address_2": [],
+ "location.city": [
+  {
+   "relation": "organizations",
+   "column": "CITY"
+  },
+  {
+   "relation": "patients",
+   "column": "CITY"
+  }
+ ],
+ "location.state": [
+  {
+   "relation": "organizations",
+   "column": "STATE"
+  },
+  {
+   "relation": "states",
+   "column": "state_abbreviation"
+  }
+ ],
+ "location.zip": [
+  {
+   "relation": "organizations",
+   "column": "ZIP"
+  },
+  {
+   "relation": "patients",
+   "column": "ZIP"
+  }
+ ],
+ "location.county": [
+  {
+   "relation": "patients",
+   "column": "COUNTY"
+  }
+ ],
+ "location.location_source_value": [],
+ "location.country_concept_id": [],
+ "location.country_source_value": [],
+ "location.latitude": [],
+ "location.longitude": [],
+ "care_site.care_site_id": [],
+ "care_site.care_site_name": [
+  {
+   "relation": "organizations",
+   "column": "NAME"
+  }
+ ],
+ "care_site.place_of_service_concept_id": [],
+ "care_site.location_id": [],
+ "care_site.care_site_source_value": [
+  {
+   "relation": "organizations",
+   "column": "Id"
+  }
+ ],
+ "care_site.place_of_service_source_value": [],
+ "provider.provider_id": [],
+ "provider.provider_name": [
+  {
+   "relation": "providers",
+   "column": "NAME"
+  }
+ ],
+ "provider.npi": [],
+ "provider.dea": [],
+ "provider.specialty_concept_id": [],
+ "provider.care_site_id": [],
+ "provider.year_of_birth": [],
+ "provider.gender_concept_id": [
+  {
+   "relation": "providers",
+   "column": "GENDER"
+  }
+ ],
+ "provider.provider_source_value": [
+  {
+   "relation": "providers",
+   "column": "Id"
+  }
+ ],
+ "provider.specialty_source_value": [
+  {
+   "relation": "providers",
+   "column": "SPECIALITY"
+  }
+ ],
+ "provider.specialty_source_concept_id": [],
+ "provider.gender_source_value": [
+  {
+   "relation": "providers",
+   "column": "GENDER"
+  }
+ ],
+ "provider.gender_source_concept_id": [
+  {
+   "relation": "providers",
+   "column": "GENDER"
+  }
+ ],
+ "payer_plan_period.payer_plan_period_id": [],
+ "payer_plan_period.person_id": [],
+ "payer_plan_period.payer_plan_period_start_date": [
+  {
+   "relation": "payer_transitions",
+   "column": "START_YEAR"
+  }
+ ],
+ "payer_plan_period.payer_plan_period_end_date": [
+  {
+   "relation": "payer_transitions",
+   "column": "END_YEAR"
+  }
+ ],
+ "payer_plan_period.payer_concept_id": [],
+ "payer_plan_period.payer_source_value": [
+  {
+   "relation": "payer_transitions",
+   "column": "PAYER"
+  }
+ ],
+ "payer_plan_period.payer_source_concept_id": [],
+ "payer_plan_period.plan_concept_id": [],
+ "payer_plan_period.plan_source_value": [
+  {
+   "relation": "payers",
+   "column": "NAME"
+  }
+ ],
+ "payer_plan_period.plan_source_concept_id": [],
+ "payer_plan_period.sponsor_concept_id": [],
+ "payer_plan_period.sponsor_source_value": [],
+ "payer_plan_period.sponsor_source_concept_id": [],
+ "payer_plan_period.family_source_value": [],
+ "payer_plan_period.stop_reason_concept_id": [],
+ "payer_plan_period.stop_reason_source_value": [],
+ "payer_plan_period.stop_reason_source_concept_id": [],
+ "cost.cost_id": [],
+ "cost.cost_event_id": [],
+ "cost.cost_domain_id": [],
+ "cost.cost_type_concept_id": [],
+ "cost.currency_concept_id": [],
+ "cost.total_charge": [],
+ "cost.total_cost": [
+  {
+   "relation": "encounters",
+   "column": "TOTAL_CLAIM_COST"
+  },
+  {
+   "relation": "immunizations",
+   "column": "BASE_COST"
+  },
+  {
+   "relation": "medications",
+   "column": "BASE_COST"
+  },
+  {
+   "relation": "procedures",
+   "column": "BASE_COST"
+  }
+ ],
+ "cost.total_paid": [],
+ "cost.paid_by_payer": [
+  {
+   "relation": "encounters",
+   "column": "PAYER_COVERAGE"
+  },
+  {
+   "relation": "medications",
+   "column": "PAYER_COVERAGE"
+  }
+ ],
+ "cost.paid_by_patient": [],
+ "cost.paid_patient_copay": [],
+ "cost.paid_patient_coinsurance": [],
+ "cost.paid_patient_deductible": [],
+ "cost.paid_by_primary": [],
+ "cost.paid_ingredient_cost": [],
+ "cost.paid_dispensing_fee": [],
+ "cost.payer_plan_period_id": [],
+ "cost.amount_allowed": [],
+ "cost.revenue_code_concept_id": [],
+ "cost.revenue_code_source_value": [],
+ "cost.drg_concept_id": [],
+ "cost.drg_source_value": [],
+ "drug_era.drug_era_id": [],
+ "drug_era.person_id": [],
+ "drug_era.drug_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  }
+ ],
+ "drug_era.drug_era_start_date": [
+  {
+   "relation": "immunizations",
+   "column": "DATE"
+  },
+  {
+   "relation": "medications",
+   "column": "START"
+  }
+ ],
+ "drug_era.drug_era_end_date": [
+  {
+   "relation": "immunizations",
+   "column": "DATE"
+  },
+  {
+   "relation": "medications",
+   "column": "START"
+  }
+ ],
+ "drug_era.drug_exposure_count": [],
+ "drug_era.gap_days": [
+  {
+   "relation": "immunizations",
+   "column": "DATE"
+  },
+  {
+   "relation": "medications",
+   "column": "START"
+  }
+ ],
+ "dose_era.dose_era_id": [],
+ "dose_era.person_id": [],
+ "dose_era.drug_concept_id": [],
+ "dose_era.unit_concept_id": [],
+ "dose_era.dose_value": [],
+ "dose_era.dose_era_start_date": [],
+ "dose_era.dose_era_end_date": [],
+ "condition_era.condition_era_id": [],
+ "condition_era.person_id": [],
+ "condition_era.condition_concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  },
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "target_concept_id"
+  }
+ ],
+ "condition_era.condition_era_start_date": [
+  {
+   "relation": "conditions",
+   "column": "START"
+  }
+ ],
+ "condition_era.condition_era_end_date": [
+  {
+   "relation": "conditions",
+   "column": "START"
+  },
+  {
+   "relation": "conditions",
+   "column": "STOP"
+  }
+ ],
+ "condition_era.condition_occurrence_count": [],
+ "episode.episode_id": [],
+ "episode.person_id": [],
+ "episode.episode_concept_id": [],
+ "episode.episode_start_date": [],
+ "episode.episode_start_datetime": [],
+ "episode.episode_end_date": [],
+ "episode.episode_end_datetime": [],
+ "episode.episode_parent_id": [],
+ "episode.episode_number": [],
+ "episode.episode_object_concept_id": [],
+ "episode.episode_type_concept_id": [],
+ "episode.episode_source_value": [],
+ "episode.episode_source_concept_id": [],
+ "episode_event.episode_id": [],
+ "episode_event.event_id": [],
+ "episode_event.episode_event_field_concept_id": [],
+ "metadata.metadata_id": [],
+ "metadata.metadata_concept_id": [],
+ "metadata.metadata_type_concept_id": [],
+ "metadata.name": [],
+ "metadata.value_as_string": [],
+ "metadata.value_as_concept_id": [],
+ "metadata.value_as_number": [],
+ "metadata.metadata_date": [],
+ "metadata.metadata_datetime": [],
+ "cdm_source.cdm_source_name": [],
+ "cdm_source.cdm_source_abbreviation": [],
+ "cdm_source.cdm_holder": [],
+ "cdm_source.source_description": [],
+ "cdm_source.source_documentation_reference": [],
+ "cdm_source.cdm_etl_reference": [],
+ "cdm_source.source_release_date": [],
+ "cdm_source.cdm_release_date": [],
+ "cdm_source.cdm_version": [],
+ "cdm_source.cdm_version_concept_id": [],
+ "cdm_source.vocabulary_version": [
+  {
+   "relation": "vocabulary_seed",
+   "column": "vocabulary_version"
+  }
+ ],
+ "concept.concept_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_id"
+  }
+ ],
+ "concept.concept_name": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_name"
+  }
+ ],
+ "concept.domain_id": [
+  {
+   "relation": "concept_seed",
+   "column": "domain_id"
+  }
+ ],
+ "concept.vocabulary_id": [
+  {
+   "relation": "concept_seed",
+   "column": "vocabulary_id"
+  }
+ ],
+ "concept.concept_class_id": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_class_id"
+  }
+ ],
+ "concept.standard_concept": [
+  {
+   "relation": "concept_seed",
+   "column": "standard_concept"
+  }
+ ],
+ "concept.concept_code": [
+  {
+   "relation": "concept_seed",
+   "column": "concept_code"
+  }
+ ],
+ "concept.valid_start_date": [
+  {
+   "relation": "concept_seed",
+   "column": "valid_start_date"
+  }
+ ],
+ "concept.valid_end_date": [
+  {
+   "relation": "concept_seed",
+   "column": "valid_end_date"
+  }
+ ],
+ "concept.invalid_reason": [
+  {
+   "relation": "concept_seed",
+   "column": "invalid_reason"
+  }
+ ],
+ "vocabulary.vocabulary_id": [
+  {
+   "relation": "vocabulary_seed",
+   "column": "vocabulary_id"
+  }
+ ],
+ "vocabulary.vocabulary_name": [
+  {
+   "relation": "vocabulary_seed",
+   "column": "vocabulary_name"
+  }
+ ],
+ "vocabulary.vocabulary_reference": [
+  {
+   "relation": "vocabulary_seed",
+   "column": "vocabulary_reference"
+  }
+ ],
+ "vocabulary.vocabulary_version": [
+  {
+   "relation": "vocabulary_seed",
+   "column": "vocabulary_version"
+  }
+ ],
+ "vocabulary.vocabulary_concept_id": [
+  {
+   "relation": "vocabulary_seed",
+   "column": "vocabulary_concept_id"
+  }
+ ],
+ "domain.domain_id": [
+  {
+   "relation": "domain_seed",
+   "column": "domain_id"
+  }
+ ],
+ "domain.domain_name": [
+  {
+   "relation": "domain_seed",
+   "column": "domain_name"
+  }
+ ],
+ "domain.domain_concept_id": [
+  {
+   "relation": "domain_seed",
+   "column": "domain_concept_id"
+  }
+ ],
+ "concept_class.concept_class_id": [
+  {
+   "relation": "concept_class_seed",
+   "column": "concept_class_id"
+  }
+ ],
+ "concept_class.concept_class_name": [
+  {
+   "relation": "concept_class_seed",
+   "column": "concept_class_name"
+  }
+ ],
+ "concept_class.concept_class_concept_id": [
+  {
+   "relation": "concept_class_seed",
+   "column": "concept_class_concept_id"
+  }
+ ],
+ "concept_relationship.concept_id_1": [
+  {
+   "relation": "concept_relationship_seed",
+   "column": "concept_id_1"
+  }
+ ],
+ "concept_relationship.concept_id_2": [
+  {
+   "relation": "concept_relationship_seed",
+   "column": "concept_id_2"
+  }
+ ],
+ "concept_relationship.relationship_id": [
+  {
+   "relation": "concept_relationship_seed",
+   "column": "relationship_id"
+  }
+ ],
+ "concept_relationship.valid_start_date": [
+  {
+   "relation": "concept_relationship_seed",
+   "column": "valid_start_date"
+  }
+ ],
+ "concept_relationship.valid_end_date": [
+  {
+   "relation": "concept_relationship_seed",
+   "column": "valid_end_date"
+  }
+ ],
+ "concept_relationship.invalid_reason": [
+  {
+   "relation": "concept_relationship_seed",
+   "column": "invalid_reason"
+  }
+ ],
+ "relationship.relationship_id": [
+  {
+   "relation": "relationship_seed",
+   "column": "relationship_id"
+  }
+ ],
+ "relationship.relationship_name": [
+  {
+   "relation": "relationship_seed",
+   "column": "relationship_name"
+  }
+ ],
+ "relationship.is_hierarchical": [
+  {
+   "relation": "relationship_seed",
+   "column": "is_hierarchical"
+  }
+ ],
+ "relationship.defines_ancestry": [
+  {
+   "relation": "relationship_seed",
+   "column": "defines_ancestry"
+  }
+ ],
+ "relationship.reverse_relationship_id": [
+  {
+   "relation": "relationship_seed",
+   "column": "reverse_relationship_id"
+  }
+ ],
+ "relationship.relationship_concept_id": [
+  {
+   "relation": "relationship_seed",
+   "column": "relationship_concept_id"
+  }
+ ],
+ "concept_synonym.concept_id": [
+  {
+   "relation": "concept_synonym_seed",
+   "column": "concept_id"
+  }
+ ],
+ "concept_synonym.concept_synonym_name": [
+  {
+   "relation": "concept_synonym_seed",
+   "column": "concept_synonym_name"
+  }
+ ],
+ "concept_synonym.language_concept_id": [
+  {
+   "relation": "concept_synonym_seed",
+   "column": "language_concept_id"
+  }
+ ],
+ "concept_ancestor.ancestor_concept_id": [
+  {
+   "relation": "concept_ancestor_seed",
+   "column": "ancestor_concept_id"
+  }
+ ],
+ "concept_ancestor.descendant_concept_id": [
+  {
+   "relation": "concept_ancestor_seed",
+   "column": "descendant_concept_id"
+  }
+ ],
+ "concept_ancestor.min_levels_of_separation": [
+  {
+   "relation": "concept_ancestor_seed",
+   "column": "min_levels_of_separation"
+  }
+ ],
+ "concept_ancestor.max_levels_of_separation": [
+  {
+   "relation": "concept_ancestor_seed",
+   "column": "max_levels_of_separation"
+  }
+ ],
+ "source_to_concept_map.source_code": [
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "source_code"
+  }
+ ],
+ "source_to_concept_map.source_concept_id": [
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "source_concept_id"
+  }
+ ],
+ "source_to_concept_map.source_vocabulary_id": [
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "source_vocabulary_id"
+  }
+ ],
+ "source_to_concept_map.source_code_description": [
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "source_code_description"
+  }
+ ],
+ "source_to_concept_map.target_concept_id": [
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "target_concept_id"
+  }
+ ],
+ "source_to_concept_map.target_vocabulary_id": [
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "target_vocabulary_id"
+  }
+ ],
+ "source_to_concept_map.valid_start_date": [
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "valid_start_date"
+  }
+ ],
+ "source_to_concept_map.valid_end_date": [
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "valid_end_date"
+  }
+ ],
+ "source_to_concept_map.invalid_reason": [
+  {
+   "relation": "source_to_concept_map_seed",
+   "column": "invalid_reason"
+  }
+ ],
+ "drug_strength.drug_concept_id": [
+  {
+   "relation": "drug_strength_seed",
+   "column": "drug_concept_id"
+  }
+ ],
+ "drug_strength.ingredient_concept_id": [
+  {
+   "relation": "drug_strength_seed",
+   "column": "ingredient_concept_id"
+  }
+ ],
+ "drug_strength.amount_value": [
+  {
+   "relation": "drug_strength_seed",
+   "column": "amount_value"
+  }
+ ],
+ "drug_strength.amount_unit_concept_id": [
+  {
+   "relation": "drug_strength_seed",
+   "column": "amount_unit_concept_id"
+  }
+ ],
+ "drug_strength.numerator_value": [
+  {
+   "relation": "drug_strength_seed",
+   "column": "numerator_value"
+  }
+ ],
+ "drug_strength.numerator_unit_concept_id": [
+  {
+   "relation": "drug_strength_seed",
+   "column": "numerator_unit_concept_id"
+  }
+ ],
+ "drug_strength.denominator_value": [
+  {
+   "relation": "drug_strength_seed",
+   "column": "denominator_value"
+  }
+ ],
+ "drug_strength.denominator_unit_concept_id": [
+  {
+   "relation": "drug_strength_seed",
+   "column": "denominator_unit_concept_id"
+  }
+ ],
+ "drug_strength.box_size": [
+  {
+   "relation": "drug_strength_seed",
+   "column": "box_size"
+  }
+ ],
+ "drug_strength.valid_start_date": [
+  {
+   "relation": "drug_strength_seed",
+   "column": "valid_start_date"
+  }
+ ],
+ "drug_strength.valid_end_date": [
+  {
+   "relation": "drug_strength_seed",
+   "column": "valid_end_date"
+  }
+ ],
+ "drug_strength.invalid_reason": [
+  {
+   "relation": "drug_strength_seed",
+   "column": "invalid_reason"
+  }
+ ],
+ "cohort.cohort_definition_id": [],
+ "cohort.subject_id": [],
+ "cohort.cohort_start_date": [],
+ "cohort.cohort_end_date": [],
+ "cohort_definition.cohort_definition_id": [],
+ "cohort_definition.cohort_definition_name": [],
+ "cohort_definition.cohort_definition_description": [],
+ "cohort_definition.definition_type_concept_id": [],
+ "cohort_definition.cohort_definition_syntax": [],
+ "cohort_definition.subject_concept_id": [],
+ "cohort_definition.cohort_initiation_date": []
+}

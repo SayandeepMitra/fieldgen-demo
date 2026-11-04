@@ -1,0 +1,16 @@
+{
+ "table": "domain",
+ "grain": "one row per row of the reference program's result (inlined compiled reference program)",
+ "combine": "none",
+ "group_by": null,
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM (WITH cte_domain_lower AS (SELECT \"domain_id\" AS domain_id, \"domain_name\" AS domain_name, \"domain_concept_id\" AS domain_concept_id FROM domain_seed) SELECT * FROM cte_domain_lower) AS stg_vocabulary__domain"
+  }
+ ],
+ "table_roles": {
+  "domain_seed": "driver"
+ },
+ "passthrough": true
+}

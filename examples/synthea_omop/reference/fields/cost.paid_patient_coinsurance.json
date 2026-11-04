@@ -1,0 +1,31 @@
+{
+ "task_id": "cost.paid_patient_coinsurance",
+ "table": "cost",
+ "column": "paid_patient_coinsurance",
+ "kind": "placeholder",
+ "reference": {
+  "table": "cost",
+  "column": "paid_patient_coinsurance"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS REAL)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:@const"
+  ],
+  "reference": [
+   "1"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

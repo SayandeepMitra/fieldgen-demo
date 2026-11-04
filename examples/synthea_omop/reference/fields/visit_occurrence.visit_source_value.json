@@ -1,0 +1,31 @@
+{
+ "task_id": "visit_occurrence.visit_source_value",
+ "table": "visit_occurrence",
+ "column": "visit_source_value",
+ "kind": "value",
+ "reference": {
+  "table": "visit_occurrence",
+  "column": "visit_source_value"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "SUBSTRING(visit_class, 1, 50)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:encounters.START"
+  ],
+  "reference": [
+   "r.visit_start_date"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

@@ -1,0 +1,102 @@
+{
+ "type": "object",
+ "properties": {
+  "tables": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "object",
+    "properties": {
+     "description": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "guidance": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "conventions": {
+      "type": [
+       "string",
+       "null"
+      ]
+     }
+    },
+    "required": [
+     "description",
+     "guidance",
+     "conventions"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "fields": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "object",
+    "properties": {
+     "guidance": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "conventions": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "ddl": {
+      "type": "object",
+      "properties": {
+       "type": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "default": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "check_constraints": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       },
+       "unique": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "type",
+       "default",
+       "check_constraints",
+       "unique"
+      ],
+      "additionalProperties": false
+     }
+    },
+    "required": [
+     "guidance",
+     "conventions",
+     "ddl"
+    ],
+    "additionalProperties": false
+   }
+  }
+ },
+ "required": [
+  "tables",
+  "fields"
+ ],
+ "additionalProperties": false,
+ "$schema": "http://json-schema.org/draft-07/schema#"
+}

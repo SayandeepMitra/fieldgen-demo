@@ -1,0 +1,1244 @@
+[
+ {
+  "child": "patients",
+  "child_columns": [
+   "STATE"
+  ],
+  "parent": "states",
+  "parent_columns": [
+   "state_name"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "supplemented",
+  "support": "name",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "declared_links.yaml"
+ },
+ {
+  "child": "organizations",
+  "child_columns": [
+   "STATE"
+  ],
+  "parent": "states",
+  "parent_columns": [
+   "state_abbreviation"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "supplemented",
+  "support": "name",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "declared_links.yaml"
+ },
+ {
+  "child": "allergies",
+  "child_columns": [
+   "CODE"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_code"
+  ],
+  "cardinality": "many_to_many",
+  "provenance": "supplemented",
+  "support": "name",
+  "weak": false,
+  "coverage": 0.9,
+  "evidence": "declared_links_vocab.yaml",
+  "note": "restrict to the vocabulary of the source code system (allergies also has a SYSTEM column)"
+ },
+ {
+  "child": "careplans",
+  "child_columns": [
+   "CODE"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_code"
+  ],
+  "cardinality": "many_to_many",
+  "provenance": "supplemented",
+  "support": "name",
+  "weak": false,
+  "coverage": 0.0,
+  "evidence": "declared_links_vocab.yaml",
+  "note": "restrict to the matching vocabulary_id"
+ },
+ {
+  "child": "conditions",
+  "child_columns": [
+   "CODE"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_code"
+  ],
+  "cardinality": "many_to_many",
+  "provenance": "supplemented",
+  "support": "name",
+  "weak": false,
+  "coverage": 0.9749,
+  "evidence": "declared_links_vocab.yaml",
+  "note": "restrict to the matching vocabulary_id"
+ },
+ {
+  "child": "devices",
+  "child_columns": [
+   "CODE"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_code"
+  ],
+  "cardinality": "many_to_many",
+  "provenance": "supplemented",
+  "support": "name",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "declared_links_vocab.yaml",
+  "note": "restrict to the matching vocabulary_id"
+ },
+ {
+  "child": "encounters",
+  "child_columns": [
+   "CODE"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_code"
+  ],
+  "cardinality": "many_to_many",
+  "provenance": "supplemented",
+  "support": "name",
+  "weak": false,
+  "coverage": 0.005,
+  "evidence": "declared_links_vocab.yaml",
+  "note": "restrict to the matching vocabulary_id"
+ },
+ {
+  "child": "immunizations",
+  "child_columns": [
+   "CODE"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_code"
+  ],
+  "cardinality": "many_to_many",
+  "provenance": "supplemented",
+  "support": "name",
+  "weak": false,
+  "coverage": 0.0,
+  "evidence": "declared_links_vocab.yaml",
+  "note": "restrict to the matching vocabulary_id"
+ },
+ {
+  "child": "medications",
+  "child_columns": [
+   "CODE"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_code"
+  ],
+  "cardinality": "many_to_many",
+  "provenance": "supplemented",
+  "support": "name",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "declared_links_vocab.yaml",
+  "note": "restrict to the matching vocabulary_id"
+ },
+ {
+  "child": "observations",
+  "child_columns": [
+   "CODE"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_code"
+  ],
+  "cardinality": "many_to_many",
+  "provenance": "supplemented",
+  "support": "name",
+  "weak": false,
+  "coverage": 0.9242,
+  "evidence": "declared_links_vocab.yaml",
+  "note": "restrict to the matching vocabulary_id"
+ },
+ {
+  "child": "procedures",
+  "child_columns": [
+   "CODE"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_code"
+  ],
+  "cardinality": "many_to_many",
+  "provenance": "supplemented",
+  "support": "name",
+  "weak": false,
+  "coverage": 0.9759,
+  "evidence": "declared_links_vocab.yaml",
+  "note": "restrict to the matching vocabulary_id"
+ },
+ {
+  "child": "supplies",
+  "child_columns": [
+   "CODE"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_code"
+  ],
+  "cardinality": "many_to_many",
+  "provenance": "supplemented",
+  "support": "name",
+  "weak": false,
+  "coverage": 0.0,
+  "evidence": "declared_links_vocab.yaml",
+  "note": "restrict to the matching vocabulary_id"
+ },
+ {
+  "child": "concept_seed",
+  "child_columns": [
+   "domain_id"
+  ],
+  "parent": "domain_seed",
+  "parent_columns": [
+   "domain_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "concept_seed",
+  "child_columns": [
+   "vocabulary_id"
+  ],
+  "parent": "vocabulary_seed",
+  "parent_columns": [
+   "vocabulary_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "concept_seed",
+  "child_columns": [
+   "concept_class_id"
+  ],
+  "parent": "concept_class_seed",
+  "parent_columns": [
+   "concept_class_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "vocabulary_seed",
+  "child_columns": [
+   "vocabulary_concept_id"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "one_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "domain_seed",
+  "child_columns": [
+   "domain_concept_id"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "one_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "concept_class_seed",
+  "child_columns": [
+   "concept_class_concept_id"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "one_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "concept_relationship_seed",
+  "child_columns": [
+   "concept_id_1"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "concept_relationship_seed",
+  "child_columns": [
+   "concept_id_2"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "concept_relationship_seed",
+  "child_columns": [
+   "relationship_id"
+  ],
+  "parent": "relationship_seed",
+  "parent_columns": [
+   "relationship_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "relationship_seed",
+  "child_columns": [
+   "relationship_concept_id"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "one_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "concept_synonym_seed",
+  "child_columns": [
+   "concept_id"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 0.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "concept_synonym_seed",
+  "child_columns": [
+   "language_concept_id"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 0.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "concept_ancestor_seed",
+  "child_columns": [
+   "ancestor_concept_id"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "concept_ancestor_seed",
+  "child_columns": [
+   "descendant_concept_id"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "source_to_concept_map_seed",
+  "child_columns": [
+   "source_concept_id"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "source_to_concept_map_seed",
+  "child_columns": [
+   "target_concept_id"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "one_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "source_to_concept_map_seed",
+  "child_columns": [
+   "target_vocabulary_id"
+  ],
+  "parent": "vocabulary_seed",
+  "parent_columns": [
+   "vocabulary_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "drug_strength_seed",
+  "child_columns": [
+   "drug_concept_id"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 0.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "drug_strength_seed",
+  "child_columns": [
+   "ingredient_concept_id"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 0.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "drug_strength_seed",
+  "child_columns": [
+   "amount_unit_concept_id"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 0.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "drug_strength_seed",
+  "child_columns": [
+   "numerator_unit_concept_id"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 0.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "drug_strength_seed",
+  "child_columns": [
+   "denominator_unit_concept_id"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 0.0,
+  "evidence": "OMOP CDM 5.4 foreign key constraint"
+ },
+ {
+  "child": "allergies",
+  "child_columns": [
+   "PATIENT"
+  ],
+  "parent": "patients",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 40/40 non-null values found in patients.Id"
+ },
+ {
+  "child": "allergies",
+  "child_columns": [
+   "ENCOUNTER"
+  ],
+  "parent": "encounters",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 40/40 non-null values found in encounters.Id"
+ },
+ {
+  "child": "careplans",
+  "child_columns": [
+   "PATIENT"
+  ],
+  "parent": "patients",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 49/49 non-null values found in patients.Id"
+ },
+ {
+  "child": "careplans",
+  "child_columns": [
+   "ENCOUNTER"
+  ],
+  "parent": "encounters",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "one_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 49/49 non-null values found in encounters.Id"
+ },
+ {
+  "child": "claims",
+  "child_columns": [
+   "PATIENTID"
+  ],
+  "parent": "patients",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 1267/1267 non-null values found in patients.Id"
+ },
+ {
+  "child": "claims",
+  "child_columns": [
+   "PROVIDERID"
+  ],
+  "parent": "providers",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 1267/1267 non-null values found in providers.Id"
+ },
+ {
+  "child": "claims",
+  "child_columns": [
+   "PRIMARYPATIENTINSURANCEID"
+  ],
+  "parent": "payers",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "inferred",
+  "support": "value_only",
+  "weak": true,
+  "coverage": 0.8295,
+  "evidence": "1051/1267 non-null values found in payers.Id"
+ },
+ {
+  "child": "claims",
+  "child_columns": [
+   "APPOINTMENTID"
+  ],
+  "parent": "encounters",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 1267/1267 non-null values found in encounters.Id"
+ },
+ {
+  "child": "claims",
+  "child_columns": [
+   "SUPERVISINGPROVIDERID"
+  ],
+  "parent": "providers",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "inferred",
+  "support": "name",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "1267/1267 non-null values found in providers.Id"
+ },
+ {
+  "child": "claims_transactions",
+  "child_columns": [
+   "CLAIMID"
+  ],
+  "parent": "claims",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "inferred",
+  "support": "name",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "5228/5228 non-null values found in claims.Id"
+ },
+ {
+  "child": "claims_transactions",
+  "child_columns": [
+   "PATIENTID"
+  ],
+  "parent": "patients",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 5228/5228 non-null values found in patients.Id"
+ },
+ {
+  "child": "claims_transactions",
+  "child_columns": [
+   "PLACEOFSERVICE"
+  ],
+  "parent": "organizations",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 5228/5228 non-null values found in organizations.Id"
+ },
+ {
+  "child": "claims_transactions",
+  "child_columns": [
+   "APPOINTMENTID"
+  ],
+  "parent": "encounters",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 5228/5228 non-null values found in encounters.Id"
+ },
+ {
+  "child": "claims_transactions",
+  "child_columns": [
+   "PATIENTINSURANCEID"
+  ],
+  "parent": "patients",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "inferred",
+  "support": "value_only",
+  "weak": true,
+  "coverage": 1.0,
+  "evidence": "4598/4598 non-null values found in patients.Id"
+ },
+ {
+  "child": "claims_transactions",
+  "child_columns": [
+   "PROVIDERID"
+  ],
+  "parent": "providers",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 5228/5228 non-null values found in providers.Id"
+ },
+ {
+  "child": "claims_transactions",
+  "child_columns": [
+   "SUPERVISINGPROVIDERID"
+  ],
+  "parent": "providers",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "inferred",
+  "support": "name",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "5228/5228 non-null values found in providers.Id"
+ },
+ {
+  "child": "concept_ancestor_seed",
+  "child_columns": [
+   "min_levels_of_separation"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "inferred",
+  "support": "value_only",
+  "weak": true,
+  "coverage": 0.718,
+  "evidence": "82745/115241 non-null values found in concept_seed.concept_id"
+ },
+ {
+  "child": "concept_ancestor_seed",
+  "child_columns": [
+   "max_levels_of_separation"
+  ],
+  "parent": "concept_seed",
+  "parent_columns": [
+   "concept_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "inferred",
+  "support": "value_only",
+  "weak": true,
+  "coverage": 0.8012,
+  "evidence": "92327/115241 non-null values found in concept_seed.concept_id"
+ },
+ {
+  "child": "concept_seed",
+  "child_columns": [
+   "domain_id"
+  ],
+  "parent": "concept_class_seed",
+  "parent_columns": [
+   "concept_class_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "inferred",
+  "support": "value_only",
+  "weak": true,
+  "coverage": 1.0,
+  "evidence": "33207/33207 non-null values found in concept_class_seed.concept_class_id"
+ },
+ {
+  "child": "concept_seed",
+  "child_columns": [
+   "vocabulary_id"
+  ],
+  "parent": "concept_class_seed",
+  "parent_columns": [
+   "concept_class_id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "inferred",
+  "support": "value_only",
+  "weak": true,
+  "coverage": 0.9684,
+  "evidence": "32158/33207 non-null values found in concept_class_seed.concept_class_id"
+ },
+ {
+  "child": "conditions",
+  "child_columns": [
+   "PATIENT"
+  ],
+  "parent": "patients",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 438/438 non-null values found in patients.Id"
+ },
+ {
+  "child": "conditions",
+  "child_columns": [
+   "ENCOUNTER"
+  ],
+  "parent": "encounters",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 438/438 non-null values found in encounters.Id"
+ },
+ {
+  "child": "devices",
+  "child_columns": [
+   "PATIENT"
+  ],
+  "parent": "patients",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "one_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 3/3 non-null values found in patients.Id"
+ },
+ {
+  "child": "devices",
+  "child_columns": [
+   "ENCOUNTER"
+  ],
+  "parent": "encounters",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "one_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 3/3 non-null values found in encounters.Id"
+ },
+ {
+  "child": "domain_seed",
+  "child_columns": [
+   "domain_id"
+  ],
+  "parent": "concept_class_seed",
+  "parent_columns": [
+   "concept_class_id"
+  ],
+  "cardinality": "one_to_one",
+  "provenance": "inferred",
+  "support": "value_only",
+  "weak": true,
+  "coverage": 0.52,
+  "evidence": "26/50 non-null values found in concept_class_seed.concept_class_id"
+ },
+ {
+  "child": "encounters",
+  "child_columns": [
+   "PATIENT"
+  ],
+  "parent": "patients",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 604/604 non-null values found in patients.Id"
+ },
+ {
+  "child": "encounters",
+  "child_columns": [
+   "ORGANIZATION"
+  ],
+  "parent": "organizations",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 604/604 non-null values found in organizations.Id"
+ },
+ {
+  "child": "encounters",
+  "child_columns": [
+   "PROVIDER"
+  ],
+  "parent": "providers",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 604/604 non-null values found in providers.Id"
+ },
+ {
+  "child": "encounters",
+  "child_columns": [
+   "PAYER"
+  ],
+  "parent": "payers",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 604/604 non-null values found in payers.Id"
+ },
+ {
+  "child": "immunizations",
+  "child_columns": [
+   "PATIENT"
+  ],
+  "parent": "patients",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 29/29 non-null values found in patients.Id"
+ },
+ {
+  "child": "immunizations",
+  "child_columns": [
+   "ENCOUNTER"
+  ],
+  "parent": "encounters",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 29/29 non-null values found in encounters.Id"
+ },
+ {
+  "child": "medications",
+  "child_columns": [
+   "PATIENT"
+  ],
+  "parent": "patients",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 663/663 non-null values found in patients.Id"
+ },
+ {
+  "child": "medications",
+  "child_columns": [
+   "PAYER"
+  ],
+  "parent": "payers",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 663/663 non-null values found in payers.Id"
+ },
+ {
+  "child": "medications",
+  "child_columns": [
+   "ENCOUNTER"
+  ],
+  "parent": "encounters",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 663/663 non-null values found in encounters.Id"
+ },
+ {
+  "child": "observations",
+  "child_columns": [
+   "PATIENT"
+  ],
+  "parent": "patients",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 990/990 non-null values found in patients.Id"
+ },
+ {
+  "child": "observations",
+  "child_columns": [
+   "ENCOUNTER"
+  ],
+  "parent": "encounters",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 915/915 non-null values found in encounters.Id"
+ },
+ {
+  "child": "payer_transitions",
+  "child_columns": [
+   "PATIENT"
+  ],
+  "parent": "patients",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 1051/1051 non-null values found in patients.Id"
+ },
+ {
+  "child": "payer_transitions",
+  "child_columns": [
+   "PAYER"
+  ],
+  "parent": "payers",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 1051/1051 non-null values found in payers.Id"
+ },
+ {
+  "child": "payer_transitions",
+  "child_columns": [
+   "SECONDARY_PAYER"
+  ],
+  "parent": "payers",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "inferred",
+  "support": "name",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "7/7 non-null values found in payers.Id"
+ },
+ {
+  "child": "procedures",
+  "child_columns": [
+   "PATIENT"
+  ],
+  "parent": "patients",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 249/249 non-null values found in patients.Id"
+ },
+ {
+  "child": "procedures",
+  "child_columns": [
+   "ENCOUNTER"
+  ],
+  "parent": "encounters",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 249/249 non-null values found in encounters.Id"
+ },
+ {
+  "child": "providers",
+  "child_columns": [
+   "ORGANIZATION"
+  ],
+  "parent": "organizations",
+  "parent_columns": [
+   "Id"
+  ],
+  "cardinality": "many_to_one",
+  "provenance": "declared",
+  "support": "dictionary",
+  "weak": false,
+  "coverage": 1.0,
+  "evidence": "Synthea dictionary marks the column as a foreign key; 166/166 non-null values found in organizations.Id"
+ },
+ {
+  "child": "vocabulary_seed",
+  "child_columns": [
+   "vocabulary_id"
+  ],
+  "parent": "concept_class_seed",
+  "parent_columns": [
+   "concept_class_id"
+  ],
+  "cardinality": "one_to_one",
+  "provenance": "inferred",
+  "support": "value_only",
+  "weak": true,
+  "coverage": 0.6271,
+  "evidence": "37/59 non-null values found in concept_class_seed.concept_class_id"
+ }
+]

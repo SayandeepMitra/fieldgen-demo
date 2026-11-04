@@ -1,0 +1,72 @@
+{
+ "type": "array",
+ "items": {
+  "type": "object",
+  "properties": {
+   "side": {
+    "enum": [
+     "source",
+     "target"
+    ]
+   },
+   "child": {
+    "type": "string"
+   },
+   "child_columns": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    },
+    "minItems": 1
+   },
+   "parent": {
+    "type": "string"
+   },
+   "parent_columns": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    },
+    "minItems": 1
+   },
+   "cardinality": {
+    "enum": [
+     "many_to_one",
+     "one_to_many",
+     "one_to_one",
+     "many_to_many"
+    ]
+   },
+   "provenance": {
+    "enum": [
+     "declared",
+     "supplemented",
+     "inferred"
+    ]
+   },
+   "support": {
+    "enum": [
+     "dictionary",
+     "name",
+     "value_only",
+     "ddl"
+    ]
+   },
+   "weak": {
+    "type": "boolean"
+   }
+  },
+  "required": [
+   "side",
+   "child",
+   "child_columns",
+   "parent",
+   "parent_columns",
+   "cardinality",
+   "provenance",
+   "support",
+   "weak"
+  ]
+ },
+ "$schema": "http://json-schema.org/draft-07/schema#"
+}

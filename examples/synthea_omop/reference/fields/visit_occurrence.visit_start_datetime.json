@@ -1,0 +1,31 @@
+{
+ "task_id": "visit_occurrence.visit_start_datetime",
+ "table": "visit_occurrence",
+ "column": "visit_start_datetime",
+ "kind": "placeholder",
+ "reference": {
+  "table": "visit_occurrence",
+  "column": "visit_start_datetime"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS TIMESTAMP)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:encounters.START"
+  ],
+  "reference": [
+   "r.visit_start_date"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

@@ -1,0 +1,31 @@
+{
+ "task_id": "care_site.care_site_source_value",
+ "table": "care_site",
+ "column": "care_site_source_value",
+ "kind": "value",
+ "reference": {
+  "table": "care_site",
+  "column": "care_site_source_value"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "SUBSTRING(org.organization_id, 1, 50)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:@const"
+  ],
+  "reference": [
+   "1"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

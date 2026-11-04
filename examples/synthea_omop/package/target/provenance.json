@@ -1,0 +1,30 @@
+{
+ "source": "OHDSI/CommonDataModel inst/csv",
+ "tag": "v5.5.0",
+ "commit_sha": "ba3dc1b651cc243279052bca3d051485c3ec1136",
+ "files": [
+  {
+   "name": "OMOP_CDMv5.4_Field_Level.csv",
+   "url": "https://raw.githubusercontent.com/OHDSI/CommonDataModel/v5.5.0/inst/csv/OMOP_CDMv5.4_Field_Level.csv",
+   "sha256": "1b727775c4bf470274d6bb7b5b20f447fac37184e11ac7c69c1e2d6c3c48d06c"
+  },
+  {
+   "name": "OMOP_CDMv5.4_Table_Level.csv",
+   "url": "https://raw.githubusercontent.com/OHDSI/CommonDataModel/v5.5.0/inst/csv/OMOP_CDMv5.4_Table_Level.csv",
+   "sha256": "7b17597d4f1c02b1e31043f0c414f0112f46735a2313d7f7fc9770a6e2c840d9"
+  }
+ ],
+ "documentation": "our documentation = OMOP CDM v5.4 documentation as published in OHDSI/CommonDataModel tag v5.5.0 (100% match, 583 of 583 texts); v5.4.3 matched 99.8% (582 of 583); v6.0.1 rejected (83.5%, 449 of 538, reworded texts)",
+ "match_rate": 1.0,
+ "match_detail": {
+  "guidance": {
+   "both_non_empty": 327,
+   "exact": 327
+  },
+  "conventions": {
+   "both_non_empty": 256,
+   "exact": 256
+  }
+ },
+ "date": "2026-11-03"
+}

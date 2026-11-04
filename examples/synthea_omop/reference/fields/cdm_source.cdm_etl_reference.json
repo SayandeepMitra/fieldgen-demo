@@ -1,0 +1,31 @@
+{
+ "task_id": "cdm_source.cdm_etl_reference",
+ "table": "cdm_source",
+ "column": "cdm_etl_reference",
+ "kind": "excluded",
+ "reference": {
+  "table": "cdm_source",
+  "column": "cdm_etl_reference"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "'https://github.com/OHDSI/dbt-synthea'"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:vocabulary_seed.vocabulary_version"
+  ],
+  "reference": [
+   "r.vocabulary_version"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": "constant not derivable (reference value ['https://github.com/OHDSI/dbt-synthea'])"
+}

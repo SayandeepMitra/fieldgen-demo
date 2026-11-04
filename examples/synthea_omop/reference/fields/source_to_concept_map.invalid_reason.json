@@ -1,0 +1,32 @@
+{
+ "task_id": "source_to_concept_map.invalid_reason",
+ "table": "source_to_concept_map",
+ "column": "invalid_reason",
+ "kind": "value",
+ "reference": {
+  "table": "source_to_concept_map",
+  "column": "invalid_reason"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "invalid_reason"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:source_to_concept_map_seed.source_code"
+  ],
+  "reference": [
+   "r.source_code"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null,
+ "passthrough": true
+}

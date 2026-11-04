@@ -1,0 +1,16 @@
+{
+ "table": "relationship",
+ "grain": "one row per row of the reference program's result (inlined compiled reference program)",
+ "combine": "none",
+ "group_by": null,
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM (WITH cte_relationship_lower AS (SELECT \"relationship_id\" AS relationship_id, \"relationship_name\" AS relationship_name, \"is_hierarchical\" AS is_hierarchical, \"defines_ancestry\" AS defines_ancestry, \"reverse_relationship_id\" AS reverse_relationship_id, \"relationship_concept_id\" AS relationship_concept_id FROM relationship_seed) SELECT relationship_id, relationship_name, CAST(is_hierarchical AS TEXT) AS is_hierarchical, CAST(defines_ancestry AS TEXT) AS defines_ancestry, reverse_relationship_id, relationship_concept_id FROM cte_relationship_lower) AS stg_vocabulary__relationship"
+  }
+ ],
+ "table_roles": {
+  "relationship_seed": "driver"
+ },
+ "passthrough": true
+}

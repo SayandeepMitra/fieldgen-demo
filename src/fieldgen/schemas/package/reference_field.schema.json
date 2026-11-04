@@ -1,0 +1,142 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "Gold field (harness side)",
+ "type": "object",
+ "required": [
+  "task_id",
+  "table",
+  "column",
+  "kind",
+  "reference",
+  "expressions",
+  "alignment",
+  "alignment_quality",
+  "ambiguity",
+  "exclusion_reason"
+ ],
+ "additionalProperties": false,
+ "properties": {
+  "task_id": {
+   "type": "string"
+  },
+  "table": {
+   "type": "string"
+  },
+  "column": {
+   "type": "string"
+  },
+  "kind": {
+   "enum": [
+    "value",
+    "keygen",
+    "placeholder",
+    "excluded"
+   ]
+  },
+  "reference": {
+   "type": "object",
+   "required": [
+    "table",
+    "column"
+   ]
+  },
+  "expressions": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "branch",
+     "expr"
+    ],
+    "properties": {
+     "branch": {
+      "type": "string"
+     },
+     "expr": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "alignment": {
+   "type": "object",
+   "required": [
+    "source",
+    "reference"
+   ],
+   "properties": {
+    "source": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "minItems": 1
+    },
+    "reference": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "minItems": 1
+    }
+   }
+  },
+  "alignment_quality": {
+   "enum": [
+    "strong",
+    "weak"
+   ]
+  },
+  "ambiguity": {
+   "type": "object",
+   "required": [
+    "ambiguous",
+    "reason",
+    "source"
+   ],
+   "properties": {
+    "ambiguous": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    },
+    "source": {
+     "enum": [
+      "assistant_proposal",
+      "user",
+      "pending"
+     ]
+    }
+   }
+  },
+  "exclusion_reason": {
+   "anyOf": [
+    {
+     "type": "null"
+    },
+    {
+     "type": "string"
+    }
+   ]
+  },
+  "passthrough": {
+   "type": "boolean"
+  }
+ },
+ "if": {
+  "properties": {
+   "kind": {
+    "const": "excluded"
+   }
+  }
+ },
+ "then": {
+  "properties": {
+   "exclusion_reason": {
+    "type": "string"
+   }
+  }
+ }
+}
