@@ -1,0 +1,49 @@
+sandbox base built (off constraints): 31 Source tables, empty targets
+  DimDate            OK     rows=   25933    0.0s 
+  DimTime            OK     rows=   86400    0.0s 
+  StatusType         OK     rows=       6    0.0s 
+  TaxRate            OK     rows=     320    0.0s 
+  TradeType          OK     rows=       5    0.0s 
+  Industry           OK     rows=     102    0.0s 
+  DimBroker          OK     rows=    4293    0.0s 
+  DimCompany         OK     rows=    1500    0.0s 
+  DimCustomer        OK     rows=    6440    0.1s 
+  DimAccount         OK     rows=   12339    0.0s 
+  DimSecurity        OK     rows=       0    0.0s 
+  DimTrade           OK     rows=  982180    0.7s 
+  FactCashBalances   OK     rows=  330485    0.0s 
+  FactHoldings       OK     rows=  930764    0.1s 
+  Financial          OK     rows=   98576    0.5s 
+  Prospect           OK     rows=   14982    0.0s 
+# L2 report
+
+| table | ref rows | cand rows | recall % | precision % | dup | rows correct | cols exact / scored |
+|---|---:|---:|---:|---:|---:|---|---|
+| DimDate | 25933 | 25933 | 100.0 | 100.0 | 0 | True | 18/18 |
+| DimTime | 86400 | 86400 | 100.0 | 100.0 | 0 | True | 10/10 |
+| StatusType | 6 | 6 | 100.0 | 100.0 | 0 | True | 2/2 |
+| TaxRate | 320 | 320 | 100.0 | 100.0 | 0 | True | 3/3 |
+| TradeType | 5 | 5 | 100.0 | 100.0 | 0 | True | 4/4 |
+| Industry | 102 | 102 | 100.0 | 100.0 | 0 | True | 3/3 |
+| DimBroker | 4293 | 4293 | 100.0 | 100.0 | 0 | True | 12/13 |
+| DimCompany | 1500 | 1500 | 0.0 | 0.0 | 0 | False | 1/20 |
+| DimCustomer | 6440 | 6440 | 100.0 | 100.0 | 0 | True | 16/33 |
+| DimAccount (defective ref. grain) | 12339 | 12339 | 100.0 | 100.0 | 0 | True | 8/11 |
+| DimSecurity | 1227 | 0 | 0.0 | None | 0 | False | 0/15 |
+| DimTrade (defective ref. grain) | 982180 | 982180 | 100.0 | 100.0 | 0 | True | 18/21 |
+| FactCashBalances | 330485 | 330485 | 100.0 | 100.0 | 0 | True | 5/5 |
+| FactHoldings (defective ref. grain) | 930764 | 930764 | 100.0 | 100.0 | 0 | True | 9/11 |
+| Financial | 98576 | 98576 | 0.0 | 0.0 | 0 | False | 0/14 |
+| Prospect | 14982 | 14982 | 100.0 | 100.0 | 0 | True | 24/27 |
+
+## Headline
+
+- tables_graded: 16
+- tables_rows_correct: 13
+- tables_rows_correct_sound_reference: 10/13
+- columns_exact_all: 133/210
+- columns_exact_core171: 111/171
+- columns_exact_hard37: 19/37
+- constraint_violations: {'not_null_cells': 100076, 'dangling_fk_cells': 3825888}
+- defective_reference_tables_flagged: ['DimAccount', 'DimTrade', 'FactHoldings']
+- official audit (Batch-1 applicable): {'applicable': 78, 'ok': 52, 'not_ok': 26}

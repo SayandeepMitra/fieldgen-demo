@@ -1,0 +1,56 @@
+{
+ "sk_dateid": {
+  "b1": "CAST(b1.SK_DateID AS INT)"
+ },
+ "datevalue": {
+  "b1": "TRY_CAST(b1.DateValue AS DATE)"
+ },
+ "datedesc": {
+  "b1": "CAST(b1.DateDesc AS CHAR(20))"
+ },
+ "calendaryearid": {
+  "b1": "b1.CalendarYearID"
+ },
+ "calendaryeardesc": {
+  "b1": "CAST(b1.CalendarYearDesc AS CHAR(20))"
+ },
+ "calendarqtrid": {
+  "b1": "b1.CalendarQtrID"
+ },
+ "calendarqtrdesc": {
+  "b1": "CAST(b1.CalendarQtrDesc AS CHAR(20))"
+ },
+ "calendarmonthdesc": {
+  "b1": "CAST(b1.CalendarMonthDesc AS CHAR(20))"
+ },
+ "calendarweekid": {
+  "b1": "b1.CalendarWeekID"
+ },
+ "dayofweeknum": {
+  "b1": "b1.DayOfWeekNum"
+ },
+ "dayofweekdesc": {
+  "b1": "b1.DayOfWeekDesc"
+ },
+ "fiscalyeardesc": {
+  "b1": "CAST(b1.FiscalYearDesc AS CHAR(20))"
+ },
+ "fiscalqtrid": {
+  "b1": "b1.FiscalQtrID"
+ },
+ "holidayflag": {
+  "b1": "TRY_CAST(b1.HolidayFlag AS BOOLEAN)"
+ },
+ "calendarmonthid": {
+  "b1": "b1.CalendarMonthID"
+ },
+ "calendarweekdesc": {
+  "b1": "CAST(REPLACE(b1.CalendarWeekDesc, '-', ' -') AS CHAR(20))"
+ },
+ "fiscalyearid": {
+  "b1": "b1.FiscalYearID"
+ },
+ "fiscalqtrdesc": {
+  "b1": "CAST(b1.FiscalQtrDesc AS VARCHAR(20))"
+ }
+}

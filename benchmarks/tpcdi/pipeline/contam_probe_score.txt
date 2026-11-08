@@ -1,0 +1,4 @@
+columns scorable at schema level: 155  (single-field: 152)
+trivial_name(oracle k)     exact field-set: all 94/155  core 87/139  multi-field 0/3
+nemotron                   exact field-set: all 123/152  core 114/137  multi-field 0/2
+mistral_large              exact field-set: all 126/155  core 118/139  multi-field 0/3

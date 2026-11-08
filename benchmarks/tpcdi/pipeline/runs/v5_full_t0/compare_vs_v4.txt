@@ -1,0 +1,22 @@
+
+RELIABLE-GOLD (193 cols): exact  v4_full_t0 -> v5_full_t0
+  laguna          122 ->  120  (-2)   fail-to-run 26 -> 22
+  mistral_large   162 ->  163  (+1)   fail-to-run 3 -> 5
+  nemotron        159 ->  157  (-2)   fail-to-run 0 -> 5
+
+ALL 210 (210 cols): exact  v4_full_t0 -> v5_full_t0
+  laguna          134 ->  131  (-3)   fail-to-run 28 -> 25
+  mistral_large   174 ->  174  (+0)   fail-to-run 3 -> 7
+  nemotron        170 ->  169  (-1)   fail-to-run 0 -> 5
+
+laguna: 19 columns became exact, 21 regressed (reliable gold)
+  WINS: DimAccount.AccountID[rename], DimAccount.SK_AccountID[generated_key], DimCompany.BatchID[constant], DimCompany.CEO[rename], DimCompany.Industry[lookup join], DimCompany.SK_CompanyID[generated_key], DimCompany.StateProv[rename], DimCustomer.DOB[passthrough_copy], DimCustomer.SK_CustomerID[generated_key], DimDate.FiscalYearDesc[passthrough_copy], DimSecurity.Dividend[retype], DimSecurity.IsCurrent[SCD history], DimSecurity.SK_SecurityID[generated_key], DimTime.SecondID[passthrough_copy], DimTrade.BatchID[constant], DimTrade.CashFlag[value], FactCashBalances.BatchID[constant], Prospect.City[passthrough_copy], Prospect.MiddleInitial[passthrough_copy]
+  REGRESSIONS: DimAccount.SK_CustomerID[lookup join] 100.0->None, DimBroker.Branch[rename] 100.0->95.18, DimBroker.EffectiveDate[value] 100.0->0.0, DimBroker.EndDate[constant] 100.0->None, DimBroker.MiddleInitial[rename] 100.0->36.43, DimBroker.Phone[rename] 100.0->4.68, DimCompany.Country[passthrough_copy] 100.0->95.13, DimCustomer.AddressLine2[rename] 100.0->9.84, DimCustomer.BatchID[constant] 100.0->None, DimCustomer.TaxID[rename] 100.0->78.59, DimDate.CalendarYearDesc[passthrough_copy] 100.0->None, DimDate.DateDesc[passthrough_copy] 100.0->None, DimTime.SecondDesc[passthrough_copy] 100.0->None, DimTrade.Quantity[rename] 100.0->None, DimTrade.TradePrice[rename] 100.0->94.77, Financial.FI_MARGIN[retype] 100.0->None, Prospect.AddressLine1[passthrough_copy] 100.0->96.31, Prospect.Age[passthrough_copy] 100.0->94.71, Prospect.Gender[passthrough_copy] 100.0->None, Prospect.SK_UpdateDateID[lookup join] 100.0->None, Prospect.numberChildren[passthrough_copy] 100.0->None
+
+mistral_large: 14 columns became exact, 13 regressed (reliable gold)
+  WINS: DimAccount.BatchID[constant], DimAccount.EffectiveDate[SCD history], DimAccount.EndDate[SCD history], DimAccount.SK_AccountID[generated_key], DimCompany.BatchID[constant], DimCompany.EndDate[SCD history], DimCustomer.BatchID[constant], DimCustomer.EndDate[SCD history], DimSecurity.BatchID[constant], DimSecurity.EndDate[SCD history], DimTrade.BatchID[constant], FactCashBalances.BatchID[constant], FactHoldings.BatchID[constant], Prospect.BatchID[constant]
+  REGRESSIONS: DimAccount.AccountDesc[rename] 100.0->91.29, DimAccount.TaxStatus[rename] 100.0->96.65, DimCompany.AddressLine2[rename] 100.0->9.87, DimCompany.CompanyID[rename] 100.0->None, DimCustomer.DOB[passthrough_copy] 100.0->78.59, DimCustomer.Tier[passthrough_copy] 100.0->90.82, DimSecurity.Dividend[retype] 100.0->0.08, Financial.FI_BASIC_EPS[retype] 100.0->None, Financial.FI_INVENTORY[retype] 100.0->None, Financial.SK_CompanyID[lookup join] 100.0->None, Prospect.Gender[passthrough_copy] 100.0->46.5, Prospect.MaritalStatus[passthrough_copy] 100.0->95.0, Prospect.OwnOrRentFlag[passthrough_copy] 100.0->95.31
+
+nemotron: 11 columns became exact, 13 regressed (reliable gold)
+  WINS: DimAccount.BatchID[constant], DimAccount.EndDate[SCD history], DimBroker.BatchID[constant], DimCompany.BatchID[constant], DimCompany.EndDate[SCD history], DimCustomer.EndDate[SCD history], DimSecurity.BatchID[constant], DimSecurity.EndDate[SCD history], DimTrade.BatchID[constant], FactHoldings.BatchID[constant], Prospect.BatchID[constant]
+  REGRESSIONS: DimAccount.SK_AccountID[generated_key] 100.0->0.03, DimBroker.LastName[rename] 100.0->None, DimCustomer.CreditRating[lookup join] 100.0->None, DimCustomer.Email1[rename] 100.0->95.65, DimCustomer.NationalTaxRate[lookup join] 100.0->None, DimCustomer.NationalTaxRateDesc[lookup join] 100.0->78.59, DimCustomer.Tier[passthrough_copy] 100.0->90.82, DimSecurity.Dividend[retype] 100.0->99.35, DimTrade.Commission[rename] 100.0->94.77, DimTrade.Fee[rename] 100.0->94.77, DimTrade.Tax[rename] 100.0->94.77, Prospect.MaritalStatus[passthrough_copy] 100.0->95.0, Prospect.OwnOrRentFlag[passthrough_copy] 100.0->95.31

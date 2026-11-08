@@ -1,0 +1,327 @@
+{"key": "DimDate.SK_DateID", "model": "nemotron", "raw": "[\"Source.Date.SK_DateID\"]"}
+{"key": "DimDate.DateDesc", "model": "nemotron", "raw": "[\"Source.Date.DateDesc\"]"}
+{"key": "DimDate.DateDesc", "model": "mistral_large", "raw": "[\"Source.Date.DateDesc\"]"}
+{"key": "DimDate.CalendarYearDesc", "model": "nemotron", "raw": "[\"Source.Date.CalendarYearDesc\"]"}
+{"key": "DimDate.DateValue", "model": "mistral_large", "raw": "[\"Source.Date.DateValue\"]"}
+{"key": "DimDate.DateValue", "model": "nemotron", "raw": "[\"Source.Date.DateValue\"]"}
+{"key": "DimDate.SK_DateID", "model": "mistral_large", "raw": "[\"Source.Date.SK_DateID\"]"}
+{"key": "DimDate.CalendarYearID", "model": "nemotron", "raw": "[\"Source.Date.CalendarYearID\"]"}
+{"key": "DimDate.CalendarYearID", "model": "mistral_large", "raw": "[\"Source.Date.CalendarYearID\"]"}
+{"key": "DimDate.CalendarMonthID", "model": "nemotron", "raw": "[\"Source.Date.CalendarMonthID\"]"}
+{"key": "DimDate.CalendarQtrID", "model": "mistral_large", "raw": "[\"Source.Date.CalendarQtrID\"]"}
+{"key": "DimDate.CalendarQtrDesc", "model": "mistral_large", "raw": "[\"Source.Date.CalendarQtrDesc\"]"}
+{"key": "DimDate.CalendarYearDesc", "model": "mistral_large", "raw": "[\"Source.Date.CalendarYearDesc\"]"}
+{"key": "DimDate.CalendarQtrDesc", "model": "nemotron", "raw": "[\"Source.Date.CalendarQtrDesc\"]"}
+{"key": "DimDate.CalendarWeekID", "model": "nemotron", "raw": "[\"Source.Date.CalendarWeekID\"]"}
+{"key": "DimDate.CalendarQtrID", "model": "nemotron", "raw": "[\"Source.Date.CalendarQtrID\"]"}
+{"key": "DimDate.CalendarMonthDesc", "model": "nemotron", "raw": "[\"Source.Date.CalendarMonthDesc\"]"}
+{"key": "DimDate.CalendarMonthID", "model": "mistral_large", "raw": "[\"Source.Date.CalendarMonthID\"]"}
+{"key": "DimDate.CalendarWeekDesc", "model": "mistral_large", "raw": "[\"Source.Date.CalendarWeekDesc\"]"}
+{"key": "DimDate.CalendarWeekDesc", "model": "nemotron", "raw": "[\"Source.Date.CalendarWeekDesc\"]"}
+{"key": "DimDate.CalendarMonthDesc", "model": "mistral_large", "raw": "[\"Source.Date.CalendarMonthDesc\"]"}
+{"key": "DimDate.DayOfWeekDesc", "model": "nemotron", "raw": "[\"Source.Date.DayOfWeekDesc\"]"}
+{"key": "DimDate.DayOfWeekNum", "model": "mistral_large", "raw": "[\"Source.Date.DayOfWeekNum\"]"}
+{"key": "DimDate.DayOfWeekNum", "model": "nemotron", "raw": "[\"Source.Date.DayOfWeekNum\"]"}
+{"key": "DimDate.FiscalYearID", "model": "mistral_large", "raw": "[\"Source.Date.FiscalYearID\"]"}
+{"key": "DimDate.FiscalQtrID", "model": "nemotron", "raw": "[\"Source.Date.FiscalQtrID\"]"}
+{"key": "DimDate.FiscalYearID", "model": "nemotron", "raw": "[\"Source.Date.FiscalYearID\"]"}
+{"key": "DimDate.CalendarWeekID", "model": "mistral_large", "raw": "[\"Source.Date.CalendarWeekID\"]"}
+{"key": "DimDate.DayOfWeekDesc", "model": "mistral_large", "raw": "[\"Source.Date.DayOfWeekDesc\"]"}
+{"key": "DimDate.FiscalYearDesc", "model": "mistral_large", "raw": "[\"Source.Date.FiscalYearDesc\"]"}
+{"key": "DimDate.FiscalQtrDesc", "model": "nemotron", "raw": "[\"Source.Date.FiscalQtrDesc\"]"}
+{"key": "DimDate.FiscalQtrID", "model": "mistral_large", "raw": "[\"Source.Date.FiscalQtrID\"]"}
+{"key": "DimDate.HolidayFlag", "model": "nemotron", "raw": "[\"Source.Date.HolidayFlag\"]"}
+{"key": "DimTime.SK_TimeID", "model": "nemotron", "raw": "[\"Source.Time.SK_TimeID\"]"}
+{"key": "DimDate.FiscalYearDesc", "model": "nemotron", "raw": "[\"Source.Date.FiscalYearDesc\"]"}
+{"key": "DimDate.FiscalQtrDesc", "model": "mistral_large", "raw": "[\"Source.Date.FiscalQtrDesc\"]"}
+{"key": "DimDate.HolidayFlag", "model": "mistral_large", "raw": "[\"Source.Date.HolidayFlag\"]"}
+{"key": "DimTime.HourID", "model": "nemotron", "raw": "[\"Source.Time.HourID\"]"}
+{"key": "DimTime.HourDesc", "model": "nemotron", "raw": "[\"Source.Time.HourDesc\"]"}
+{"key": "DimTime.MinuteID", "model": "nemotron", "raw": "[\"Source.Time.MinuteID\"]"}
+{"key": "DimTime.HourID", "model": "mistral_large", "raw": "[\"Source.Time.HourID\"]"}
+{"key": "DimTime.HourDesc", "model": "mistral_large", "raw": "[\"Source.Time.HourDesc\"]"}
+{"key": "DimTime.SK_TimeID", "model": "mistral_large", "raw": "[\"Source.Time.SK_TimeID\"]"}
+{"key": "DimTime.MinuteDesc", "model": "nemotron", "raw": "[\"Source.Time.MinuteDesc\"]"}
+{"key": "DimTime.TimeValue", "model": "mistral_large", "raw": "[\"Source.Time.TimeValue\"]"}
+{"key": "DimTime.SecondID", "model": "nemotron", "raw": "[\"Source.Time.SecondID\"]"}
+{"key": "DimTime.SecondDesc", "model": "nemotron", "raw": "[\"Source.Time.SecondDesc\"]"}
+{"key": "DimTime.MinuteID", "model": "mistral_large", "raw": "[\"Source.Time.MinuteID\"]"}
+{"key": "DimTime.TimeValue", "model": "nemotron", "raw": "[\"Source.Time.TimeValue\"]"}
+{"key": "DimTime.MarketHoursFlag", "model": "nemotron", "raw": "[\"Source.Time.MarketHoursFlag\"]"}
+{"key": "StatusType.ST_NAME", "model": "nemotron", "raw": "[\"Source.StatusType.ST_NAME\"]"}
+{"key": "TaxRate.TX_ID", "model": "nemotron", "raw": "[\"Source.TaxRate.TX_ID\"]"}
+{"key": "DimTime.OfficeHoursFlag", "model": "nemotron", "raw": "[\"Source.Time.OfficeHoursFlag\"]"}
+{"key": "DimTime.SecondDesc", "model": "mistral_large", "raw": "[\"Source.Time.SecondDesc\"]"}
+{"key": "StatusType.ST_ID", "model": "nemotron", "raw": "[\"Source.StatusType.ST_ID\"]"}
+{"key": "DimTime.MinuteDesc", "model": "mistral_large", "raw": "[\"Source.Time.MinuteDesc\"]"}
+{"key": "DimTime.SecondID", "model": "mistral_large", "raw": "[\"Source.Time.SecondID\"]"}
+{"key": "TradeType.TT_ID", "model": "nemotron", "raw": "[\"Source.TradeType.TT_ID\"]"}
+{"key": "TradeType.TT_NAME", "model": "nemotron", "raw": "[\"Source.TradeType.TT_NAME\"]"}
+{"key": "DimTime.MarketHoursFlag", "model": "mistral_large", "raw": "[\"Source.Time.MarketHoursFlag\"]"}
+{"key": "TaxRate.TX_NAME", "model": "nemotron", "raw": "[\"Source.TaxRate.TX_NAME\"]"}
+{"key": "StatusType.ST_ID", "model": "mistral_large", "raw": "[\"Source.StatusType.ST_ID\"]"}
+{"key": "TaxRate.TX_RATE", "model": "nemotron", "raw": "[\"Source.TaxRate.TX_RATE\"]"}
+{"key": "TradeType.TT_IS_MRKT", "model": "nemotron", "raw": "[\"Source.TradeType.TT_IS_MRKT\"]"}
+{"key": "TaxRate.TX_ID", "model": "mistral_large", "raw": "[\"Source.TaxRate.TX_ID\"]"}
+{"key": "DimTime.OfficeHoursFlag", "model": "mistral_large", "raw": "[\"Source.Time.OfficeHoursFlag\"]"}
+{"key": "StatusType.ST_NAME", "model": "mistral_large", "raw": "[\"Source.StatusType.ST_NAME\"]"}
+{"key": "TaxRate.TX_NAME", "model": "mistral_large", "raw": "[\"Source.TaxRate.TX_NAME\"]"}
+{"key": "Industry.IN_ID", "model": "nemotron", "raw": "[\"Source.Industry.IN_ID\"]"}
+{"key": "TradeType.TT_IS_SELL", "model": "nemotron", "raw": "[\"Source.TradeType.TT_IS_SELL\"]"}
+{"key": "TaxRate.TX_RATE", "model": "mistral_large", "raw": "[\"Source.TaxRate.TX_RATE\"]"}
+{"key": "Industry.IN_NAME", "model": "nemotron", "raw": "[\"Source.Industry.IN_NAME\"]"}
+{"key": "TradeType.TT_ID", "model": "mistral_large", "raw": "[\"Source.TradeType.TT_ID\"]"}
+{"key": "TradeType.TT_NAME", "model": "mistral_large", "raw": "[\"Source.TradeType.TT_NAME\"]"}
+{"key": "TradeType.TT_IS_SELL", "model": "mistral_large", "raw": "[\"Source.TradeType.TT_IS_SELL\"]"}
+{"key": "Industry.IN_ID", "model": "mistral_large", "raw": "[\"Source.Industry.IN_ID\"]"}
+{"key": "TradeType.TT_IS_MRKT", "model": "mistral_large", "raw": "[\"Source.TradeType.TT_IS_MRKT\"]"}
+{"key": "DimBroker.ManagerID", "model": "nemotron", "raw": "[\"Source.HR.ManagerID\"]"}
+{"key": "Industry.IN_SC_ID", "model": "nemotron", "raw": "[\"Source.Industry.IN_SC_ID\"]"}
+{"key": "DimBroker.BrokerID", "model": "mistral_large", "raw": "[\"Source.HR.EmployeeID\"]"}
+{"key": "DimBroker.SK_BrokerID", "model": "mistral_large", "raw": "[]"}
+{"key": "DimBroker.SK_BrokerID", "model": "nemotron", "raw": "[]"}
+{"key": "Industry.IN_SC_ID", "model": "mistral_large", "raw": "[\"Source.Industry.IN_SC_ID\"]"}
+{"key": "Industry.IN_NAME", "model": "mistral_large", "raw": "[\"Source.Industry.IN_NAME\"]"}
+{"key": "DimBroker.FirstName", "model": "nemotron", "raw": "[\"Source.HR.EmployeeFirstName\"]"}
+{"key": "DimBroker.LastName", "model": "nemotron", "raw": "[\"Source.HR.EmployeeLastName\"]"}
+{"key": "DimBroker.BrokerID", "model": "nemotron", "raw": "[\"Source.HR.EmployeeID\"]"}
+{"key": "DimBroker.FirstName", "model": "mistral_large", "raw": "[\"Source.HR.EmployeeFirstName\"]"}
+{"key": "DimBroker.ManagerID", "model": "mistral_large", "raw": "[\"Source.HR.ManagerID\"]"}
+{"key": "DimBroker.Branch", "model": "nemotron", "raw": "[\"Source.HR.EmployeeBranch\"]"}
+{"key": "DimBroker.Phone", "model": "nemotron", "raw": "[\"Source.HR.EmployeePhone\"]"}
+{"key": "DimBroker.MiddleInitial", "model": "mistral_large", "raw": "[\"Source.Prospect.MiddleInitial\"]"}
+{"key": "DimBroker.Branch", "model": "mistral_large", "raw": "[\"Source.HR.EmployeeBranch\"]"}
+{"key": "DimBroker.LastName", "model": "mistral_large", "raw": "[\"Source.HR.EmployeeLastName\"]"}
+{"key": "DimBroker.Office", "model": "nemotron", "raw": "[\"Source.HR.EmployeeOffice\"]"}
+{"key": "DimBroker.Phone", "model": "mistral_large", "raw": "[\"Source.HR.EmployeePhone\"]"}
+{"key": "DimCompany.CompanyID", "model": "nemotron", "raw": "[]"}
+{"key": "DimCompany.CompanyID", "model": "mistral_large", "raw": "[\"Source.FinwireCMP.CIK\"]"}
+{"key": "DimCompany.Status", "model": "mistral_large", "raw": "[\"Source.FinwireCMP.Status\",\"Source.FinwireSEC.Status\"]"}
+{"key": "DimBroker.MiddleInitial", "model": "nemotron", "raw": "[\"Source.HR.EmployeeMI\"]"}
+{"key": "DimBroker.Office", "model": "mistral_large", "raw": "[\"Source.HR.EmployeeOffice\"]"}
+{"key": "DimCompany.Name", "model": "mistral_large", "raw": "[\"Source.FinwireCMP.CompanyName\"]"}
+{"key": "DimCompany.Name", "model": "nemotron", "raw": "[\"Source.FinwireCMP.CompanyName\"]"}
+{"key": "DimCompany.Industry", "model": "mistral_large", "raw": "[\"Source.Industry.IN_NAME\"]"}
+{"key": "DimCompany.SPrating", "model": "nemotron", "raw": "[\"Source.FinwireCMP.SPrating\"]"}
+{"key": "DimCompany.CEO", "model": "mistral_large", "raw": "[\"Source.FinwireCMP.CEOname\"]"}
+{"key": "DimCompany.isLowGrade", "model": "mistral_large", "raw": "[\"Source.FinwireCMP.SPrating\"]"}
+{"key": "DimCompany.SPrating", "model": "mistral_large", "raw": "[\"Source.FinwireCMP.SPrating\"]"}
+{"key": "DimCompany.Status", "model": "nemotron", "raw": "[\"Source.FinwireCMP.Status\"]"}
+{"key": "DimCompany.CEO", "model": "nemotron", "raw": "[\"Source.FinwireCMP.CEOname\"]"}
+{"key": "DimCompany.isLowGrade", "model": "nemotron", "raw": "[\"Source.FinwireCMP.SPrating\"]"}
+{"key": "DimCompany.FoundingDate", "model": "mistral_large", "raw": "[\"Source.FinwireCMP.FoundingDate\"]"}
+{"key": "DimCompany.Description", "model": "nemotron", "raw": "[\"Source.FinwireCMP.Description\"]"}
+{"key": "DimCompany.FoundingDate", "model": "nemotron", "raw": "[\"Source.FinwireCMP.FoundingDate\"]"}
+{"key": "DimCompany.Description", "model": "mistral_large", "raw": "[\"Source.FinwireCMP.Description\"]"}
+{"key": "DimCompany.AddressLine1", "model": "nemotron", "raw": "[\"Source.FinwireCMP.AddrLine1\"]"}
+{"key": "DimCompany.AddressLine2", "model": "mistral_large", "raw": "[\"Source.FinwireCMP.AddrLine2\"]"}
+{"key": "DimCompany.City", "model": "mistral_large", "raw": "[\"Source.FinwireCMP.City\"]"}
+{"key": "DimCompany.City", "model": "nemotron", "raw": "[\"Source.FinwireCMP.City\"]"}
+{"key": "DimCompany.PostalCode", "model": "nemotron", "raw": "[\"Source.FinwireCMP.PostalCode\"]"}
+{"key": "DimCompany.PostalCode", "model": "mistral_large", "raw": "[\"Source.FinwireCMP.PostalCode\"]"}
+{"key": "DimCompany.AddressLine1", "model": "mistral_large", "raw": "[\"Source.FinwireCMP.AddrLine1\"]"}
+{"key": "DimCompany.Country", "model": "mistral_large", "raw": "[\"Source.FinwireCMP.Country\"]"}
+{"key": "DimCompany.Country", "model": "nemotron", "raw": "[\"Source.FinwireCMP.Country\"]"}
+{"key": "DimCompany.AddressLine2", "model": "nemotron", "raw": "[\"Source.FinwireCMP.AddrLine2\"]"}
+{"key": "DimCompany.StateProv", "model": "nemotron", "raw": "[\"Source.FinwireCMP.StateProvince\"]"}
+{"key": "DimCompany.StateProv", "model": "mistral_large", "raw": "[\"Source.FinwireCMP.StateProvince\"]"}
+{"key": "DimCompany.Industry", "model": "nemotron", "raw": "[\"Source.Industry.IN_NAME\"]"}
+{"key": "DimCustomer.TaxID", "model": "mistral_large", "raw": "[\"Source.Customer.C_TAX_ID\", \"Source.CustomerXML.C_TAX_ID\"]"}
+{"key": "DimCompany.EffectiveDate", "model": "nemotron", "raw": "[\"Source.FinwireCMP.PTS\"]"}
+{"key": "DimCustomer.CustomerID", "model": "mistral_large", "raw": "[\"Source.Customer.C_ID\"]"}
+{"key": "DimCustomer.TaxID", "model": "nemotron", "raw": "[\"Source.Customer.C_TAX_ID\"]"}
+{"key": "DimCustomer.FirstName", "model": "mistral_large", "raw": "[\"Source.Customer.C_F_NAME\", \"Source.NameXML.C_F_NAME\"]"}
+{"key": "DimCustomer.Gender", "model": "mistral_large", "raw": "[\"Source.Customer.C_GNDR\", \"Source.CustomerXML.C_GNDR\"]"}
+{"key": "DimCompany.EffectiveDate", "model": "mistral_large", "raw": "[\"Source.FinwireCMP.PTS\"]"}
+{"key": "DimCustomer.Tier", "model": "mistral_large", "raw": "[\"Source.Customer.C_TIER\", \"Source.CustomerXML.C_TIER\"]"}
+{"key": "DimCustomer.LastName", "model": "mistral_large", "raw": "[\"Source.Customer.C_L_NAME\", \"Source.NameXML.C_L_NAME\"]"}
+{"key": "DimCustomer.AddressLine1", "model": "mistral_large", "raw": "[\"Source.Customer.C_ADLINE1\", \"Source.AddressXML.C_ADLINE1\"]"}
+{"key": "DimCustomer.AddressLine2", "model": "mistral_large", "raw": "[\"Source.Customer.C_ADLINE2\", \"Source.AddressXML.C_ADLINE2\"]"}
+{"key": "DimCustomer.DOB", "model": "mistral_large", "raw": "[\"Source.Customer.C_DOB\",\"Source.CustomerXML.C_DOB\"]"}
+{"key": "DimCustomer.MiddleInitial", "model": "mistral_large", "raw": "[\"Source.Customer.C_M_NAME\",\"Source.NameXML.C_M_NAME\"]"}
+{"key": "DimCustomer.City", "model": "mistral_large", "raw": "[\"Source.Customer.C_CITY\", \"Source.AddressXML.C_CITY\"]"}
+{"key": "DimCustomer.FirstName", "model": "nemotron", "raw": "[\"Source.Customer.C_F_NAME\"]"}
+{"key": "DimCustomer.Country", "model": "mistral_large", "raw": "[\"Source.Customer.C_CTRY\"]"}
+{"key": "DimCustomer.Email1", "model": "mistral_large", "raw": "[\"Source.Customer.C_EMAIL_1\",\"Source.ContactInfoXML.C_PRIM_EMAIL\"]"}
+{"key": "DimCustomer.Gender", "model": "nemotron", "raw": "[\"Source.Customer.C_GNDR\"]"}
+{"key": "DimCustomer.Email2", "model": "mistral_large", "raw": "[\"Source.Customer.C_EMAIL_2\"]"}
+{"key": "DimCustomer.PostalCode", "model": "mistral_large", "raw": "[\"Source.Customer.C_ZIPCODE\", \"Source.AddressXML.C_ZIPCODE\"]"}
+{"key": "DimCustomer.NationalTaxRateDesc", "model": "mistral_large", "raw": "[\"Source.TaxRate.TX_NAME\"]"}
+{"key": "DimCustomer.LocalTaxRateDesc", "model": "mistral_large", "raw": "[\"Source.TaxRate.TX_NAME\"]"}
+{"key": "DimCustomer.LocalTaxRate", "model": "mistral_large", "raw": "[\"Source.TaxRate.TX_RATE\"]"}
+{"key": "DimCustomer.NationalTaxRate", "model": "mistral_large", "raw": "[\"Source.TaxRate.TX_RATE\"]"}
+{"key": "DimCustomer.Tier", "model": "nemotron", "raw": "[\"Source.Customer.C_TIER\"]"}
+{"key": "DimCustomer.AgencyID", "model": "mistral_large", "raw": "[\"Source.Prospect.AgencyID\"]"}
+{"key": "DimCustomer.CreditRating", "model": "mistral_large", "raw": "[\"Source.Prospect.CreditRating\"]"}
+{"key": "DimCustomer.StateProv", "model": "mistral_large", "raw": "[\"Source.Customer.C_STATE_PROV\"]"}
+{"key": "DimCustomer.NetWorth", "model": "mistral_large", "raw": "[\"Source.Prospect.NetWorth\"]"}
+{"key": "DimCustomer.EffectiveDate", "model": "mistral_large", "raw": "[\"Source.BatchDate.BatchDate\"]"}
+{"key": "DimCustomer.MarketingNameplate", "model": "mistral_large", "raw": "[\"Source.Prospect.LastName\",\"Source.Prospect.FirstName\",\"Source.Prospect.MiddleInitial\"]"}
+{"key": "DimAccount.AccountID", "model": "mistral_large", "raw": "[\"Source.Account.CA_ID\"]"}
+{"key": "DimCustomer.DOB", "model": "nemotron", "raw": "[\"Source.Customer.C_DOB\", \"Source.CustomerXML.C_DOB\"]"}
+{"key": "DimAccount.TaxStatus", "model": "mistral_large", "raw": "[\"Source.Account.CA_TAX_ST\", \"Source.AccountXML.CA_TAX_ST\"]"}
+{"key": "DimAccount.EffectiveDate", "model": "mistral_large", "raw": "[\"Source.BatchDate.BatchDate\",\"Source.ActionXML.ActionTS\"]"}
+{"key": "DimCustomer.CustomerID", "model": "nemotron", "raw": "[\"Source.Customer.C_ID\"]"}
+{"key": "DimCustomer.MiddleInitial", "model": "nemotron", "raw": "[\"Source.Customer.C_M_NAME\"]"}
+{"key": "DimSecurity.Issue", "model": "mistral_large", "raw": "[\"Source.FinwireSEC.IssueType\"]"}
+{"key": "DimCustomer.LastName", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "DimAccount.AccountDesc", "model": "mistral_large", "raw": "[\"Source.StatusType.ST_NAME\"]"}
+{"key": "DimSecurity.Name", "model": "mistral_large", "raw": "[\"Source.FinwireSEC.Name\"]"}
+{"key": "DimSecurity.ExchangeID", "model": "mistral_large", "raw": "[\"Source.FinwireSEC.ExID\"]"}
+{"key": "DimSecurity.SharesOutstanding", "model": "mistral_large", "raw": "[\"Source.FinwireSEC.ShOut\"]"}
+{"key": "DimSecurity.Symbol", "model": "mistral_large", "raw": "[\"Source.FinwireSEC.Symbol\"]"}
+{"key": "DimSecurity.FirstTrade", "model": "mistral_large", "raw": "[\"Source.FinwireSEC.FirstTradeDate\"]"}
+{"key": "DimSecurity.EffectiveDate", "model": "mistral_large", "raw": "[\"Source.FinwireSEC.FirstTradeDate\"]"}
+{"key": "DimSecurity.FirstTradeOnExchange", "model": "mistral_large", "raw": "[\"Source.FinwireSEC.FirstTradeExchg\"]"}
+{"key": "DimTrade.DT_Type", "model": "mistral_large", "raw": "[\"Source.TradeType.TT_NAME\"]"}
+{"key": "DimTrade.CashFlag", "model": "mistral_large", "raw": "[\"Source.Trade.T_IS_CASH\"]"}
+{"key": "DimTrade.TradeID", "model": "mistral_large", "raw": "[\"Source.Trade.T_ID\"]"}
+{"key": "DimTrade.Status", "model": "mistral_large", "raw": "[\"Source.StatusType.ST_NAME\"]"}
+{"key": "DimCustomer.City", "model": "nemotron", "raw": "[\"Source.Customer.C_CITY\"]"}
+{"key": "DimTrade.Quantity", "model": "mistral_large", "raw": "[\"Source.Trade.T_QTY\"]"}
+{"key": "DimTrade.TradePrice", "model": "mistral_large", "raw": "[\"Source.Trade.T_TRADE_PRICE\"]"}
+{"key": "DimTrade.BidPrice", "model": "mistral_large", "raw": "[\"Source.Trade.T_BID_PRICE\"]"}
+{"key": "DimCustomer.StateProv", "model": "nemotron", "raw": "[\"Source.Customer.C_STATE_PROV\"]"}
+{"key": "DimCustomer.PostalCode", "model": "nemotron", "raw": "[\"Source.Customer.C_ZIPCODE\"]"}
+{"key": "DimTrade.Tax", "model": "mistral_large", "raw": "[\"Source.Trade.T_TAX\"]"}
+{"key": "DimTrade.Fee", "model": "mistral_large", "raw": "[\"Source.Trade.T_CHRG\"]"}
+{"key": "DimTrade.ExecutedBy", "model": "mistral_large", "raw": "[\"Source.Trade.T_EXEC_NAME\"]"}
+{"key": "DimTrade.Commission", "model": "mistral_large", "raw": "[\"Source.Trade.T_COMM\"]"}
+{"key": "DimCustomer.Country", "model": "nemotron", "raw": "[\"Source.Customer.C_CTRY\"]"}
+{"key": "FactCashBalances.Cash", "model": "mistral_large", "raw": "[\"Source.CashTransaction.CT_AMT\"]"}
+{"key": "FactHoldings.TradeID", "model": "mistral_large", "raw": "[\"Source.Trade.T_ID\"]"}
+{"key": "DimCustomer.Email2", "model": "nemotron", "raw": "[\"Source.Customer.C_EMAIL_2\"]"}
+{"key": "FactHoldings.CurrentHolding", "model": "mistral_large", "raw": "[\"Source.HoldingHistory.HH_AFTER_QTY\"]"}
+{"key": "DimCustomer.Email1", "model": "nemotron", "raw": "[\"Source.Customer.C_EMAIL_1\"]"}
+{"key": "Financial.FI_YEAR", "model": "mistral_large", "raw": "[\"Source.FinwireFIN.Year\"]"}
+{"key": "DimCustomer.NationalTaxRateDesc", "model": "nemotron", "raw": "[\"Source.TaxRate.TX_NAME\"]"}
+{"key": "Financial.FI_QTR", "model": "mistral_large", "raw": "[\"Source.FinwireFIN.Quarter\"]"}
+{"key": "DimCustomer.NationalTaxRate", "model": "nemotron", "raw": "[\"Source.TaxRate.TX_RATE\"]"}
+{"key": "Financial.FI_REVENUE", "model": "mistral_large", "raw": "[\"Source.FinwireFIN.Revenue\"]"}
+{"key": "Financial.FI_QTR_START_DATE", "model": "mistral_large", "raw": "[\"Source.FinwireFIN.QtrStartDate\"]"}
+{"key": "Financial.FI_DILUT_EPS", "model": "mistral_large", "raw": "[\"Source.FinwireFIN.DilutedEPS\"]"}
+{"key": "Financial.FI_BASIC_EPS", "model": "mistral_large", "raw": "[\"Source.FinwireFIN.EPS\"]"}
+{"key": "DimCustomer.LocalTaxRate", "model": "nemotron", "raw": "[\"Source.TaxRate.TX_RATE\"]"}
+{"key": "Financial.FI_NET_EARN", "model": "mistral_large", "raw": "[\"Source.FinwireFIN.Earnings\"]"}
+{"key": "DimCustomer.AddressLine2", "model": "nemotron", "raw": "[\"Source.Customer.C_ADLINE2\"]"}
+{"key": "Financial.FI_INVENTORY", "model": "mistral_large", "raw": "[\"Source.FinwireFIN.Inventory\"]"}
+{"key": "DimCustomer.AgencyID", "model": "nemotron", "raw": "[\"Source.Prospect.AgencyID\"]"}
+{"key": "Financial.FI_ASSETS", "model": "mistral_large", "raw": "[\"Source.FinwireFIN.Assets\"]"}
+{"key": "DimCustomer.CreditRating", "model": "nemotron", "raw": "[\"Source.Prospect.CreditRating\"]"}
+{"key": "FactHoldings.CurrentTradeID", "model": "mistral_large", "raw": "[\"Source.HoldingHistory.HH_T_ID\"]"}
+{"key": "Financial.FI_MARGIN", "model": "mistral_large", "raw": "[\"Source.FinwireFIN.Margin\"]"}
+{"key": "DimCustomer.NetWorth", "model": "nemotron", "raw": "[\"Source.Prospect.NetWorth\"]"}
+{"key": "Financial.FI_OUT_BASIC", "model": "mistral_large", "raw": "[\"Source.FinwireFIN.ShOut\"]"}
+{"key": "Financial.FI_LIABILITY", "model": "mistral_large", "raw": "[\"Source.FinwireFIN.Liabilities\"]"}
+{"key": "Financial.FI_OUT_DILUT", "model": "mistral_large", "raw": "[\"Source.FinwireFIN.DilutedShOut\"]"}
+{"key": "DimCustomer.LocalTaxRateDesc", "model": "nemotron", "raw": "[\"Source.TaxRate.TX_NAME\"]"}
+{"key": "Prospect.FirstName", "model": "mistral_large", "raw": "[\"Source.Prospect.FirstName\"]"}
+{"key": "Prospect.LastName", "model": "mistral_large", "raw": "[\"Source.Prospect.LastName\"]"}
+{"key": "DimCustomer.AddressLine1", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "DimAccount.AccountID", "model": "nemotron", "raw": "[\"Source.Account.CA_ID\"]"}
+{"key": "DimCustomer.EffectiveDate", "model": "nemotron", "raw": "[\"Source.BatchDate.BatchDate\"]"}
+{"key": "Prospect.MiddleInitial", "model": "mistral_large", "raw": "[\"Source.Prospect.MiddleInitial\"]"}
+{"key": "Prospect.IsCustomer", "model": "mistral_large", "raw": "[]"}
+{"key": "Prospect.AgencyID", "model": "mistral_large", "raw": "[\"Source.Prospect.AgencyID\"]"}
+{"key": "Prospect.AddressLine1", "model": "mistral_large", "raw": "[\"Source.Prospect.AddressLine1\"]"}
+{"key": "DimAccount.AccountDesc", "model": "nemotron", "raw": "[\"Source.Account.CA_NAME\"]"}
+{"key": "Prospect.PostalCode", "model": "mistral_large", "raw": "[\"Source.Prospect.PostalCode\"]"}
+{"key": "DimAccount.TaxStatus", "model": "nemotron", "raw": "[\"Source.Account.CA_TAX_ST\"]"}
+{"key": "Prospect.City", "model": "mistral_large", "raw": "[\"Source.Prospect.City\"]"}
+{"key": "DimSecurity.Symbol", "model": "nemotron", "raw": "[\"Source.FinwireSEC.Symbol\"]"}
+{"key": "Prospect.State", "model": "mistral_large", "raw": "[\"Source.Prospect.State\"]"}
+{"key": "Prospect.Gender", "model": "mistral_large", "raw": "[\"Source.Prospect.Gender\"]"}
+{"key": "Prospect.Country", "model": "mistral_large", "raw": "[\"Source.Prospect.Country\"]"}
+{"key": "DimSecurity.Name", "model": "nemotron", "raw": "[\"Source.FinwireSEC.Name\"]"}
+{"key": "Prospect.AddressLine2", "model": "mistral_large", "raw": "[\"Source.Prospect.AddressLine2\"]"}
+{"key": "Prospect.Phone", "model": "mistral_large", "raw": "[\"Source.Prospect.Phone\"]"}
+{"key": "Prospect.Income", "model": "mistral_large", "raw": "[\"Source.Prospect.Income\"]"}
+{"key": "Prospect.numberCars", "model": "mistral_large", "raw": "[\"Source.Prospect.NumberCars\"]"}
+{"key": "Prospect.MaritalStatus", "model": "mistral_large", "raw": "[\"Source.Prospect.MaritalStatus\"]"}
+{"key": "DimSecurity.ExchangeID", "model": "nemotron", "raw": "[\"Source.FinwireSEC.ExID\"]"}
+{"key": "Prospect.OwnOrRentFlag", "model": "mistral_large", "raw": "[\"Source.Prospect.OwnOrRentFlag\"]"}
+{"key": "Prospect.Age", "model": "mistral_large", "raw": "[\"Source.Prospect.Age\"]"}
+{"key": "Prospect.Employer", "model": "mistral_large", "raw": "[\"Source.Prospect.Employer\"]"}
+{"key": "Prospect.numberCreditCards", "model": "mistral_large", "raw": "[\"Source.Prospect.NumberCreditCards\"]"}
+{"key": "DimSecurity.SharesOutstanding", "model": "nemotron", "raw": "[\"Source.FinwireSEC.ShOut\"]"}
+{"key": "Prospect.numberChildren", "model": "mistral_large", "raw": "[\"Source.Prospect.NumberChildren\"]"}
+{"key": "Prospect.NetWorth", "model": "mistral_large", "raw": "[\"Source.Prospect.NetWorth\"]"}
+{"key": "Prospect.MarketingNameplate", "model": "mistral_large", "raw": "[\"Source.Prospect.FirstName\",\"Source.Prospect.MiddleInitial\",\"Source.Prospect.LastName\"]"}
+{"key": "DimSecurity.FirstTrade", "model": "nemotron", "raw": "[\"Source.FinwireSEC.FirstTradeDate\"]"}
+{"key": "DimSecurity.FirstTradeOnExchange", "model": "nemotron", "raw": "[\"Source.FinwireSEC.FirstTradeDate\"]"}
+{"key": "Prospect.CreditRating", "model": "mistral_large", "raw": "[\"Source.Prospect.CreditRating\"]"}
+{"key": "DimSecurity.Issue", "model": "nemotron", "raw": "[\"Source.FinwireSEC.IssueType\"]"}
+{"key": "DimCustomer.MarketingNameplate", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "DimAccount.EffectiveDate", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: HTTP 429"}
+{"key": "DimTrade.TradeID", "model": "nemotron", "raw": "[\"Source.Trade.T_ID\"]"}
+{"key": "DimTrade.CashFlag", "model": "nemotron", "raw": "[\"Source.Trade.T_IS_CASH\"]"}
+{"key": "DimTrade.Quantity", "model": "nemotron", "raw": "[\"Source.Trade.T_QTY\"]"}
+{"key": "DimTrade.BidPrice", "model": "nemotron", "raw": "[\"Source.Trade.T_BID_PRICE\"]"}
+{"key": "DimTrade.ExecutedBy", "model": "nemotron", "raw": "[\"Source.Trade.T_EXEC_NAME\"]"}
+{"key": "DimTrade.TradePrice", "model": "nemotron", "raw": "[\"Source.Trade.T_TRADE_PRICE\"]"}
+{"key": "DimTrade.Fee", "model": "nemotron", "raw": "[\"Source.Trade.T_CHRG\"]"}
+{"key": "DimTrade.Commission", "model": "nemotron", "raw": "[\"Source.Trade.T_COMM\"]"}
+{"key": "DimTrade.Tax", "model": "nemotron", "raw": "[\"Source.Trade.T_TAX\"]"}
+{"key": "DimTrade.DT_Type", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "FactCashBalances.Cash", "model": "nemotron", "raw": "[\"Source.CashTransaction.CT_AMT\"]"}
+{"key": "DimTrade.Status", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "FactHoldings.CurrentHolding", "model": "nemotron", "raw": "[\"Source.HoldingHistory.HH_AFTER_QTY\"]"}
+{"key": "DimSecurity.EffectiveDate", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "Financial.FI_QTR", "model": "nemotron", "raw": "[\"Source.FinwireFIN.Quarter\"]"}
+{"key": "Financial.FI_QTR_START_DATE", "model": "nemotron", "raw": "[\"Source.FinwireFIN.QtrStartDate\"]"}
+{"key": "Financial.FI_YEAR", "model": "nemotron", "raw": "[\"Source.FinwireFIN.Year\"]"}
+{"key": "Financial.FI_NET_EARN", "model": "nemotron", "raw": "[\"Source.FinwireFIN.Earnings\"]"}
+{"key": "Financial.FI_REVENUE", "model": "nemotron", "raw": "[\"Source.FinwireFIN.Revenue\"]"}
+{"key": "Financial.FI_DILUT_EPS", "model": "nemotron", "raw": "[\"Source.FinwireFIN.DilutedEPS\"]"}
+{"key": "Financial.FI_BASIC_EPS", "model": "nemotron", "raw": "[\"Source.FinwireFIN.EPS\"]"}
+{"key": "Financial.FI_MARGIN", "model": "nemotron", "raw": "[\"Source.FinwireFIN.Margin\"]"}
+{"key": "Financial.FI_ASSETS", "model": "nemotron", "raw": "[\"Source.FinwireFIN.Assets\"]"}
+{"key": "Financial.FI_INVENTORY", "model": "nemotron", "raw": "[\"Source.FinwireFIN.Inventory\"]"}
+{"key": "FactHoldings.TradeID", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "FactHoldings.CurrentTradeID", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "Financial.FI_OUT_BASIC", "model": "nemotron", "raw": "[\"Source.FinwireFIN.ShOut\"]"}
+{"key": "Financial.FI_LIABILITY", "model": "nemotron", "raw": "[\"Source.FinwireFIN.Liabilities\"]"}
+{"key": "Prospect.AgencyID", "model": "nemotron", "raw": "[\"Source.Prospect.AgencyID\"]"}
+{"key": "Financial.FI_OUT_DILUT", "model": "nemotron", "raw": "[\"Source.FinwireFIN.DilutedShOut\"]"}
+{"key": "Prospect.LastName", "model": "nemotron", "raw": "[\"Source.Prospect.LastName\"]"}
+{"key": "Prospect.Gender", "model": "nemotron", "raw": "[\"Source.Prospect.Gender\"]"}
+{"key": "Prospect.FirstName", "model": "nemotron", "raw": "[\"Source.Prospect.FirstName\"]"}
+{"key": "Prospect.MiddleInitial", "model": "nemotron", "raw": "[\"Source.Prospect.MiddleInitial\"]"}
+{"key": "Prospect.AddressLine2", "model": "nemotron", "raw": "[\"Source.Prospect.AddressLine2\"]"}
+{"key": "Prospect.City", "model": "nemotron", "raw": "[\"Source.Prospect.City\"]"}
+{"key": "Prospect.AddressLine1", "model": "nemotron", "raw": "[\"Source.Prospect.AddressLine1\"]"}
+{"key": "Prospect.State", "model": "nemotron", "raw": "[\"Source.Prospect.State\"]"}
+{"key": "Prospect.IsCustomer", "model": "nemotron", "raw": "[]"}
+{"key": "Prospect.PostalCode", "model": "nemotron", "raw": "[\"Source.Prospect.PostalCode\"]"}
+{"key": "Prospect.Phone", "model": "nemotron", "raw": "[\"Source.Prospect.Phone\"]"}
+{"key": "Prospect.numberCars", "model": "nemotron", "raw": "[\"Source.Prospect.NumberCars\"]"}
+{"key": "Prospect.numberChildren", "model": "nemotron", "raw": "[\"Source.Prospect.NumberChildren\"]"}
+{"key": "Prospect.Country", "model": "nemotron", "raw": "[\"Source.Prospect.Country\"]"}
+{"key": "Prospect.Age", "model": "nemotron", "raw": "[\"Source.Prospect.Age\"]"}
+{"key": "Prospect.Income", "model": "nemotron", "raw": "[\"Source.Prospect.Income\"]"}
+{"key": "Prospect.OwnOrRentFlag", "model": "nemotron", "raw": "[\"Source.Prospect.OwnOrRentFlag\"]"}
+{"key": "Prospect.numberCreditCards", "model": "nemotron", "raw": "[\"Source.Prospect.NumberCreditCards\"]"}
+{"key": "Prospect.CreditRating", "model": "nemotron", "raw": "[\"Source.Prospect.CreditRating\"]"}
+{"key": "Prospect.Employer", "model": "nemotron", "raw": "[\"Source.Prospect.Employer\"]"}
+{"key": "Prospect.NetWorth", "model": "nemotron", "raw": "[\"Source.Prospect.NetWorth\"]"}
+{"key": "Prospect.MaritalStatus", "model": "nemotron", "raw": "[\"Source.Prospect.MaritalStatus\"]"}
+{"key": "Prospect.MarketingNameplate", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "DimAccount.EffectiveDate", "model": "nemotron", "raw": "[\"Source.BatchDate.BatchDate\"]"}
+{"key": "DimCustomer.LastName", "model": "nemotron", "raw": "[\"Source.Customer.C_L_NAME\"]"}
+{"key": "DimSecurity.EffectiveDate", "model": "nemotron", "raw": "[\"Source.FinwireSEC.FirstTradeDate\"]"}
+{"key": "DimCustomer.MarketingNameplate", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "DimCustomer.AddressLine1", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "FactHoldings.CurrentTradeID", "model": "nemotron", "raw": "[\"Source.Trade.T_ID\"]"}
+{"key": "DimTrade.Status", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "FactHoldings.TradeID", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "DimTrade.DT_Type", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "Prospect.MarketingNameplate", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "DimCustomer.AddressLine1", "model": "nemotron", "raw": "[\"Source.Customer.C_ADLINE1\"]"}
+{"key": "DimTrade.DT_Type", "model": "nemotron", "raw": "[\"Source.TradeType.TT_NAME\"]"}
+{"key": "Prospect.MarketingNameplate", "model": "nemotron", "raw": "[]"}
+{"key": "DimCustomer.MarketingNameplate", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: HTTP 429"}
+{"key": "DimTrade.Status", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: HTTP 429"}
+{"key": "FactHoldings.TradeID", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "DimTrade.Status", "model": "nemotron", "raw": "[\"Source.StatusType.ST_NAME\"]"}
+{"key": "FactHoldings.TradeID", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}
+{"key": "DimCustomer.MarketingNameplate", "model": "nemotron", "raw": null, "error": "failed after 8 attempts: null content (finish_reason=length)"}

@@ -1,0 +1,20 @@
+{
+ "task_id": "industry",
+ "step": "recipe",
+ "grain": "One row per industry, identified by the source industry code IN_ID.",
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM Industry AS b1"
+  }
+ ],
+ "combine": "none",
+ "group_by": null,
+ "decisions": {
+  "joins": [],
+  "stacked": false,
+  "deduplicated": false,
+  "aggregated": false
+ },
+ "assumptions": []
+}

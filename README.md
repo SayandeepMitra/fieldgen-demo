@@ -12,6 +12,7 @@ Then fieldgen runs the SQL on your source data and builds the target tables in o
 If you also give it a **reference** (tables or a conversion you already trust), it tests the result against it.
 
 The example in this repository is the move from the Synthea sample data to the OMOP common data model (version 5.4).
+A second benchmark, the TPC-DI data warehouse load (`benchmarks/tpcdi`), tests it on a source with history, surrogate keys and specification rules; its data is not included (see `LICENSES.md`).
 
 ## Quick start
 
@@ -37,6 +38,7 @@ The example package does not contain the Synthea data or the vocabulary files (s
 | `docs/config.md` | every option of `config.yaml`, which values we tested, what we measured |
 | `docs/results.md` | how to read the output; what the numbers do and do not mean |
 | `docs/send_back.md` | the exact list of files to send back after a test |
+| `benchmarks/tpcdi/README.md` | the second benchmark: TPC-DI (31 source tables, 210 target columns, audited gold, L1/L2 graders) and fieldgen's first result on it |
 
 ## Limits (read this before you trust a result)
 

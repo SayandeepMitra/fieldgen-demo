@@ -1,0 +1,11 @@
+{
+ "tx_id": {
+  "b1": "CAST(t1.TX_ID AS CHAR(4))"
+ },
+ "tx_name": {
+  "b1": "CAST(t1.TX_NAME AS CHAR(50))"
+ },
+ "tx_rate": {
+  "b1": "t1.TX_RATE"
+ }
+}

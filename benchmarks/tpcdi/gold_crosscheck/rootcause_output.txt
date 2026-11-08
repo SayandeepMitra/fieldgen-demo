@@ -1,0 +1,159 @@
+### A1 DimAccount.Status: (owning-customer version status, v2 account status, dbt account status) -> versions
+cust_status | v2_status | dbt_status | n
+Active | Active | Active | 13506
+Active | Inactive | Inactive | 1512
+Inactive | Inactive | Active | 899
+Inactive | Inactive | Inactive | 193
+
+### A2 the 899 status disagreements: versions starting ON the customer INACT date vs LATER versions (= UPDACCT after INACT, which dbt re-activates)
+n_total | start_on_inact_date | after_inact_date | before_inact_date
+899 | 709 | 190 | 0
+
+### A2b account actions that occur AFTER the owning customer INACT in the source data (by ActionType)
+ActionType | n
+CLOSEACCT | 90
+UPDACCT | 190
+
+### A3 DimAccount versions by trigger (v2): account action day / customer UPDCUST-INACT day
+total_versions | account_action_versions | customer_triggered_only_versions
+16110 | 12859 | 3251
+
+### A4 dbt DimAccount raw defects: zero-length rows / NULL-account rows (customers without accounts) / total
+zero_length | null_account_rows | total
+0 | 0 | 16110
+
+### A5 dbt DimAccount has no IsCurrent column; v2 has (not compared)
+what | cols
+dbt.DimAccount columns | accountid, brokerid, c_customerid, c_effdate, c_update_ts, accountdesc, taxstatus, status, batchid, effectivedate, enddate
+
+### A6 account action earlier on the SAME DAY as a customer UPDCUST/INACT change (spec 4.5.1.3 uses EffectiveDate <= date <= EndDate, i.e. ambiguous on boundary days; both impls use half-open and take the later customer version)
+n
+2
+
+### B1 same-day consolidation exercised? (customer-days with >1 DimCustomer-relevant event; account-days with >1 account event)
+customer_days | account_days | company_days | security_days
+0 | 1 | 0 | 0
+
+### C1 DimCustomer Prospect-derived fields: (is latest version, v2 has AgencyID, dbt has AgencyID, equal) -> versions
+iscurrent | v2_has | dbt_has | equal | n
+False | False | False | True | 358
+False | False | True | False | 1354
+True | False | False | True | 983
+True | True | True | True | 3745
+
+### C2 customers whose Prospect match exists only on an OLDER version (name/address changed afterwards) vs on latest
+hist_only_customers | hist_and_latest | latest_only
+976 | 368 | 3377
+
+### C3 current (latest) DimCustomer rows: Active/Inactive x has-AgencyID in v2 and dbt
+status | n | v2_has_prospect | dbt_has_prospect
+Inactive | 428 | 335 | 335
+Active | 4300 | 3410 | 3410
+
+### C4 Phone: dbt rows with NULL/stale phone because C_CTRY_CODE present (element-name typo CTRY_CODE) vs v2; versions whose phone differs
+phone1_diff | dbt_null | dbt_stale_or_other | phone1_diff_after_typo_fix
+1550 | 1310 | 240 | 0
+
+### C5 Gender: (v2, dbt) value pairs
+v2 | dbt | n
+U | U | 3449
+F | F | 1499
+M | M | 1492
+
+### C6 Source gender codes other than M/F (case-insensitive) mapped to U by both
+non_mf | null_gender | total
+46 | 12351 | 14572
+
+### D1 DimCompany: dbt keeps blanks as empty strings, v2 as NULL (counts of empty-string cells in dbt)
+addressline2 | country | name_ | ceo | description | postalcode | city | stateprov | addressline1 | count_star()
+1352 | 73 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1500
+
+### D2 DimCompany invalid SPrating: rows with NULL SPrating / NULL isLowGrade in v2 and dbt (both NULL them)
+v2_null_sp | dbt_null_sp | v2_null_lowgrade | dbt_null_lowgrade
+154 | 154 | 154 | 154
+
+### D3 DimCompany versions: companies with >1 version / rows
+companies | n_rows | historical_rows
+1096 | 1500 | 404
+
+### E1 DimSecurity.Dividend: v2 column is INTEGER (target schema), spec says VALUE_T = SNUM(10,2). rows disagreeing / rounding error
+disagree | not_equal_to_round | max_abs_err | total
+3112 | 0 | 0.5 | 3147
+
+### E2 DimSecurity.Dividend declared type in v2 and in the spec
+column_name | data_type
+SharesOutstanding | INTEGER
+Dividend | INTEGER
+
+### E3 DimSecurity CoNameOrCIK matching: SEC records numeric(CIK) / by name; max ShOut
+by_cik | by_name | sec_records | symbols | max_shout
+1173 | 1227 | 2400 | 1998 | 999791942
+
+### E4 DimCompany.Name uniqueness (a name-match is unambiguous iff no name is shared by two CIKs / no name is numeric)
+names_shared_by_2_ciks | numeric_names
+0 | 0
+
+### E5 DimSecurity versions: SEC records vs versions; versions of symbols with a single SEC record (= purely DimCompany-triggered)
+sec_records | v2_versions | dbt_versions | versions_of_single_sec_symbols | sec_without_company_at_pts
+2400 | 3147 | 3147 | 2142 | 0
+
+### F1 DimTrade close keys: (v2 close == create date, dbt close == create date, v2 NULL close, dbt NULL close) and create-key agreement
+v2_close_eq_create | dbt_close_eq_create | v2_close_null | dbt_close_null | create_key_diff | close_diff_after_fix | total
+156600 | 390978 | 5856 | 0 | 0 | 0 | 390978
+
+### F2 DimTrade by final Status: rows, rows with close-key disagreement, v2 close NULL
+status | n | close_date_diff | v2_null_close
+Completed | 362342 | 205866 | 0
+Canceled | 22780 | 22656 | 0
+Pending | 5855 | 5855 | 5855
+Submitted | 1 | 1 | 1
+
+### F3 DimTrade FK version agreement (SK_Security/Company/Account/Customer/Broker translated to natural key+EffectiveDate): rows disagreeing per FK
+fk_security | fk_company | fk_account | fk_customer | fk_broker | total
+0 | 0 | 0 | 0 | 0 | 390978
+
+### F4 trades whose FK version differs from the version valid at trade close (shows the "earliest time encountered" rule matters): account / security
+account_version_changed_before_close | security_version_changed_before_close | closed_trades
+2575 | 357 | 385122
+
+### G1 FactHoldings close keys: rows with SK_DateID disagreement before / after fixing dbt close-key bug
+date_diff | time_diff | diff_after_fix | total
+205866 | 362339 | 0 | 362342
+
+### H1 FactCashBalances: (account, day) groups in Source vs rows in v2 / dbt; running balance disagreements
+source_groups | v2_rows | dbt_rows | cash_disagree
+330461 | 330461 | 330461 | 0
+
+### H2 FactCashBalances rows pointing at an Inactive DimAccount version (v2) / at an Inactive DimCustomer version
+inactive_account_version | inactive_customer_version | total
+138508 | 59710 | 330461
+
+### I1 Prospect.IsCustomer (v2, dbt) pairs
+v2 | dbt | n
+False | False | 11237
+False | True | 335
+True | True | 3410
+
+### I2 Prospect.IsCustomer disagreements that are Prospects matching an INACTIVE current customer
+count_star()
+335
+
+### I3 Prospect.MarketingNameplate: (v2, dbt) value pairs where they differ (dbt gives empty string where no tag applies; spec 4.5.15: NULL)
+v2 | dbt | n
+None |  | 80
+
+### J1 Financial: SEC/FIN CoNameOrCIK numeric vs name; FIN rows with no DimCompany at PTS
+fin_by_cik | fin_by_name | total
+49138 | 49438 | 98576
+
+### L1 dbt DimSecurity surrogate key = concat(exchangeid, dash, effectivedate) (NOT reproduced in the port): colliding key groups / rows involved
+colliding_sk_groups | rows_involved | total_rows
+748 | 1911 | 3147
+
+### C7 latest-version rows with a Prospect match where dbt nameplate is empty string and v2 is NULL
+count_star()
+22
+
+### K1 DimBroker row counts (v2 vs dbt port) and BrokerID set equality
+v2_rows | dbt_rows | only_v2
+4293 | 4293 | 0

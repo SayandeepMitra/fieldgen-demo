@@ -1,0 +1,23 @@
+{
+ "task_id": "taxrate",
+ "step": "recipe",
+ "grain": "One row per tax rate code (TX_ID).",
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM TaxRate AS t1"
+  }
+ ],
+ "combine": "none",
+ "group_by": null,
+ "decisions": {
+  "joins": [],
+  "stacked": false,
+  "deduplicated": false,
+  "aggregated": false
+ },
+ "assumptions": [
+  "TaxRate.TX_ID is the primary key and is unique and not null, so each source row maps to exactly one target row.",
+  "All target fields (tx_id, tx_name, tx_rate) are read directly from TaxRate; no join to TaxInfoXML or other tables is needed."
+ ]
+}

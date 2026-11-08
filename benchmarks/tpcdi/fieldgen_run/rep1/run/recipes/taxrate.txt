@@ -1,0 +1,8 @@
+Recipe for taxrate
+Grain: One row per tax rate code (TX_ID).
+Combine: none
+Branch b1:
+  FROM TaxRate AS t1
+Decisions: joins: []; stacked: False; deduplicated: False; aggregated: False
+Assumption: TaxRate.TX_ID is the primary key and is unique and not null, so each source row maps to exactly one target row.
+Assumption: All target fields (tx_id, tx_name, tx_rate) are read directly from TaxRate; no join to TaxInfoXML or other tables is needed.

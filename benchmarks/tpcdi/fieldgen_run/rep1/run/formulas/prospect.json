@@ -1,0 +1,83 @@
+{
+ "agencyid": {
+  "b1": "CAST(p.AgencyID AS CHAR(30))"
+ },
+ "sk_recorddateid": {
+  "b1": "CAST(20170707 AS INTEGER)"
+ },
+ "sk_updatedateid": {
+  "b1": "CAST(NULL AS INTEGER)"
+ },
+ "batchid": {
+  "b1": "CAST(NULL AS DECIMAL(5))"
+ },
+ "iscustomer": {
+  "b1": "FALSE"
+ },
+ "lastname": {
+  "b1": "CAST(p.LastName AS CHAR(30))"
+ },
+ "firstname": {
+  "b1": "CAST(p.FirstName AS CHAR(30))"
+ },
+ "middleinitial": {
+  "b1": "CAST(p.MiddleInitial AS CHAR(1))"
+ },
+ "gender": {
+  "b1": "CASE WHEN p.Gender IS NULL THEN NULL WHEN UPPER(p.Gender) = 'M' THEN 'M' WHEN UPPER(p.Gender) = 'F' THEN 'F' ELSE 'U' END"
+ },
+ "addressline1": {
+  "b1": "CAST(p.AddressLine1 AS CHAR(80))"
+ },
+ "addressline2": {
+  "b1": "p.AddressLine2"
+ },
+ "city": {
+  "b1": "CAST(p.City AS CHAR(25))"
+ },
+ "state": {
+  "b1": "CAST(p.State AS CHAR(20))"
+ },
+ "country": {
+  "b1": "CAST(p.Country AS CHAR(24))"
+ },
+ "phone": {
+  "b1": "CAST(p.Phone AS CHAR(30))"
+ },
+ "income": {
+  "b1": "p.Income"
+ },
+ "numbercars": {
+  "b1": "p.NumberCars"
+ },
+ "numberchildren": {
+  "b1": "p.NumberChildren"
+ },
+ "maritalstatus": {
+  "b1": "p.MaritalStatus"
+ },
+ "age": {
+  "b1": "p.Age"
+ },
+ "creditrating": {
+  "b1": "p.CreditRating"
+ },
+ "ownorrentflag": {
+  "b1": "p.\"OwnOrRentFlag\""
+ },
+ "employer": {
+  "b1": "CAST(p.Employer AS CHAR(30))"
+ },
+ "numbercreditcards": {
+  "b1": "p.NumberCreditCards"
+ },
+ "networth": {
+  "b1": "p.NetWorth"
+ },
+ "marketingnameplate": {
+  "b1": "CAST(NULL AS CHAR(100))"
+ },
+ "postalcode": {
+  "b1": "CAST(p.PostalCode AS CHAR(12))"
+ }
+}

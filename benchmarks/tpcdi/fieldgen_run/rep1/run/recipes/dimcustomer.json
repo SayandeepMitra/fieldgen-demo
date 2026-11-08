@@ -1,0 +1,47 @@
+{
+ "task_id": "dimcustomer",
+ "step": "recipe",
+ "grain": "sk_customerid (primary key); one row per customer version record",
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM CustomerXML AS c\nLEFT JOIN NameXML AS n ON c.Customer_Id = n.Customer_Id\nLEFT JOIN AddressXML AS a ON c.Customer_Id = a.Customer_Id\nLEFT JOIN ContactInfoXML AS ci ON c.Customer_Id = ci.Customer_Id\nLEFT JOIN C_PHONE_1_XML AS p1 ON ci.ContactInfo_Id = p1.ContactInfo_Id\nLEFT JOIN C_PHONE_2_XML AS p2 ON ci.ContactInfo_Id = p2.ContactInfo_Id\nLEFT JOIN C_PHONE_3_XML AS p3 ON ci.ContactInfo_Id = p3.ContactInfo_Id\nLEFT JOIN TaxInfoXML AS t ON c.Customer_Id = t.Customer_Id\nLEFT JOIN TaxRate AS tr_nat ON t.C_NAT_TX_ID = tr_nat.TX_ID\nLEFT JOIN TaxRate AS tr_loc ON t.C_LCL_TX_ID = tr_loc.TX_ID\nLEFT JOIN ActionXML AS act ON c.Action_Id = act.Action_Id"
+  }
+ ],
+ "combine": "none",
+ "group_by": null,
+ "decisions": {
+  "joins": [
+   "LEFT JOIN NameXML on Customer_Id",
+   "LEFT JOIN AddressXML on Customer_Id",
+   "LEFT JOIN ContactInfoXML on Customer_Id",
+   "LEFT JOIN C_PHONE_1_XML on ContactInfo_Id",
+   "LEFT JOIN C_PHONE_2_XML on ContactInfo_Id",
+   "LEFT JOIN C_PHONE_3_XML on ContactInfo_Id",
+   "LEFT JOIN TaxInfoXML on Customer_Id",
+   "LEFT JOIN TaxRate (national) on C_NAT_TX_ID = TX_ID",
+   "LEFT JOIN TaxRate (local) on C_LCL_TX_ID = TX_ID",
+   "LEFT JOIN ActionXML on Action_Id"
+  ],
+  "stacked": false,
+  "deduplicated": false,
+  "aggregated": false
+ },
+ "assumptions": [
+  "All joins use the supplied inferred links; no additional join conditions are assumed.",
+  "The one-to-one links between CustomerXML and NameXML, AddressXML, ContactInfoXML, TaxInfoXML, and ActionXML are trusted despite differing distinct counts; missing matches produce NULLs via LEFT JOIN.",
+  "Phone tables are joined through ContactInfoXML.ContactInfo_Id; each phone table is left-joined separately so a customer may have up to three phone numbers.",
+  "TaxRate is joined twice, once for national tax (C_NAT_TX_ID) and once for local tax (C_LCL_TX_ID).",
+  "Prospect is not used because there is no link to CustomerXML; agencyid, creditrating, networth, and marketingnameplate will be NULL unless populated by later formulas from another source.",
+  "sk_customerid is a generated surrogate key assigned after stacking and de-duplication; order_by uses customerid and effectivedate for stable numbering."
+ ],
+ "keys": [
+  {
+   "column": "sk_customerid",
+   "order_by": [
+    "customerid",
+    "effectivedate"
+   ]
+  }
+ ]
+}

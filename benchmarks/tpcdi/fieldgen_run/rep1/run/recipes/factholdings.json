@@ -1,0 +1,31 @@
+{
+ "task_id": "factholdings",
+ "step": "recipe",
+ "grain": "One row per HoldingHistory record (HH_T_ID), i.e., one holding snapshot after each trade.",
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM HoldingHistory hh LEFT JOIN Trade t ON hh.HH_T_ID = t.T_ID"
+  }
+ ],
+ "combine": "none",
+ "group_by": null,
+ "decisions": {
+  "joins": [
+   "LEFT JOIN Trade t ON hh.HH_T_ID = t.T_ID"
+  ],
+  "stacked": false,
+  "deduplicated": false,
+  "aggregated": false
+ },
+ "assumptions": [
+  "HH_T_ID is the current trade identifier and HH_H_T_ID is the original trade identifier.",
+  "HH_AFTER_QTY is the quantity held after the current trade (currentholding).",
+  "Trade.T_TRADE_PRICE is the unit price for the current trade (currentprice).",
+  "Trade.T_DTS provides the date and time for sk_dateid and sk_timeid.",
+  "Trade.T_CA_ID is the natural key for the account dimension; Trade.T_S_SYMB is the natural key for the security dimension.",
+  "Surrogate keys for customer, account, security, company, date, and time are obtained by joining to dimension tables in a later step; those dimension tables are not listed in the input and are not part of this recipe.",
+  "BatchID for the historical load is constant 1.",
+  "No de-duplication is needed because HH_T_ID is unique per row."
+ ]
+}

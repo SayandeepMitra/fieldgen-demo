@@ -1,0 +1,70 @@
+prompts ready (210 columns, 0s)
+630 calls to make (0 already done)
+[10/630] DimDate.CalendarYearID nemotron #0 ok
+[20/630] DimDate.CalendarQtrID mistral_large #0 ok
+[30/630] DimDate.FiscalYearID laguna #0 ok
+[40/630] DimDate.DayOfWeekNum mistral_large #0 ok
+[50/630] DimTime.SecondID laguna #0 ok
+[60/630] DimTime.SK_TimeID mistral_large #0 ok
+[70/630] DimTime.HourDesc nemotron #0 ok
+[80/630] Industry.IN_NAME laguna #0 ok
+[90/630] DimTime.SecondDesc nemotron #0 ok
+[100/630] StatusType.ST_NAME nemotron #0 ok
+[110/630] TaxRate.TX_RATE nemotron #0 ok
+[120/630] StatusType.ST_NAME mistral_large #0 ok
+[130/630] DimCompany.FoundingDate laguna #0 ok
+[140/630] TradeType.TT_ID mistral_large #0 ok
+[150/630] DimBroker.BrokerID nemotron #0 ok
+[160/630] DimCustomer.FirstName laguna #0 ok
+[170/630] DimBroker.ManagerID mistral_large #0 ok
+[180/630] Industry.IN_NAME mistral_large #0 ok
+[190/630] DimCustomer.Email2 laguna #0 ok
+[200/630] DimCustomer.CreditRating laguna #0 ok
+[210/630] DimBroker.MiddleInitial mistral_large #0 ok
+[220/630] DimAccount.Status laguna #0 ok
+[230/630] DimAccount.EndDate laguna #0 ok
+[240/630] DimSecurity.Name laguna #0 ok
+[250/630] DimSecurity.FirstTradeOnExchange laguna #0 ok
+[260/630] DimTrade.TradeID laguna #0 ok
+[270/630] DimCustomer.TaxID nemotron #0 ok
+[276/630] DimBroker.EffectiveDate nemotron #0 ERROR failed after 3 attempts: null content (finish_reason=length)
+[280/630] DimTrade.SK_CompanyID laguna #0 ok
+[290/630] DimCustomer.AddressLine2 nemotron #0 ok
+[300/630] FactCashBalances.SK_DateID laguna #0 ok
+[310/630] FactHoldings.SK_SecurityID laguna #0 ok
+[320/630] DimCustomer.Phone2 nemotron #0 ok
+[330/630] Financial.FI_REVENUE laguna #0 ok
+[340/630] Financial.FI_ASSETS laguna #0 ok
+[350/630] Financial.FI_OUT_DILUT laguna #0 ok
+[360/630] Prospect.MiddleInitial laguna #0 ok
+[370/630] Prospect.City laguna #0 ok
+[380/630] Prospect.numberCars laguna #0 ok
+[390/630] Prospect.OwnOrRentFlag laguna #0 ok
+[400/630] DimAccount.EffectiveDate nemotron #0 ok
+[410/630] DimSecurity.FirstTrade nemotron #0 ok
+[420/630] DimSecurity.EndDate nemotron #0 ok
+[430/630] DimTrade.SK_BrokerID nemotron #0 ok
+[440/630] DimTrade.TradePrice nemotron #0 ok
+[450/630] FactHoldings.SK_AccountID nemotron #0 ok
+[460/630] FactHoldings.CurrentTradeID nemotron #0 ok
+[470/630] DimTrade.SK_CustomerID nemotron #0 ok
+[480/630] Financial.FI_ASSETS nemotron #0 ok
+[490/630] Prospect.BatchID nemotron #0 ok
+[500/630] Prospect.AddressLine2 nemotron #0 ok
+[510/630] Prospect.Income nemotron #0 ok
+[520/630] Prospect.MarketingNameplate nemotron #0 ok
+[530/630] DimAccount.BatchID mistral_large #0 ok
+[540/630] DimSecurity.SharesOutstanding mistral_large #0 ok
+[547/630] DimCustomer.Phone1 mistral_large #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[550/630] DimTrade.SK_CreateDateID mistral_large #0 ok
+[559/630] DimCustomer.MarketingNameplate mistral_large #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[560/630] DimTrade.BidPrice mistral_large #0 ok
+[570/630] FactCashBalances.SK_AccountID mistral_large #0 ok
+[580/630] FactHoldings.SK_TimeID mistral_large #0 ok
+[590/630] Financial.FI_REVENUE mistral_large #0 ok
+[600/630] Prospect.AgencyID mistral_large #0 ok
+[610/630] DimTrade.SK_CompanyID mistral_large #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[611/630] DimTrade.SK_CustomerID mistral_large #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[620/630] Prospect.City mistral_large #0 ok
+[630/630] Prospect.MarketingNameplate mistral_large #0 ok
+DONE

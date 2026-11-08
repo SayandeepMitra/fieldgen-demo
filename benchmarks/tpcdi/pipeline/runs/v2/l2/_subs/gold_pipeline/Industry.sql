@@ -1,0 +1,1 @@
+INSERT INTO Industry (IN_ID, IN_NAME, IN_SC_ID) SELECT IN_ID, IN_NAME, IN_SC_ID FROM Source.Industry

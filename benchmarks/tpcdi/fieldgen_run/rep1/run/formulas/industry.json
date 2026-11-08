@@ -1,0 +1,11 @@
+{
+ "in_id": {
+  "b1": "CAST(b1.IN_ID AS CHAR(2))"
+ },
+ "in_name": {
+  "b1": "CAST(b1.IN_NAME AS CHAR(50))"
+ },
+ "in_sc_id": {
+  "b1": "CAST(b1.IN_SC_ID AS CHAR(4))"
+ }
+}

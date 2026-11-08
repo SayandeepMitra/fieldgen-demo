@@ -1,0 +1,37 @@
+prompts ready (25 columns, 0s)
+47 calls to make (28 already done)
+[10/47] Prospect.MarketingNameplate nemotron #0 ok
+[14/47] DimCompany.Industry gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[15/47] DimCustomer.IsCurrent gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[16/47] FactCashBalances.SK_CustomerID gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[17/47] FactCashBalances.Cash gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[18/47] DimTrade.SK_BrokerID gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[19/47] Prospect.IsCustomer gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[20/47] DimSecurity.SK_CompanyID gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[21/47] DimCustomer.MarketingNameplate gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[22/47] DimCompany.SK_CompanyID mistral_large #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[23/47] Prospect.IsCustomer mistral_large #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[24/47] DimCustomer.MarketingNameplate mistral_large #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[25/47] Financial.SK_CompanyID mistral_large #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[26/47] DimBroker.Branch mistral_large #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[28/47] FactHoldings.TradeID mistral_large #0 ERROR failed after 2 attempts: null content (finish_reason=length)
+[29/47] FactHoldings.CurrentPrice mistral_large #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[30/47] DimAccount.SK_CustomerID gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[31/47] Financial.SK_CompanyID gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[32/47] DimBroker.FirstName gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[33/47] DimBroker.Branch gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[34/47] DimTrade.Status gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[35/47] DimTrade.CashFlag gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[36/47] DimSecurity.FirstTrade gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[37/47] FactHoldings.CurrentPrice gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[38/47] Prospect.MarketingNameplate mistral_large #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[39/47] FactHoldings.TradeID gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[40/47] Prospect.MarketingNameplate gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[41/47] DimAccount.Status gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[42/47] Financial.FI_REVENUE gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[43/47] DimCompany.AddressLine1 gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[44/47] DimCustomer.Email1 gpt_oss #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[45/47] DimAccount.Status mistral_large #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[46/47] DimCompany.AddressLine1 mistral_large #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+[47/47] DimCustomer.Email1 mistral_large #0 ERROR failed after 2 attempts: TimeoutError: The read operation timed out
+DONE

@@ -1,0 +1,1 @@
+SELECT "tt_id", "tt_name", "tt_is_sell", "tt_is_mrkt" FROM (SELECT TRY_CAST((CAST(b1.TT_ID AS TEXT)) AS TEXT) AS "tt_id", TRY_CAST((CAST(b1.TT_NAME AS TEXT)) AS TEXT) AS "tt_name", TRY_CAST((b1.TT_IS_SELL) AS DECIMAL(1)) AS "tt_is_sell", TRY_CAST((b1.TT_IS_MRKT) AS DECIMAL(1)) AS "tt_is_mrkt" FROM "Source"."TradeType" AS b1);

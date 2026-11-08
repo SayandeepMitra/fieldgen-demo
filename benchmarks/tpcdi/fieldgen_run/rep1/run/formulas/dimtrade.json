@@ -1,0 +1,65 @@
+{
+ "tradeid": {
+  "b1": "CAST(t.T_ID AS INTEGER)"
+ },
+ "sk_brokerid": {
+  "b1": "CAST(NULL AS INTEGER)"
+ },
+ "sk_createdateid": {
+  "b1": "CAST(strftime(t.T_DTS, '%Y%m%d') AS INTEGER)"
+ },
+ "sk_createtimeid": {
+  "b1": "CAST(strftime(t.T_DTS, '%Y%m%d') AS INTEGER)"
+ },
+ "sk_closedateid": {
+  "b1": "CAST(strftime(t.T_DTS, '%Y%m%d') AS INTEGER)"
+ },
+ "sk_closetimeid": {
+  "b1": "CAST(NULL AS INTEGER)"
+ },
+ "status": {
+  "b1": "CAST(t.T_ST_ID AS CHAR(10))"
+ },
+ "dt_type": {
+  "b1": "CAST(tt.TT_NAME AS CHAR(12))"
+ },
+ "cashflag": {
+  "b1": "CASE WHEN t.T_IS_CASH = '1' THEN TRUE WHEN t.T_IS_CASH = '0' THEN FALSE ELSE NULL END"
+ },
+ "sk_companyid": {
+  "b1": "CAST(NULL AS INTEGER)"
+ },
+ "quantity": {
+  "b1": "t.T_QTY"
+ },
+ "bidprice": {
+  "b1": "CAST(t.T_BID_PRICE AS DECIMAL(8,2))"
+ },
+ "sk_accountid": {
+  "b1": "CAST(t.T_CA_ID AS INT)"
+ },
+ "executedby": {
+  "b1": "CAST(t.T_EXEC_NAME AS CHAR(64))"
+ },
+ "tradeprice": {
+  "b1": "t.T_TRADE_PRICE"
+ },
+ "fee": {
+  "b1": "t.T_CHRG"
+ },
+ "commission": {
+  "b1": "t.T_COMM"
+ },
+ "tax": {
+  "b1": "t.T_TAX"
+ },
+ "batchid": {
+  "b1": "CAST(NULL AS DECIMAL(5))"
+ },
+ "sk_securityid": {
+  "b1": "CAST(NULL AS INTEGER)"
+ },
+ "sk_customerid": {
+  "b1": "CAST(NULL AS INTEGER)"
+ }
+}

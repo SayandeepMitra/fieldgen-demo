@@ -1,0 +1,91 @@
+DimAccount.SK_CustomerID           gpt_oss        #0 NO_ANSWER            None (null 0.0) failed after 3 attempts: TimeoutError: The read operation timed out
+DimAccount.SK_CustomerID           laguna         #0 EXECUTED            100.0 (null 0.0) 
+DimAccount.SK_CustomerID           mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+DimAccount.SK_CustomerID           nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+DimAccount.Status                  laguna         #0 EXECUTED            100.0 (null 0.0) 
+DimAccount.Status                  mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+DimAccount.Status                  nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+DimBroker.Branch                   laguna         #0 EXECUTED            95.18 (null 4.82) 
+DimBroker.Branch                   mistral_large  #0 EXECUTED            100.0 (null 4.82) 
+DimBroker.Branch                   nemotron_ultra #0 EXECUTED            95.18 (null 4.82) 
+DimBroker.FirstName                laguna         #0 EXECUTED            100.0 (null 0.0) 
+DimBroker.FirstName                mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+DimBroker.FirstName                nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+DimCompany.AddressLine1            laguna         #0 EXECUTED            100.0 (null 0.0) 
+DimCompany.AddressLine1            mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+DimCompany.AddressLine1            nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+DimCompany.FoundingDate            gpt_oss        #0 NO_ANSWER            None (null 6.8) failed after 3 attempts: TimeoutError: The read operation timed out
+DimCompany.FoundingDate            laguna         #0 EXECUTION_FAILED     None (null 6.8) Conversion Error: invalid date field format: "18860722", expected form
+DimCompany.FoundingDate            mistral_large  #0 EXECUTED              6.8 (null 6.8) 
+DimCompany.FoundingDate            nemotron_ultra #0 EXECUTED            100.0 (null 6.8) 
+DimCompany.Industry                gpt_oss        #0 NO_ANSWER            None (null 0.0) failed after 3 attempts: TimeoutError: The read operation timed out
+DimCompany.Industry                laguna         #0 EXECUTION_FAILED     None (null 0.0) Parser Error: syntax error at or near "SELECT"  LINE 1: ..., StateProv
+DimCompany.Industry                mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+DimCompany.Industry                nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+DimCompany.SK_CompanyID            gpt_oss        #0 NO_ANSWER            None (null 0.0) failed after 3 attempts: TimeoutError: The read operation timed out
+DimCompany.SK_CompanyID            laguna         #0 EXECUTED              0.0 (null 0.0) 
+DimCompany.SK_CompanyID            mistral_large  #0 EXECUTED              0.0 (null 0.0) 
+DimCompany.SK_CompanyID            nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+DimCustomer.Email1                 laguna         #0 EXECUTED            95.65 (null 0.0) 
+DimCustomer.Email1                 mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+DimCustomer.Email1                 nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+DimCustomer.IsCurrent              gpt_oss        #0 NO_ANSWER            None (null 0.0) failed after 3 attempts: TimeoutError: The read operation timed out
+DimCustomer.IsCurrent              laguna         #0 EXECUTION_FAILED     None (null 0.0) Parser Error: syntax error at or near "SELECT"  LINE 1: ..., CAST(Mark
+DimCustomer.IsCurrent              mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+DimCustomer.IsCurrent              nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+DimCustomer.MarketingNameplate     gpt_oss        #0 NO_ANSWER            None (null 0.87) failed after 3 attempts: TimeoutError: The read operation timed out
+DimCustomer.MarketingNameplate     laguna         #0 EXECUTED              0.0 (null 0.87) 
+DimCustomer.MarketingNameplate     mistral_large  #0 EXECUTED              0.0 (null 0.87) 
+DimCustomer.MarketingNameplate     nemotron_ultra #0 EXECUTED              0.0 (null 0.87) 
+DimCustomer.NationalTaxRateDesc    gpt_oss        #0 NO_ANSWER            None (null 0.0) failed after 3 attempts: TimeoutError: The read operation timed out
+DimCustomer.NationalTaxRateDesc    laguna         #0 EXECUTED            78.59 (null 0.0) 
+DimCustomer.NationalTaxRateDesc    mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+DimCustomer.NationalTaxRateDesc    nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+DimSecurity.FirstTrade             laguna         #0 EXECUTED            100.0 (null 0.0) 
+DimSecurity.FirstTrade             mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+DimSecurity.FirstTrade             nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+DimSecurity.SK_CompanyID           gpt_oss        #0 NO_ANSWER            None (null 0.0) failed after 3 attempts: TimeoutError: The read operation timed out
+DimSecurity.SK_CompanyID           laguna         #0 EXECUTED            100.0 (null 0.0) 
+DimSecurity.SK_CompanyID           mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+DimSecurity.SK_CompanyID           nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+DimTrade.CashFlag                  laguna         #0 EXECUTED            100.0 (null 0.0) 
+DimTrade.CashFlag                  mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+DimTrade.CashFlag                  nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+DimTrade.SK_BrokerID               gpt_oss        #0 NO_ANSWER            None (null 0.0) failed after 3 attempts: TimeoutError: The read operation timed out
+DimTrade.SK_BrokerID               laguna         #0 EXECUTED            100.0 (null 0.0) 
+DimTrade.SK_BrokerID               mistral_large  #0 EXECUTED              0.0 (null 0.0) 
+DimTrade.SK_BrokerID               nemotron_ultra #0 EXECUTED              0.0 (null 0.0) 
+DimTrade.Status                    laguna         #0 EXECUTED            100.0 (null 0.0) 
+DimTrade.Status                    mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+DimTrade.Status                    nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+FactCashBalances.Cash              gpt_oss        #0 NO_ANSWER            None (null 0.0) failed after 3 attempts: TimeoutError: The read operation timed out
+FactCashBalances.Cash              laguna         #0 EXECUTION_FAILED     None (null 0.0) Binder Error: column "CT_AMT" must appear in the GROUP BY clause or mu
+FactCashBalances.Cash              mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+FactCashBalances.Cash              nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+FactCashBalances.SK_CustomerID     gpt_oss        #0 NO_ANSWER            None (null 0.0) failed after 3 attempts: TimeoutError: The read operation timed out
+FactCashBalances.SK_CustomerID     laguna         #0 EXECUTED            100.0 (null 0.0) 
+FactCashBalances.SK_CustomerID     mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+FactCashBalances.SK_CustomerID     nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+FactHoldings.CurrentPrice          laguna         #0 EXECUTED            100.0 (null 0.0) 
+FactHoldings.CurrentPrice          mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+FactHoldings.CurrentPrice          nemotron_ultra #0 EXECUTED              0.0 (null 0.0) 
+FactHoldings.TradeID               laguna         #0 EXECUTED            100.0 (null 0.0) 
+FactHoldings.TradeID               mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+FactHoldings.TradeID               nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+Financial.FI_REVENUE               laguna         #0 EXECUTED            100.0 (null 0.0) 
+Financial.FI_REVENUE               mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+Financial.FI_REVENUE               nemotron_ultra #0 EXECUTED            100.0 (null 0.0) 
+Financial.SK_CompanyID             laguna         #0 EXECUTION_FAILED     None (null 0.0) Parser Error: syntax error at or near "SELECT"  LINE 1: SELECT CAST(SE
+Financial.SK_CompanyID             mistral_large  #0 EXECUTED            100.0 (null 0.0) 
+Financial.SK_CompanyID             nemotron_ultra #0 EXECUTED              0.0 (null 0.0) 
+Prospect.IsCustomer                gpt_oss        #0 NO_ANSWER            None (null 0.0) failed after 3 attempts: TimeoutError: The read operation timed out
+Prospect.IsCustomer                laguna         #0 EXECUTED             6.89 (null 0.0) 
+Prospect.IsCustomer                mistral_large  #0 EXECUTION_FAILED     None (null 0.0) Binder Error: Referenced table "DC" not found! Candidate tables: "P"  
+Prospect.IsCustomer                nemotron_ultra #0 EXECUTED            71.69 (null 0.0) 
+Prospect.MarketingNameplate        laguna         #0 EXECUTION_FAILED     None (null 0.53) Conversion Error: Type VARCHAR with value '2010588683687763760' can't 
+Prospect.MarketingNameplate        mistral_large  #0 NO_ANSWER            None (null 0.53) failed after 3 attempts: TimeoutError: The read operation timed out
+Prospect.MarketingNameplate        nemotron_ultra #0 EXECUTED              0.0 (null 0.53) 
+gpt_oss {'no_answer': 12}
+laguna {'exact': 13, 'partial': 4, 'execution_failed': 6, 'wrong0': 2}
+mistral_large {'exact': 19, 'partial': 1, 'wrong0': 3, 'execution_failed': 1, 'no_answer': 1}
+nemotron_ultra {'exact': 18, 'partial': 2, 'wrong0': 5}

@@ -1,0 +1,115 @@
+prompts ready (210 columns, 0s)
+420 calls to make (0 already done)
+[10/420] DimDate.CalendarQtrDesc nemotron #0 ok
+[20/420] DimDate.DayOfWeekDesc nemotron #0 ok
+[30/420] DimDate.HolidayFlag mistral_large #0 ok
+[40/420] DimTime.MinuteDesc mistral_large #0 ok
+[50/420] DimTime.SecondID nemotron #0 ok
+[60/420] DimTime.OfficeHoursFlag nemotron #0 ok
+[70/420] TradeType.TT_NAME nemotron #0 ok
+[80/420] DimBroker.LastName nemotron #0 ok
+[90/420] DimBroker.Office nemotron #0 ok
+[100/420] DimCompany.CompanyID nemotron #0 ok
+[110/420] DimCompany.Description nemotron #0 ok
+[120/420] DimCompany.StateProv nemotron #0 ok
+[130/420] DimCustomer.CustomerID nemotron #0 ok
+[140/420] DimCustomer.AddressLine2 nemotron #0 ok
+[150/420] DimCustomer.Phone2 nemotron #0 ok
+[160/420] DimCompany.CEO mistral_large #0 ok
+[170/420] DimCompany.IsCurrent mistral_large #0 ok
+[180/420] DimAccount.SK_AccountID nemotron #0 ok
+[190/420] DimSecurity.SK_SecurityID nemotron #0 ok
+[200/420] DimSecurity.SharesOutstanding nemotron #0 ok
+[210/420] DimSecurity.BatchID nemotron #0 ok
+[220/420] DimTrade.DT_Type nemotron #0 ok
+[230/420] DimTrade.BidPrice nemotron #0 ok
+[240/420] DimCustomer.LocalTaxRate mistral_large #0 ok
+[250/420] DimTrade.Tax nemotron #0 ok
+[260/420] FactHoldings.SK_AccountID nemotron #0 ok
+[270/420] DimAccount.SK_BrokerID mistral_large #0 ok
+[280/420] Financial.FI_NET_EARN nemotron #0 ok
+[290/420] DimAccount.SK_AccountID mistral_large #0 ok
+[300/420] Prospect.FirstName nemotron #0 ok
+[310/420] Prospect.State nemotron #0 ok
+[320/420] Prospect.IsCustomer nemotron #0 ok
+[330/420] Prospect.numberCreditCards nemotron #0 ok
+[340/420] DimSecurity.FirstTradeOnExchange mistral_large #0 ok
+[350/420] DimSecurity.EndDate mistral_large #0 ok
+[351/420] DimTrade.SK_SecurityID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[354/420] DimTrade.BidPrice mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[360/420] DimTrade.Fee mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[365/420] DimTrade.BatchID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[367/420] FactCashBalances.SK_CustomerID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[368/420] FactCashBalances.SK_AccountID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[370/420] FactCashBalances.BatchID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[373/420] FactHoldings.SK_SecurityID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[375/420] FactHoldings.CurrentPrice mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[376/420] FactHoldings.SK_TimeID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[377/420] FactHoldings.TradeID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[379/420] FactHoldings.CurrentHolding mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[380/420] Financial.FI_NET_EARN mistral_large #0 ok
+[381/420] FactHoldings.BatchID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[382/420] Financial.FI_YEAR mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[383/420] Financial.FI_QTR mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[384/420] Financial.FI_QTR_START_DATE mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[385/420] Financial.FI_REVENUE mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[387/420] Financial.FI_BASIC_EPS mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[388/420] Financial.FI_DILUT_EPS mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[390/420] Financial.FI_INVENTORY mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[391/420] Financial.FI_ASSETS mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[393/420] Financial.FI_LIABILITY mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[394/420] Financial.FI_OUT_BASIC mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[395/420] Financial.FI_OUT_DILUT mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[396/420] Prospect.SK_UpdateDateID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[397/420] Prospect.BatchID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[399/420] Prospect.IsCustomer mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[400/420] Prospect.LastName mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[401/420] Prospect.FirstName mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[402/420] Prospect.MiddleInitial mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[403/420] Prospect.AddressLine1 mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[404/420] Prospect.AddressLine2 mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[405/420] Prospect.PostalCode mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[406/420] Prospect.City mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[407/420] Prospect.State mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[408/420] Prospect.Country mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[410/420] Prospect.Phone mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[411/420] Prospect.Income mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[412/420] Prospect.numberChildren mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[418/420] Prospect.NetWorth mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[419/420] Prospect.MarketingNameplate mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[420/420] Prospect.Employer mistral_large #0 ok
+DONE
+prompts ready (210 columns, 0s)
+41 calls to make (379 already done)
+[10/41] Financial.FI_QTR mistral_large #0 ok
+[11/41] FactHoldings.SK_TimeID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[12/41] FactHoldings.CurrentHolding mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[15/41] Financial.FI_QTR_START_DATE mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[17/41] Financial.FI_BASIC_EPS mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[19/41] Financial.FI_DILUT_EPS mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[20/41] Financial.FI_INVENTORY mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[22/41] Financial.FI_ASSETS mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[23/41] Financial.FI_LIABILITY mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[25/41] Financial.FI_OUT_DILUT mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[26/41] Prospect.SK_UpdateDateID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[29/41] Prospect.LastName mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[30/41] Prospect.FirstName mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[31/41] Prospect.MiddleInitial mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[32/41] Prospect.AddressLine2 mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[33/41] Prospect.PostalCode mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[36/41] Prospect.City mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[37/41] Prospect.State mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[38/41] Prospect.Country mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[39/41] Prospect.Income mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[40/41] Prospect.numberChildren mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+DONE
+prompts ready (210 columns, 0s)
+20 calls to make (400 already done)
+[4/20] FactHoldings.SK_TimeID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[6/20] Financial.FI_QTR_START_DATE mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[9/20] Financial.FI_ASSETS mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[10/20] Prospect.LastName mistral_large #0 ok
+prompts ready (210 columns, 0s)
+13 calls to make (407 already done)
+[10/13] Prospect.City mistral_large #0 ok
+DONE

@@ -1,0 +1,44 @@
+{
+ "sk_companyid": {
+  "b1": "CAST(hash(fin.CoNameOrCIK) % 2147483648 AS INTEGER)"
+ },
+ "fi_year": {
+  "b1": "TRY_CAST(fin.Year AS DECIMAL(4))"
+ },
+ "fi_qtr": {
+  "b1": "TRY_CAST(fin.Quarter AS DECIMAL(1))"
+ },
+ "fi_qtr_start_date": {
+  "b1": "CAST(strptime(fin.QtrStartDate, '%Y%m%d') AS DATE)"
+ },
+ "fi_revenue": {
+  "b1": "TRY_CAST(fin.Revenue AS DECIMAL(15,2))"
+ },
+ "fi_net_earn": {
+  "b1": "CAST(fin.Earnings AS DECIMAL(15,2))"
+ },
+ "fi_basic_eps": {
+  "b1": "COALESCE(CAST(fin.EPS AS DECIMAL(10,2)), CAST(0 AS DECIMAL(10,2)))"
+ },
+ "fi_dilut_eps": {
+  "b1": "CAST(fin.DilutedEPS AS DECIMAL(10,2))"
+ },
+ "fi_margin": {
+  "b1": "CAST(COALESCE(CAST(fin.Earnings AS DECIMAL(15,4)) / NULLIF(CAST(fin.Revenue AS DECIMAL(15,4)), 0), 0) AS DECIMAL(10,2))"
+ },
+ "fi_inventory": {
+  "b1": "CAST(fin.Inventory AS DECIMAL(15,2))"
+ },
+ "fi_assets": {
+  "b1": "CAST(fin.Assets AS DECIMAL(15,2))"
+ },
+ "fi_liability": {
+  "b1": "CAST(fin.Liabilities AS DECIMAL(15,2))"
+ },
+ "fi_out_basic": {
+  "b1": "CAST(fin.ShOut AS DECIMAL(12))"
+ },
+ "fi_out_dilut": {
+  "b1": "CAST(fin.DilutedShOut AS DECIMAL(12))"
+ }
+}

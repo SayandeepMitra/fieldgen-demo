@@ -1,0 +1,32 @@
+{
+ "timevalue": {
+  "b1": "TRY_CAST(t.TimeValue AS TIME)"
+ },
+ "hourid": {
+  "b1": "t.HourID"
+ },
+ "minuteid": {
+  "b1": "t.MinuteID"
+ },
+ "minutedesc": {
+  "b1": "CAST(t.MinuteDesc AS CHAR(20))"
+ },
+ "secondid": {
+  "b1": "t.SecondID"
+ },
+ "seconddesc": {
+  "b1": "t.SecondDesc"
+ },
+ "officehoursflag": {
+  "b1": "CASE WHEN LOWER(t.OfficeHoursFlag) = 'true' THEN TRUE WHEN LOWER(t.OfficeHoursFlag) = 'false' THEN FALSE ELSE NULL END"
+ },
+ "sk_timeid": {
+  "b1": "CAST(t.SK_TimeID AS INTEGER)"
+ },
+ "hourdesc": {
+  "b1": "t.HourDesc"
+ },
+ "markethoursflag": {
+  "b1": "TRY_CAST(t.MarketHoursFlag AS BOOLEAN)"
+ }
+}

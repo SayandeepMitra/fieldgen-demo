@@ -1,0 +1,57 @@
+config: /Users/kaustubhvasekar/Documents/GradStudy/IITH/Sem-1/AI4DB/Project/benchmark/fieldgen_run/rep1/pkg/config.yaml
+hint    source/tables.json: no descriptions yet for the 243 source columns (descriptions help the model).
+hint    target/reference_tables.json: no lookup tables listed. That is fine if the source has no code lists or vocabularies.
+hint    source/tables.json: primary keys of 27 table(s) were proposed by `fieldgen init`; confirm them (AccountXML, ActionXML, AddressXML, BatchDate, ...).
+hint    source/links.json: 143 link(s) were proposed by `fieldgen init` (marked proposed in the note); confirm or delete them.
+run folder: /Users/kaustubhvasekar/Documents/GradStudy/IITH/Sem-1/AI4DB/Project/benchmark/fieldgen_run/rep1/run | model: nvidia/nemotron-3.5-super-vl-120b-a12b | stages: recipes_and_formulas | domain_knowledge: required
+WARNING untested setting: requests_per_minute = 8
+WARNING untested setting: concurrency = 1
+WARNING text data check: 1 quoted value(s) in the domain text are not in the data (see report.md)
+recipe step: 0 of 16 tables to do
+formula step: 205 columns to do
+served model of first reply: private/nvidia/nemotron-3.5-super-120b-a12b
+./run_gen.sh: line 5: 61506 Terminated: 15          ./venv/bin/python run_fieldgen.py generate --package $rep/pkg
+
+real	20m52.993s
+user	0m18.303s
+sys	0m0.906s
+--- restart (rpm 4) Fri Nov  6 10:33:22 IST 2026
+config: /Users/kaustubhvasekar/Documents/GradStudy/IITH/Sem-1/AI4DB/Project/benchmark/fieldgen_run/rep1/pkg/config.yaml
+hint    source/tables.json: no descriptions yet for the 243 source columns (descriptions help the model).
+hint    target/reference_tables.json: no lookup tables listed. That is fine if the source has no code lists or vocabularies.
+hint    source/tables.json: primary keys of 27 table(s) were proposed by `fieldgen init`; confirm them (AccountXML, ActionXML, AddressXML, BatchDate, ...).
+hint    source/links.json: 143 link(s) were proposed by `fieldgen init` (marked proposed in the note); confirm or delete them.
+run folder: /Users/kaustubhvasekar/Documents/GradStudy/IITH/Sem-1/AI4DB/Project/benchmark/fieldgen_run/rep1/run | model: nvidia/nemotron-3.5-super-vl-120b-a12b | stages: recipes_and_formulas | domain_knowledge: required
+WARNING untested setting: requests_per_minute = 4
+WARNING untested setting: concurrency = 1
+WARNING text data check: 1 quoted value(s) in the domain text are not in the data (see report.md)
+recipe step: 0 of 16 tables to do
+formula step: 149 columns to do
+served model of first reply: private/nvidia/nemotron-3.5-super-120b-a12b
+served model id(s): private/nvidia/nemotron-3.5-super-120b-a12b | seconds: 4579
+recipes valid: 16 of 16 tables | report: /Users/kaustubhvasekar/Documents/GradStudy/IITH/Sem-1/AI4DB/Project/benchmark/fieldgen_run/rep1/run/report.md
+next: fieldgen execute --package rep1/pkg
+
+real	76m21.298s
+user	0m36.128s
+sys	0m2.385s
+--- rerun of 6 cells that failed with HTTP 429 Fri Nov  6 11:50:09 IST 2026
+config: /Users/kaustubhvasekar/Documents/GradStudy/IITH/Sem-1/AI4DB/Project/benchmark/fieldgen_run/rep1/pkg/config.yaml
+hint    source/tables.json: no descriptions yet for the 243 source columns (descriptions help the model).
+hint    target/reference_tables.json: no lookup tables listed. That is fine if the source has no code lists or vocabularies.
+hint    source/tables.json: primary keys of 27 table(s) were proposed by `fieldgen init`; confirm them (AccountXML, ActionXML, AddressXML, BatchDate, ...).
+hint    source/links.json: 143 link(s) were proposed by `fieldgen init` (marked proposed in the note); confirm or delete them.
+run folder: /Users/kaustubhvasekar/Documents/GradStudy/IITH/Sem-1/AI4DB/Project/benchmark/fieldgen_run/rep1/run | model: nvidia/nemotron-3.5-super-vl-120b-a12b | stages: recipes_and_formulas | domain_knowledge: required
+WARNING untested setting: requests_per_minute = 4
+WARNING untested setting: concurrency = 1
+WARNING text data check: 1 quoted value(s) in the domain text are not in the data (see report.md)
+recipe step: 0 of 16 tables to do
+formula step: 6 columns to do
+served model of first reply: private/nvidia/nemotron-3.5-super-120b-a12b
+served model id(s): private/nvidia/nemotron-3.5-super-120b-a12b | seconds: 198
+recipes valid: 16 of 16 tables | report: /Users/kaustubhvasekar/Documents/GradStudy/IITH/Sem-1/AI4DB/Project/benchmark/fieldgen_run/rep1/run/report.md
+next: fieldgen execute --package rep1/pkg
+
+real	3m20.233s
+user	0m12.490s
+sys	0m0.720s

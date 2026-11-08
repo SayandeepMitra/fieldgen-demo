@@ -1,0 +1,27 @@
+{
+ "task_id": "prospect",
+ "step": "recipe",
+ "grain": "One target row per prospect, identified by the source natural key Prospect.AgencyID. AgencyID is the Prospect primary key, unique and not null (14982 distinct values for 14982 rows), so each source row becomes exactly one target row.",
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM Prospect p"
+  }
+ ],
+ "combine": "none",
+ "group_by": null,
+ "decisions": {
+  "joins": [],
+  "stacked": false,
+  "deduplicated": false,
+  "aggregated": false
+ },
+ "assumptions": [
+  "The matcher is noisy: every target field is matched to nearly every Prospect column and to BatchDate.BatchDate. The correct source for all prospect attributes is the Prospect table, matched by column name and semantics (e.g. agencyid <- Prospect.AgencyID, lastname <- Prospect.LastName, income <- Prospect.Income).",
+  "Grain is one row per Prospect.AgencyID; because AgencyID is unique and not null, no join multiplies rows and no de-duplication is required.",
+  "batchid is a constant (1) for the Historical Load phase per the domain specification; it is not obtained by joining another table.",
+  "sk_recorddateid and sk_updatedateid are date surrogate keys referencing dimdate.sk_dateid; dimdate is not provided as a source table, so they are resolved in the formula step from the batch-date context rather than by a join in this recipe.",
+  "BatchDate is a single constant row (2017-07-07) and does not change the grain, and no link exists between Prospect and BatchDate, so BatchDate is not read in this branch.",
+  "No target field is a generated surrogate identifier (the target has no primary key), so no keys entry is required."
+ ]
+}

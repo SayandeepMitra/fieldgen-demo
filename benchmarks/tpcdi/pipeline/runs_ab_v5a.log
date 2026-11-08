@@ -1,0 +1,171 @@
+prompts ready (210 columns, 0s)
+420 calls to make (0 already done)
+[10/420] DimDate.CalendarQtrDesc nemotron #0 ok
+[18/420] DimDate.CalendarYearID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[20/420] DimDate.DayOfWeekDesc nemotron #0 ok
+[23/420] DimDate.CalendarMonthID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[25/420] DimDate.CalendarWeekDesc mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[27/420] DimDate.CalendarWeekDesc nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[29/420] DimDate.DayOfWeekNum mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[30/420] DimDate.HolidayFlag nemotron #0 ok
+[31/420] DimDate.FiscalYearID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[32/420] DimDate.FiscalYearDesc mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[33/420] DimDate.FiscalYearID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[35/420] DimDate.FiscalQtrID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[37/420] DimDate.FiscalQtrDesc mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[38/420] DimDate.HolidayFlag mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[39/420] DimTime.TimeValue nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[40/420] DimTime.MinuteID mistral_large #0 ok
+[42/420] DimTime.HourID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[44/420] DimTime.HourDesc nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[46/420] DimTime.SK_TimeID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[48/420] DimTime.MinuteID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[50/420] DimTime.OfficeHoursFlag nemotron #0 ok
+[52/420] DimTime.SecondID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[55/420] DimTime.SecondDesc nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[56/420] DimTime.SecondDesc mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[59/420] DimTime.MarketHoursFlag mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[60/420] TradeType.TT_NAME nemotron #0 ok
+[61/420] DimTime.MarketHoursFlag nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[63/420] DimTime.OfficeHoursFlag mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[65/420] StatusType.ST_ID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[66/420] TaxRate.TX_ID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[69/420] TaxRate.TX_RATE nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[70/420] TradeType.TT_IS_MRKT mistral_large #0 ok
+[71/420] TradeType.TT_ID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[73/420] TradeType.TT_IS_SELL nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[74/420] TradeType.TT_NAME mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[75/420] TradeType.TT_IS_MRKT nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[77/420] Industry.IN_NAME nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[78/420] Industry.IN_ID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[79/420] Industry.IN_NAME mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[80/420] Industry.IN_SC_ID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[84/420] DimBroker.SK_BrokerID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[86/420] DimBroker.ManagerID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[89/420] DimBroker.FirstName mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[90/420] DimBroker.ManagerID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[93/420] DimBroker.LastName mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[95/420] DimBroker.Branch mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[97/420] DimBroker.Office nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[98/420] DimBroker.Office mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[100/420] DimBroker.Phone nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[102/420] DimBroker.IsCurrent nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[105/420] DimBroker.EndDate nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[106/420] DimBroker.BatchID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[107/420] DimCompany.SK_CompanyID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[109/420] DimCompany.SK_CompanyID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[110/420] DimCompany.isLowGrade nemotron #0 ok
+[111/420] DimCompany.CompanyID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[113/420] DimCompany.Status mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[116/420] DimCompany.Status nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[117/420] DimCompany.Name mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[120/420] DimCompany.Name nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[125/420] DimCompany.CEO nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[126/420] DimCompany.SPrating mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[128/420] DimCompany.isLowGrade mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[129/420] DimCompany.AddressLine1 nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[130/420] DimCompany.AddressLine2 nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[132/420] DimCompany.AddressLine1 mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[134/420] DimCompany.AddressLine2 mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[135/420] DimCompany.City nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[136/420] DimCompany.StateProv nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[138/420] DimCompany.City mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[139/420] DimCompany.Country nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[140/420] DimCompany.EffectiveDate mistral_large #0 ok
+[141/420] DimCompany.StateProv mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[143/420] DimCompany.EffectiveDate nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[146/420] DimCompany.EndDate mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[147/420] DimCustomer.SK_CustomerID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[148/420] DimCustomer.CustomerID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[150/420] DimCustomer.TaxID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[152/420] DimCustomer.SK_CustomerID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[153/420] DimCustomer.CustomerID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[157/420] DimCustomer.FirstName nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[158/420] DimCustomer.MiddleInitial nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[160/420] DimCustomer.FirstName mistral_large #0 ok
+[163/420] DimCustomer.Gender nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[166/420] DimCustomer.Tier nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[168/420] DimCustomer.Tier mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[169/420] DimCustomer.AddressLine2 nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[170/420] DimCustomer.Country nemotron #0 ok
+[172/420] DimCustomer.City nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[173/420] DimCustomer.AddressLine1 mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[174/420] DimCustomer.AddressLine2 mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[175/420] DimCustomer.PostalCode mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[176/420] DimCustomer.Phone1 nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[177/420] DimCustomer.City mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[178/420] DimCustomer.Phone2 nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[180/420] DimCustomer.Phone3 mistral_large #0 ok
+[181/420] DimCustomer.Phone3 nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[182/420] DimCustomer.Email1 nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[183/420] DimCustomer.Email2 nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[185/420] DimCustomer.NationalTaxRateDesc nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[186/420] DimCustomer.Phone1 mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[190/420] DimCustomer.CreditRating nemotron #0 ok
+[194/420] DimCustomer.AgencyID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[196/420] DimCustomer.NetWorth nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[197/420] DimCustomer.MarketingNameplate nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[200/420] DimCustomer.BatchID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[202/420] DimCustomer.NationalTaxRate mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[203/420] DimCustomer.EffectiveDate nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[204/420] DimCustomer.AgencyID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[206/420] DimAccount.SK_AccountID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[207/420] DimAccount.AccountID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[209/420] DimAccount.SK_BrokerID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[210/420] DimAccount.SK_CustomerID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[214/420] DimCustomer.MarketingNameplate mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[215/420] DimAccount.AccountDesc nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[219/420] DimAccount.TaxStatus nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[220/420] DimSecurity.SK_SecurityID nemotron #0 ok
+[222/420] DimAccount.IsCurrent nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[224/420] DimAccount.BatchID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[226/420] DimAccount.EffectiveDate nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[230/420] DimAccount.SK_CustomerID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[234/420] DimSecurity.Issue nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[235/420] DimSecurity.Name nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[236/420] DimAccount.TaxStatus mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[240/420] DimSecurity.SK_CompanyID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[242/420] DimSecurity.FirstTrade nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[244/420] DimSecurity.FirstTradeOnExchange nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[245/420] DimAccount.BatchID mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[247/420] DimSecurity.Dividend nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[250/420] DimSecurity.BatchID nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[251/420] DimSecurity.Symbol mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[252/420] DimSecurity.EffectiveDate nemotron #0 ERROR failed after 3 attempts: HTTP 429
+[254/420] DimCustomer.LocalTaxRate mistral_large #0 ERROR failed after 3 attempts: HTTP 429
+[255/420] DimSecurity.EndDate nemotron #0 ERROR failed after 3 attempts: HTTP 429
+prompts ready (210 columns, 0s)
+283 calls to make (137 already done)
+[10/283] DimDate.FiscalYearID mistral_large #0 ok
+[20/283] DimTime.SecondDesc mistral_large #0 ok
+[30/283] DimTime.MarketHoursFlag mistral_large #0 ok
+[40/283] DimBroker.ManagerID mistral_large #0 ok
+[50/283] DimBroker.BatchID mistral_large #0 ok
+[60/283] DimCustomer.MiddleInitial nemotron #0 ok
+[70/283] DimCustomer.City nemotron #0 ok
+[80/283] DimCustomer.NetWorth nemotron #0 ok
+[90/283] DimCustomer.CustomerID mistral_large #0 ok
+[100/283] DimSecurity.Issue nemotron #0 ok
+[110/283] DimSecurity.EndDate nemotron #0 ok
+[120/283] DimTrade.SK_CloseTimeID nemotron #0 ok
+[130/283] DimAccount.BatchID mistral_large #0 ok
+[140/283] FactCashBalances.SK_AccountID nemotron #0 ok
+[150/283] FactHoldings.SK_SecurityID nemotron #0 ok
+[160/283] FactHoldings.CurrentHolding nemotron #0 ok
+[170/283] Financial.FI_REVENUE nemotron #0 ok
+[180/283] DimTrade.SK_CloseTimeID mistral_large #0 ok
+[190/283] Prospect.SK_UpdateDateID nemotron #0 ok
+[200/283] Prospect.Phone nemotron #0 ok
+[210/283] Prospect.CreditRating nemotron #0 ok
+[220/283] DimSecurity.Dividend mistral_large #0 ok
+[230/283] FactCashBalances.Cash mistral_large #0 ok
+[240/283] DimTrade.SK_CompanyID mistral_large #0 ok
+[250/283] Financial.FI_MARGIN mistral_large #0 ok
+[260/283] Prospect.IsCustomer mistral_large #0 ok
+[270/283] Prospect.Income mistral_large #0 ok
+[280/283] Prospect.numberCreditCards mistral_large #0 ok
+[282/283] Financial.SK_CompanyID mistral_large #0 ERROR failed after 8 attempts: TimeoutError: The read operation timed out
+DONE
+prompts ready (210 columns, 0s)
+1 calls to make (419 already done)
+DONE

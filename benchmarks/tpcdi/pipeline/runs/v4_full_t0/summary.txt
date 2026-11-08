@@ -1,0 +1,75 @@
+
+ALL (210 cols)
+model           exact      %  partial  wrong  fail  mean match%  mean lift
+nemotron          170  81.0%       20     20     0        89.5%      86.0
+mistral_large     174  82.9%       13     20     3        88.5%      84.9
+laguna            134  63.8%       35     13    28        78.9%      75.4
+
+RELIABLE-GOLD (excl. 17 defective) (193 cols)
+model           exact      %  partial  wrong  fail  mean match%  mean lift
+nemotron          159  82.4%       19     15     0        91.4%      87.5
+mistral_large     162  83.9%       12     16     3        89.7%      85.8
+laguna            122  63.2%       35     10    26        79.6%      75.8
+
+GOLD-DEFECTIVE only (17 cols)
+model           exact      %  partial  wrong  fail  mean match%  mean lift
+nemotron           11  64.7%        1      5     0        68.9%      68.9
+mistral_large      12  70.6%        1      4     0        74.8%      74.8
+laguna             12  70.6%        0      3     2        71.2%      71.2
+
+BY COLUMN KIND (reliable gold): exact/n per model
+kind                         n       nemotron  mistral_large         laguna
+passthrough_copy            70         68/70          70/70          54/70   
+rename                      41         31/41          36/41          23/41   
+lookup join                 20         19/20          20/20          10/20   
+retype                      18         18/18          18/18          15/18   
+SCD history                 12          7/12           5/12           4/12   
+constant                    11          4/11           3/11           8/11   
+value                        8          4/8            4/8            4/8    
+conditional                  6          2/6            2/6            2/6    
+generated_key                5          4/5            2/5            0/5    
+copies_generated_key         2          2/2            2/2            2/2    
+
+BY TABLE (reliable): exact/n per model
+DimAccount            11          6/11           6/11           6/11   
+DimBroker             13         10/13          11/13          11/13   
+DimCompany            20         17/20          15/20          10/20   
+DimCustomer           33         18/33          21/33           8/33   
+DimDate               18         18/18          18/18          16/18   
+DimSecurity           14         12/14          12/14          10/14   
+DimTime               10         10/10          10/10           9/10   
+DimTrade              14         13/14          13/14           7/14   
+FactCashBalances       4          4/4            3/4            3/4    
+FactHoldings           4          3/4            3/4            4/4    
+Financial             14         13/14          14/14          12/14   
+Industry               3          3/3            3/3            3/3    
+Prospect              26         23/26          24/26          14/26   
+StatusType             2          2/2            2/2            2/2    
+TaxRate                3          3/3            3/3            3/3    
+TradeType              4          4/4            4/4            4/4    
+
+COVERAGE: exact by >=1 model: 187 | all 3: 121 | none: 23
+reliable only: >=1: 174 / 193  all3: 111  none: 19
+
+NONE of the 3 exact (reliable gold):
+  DimAccount.EndDate                   kind=SCD history        nemo=10.41 mist=10.41 lagu=None
+  DimAccount.IsCurrent                 kind=SCD history        nemo=89.59 mist=89.59 lagu=None
+  DimBroker.SK_BrokerID                kind=generated_key      nemo=0.02 mist=0.02 lagu=0.02
+  DimCompany.BatchID                   kind=constant           nemo=0.0 mist=0.0 lagu=None
+  DimCompany.EndDate                   kind=SCD history        nemo=73.07 mist=73.07 lagu=0.0
+  DimCompany.isLowGrade                kind=conditional        nemo=99.93 mist=89.8 lagu=61.4
+  DimCustomer.AddressLine1             kind=rename             nemo=95.57 mist=95.57 lagu=95.57
+  DimCustomer.City                     kind=rename             nemo=95.62 mist=95.62 lagu=95.62
+  DimCustomer.EndDate                  kind=SCD history        nemo=0.0 mist=0.0 lagu=None
+  DimCustomer.Gender                   kind=conditional        nemo=18.42 mist=18.42 lagu=82.2
+  DimCustomer.MarketingNameplate       kind=conditional        nemo=0.0 mist=0.0 lagu=0.0
+  DimCustomer.Phone1                   kind=value              nemo=89.57 mist=89.57 lagu=89.57
+  DimCustomer.Phone2                   kind=value              nemo=92.02 mist=92.02 lagu=92.02
+  DimCustomer.Phone3                   kind=value              nemo=96.88 mist=96.88 lagu=96.88
+  DimCustomer.PostalCode               kind=rename             nemo=95.48 mist=95.48 lagu=95.48
+  DimCustomer.StateProv                kind=rename             nemo=95.82 mist=95.82 lagu=95.82
+  DimSecurity.EndDate                  kind=SCD history        nemo=0.0 mist=87.61 lagu=0.0
+  DimTrade.BatchID                     kind=constant           nemo=0.0 mist=0.0 lagu=None
+  Prospect.MarketingNameplate          kind=conditional        nemo=0.0 mist=0.0 lagu=0.0
+
+WEAK-DISCRIMINATING columns exact counts: {'DimBroker.MiddleInitial': 3, 'DimCustomer.AddressLine2': 3, 'DimCustomer.Email2': 2, 'DimCustomer.MiddleInitial': 2, 'DimCustomer.Phone2': 0, 'DimCustomer.Phone3': 0, 'DimTrade.SK_CloseDateID': 2, 'DimTrade.SK_CloseTimeID': 2, 'Prospect.AddressLine2': 2, 'Prospect.Gender': 2, 'Prospect.MiddleInitial': 2}

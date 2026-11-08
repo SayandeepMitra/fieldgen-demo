@@ -1,0 +1,59 @@
+{
+ "companyid": {
+  "b1": "TRY_CAST(f.CIK AS INTEGER)"
+ },
+ "status": {
+  "b1": "CAST(f.Status AS CHAR(10))"
+ },
+ "name": {
+  "b1": "CAST(f.CompanyName AS CHAR(60))"
+ },
+ "industry": {
+  "b1": "CAST(i.IN_NAME AS CHAR(50))"
+ },
+ "sprating": {
+  "b1": "f.SPrating"
+ },
+ "islowgrade": {
+  "b1": "CASE\n  WHEN f.SPrating IS NULL THEN NULL\n  WHEN upper(f.SPrating) IN ('BB+','BB','BB-','B+','B','B-','CCC+','CCC','CCC-','CC','C','D') THEN TRUE\n  WHEN upper(f.SPrating) IN ('AAA','AA+','AA','AA-','A+','A','A-','BBB+','BBB','BBB-') THEN FALSE\n  ELSE NULL\nEND"
+ },
+ "ceo": {
+  "b1": "f.CEOname"
+ },
+ "addressline1": {
+  "b1": "f.AddrLine1"
+ },
+ "addressline2": {
+  "b1": "CAST(f.AddrLine2 AS VARCHAR(80))"
+ },
+ "postalcode": {
+  "b1": "CAST(f.PostalCode AS CHAR(12))"
+ },
+ "city": {
+  "b1": "CAST(f.City AS CHAR(25))"
+ },
+ "country": {
+  "b1": "CAST(f.Country AS CHAR(24))"
+ },
+ "description": {
+  "b1": "CAST(f.Description AS CHAR(150))"
+ },
+ "foundingdate": {
+  "b1": "CAST(strptime(f.FoundingDate, '%Y%m%d') AS DATE)"
+ },
+ "iscurrent": {
+  "b1": "f.PTS = MAX(f.PTS) OVER (PARTITION BY f.CIK)"
+ },
+ "batchid": {
+  "b1": "CAST(NULL AS DECIMAL(5))"
+ },
+ "effectivedate": {
+  "b1": "CASE WHEN f.PTS ~ '^[0-9]{8}-[0-9]{6}$' THEN CAST(strptime(f.PTS, '%Y%m%d-%H%M%S') AS DATE) ELSE NULL END"
+ },
+ "enddate": {
+  "b1": "CAST('9999-12-31' AS DATE)"
+ },
+ "stateprov": {
+  "b1": "CAST(f.StateProvince AS CHAR(20))"
+ }
+}

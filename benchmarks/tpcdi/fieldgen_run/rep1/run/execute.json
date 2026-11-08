@@ -1,0 +1,117 @@
+{
+ "sample_rows": "all",
+ "tables": [
+  {
+   "table": "industry",
+   "ok": true,
+   "rows": 102,
+   "error": null,
+   "dropped_window_formulas": []
+  },
+  {
+   "table": "statustype",
+   "ok": true,
+   "rows": 6,
+   "error": null,
+   "dropped_window_formulas": []
+  },
+  {
+   "table": "taxrate",
+   "ok": true,
+   "rows": 320,
+   "error": null,
+   "dropped_window_formulas": []
+  },
+  {
+   "table": "tradetype",
+   "ok": true,
+   "rows": 5,
+   "error": null,
+   "dropped_window_formulas": []
+  },
+  {
+   "table": "dimdate",
+   "ok": true,
+   "rows": 25933,
+   "error": null,
+   "dropped_window_formulas": []
+  },
+  {
+   "table": "dimtime",
+   "ok": true,
+   "rows": 86400,
+   "error": null,
+   "dropped_window_formulas": []
+  },
+  {
+   "table": "dimbroker",
+   "ok": true,
+   "rows": 15000,
+   "error": null,
+   "dropped_window_formulas": []
+  },
+  {
+   "table": "dimcustomer",
+   "ok": true,
+   "rows": 14572,
+   "error": null,
+   "dropped_window_formulas": []
+  },
+  {
+   "table": "dimaccount",
+   "ok": true,
+   "rows": 12860,
+   "error": null,
+   "dropped_window_formulas": []
+  },
+  {
+   "table": "dimcompany",
+   "ok": true,
+   "rows": 1500,
+   "error": null,
+   "dropped_window_formulas": []
+  },
+  {
+   "table": "dimsecurity",
+   "ok": true,
+   "rows": 2400,
+   "error": null,
+   "dropped_window_formulas": []
+  },
+  {
+   "table": "dimtrade",
+   "ok": true,
+   "rows": 390978,
+   "error": null,
+   "dropped_window_formulas": []
+  },
+  {
+   "table": "factcashbalances",
+   "ok": true,
+   "rows": 361856,
+   "error": null,
+   "dropped_window_formulas": []
+  },
+  {
+   "table": "factholdings",
+   "ok": true,
+   "rows": 362342,
+   "error": null,
+   "dropped_window_formulas": []
+  },
+  {
+   "table": "financial",
+   "ok": true,
+   "rows": 98576,
+   "error": null,
+   "dropped_window_formulas": []
+  },
+  {
+   "table": "prospect",
+   "ok": true,
+   "rows": 14982,
+   "error": null,
+   "dropped_window_formulas": []
+  }
+ ]
+}

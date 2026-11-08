@@ -1,0 +1,9 @@
+Recipe for dimsecurity
+Grain: One row per FinwireSEC record (security version)
+Combine: none
+Branch b1:
+  FROM FinwireSEC sec LEFT JOIN StatusType st ON sec.Status = st.ST_ID
+Generated key sk_securityid, numbered in the order of: symbol, effectivedate
+Decisions: joins: ['LEFT JOIN StatusType st ON sec.Status = st.ST_ID']; stacked: False; deduplicated: False; aggregated: False
+Assumption: StatusType is joined to translate FinwireSEC.Status code to a descriptive status name; this join condition is not a supplied link.
+Assumption: sk_companyid cannot be resolved from the listed source tables and will require a lookup to dimcompany in a later step.

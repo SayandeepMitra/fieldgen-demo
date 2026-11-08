@@ -1,0 +1,34 @@
+{
+ "task_id": "dimbroker",
+ "step": "recipe",
+ "grain": "one row per broker (natural key brokerid)",
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM HR AS h"
+  }
+ ],
+ "combine": "none",
+ "group_by": null,
+ "decisions": {
+  "joins": [],
+  "stacked": false,
+  "deduplicated": false,
+  "aggregated": false
+ },
+ "assumptions": [
+  "HR.EmployeeID is the natural key brokerid and is unique per broker.",
+  "HR.ManagerID references another employee's EmployeeID and may be NULL.",
+  "No join to Date is required for the initial load; effectivedate and enddate will be derived in the formula step (effectivedate = batch start date, enddate = 9999-12-31).",
+  "batchid = 1 for the Historical Load phase.",
+  "iscurrent = TRUE for all rows in the initial load."
+ ],
+ "keys": [
+  {
+   "column": "sk_brokerid",
+   "order_by": [
+    "brokerid"
+   ]
+  }
+ ]
+}

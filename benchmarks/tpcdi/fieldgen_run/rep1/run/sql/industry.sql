@@ -1,0 +1,1 @@
+SELECT "in_id", "in_name", "in_sc_id" FROM (SELECT TRY_CAST((CAST(b1.IN_ID AS CHAR(2))) AS char(2)) AS "in_id", TRY_CAST((CAST(b1.IN_NAME AS CHAR(50))) AS char(50)) AS "in_name", TRY_CAST((CAST(b1.IN_SC_ID AS CHAR(4))) AS char(4)) AS "in_sc_id" FROM Industry AS b1)

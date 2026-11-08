@@ -17,4 +17,9 @@ Changes made by this project are stated for each item. This file does not choose
    - reference/recipes and reference/fields: the reference conversion, derived from the compiled SQL of the dbt-synthea models, split per target table and column; alignment data added by this project.
    Changes: the original files were not copied unchanged. They were reformatted, split, annotated and combined. They are not endorsed by the dbt-synthea project.
 
-3. Not included, so not covered by this notice: the Synthea sample data, the OMOP vocabulary seed files, and the reference tables built from them (see LICENSES.md).
+3. dbtpcdi (https://github.com/rlsalcido24/dbtpcdi; Apache-2.0)
+   Used in: benchmarks/tpcdi/gold_crosscheck/dbt_port.sql, normalize.sql
+   What: the dbt models of an independent TPC-DI implementation (Snowflake), used as a cross-check of the TPC-DI gold.
+   Changes: ported to DuckDB and run on the parsed Source.* tables; Batch-1 history load only; not endorsed by the dbtpcdi project.
+
+4. Not included, so not covered by this notice: the Synthea sample data, the OMOP vocabulary seed files, and the reference tables built from them (see LICENSES.md).

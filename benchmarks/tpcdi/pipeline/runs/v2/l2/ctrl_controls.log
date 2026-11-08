@@ -1,0 +1,30 @@
+C2 {'summary': {'tables_graded': 16, 'tables_rows_correct': 0, 'tables_rows_correct_sound_reference': '0/16', 'columns_exact_all': '0/210', 'columns_exact_core171': '0/196', 'columns_exact_hard37': '0/70', 'columns_exact_core': '0/196', 'columns_exact_hard': '0/70', 'constraint_violations': {'not_null_cells': 0, 'dangling_fk_cells': 0}, 'defective_reference_tables_flagged': []}, 'pass': True}
+  DimAccount         OK     rows=   16110    0.0s 
+{'key': 'DimAccount.AccountDesc', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 69.46, 'L2_pct_ref': 69.46, 'agree': True}
+  DimAccount         OK     rows=   16110    0.0s 
+{'key': 'DimAccount.Status', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 89.42, 'L2_pct_ref': 89.417, 'agree': True}
+  DimAccount         OK     rows=   16110    0.0s 
+{'key': 'DimAccount.TaxStatus', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 71.64, 'L2_pct_ref': 71.639, 'agree': True}
+  DimCompany         OK     rows=    1500    0.0s 
+{'key': 'DimCompany.AddressLine2', 'kind': 'plain', 'model': 'nemotron', 'L1_match_pct': 9.87, 'L2_pct_ref': 9.867, 'agree': True}
+  DimCompany         OK     rows=    1500    0.0s 
+{'key': 'DimCompany.Country', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 95.13, 'L2_pct_ref': 95.133, 'agree': True}
+  DimCompany         OK     rows=    1500    0.0s 
+{'key': 'DimCompany.FoundingDate', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 6.8, 'L2_pct_ref': 6.8, 'agree': True}
+  DimCompany         OK     rows=    1500    0.0s 
+{'key': 'DimCompany.SPrating', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 89.73, 'L2_pct_ref': 89.733, 'agree': True}
+  DimCompany         OK     rows=    1500    0.0s 
+{'key': 'DimCompany.isLowGrade', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 89.73, 'L2_pct_ref': 89.733, 'agree': True}
+  DimCustomer        OK     rows=    6440    2.5s 
+{'key': 'DimCustomer.AddressLine1', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 89.22, 'L2_pct_ref': 89.224, 'agree': True}
+  DimCustomer        OK     rows=    6440    2.5s 
+{'key': 'DimCustomer.AddressLine2', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 97.16, 'L2_pct_ref': 97.158, 'agree': True}
+  DimCustomer        OK     rows=    6440    2.5s 
+{'key': 'DimCustomer.City', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 89.38, 'L2_pct_ref': 89.379, 'agree': True}
+  DimCustomer        OK     rows=    6440    2.5s 
+{'key': 'DimCustomer.Country', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 88.17, 'L2_pct_ref': 88.168, 'agree': True}
+  DimCustomer        OK     rows=    6440    2.6s 
+{'key': 'DimCustomer.DOB', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 73.42, 'L2_pct_ref': 73.416, 'agree': True}
+  DimCustomer        OK     rows=    6440    2.6s 
+{'key': 'DimCustomer.Email1', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 89.32, 'L2_pct_ref': 89.317, 'agree': True}
+14/14

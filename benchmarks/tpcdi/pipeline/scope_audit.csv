@@ -1,0 +1,211 @@
+table,column,csv_kind,relations,grouped,derived_fields,csv_value_columns,value_columns_status,gold_literal,csv_rule_reliable,gold_quality
+DimDate,SK_DateID,passthrough_copy,Date,False,Source.Date.SK_DateID,Source.Date.SK_DateID,covered,False,yes,ok
+DimDate,DateValue,passthrough_copy,Date,False,Source.Date.DateValue,Source.Date.DateValue,covered,False,yes,ok
+DimDate,DateDesc,passthrough_copy,Date,False,Source.Date.DateDesc,Source.Date.DateDesc,covered,False,yes,ok
+DimDate,CalendarYearID,passthrough_copy,Date,False,Source.Date.CalendarYearID,Source.Date.CalendarYearID,covered,False,yes,ok
+DimDate,CalendarYearDesc,passthrough_copy,Date,False,Source.Date.CalendarYearDesc,Source.Date.CalendarYearDesc,covered,False,yes,ok
+DimDate,CalendarQtrID,passthrough_copy,Date,False,Source.Date.CalendarQtrID,Source.Date.CalendarQtrID,covered,False,yes,ok
+DimDate,CalendarQtrDesc,passthrough_copy,Date,False,Source.Date.CalendarQtrDesc,Source.Date.CalendarQtrDesc,covered,False,yes,ok
+DimDate,CalendarMonthID,passthrough_copy,Date,False,Source.Date.CalendarMonthID,Source.Date.CalendarMonthID,covered,False,yes,ok
+DimDate,CalendarMonthDesc,passthrough_copy,Date,False,Source.Date.CalendarMonthDesc,Source.Date.CalendarMonthDesc,covered,False,yes,ok
+DimDate,CalendarWeekID,passthrough_copy,Date,False,Source.Date.CalendarWeekID,Source.Date.CalendarWeekID,covered,False,yes,ok
+DimDate,CalendarWeekDesc,passthrough_copy,Date,False,Source.Date.CalendarWeekDesc,Source.Date.CalendarWeekDesc,covered,False,yes,ok
+DimDate,DayOfWeekNum,passthrough_copy,Date,False,Source.Date.DayOfWeekNum,Source.Date.DayOfWeekNum,covered,False,yes,ok
+DimDate,DayOfWeekDesc,passthrough_copy,Date,False,Source.Date.DayOfWeekDesc,Source.Date.DayOfWeekDesc,covered,False,yes,ok
+DimDate,FiscalYearID,passthrough_copy,Date,False,Source.Date.FiscalYearID,Source.Date.FiscalYearID,covered,False,yes,ok
+DimDate,FiscalYearDesc,passthrough_copy,Date,False,Source.Date.FiscalYearDesc,Source.Date.FiscalYearDesc,covered,False,yes,ok
+DimDate,FiscalQtrID,passthrough_copy,Date,False,Source.Date.FiscalQtrID,Source.Date.FiscalQtrID,covered,False,yes,ok
+DimDate,FiscalQtrDesc,passthrough_copy,Date,False,Source.Date.FiscalQtrDesc,Source.Date.FiscalQtrDesc,covered,False,yes,ok
+DimDate,HolidayFlag,value,Date,False,Source.Date.HolidayFlag,Source.Date.HolidayFlag,covered,False,yes,ok
+DimTime,SK_TimeID,passthrough_copy,Time,False,Source.Time.SK_TimeID,Source.Time.SK_TimeID,covered,False,yes,ok
+DimTime,TimeValue,passthrough_copy,Time,False,Source.Time.TimeValue,Source.Time.TimeValue,covered,False,yes,ok
+DimTime,HourID,passthrough_copy,Time,False,Source.Time.HourID,Source.Time.HourID,covered,False,yes,ok
+DimTime,HourDesc,passthrough_copy,Time,False,Source.Time.HourDesc,Source.Time.HourDesc,covered,False,yes,ok
+DimTime,MinuteID,passthrough_copy,Time,False,Source.Time.MinuteID,Source.Time.MinuteID,covered,False,yes,ok
+DimTime,MinuteDesc,passthrough_copy,Time,False,Source.Time.MinuteDesc,Source.Time.MinuteDesc,covered,False,yes,ok
+DimTime,SecondID,passthrough_copy,Time,False,Source.Time.SecondID,Source.Time.SecondID,covered,False,yes,ok
+DimTime,SecondDesc,passthrough_copy,Time,False,Source.Time.SecondDesc,Source.Time.SecondDesc,covered,False,yes,ok
+DimTime,MarketHoursFlag,value,Time,False,Source.Time.MarketHoursFlag,Source.Time.MarketHoursFlag,covered,False,yes,ok
+DimTime,OfficeHoursFlag,value,Time,False,Source.Time.OfficeHoursFlag,Source.Time.OfficeHoursFlag,covered,False,yes,ok
+StatusType,ST_ID,passthrough_copy,StatusType,False,Source.StatusType.ST_ID,Source.StatusType.ST_ID,covered,False,yes,ok
+StatusType,ST_NAME,passthrough_copy,StatusType,False,Source.StatusType.ST_NAME,Source.StatusType.ST_NAME,covered,False,yes,ok
+TaxRate,TX_ID,passthrough_copy,TaxRate,False,Source.TaxRate.TX_ID,Source.TaxRate.TX_ID,covered,False,yes,ok
+TaxRate,TX_NAME,passthrough_copy,TaxRate,False,Source.TaxRate.TX_NAME,Source.TaxRate.TX_NAME,covered,False,yes,ok
+TaxRate,TX_RATE,passthrough_copy,TaxRate,False,Source.TaxRate.TX_RATE,Source.TaxRate.TX_RATE,covered,False,yes,ok
+TradeType,TT_ID,passthrough_copy,TradeType,False,Source.TradeType.TT_ID,Source.TradeType.TT_ID,covered,False,yes,ok
+TradeType,TT_NAME,passthrough_copy,TradeType,False,Source.TradeType.TT_NAME,Source.TradeType.TT_NAME,covered,False,yes,ok
+TradeType,TT_IS_SELL,passthrough_copy,TradeType,False,Source.TradeType.TT_IS_SELL,Source.TradeType.TT_IS_SELL,covered,False,yes,ok
+TradeType,TT_IS_MRKT,passthrough_copy,TradeType,False,Source.TradeType.TT_IS_MRKT,Source.TradeType.TT_IS_MRKT,covered,False,yes,ok
+Industry,IN_ID,passthrough_copy,Industry,False,Source.Industry.IN_ID,Source.Industry.IN_ID,covered,False,yes,ok
+Industry,IN_NAME,passthrough_copy,Industry,False,Source.Industry.IN_NAME,Source.Industry.IN_NAME,covered,False,yes,ok
+Industry,IN_SC_ID,passthrough_copy,Industry,False,Source.Industry.IN_SC_ID,Source.Industry.IN_SC_ID,covered,False,yes,ok
+DimBroker,SK_BrokerID,generated_key,HR,False,Source.HR.EmployeeID,,csv_empty,False,yes,ok
+DimBroker,BrokerID,rename,HR,False,Source.HR.EmployeeID,HR.EmployeeID,covered,False,yes,ok
+DimBroker,ManagerID,passthrough_copy,HR,False,Source.HR.ManagerID,HR.ManagerID,covered,False,yes,ok
+DimBroker,FirstName,rename,HR,False,Source.HR.EmployeeFirstName,HR.EmployeeFirstName,covered,False,yes,ok
+DimBroker,LastName,rename,HR,False,Source.HR.EmployeeLastName,HR.EmployeeLastName,covered,False,yes,ok
+DimBroker,MiddleInitial,rename,HR,False,Source.HR.EmployeeMI,HR.EmployeeMI,covered,False,yes,ok
+DimBroker,Branch,rename,HR,False,Source.HR.EmployeeBranch,HR.EmployeeBranch,covered,False,yes,ok
+DimBroker,Office,rename,HR,False,Source.HR.EmployeeOffice,HR.EmployeeOffice,covered,False,yes,ok
+DimBroker,Phone,rename,HR,False,Source.HR.EmployeePhone,HR.EmployeePhone,covered,False,yes,ok
+DimBroker,IsCurrent,constant,HR,False,,,csv_empty,False,yes,ok
+DimBroker,BatchID,constant,HR,False,,,csv_empty,True,yes,ok
+DimBroker,EffectiveDate,value,HR,False,,,csv_empty,False,yes,ok
+DimBroker,EndDate,constant,HR,False,,,csv_empty,False,yes,ok
+DimCompany,SK_CompanyID,generated_key,c,False,c.CompanyID; c.EffectiveDate,,csv_empty,False,yes,ok
+DimCompany,CompanyID,rename,CMP|S|I,False,Source.FinwireCMP.CIK,FinwireCMP.CIK,covered,False,yes,ok
+DimCompany,Status,lookup join,CMP|S|I,False,Source.StatusType.ST_NAME,FinwireCMP.Status,disjoint,False,yes,ok
+DimCompany,Name,rename,CMP|S|I,False,Source.FinwireCMP.CompanyName,FinwireCMP.CompanyName,covered,False,yes,ok
+DimCompany,Industry,lookup join,CMP|S|I,False,Source.Industry.IN_NAME,FinwireCMP.IndustryID,disjoint,False,yes,ok
+DimCompany,SPrating,passthrough_copy,CMP|S|I,False,Source.FinwireCMP.SPrating,FinwireCMP.SPrating,covered,False,yes,ok
+DimCompany,isLowGrade,conditional,CMP|S|I,False,Source.FinwireCMP.SPrating,FinwireCMP.SPrating,covered,False,yes,ok
+DimCompany,CEO,rename,CMP|S|I,False,Source.FinwireCMP.CEOname,FinwireCMP.CEOname,covered,False,yes,ok
+DimCompany,Description,passthrough_copy,CMP|S|I,False,Source.FinwireCMP.Description,FinwireCMP.Description,covered,False,yes,ok
+DimCompany,FoundingDate,retype,CMP|S|I,False,Source.FinwireCMP.FoundingDate,FinwireCMP.FoundingDate,covered,False,yes,ok
+DimCompany,AddressLine1,rename,CMP|S|I,False,Source.FinwireCMP.AddrLine1,FinwireCMP.AddrLine1,covered,False,yes,ok
+DimCompany,AddressLine2,rename,CMP|S|I,False,Source.FinwireCMP.AddrLine2,FinwireCMP.AddrLine2,covered,False,yes,ok
+DimCompany,PostalCode,passthrough_copy,CMP|S|I,False,Source.FinwireCMP.PostalCode,FinwireCMP.PostalCode,covered,False,yes,ok
+DimCompany,City,passthrough_copy,CMP|S|I,False,Source.FinwireCMP.City,FinwireCMP.City,covered,False,yes,ok
+DimCompany,StateProv,rename,CMP|S|I,False,Source.FinwireCMP.StateProvince,FinwireCMP.StateProvince,covered,False,yes,ok
+DimCompany,Country,passthrough_copy,CMP|S|I,False,Source.FinwireCMP.Country,FinwireCMP.Country,covered,False,yes,ok
+DimCompany,IsCurrent,SCD history,c,False,c.CompanyID; c.EffectiveDate,,csv_empty,False,yes,ok
+DimCompany,BatchID,constant,c,False,,,csv_empty,True,yes,ok
+DimCompany,EffectiveDate,SCD history,CMP|S|I,False,Source.FinwireCMP.PTS,FinwireCMP.PTS,covered,False,yes,ok
+DimCompany,EndDate,SCD history,c,False,c.CompanyID; c.EffectiveDate,,csv_empty,False,yes,ok
+DimCustomer,SK_CustomerID,generated_key,CustomersFinal,False,CustomersFinal.CustomerID; CustomersFinal.ActionTS,,csv_empty,False,yes,ok
+DimCustomer,CustomerID,rename,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.CustomerXML.C_ID,Source.CustomerXML.C_ID,covered,False,yes,ok
+DimCustomer,TaxID,rename,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.CustomerXML.C_TAX_ID,Source.CustomerXML.C_TAX_ID,covered,False,yes,ok
+DimCustomer,Status,conditional,CustomersNew,False,,Source.ActionXML.ActionType,derived_none,True,yes,gold_placeholder_constant
+DimCustomer,LastName,rename,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.NameXML.C_L_NAME,Source.NameXML.C_L_NAME,covered,False,yes,ok
+DimCustomer,FirstName,rename,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.NameXML.C_F_NAME,Source.NameXML.C_F_NAME,covered,False,yes,ok
+DimCustomer,MiddleInitial,rename,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.NameXML.C_M_NAME,Source.NameXML.C_M_NAME,covered,False,yes,ok
+DimCustomer,Gender,conditional,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.CustomerXML.C_GNDR,Source.CustomerXML.C_GNDR,covered,False,yes,ok
+DimCustomer,Tier,passthrough_copy,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.CustomerXML.C_TIER,Source.CustomerXML.C_TIER,covered,False,yes,ok
+DimCustomer,DOB,passthrough_copy,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.CustomerXML.C_DOB,Source.CustomerXML.C_DOB,covered,False,yes,ok
+DimCustomer,AddressLine1,rename,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.AddressXML.C_ADLINE1,Source.AddressXML.C_ADLINE1,covered,False,yes,ok
+DimCustomer,AddressLine2,rename,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.AddressXML.C_ADLINE2,Source.AddressXML.C_ADLINE2,covered,False,yes,ok
+DimCustomer,PostalCode,rename,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.AddressXML.C_ZIPCODE,Source.AddressXML.C_ZIPCODE,covered,False,yes,ok
+DimCustomer,City,rename,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.AddressXML.C_CITY,Source.AddressXML.C_CITY,covered,False,yes,ok
+DimCustomer,StateProv,rename,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.AddressXML.C_STATE_PROV,Source.AddressXML.C_STATE_PROV,covered,False,yes,ok
+DimCustomer,Country,rename,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.AddressXML.C_CTRY,Source.AddressXML.C_CTRY,covered,False,yes,ok
+DimCustomer,Phone1,value,Customers_Preproc,False,Customers_Preproc.Phone1_V1; Customers_Preproc.C_EXT1,Source.C_PHONE_1_XML.*,derived_none,False,yes,ok
+DimCustomer,Phone2,value,Customers_Preproc,False,Customers_Preproc.Phone2_V1; Customers_Preproc.C_EXT2,Source.C_PHONE_2_XML.*,derived_none,False,yes,ok
+DimCustomer,Phone3,value,Customers_Preproc,False,Customers_Preproc.Phone3_V1; Customers_Preproc.C_EXT3,Source.C_PHONE_3_XML.*,derived_none,False,yes,ok
+DimCustomer,Email1,rename,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.ContactInfoXML.C_PRIM_EMAIL,Source.ContactInfoXML.C_PRIM_EMAIL,covered,False,yes,ok
+DimCustomer,Email2,rename,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.ContactInfoXML.C_ALT_EMAIL,Source.ContactInfoXML.C_ALT_EMAIL,covered,False,yes,ok
+DimCustomer,NationalTaxRateDesc,lookup join,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.TaxRate.TX_NAME,Source.TaxInfoXML.C_NAT_TX_ID -> Source.TaxRate.TX_NAME,covered,False,yes,ok
+DimCustomer,NationalTaxRate,lookup join,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.TaxRate.TX_RATE,Source.TaxInfoXML.C_NAT_TX_ID -> Source.TaxRate.TX_RATE,covered,False,yes,ok
+DimCustomer,LocalTaxRateDesc,lookup join,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.TaxRate.TX_NAME,Source.TaxInfoXML.C_LCL_TX_ID -> Source.TaxRate.TX_NAME,covered,False,yes,ok
+DimCustomer,LocalTaxRate,lookup join,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.TaxRate.TX_RATE,Source.TaxInfoXML.C_LCL_TX_ID -> Source.TaxRate.TX_RATE,covered,False,yes,ok
+DimCustomer,AgencyID,lookup join,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.Prospect.AgencyID,Source.Prospect.AgencyID,covered,False,yes,ok
+DimCustomer,CreditRating,lookup join,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.Prospect.CreditRating,Source.Prospect.CreditRating,covered,False,yes,ok
+DimCustomer,NetWorth,lookup join,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.Prospect.NetWorth,Source.Prospect.NetWorth,covered,False,yes,ok
+DimCustomer,MarketingNameplate,conditional,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.Prospect.Age; Source.Prospect.NetWorth; Source.Prospect.Income; Source.Prospect.NumberChildren; Source.Prospect.NumberCreditCards; Source.Prospect.NumberCars; Source.Prospect.CreditRating,Source.Prospect.NetWorth;Source.Prospect.Income;Source.Prospect.NumberChildren;Source.Prospect.NumberCreditCards;Source.Prospect.Age;Source.Prospect.CreditRating;Source.Prospect.NumberCars,covered,False,yes,ok
+DimCustomer,IsCurrent,SCD history,CustomersFinal,False,CustomersFinal.CustomerID; CustomersFinal.ActionTS,,csv_empty,False,yes,ok
+DimCustomer,BatchID,constant,CustomersFinal,False,,,csv_empty,True,yes,ok
+DimCustomer,EffectiveDate,SCD history,CXML|AXML|NXML|CCIN|ADXML|TXML|TR|TR2|CP1XML|CP2XML|CP3XML|P,False,Source.ActionXML.ActionTS,Source.ActionXML.ActionTS,covered,False,yes,ok
+DimCustomer,EndDate,SCD history,CustomersFinal,False,CustomersFinal.CustomerID; CustomersFinal.ActionTS,,csv_empty,False,yes,ok
+DimAccount,SK_AccountID,generated_key,AccountsFinal,False,AccountsFinal.AccountID; AccountsFinal.ActionTS,,csv_empty,False,yes,ok
+DimAccount,AccountID,rename,C|Act|Acc|Br|DimC,False,Source.AccountXML.CA_ID,,csv_empty,False,yes,ok
+DimAccount,SK_BrokerID,lookup join,C|Act|Acc|Br|DimC,False,DimBroker.SK_BrokerID,,csv_empty,False,yes,ok
+DimAccount,SK_CustomerID,lookup join,C|Act|Acc|Br|DimC,False,DimCustomer.SK_CustomerID,Source.CustomerXML.C_ID -> DimCustomer.SK_CustomerID,derived_none,False,yes,ok
+DimAccount,Status,conditional,AccountsNewAndAddAcct,False,,Source.ActionXML.ActionType,derived_none,True,yes,gold_placeholder_constant
+DimAccount,AccountDesc,rename,C|Act|Acc|Br|DimC,False,Source.AccountXML.CA_NAME,,csv_empty,False,yes,ok
+DimAccount,TaxStatus,rename,C|Act|Acc|Br|DimC,False,Source.AccountXML.CA_TAX_ST,,csv_empty,False,yes,ok
+DimAccount,IsCurrent,SCD history,AccountsFinal,False,AccountsFinal.AccountID; AccountsFinal.ActionTS,,csv_empty,False,yes,ok
+DimAccount,BatchID,constant,AccountsFinal,False,,,csv_empty,True,yes,ok
+DimAccount,EffectiveDate,SCD history,C|Act|Acc|Br|DimC,False,Source.ActionXML.ActionTS,,csv_empty,False,yes,ok
+DimAccount,EndDate,SCD history,AccountsFinal,False,AccountsFinal.AccountID; AccountsFinal.ActionTS,,csv_empty,False,yes,ok
+DimSecurity,SK_SecurityID,generated_key,SecurityFinal,False,SecurityFinal.Symbol; SecurityFinal.EffectiveDate,,csv_empty,False,yes,ok
+DimSecurity,Symbol,passthrough_copy,F|DimCo|ST,False,Source.FinwireSEC.Symbol,,csv_empty,False,yes,ok
+DimSecurity,Issue,rename,F|DimCo|ST,False,Source.FinwireSEC.IssueType,,csv_empty,False,yes,ok
+DimSecurity,Status,lookup join,F|DimCo|ST,False,StatusType.ST_NAME,,csv_empty,False,yes,ok
+DimSecurity,Name,passthrough_copy,F|DimCo|ST,False,Source.FinwireSEC.Name,,csv_empty,False,yes,ok
+DimSecurity,ExchangeID,rename,F|DimCo|ST,False,Source.FinwireSEC.ExID,,csv_empty,False,yes,ok
+DimSecurity,SK_CompanyID,lookup join,F|DimCo|ST,False,DimCompany.SK_CompanyID,Source.FinwireSEC.CoNameOrCIK -> DimCompany.SK_CompanyID,derived_none,False,no,gold_defective(csv)
+DimSecurity,SharesOutstanding,retype,F|DimCo|ST,False,Source.FinwireSEC.ShOut,,csv_empty,False,yes,ok
+DimSecurity,FirstTrade,retype,F|DimCo|ST,False,Source.FinwireSEC.FirstTradeDate,Source.FinwireSEC.FirstTradeDate,covered,False,yes,ok
+DimSecurity,FirstTradeOnExchange,retype,F|DimCo|ST,False,Source.FinwireSEC.FirstTradeExchg,,csv_empty,False,yes,ok
+DimSecurity,Dividend,retype,F|DimCo|ST,False,Source.FinwireSEC.Dividend,,csv_empty,False,yes,ok
+DimSecurity,IsCurrent,SCD history,SecurityFinal,False,SecurityFinal.Symbol; SecurityFinal.EffectiveDate,,csv_empty,False,yes,ok
+DimSecurity,BatchID,constant,SecurityFinal,False,,,csv_empty,True,yes,ok
+DimSecurity,EffectiveDate,SCD history,F|DimCo|ST,False,Source.FinwireSEC.PTS,,csv_empty,False,yes,ok
+DimSecurity,EndDate,SCD history,SecurityFinal,False,SecurityFinal.Symbol; SecurityFinal.EffectiveDate,,csv_empty,False,yes,ok
+DimTrade,TradeID,passthrough_copy,T|TH|ST|TT,False,Source.Trade.T_ID,,csv_empty,False,yes,ok
+DimTrade,SK_BrokerID,constant,T|TH|ST|TT,False,,,csv_empty,True,no,gold_defective(csv)
+DimTrade,SK_CreateDateID,lookup join,DimTradeStaging,False,DimTradeStaging.SK_CreateDateID,,csv_empty,False,no,gold_defective(csv)
+DimTrade,SK_CreateTimeID,lookup join,DimTradeStaging,False,DimTradeStaging.SK_CreateTimeID,,csv_empty,False,no,gold_defective(csv)
+DimTrade,SK_CloseDateID,lookup join,DimTradeStaging,False,DimTradeStaging.SK_CloseDateID,,csv_empty,False,yes,ok
+DimTrade,SK_CloseTimeID,lookup join,DimTradeStaging,False,DimTradeStaging.SK_CloseTimeID,,csv_empty,False,yes,ok
+DimTrade,Status,lookup join,T|TH|ST|TT,False,Source.StatusType.ST_NAME,Source.Trade.T_ST_ID -> Source.StatusType.ST_NAME,covered,False,yes,ok
+DimTrade,DT_Type,lookup join,T|TH|ST|TT,False,Source.TradeType.TT_NAME,,csv_empty,False,yes,ok
+DimTrade,CashFlag,value,T|TH|ST|TT,False,Source.Trade.T_IS_CASH,Source.Trade.T_IS_CASH,covered,False,yes,ok
+DimTrade,SK_SecurityID,constant,T|TH|ST|TT,False,,,csv_empty,True,no,gold_defective(csv)
+DimTrade,SK_CompanyID,constant,T|TH|ST|TT,False,,,csv_empty,True,no,gold_defective(csv)
+DimTrade,Quantity,rename,T|TH|ST|TT,False,Source.Trade.T_QTY,,csv_empty,False,yes,ok
+DimTrade,BidPrice,rename,T|TH|ST|TT,False,Source.Trade.T_BID_PRICE,,csv_empty,False,yes,ok
+DimTrade,SK_CustomerID,constant,T|TH|ST|TT,False,,,csv_empty,True,no,gold_defective(csv)
+DimTrade,SK_AccountID,constant,T|TH|ST|TT,False,,,csv_empty,True,no,gold_defective(csv)
+DimTrade,ExecutedBy,rename,T|TH|ST|TT,False,Source.Trade.T_EXEC_NAME,,csv_empty,False,yes,ok
+DimTrade,TradePrice,rename,T|TH|ST|TT,False,Source.Trade.T_TRADE_PRICE,,csv_empty,False,yes,ok
+DimTrade,Fee,rename,T|TH|ST|TT,False,Source.Trade.T_CHRG,,csv_empty,False,yes,ok
+DimTrade,Commission,rename,T|TH|ST|TT,False,Source.Trade.T_COMM,,csv_empty,False,yes,ok
+DimTrade,Tax,rename,T|TH|ST|TT,False,Source.Trade.T_TAX,,csv_empty,False,yes,ok
+DimTrade,BatchID,constant,T|TH|ST|TT,False,,,csv_empty,True,yes,ok
+FactCashBalances,SK_CustomerID,copies_generated_key,CT|DA|DD,True,DimAccount.SK_CustomerID,Source.CashTransaction.CT_CA_ID -> DimAccount.SK_CustomerID,derived_none,False,yes,ok
+FactCashBalances,SK_AccountID,copies_generated_key,CT|DA|DD,True,DimAccount.SK_AccountID,,csv_empty,False,yes,ok
+FactCashBalances,SK_DateID,lookup join,CT|DA|DD,True,DimDate.SK_DateID,,csv_empty,False,yes,ok
+FactCashBalances,BatchID,constant,CT|DA|DD,True,,,csv_empty,True,yes,ok
+FactCashBalances,Cash,aggregate,CT|DA|DD,True,Source.CashTransaction.CT_AMT,Source.CashTransaction.CT_AMT,covered,False,no,gold_defective(csv)
+FactHoldings,SK_CustomerID,copies_generated_key,HH|DT,False,DimTrade.SK_CustomerID,,csv_empty,False,no,gold_defective(csv)
+FactHoldings,SK_AccountID,copies_generated_key,HH|DT,False,DimTrade.SK_AccountID,,csv_empty,False,no,gold_defective(csv)
+FactHoldings,SK_SecurityID,copies_generated_key,HH|DT,False,DimTrade.SK_SecurityID,,csv_empty,False,no,gold_defective(csv)
+FactHoldings,SK_CompanyID,copies_generated_key,HH|DT,False,DimTrade.SK_CompanyID,,csv_empty,False,no,gold_defective(csv)
+FactHoldings,CurrentPrice,value,HH|DT,False,DimTrade.TradePrice,DimTrade.TradePrice,derived_none,False,no,gold_defective(csv)
+FactHoldings,SK_DateID,lookup join,HH|DT,False,DimTrade.SK_CloseDateID; DimTrade.SK_CreateDateID,,csv_empty,False,no,gold_defective(csv)
+FactHoldings,SK_TimeID,lookup join,HH|DT,False,DimTrade.SK_CloseTimeID; DimTrade.SK_CreateTimeID,,csv_empty,False,no,gold_defective(csv)
+FactHoldings,TradeID,rename,HH|DT,False,Source.HoldingHistory.HH_H_T_ID,Source.HoldingHistory.HH_H_T_ID,covered,False,yes,ok
+FactHoldings,CurrentTradeID,rename,HH|DT,False,Source.HoldingHistory.HH_T_ID,,csv_empty,False,yes,ok
+FactHoldings,CurrentHolding,rename,HH|DT,False,Source.HoldingHistory.HH_AFTER_QTY,,csv_empty,False,yes,ok
+FactHoldings,BatchID,constant,HH|DT,False,,,csv_empty,True,yes,ok
+Financial,SK_CompanyID,lookup join,DS,False,DS.CIK; DS.CoName,Source.FinwireFIN.CoNameOrCIK -> DimCompany.SK_CompanyID,derived_none,False,yes,ok
+Financial,FI_YEAR,retype,F,False,Source.FinwireFIN.Year,,csv_empty,False,yes,ok
+Financial,FI_QTR,retype,F,False,Source.FinwireFIN.Quarter,,csv_empty,False,yes,ok
+Financial,FI_QTR_START_DATE,retype,F,False,Source.FinwireFIN.QtrStartDate,,csv_empty,False,yes,ok
+Financial,FI_REVENUE,retype,F,False,Source.FinwireFIN.Revenue,Source.FinwireFIN.Revenue,covered,False,yes,ok
+Financial,FI_NET_EARN,retype,F,False,Source.FinwireFIN.Earnings,,csv_empty,False,yes,ok
+Financial,FI_BASIC_EPS,retype,F,False,Source.FinwireFIN.EPS,,csv_empty,False,yes,ok
+Financial,FI_DILUT_EPS,retype,F,False,Source.FinwireFIN.DilutedEPS,,csv_empty,False,yes,ok
+Financial,FI_MARGIN,retype,F,False,Source.FinwireFIN.Margin,,csv_empty,False,yes,ok
+Financial,FI_INVENTORY,retype,F,False,Source.FinwireFIN.Inventory,,csv_empty,False,yes,ok
+Financial,FI_ASSETS,retype,F,False,Source.FinwireFIN.Assets,,csv_empty,False,yes,ok
+Financial,FI_LIABILITY,retype,F,False,Source.FinwireFIN.Liabilities,,csv_empty,False,yes,ok
+Financial,FI_OUT_BASIC,retype,F,False,Source.FinwireFIN.ShOut,,csv_empty,False,yes,ok
+Financial,FI_OUT_DILUT,retype,F,False,Source.FinwireFIN.DilutedShOut,,csv_empty,False,yes,ok
+Prospect,AgencyID,passthrough_copy,P,False,Source.Prospect.AgencyID,,csv_empty,False,yes,ok
+Prospect,SK_RecordDateID,lookup join,P,False,,,csv_empty,False,yes,ok
+Prospect,SK_UpdateDateID,lookup join,P,False,,,csv_empty,False,yes,ok
+Prospect,BatchID,constant,P,False,,,csv_empty,True,yes,ok
+Prospect,IsCustomer,conditional,P,False,Source.Prospect.PostalCode; Source.Prospect.AddressLine2; Source.Prospect.AddressLine1; Source.Prospect.FirstName; Source.Prospect.LastName,,csv_empty,False,no,gold_defective(csv)
+Prospect,LastName,passthrough_copy,P,False,Source.Prospect.LastName,,csv_empty,False,yes,ok
+Prospect,FirstName,passthrough_copy,P,False,Source.Prospect.FirstName,,csv_empty,False,yes,ok
+Prospect,MiddleInitial,passthrough_copy,P,False,Source.Prospect.MiddleInitial,,csv_empty,False,yes,ok
+Prospect,Gender,passthrough_copy,P,False,Source.Prospect.Gender,,csv_empty,False,yes,ok
+Prospect,AddressLine1,passthrough_copy,P,False,Source.Prospect.AddressLine1,,csv_empty,False,yes,ok
+Prospect,AddressLine2,passthrough_copy,P,False,Source.Prospect.AddressLine2,,csv_empty,False,yes,ok
+Prospect,PostalCode,passthrough_copy,P,False,Source.Prospect.PostalCode,,csv_empty,False,yes,ok
+Prospect,City,passthrough_copy,P,False,Source.Prospect.City,,csv_empty,False,yes,ok
+Prospect,State,passthrough_copy,P,False,Source.Prospect.State,,csv_empty,False,yes,ok
+Prospect,Country,passthrough_copy,P,False,Source.Prospect.Country,,csv_empty,False,yes,ok
+Prospect,Phone,passthrough_copy,P,False,Source.Prospect.Phone,,csv_empty,False,yes,ok
+Prospect,Income,passthrough_copy,P,False,Source.Prospect.Income,,csv_empty,False,yes,ok
+Prospect,numberCars,passthrough_copy,P,False,Source.Prospect.numberCars,,csv_empty,False,yes,ok
+Prospect,numberChildren,passthrough_copy,P,False,Source.Prospect.numberChildren,,csv_empty,False,yes,ok
+Prospect,MaritalStatus,passthrough_copy,P,False,Source.Prospect.MaritalStatus,,csv_empty,False,yes,ok
+Prospect,Age,passthrough_copy,P,False,Source.Prospect.Age,,csv_empty,False,yes,ok
+Prospect,CreditRating,passthrough_copy,P,False,Source.Prospect.CreditRating,,csv_empty,False,yes,ok
+Prospect,OwnOrRentFlag,passthrough_copy,P,False,Source.Prospect.OwnOrRentFlag,,csv_empty,False,yes,ok
+Prospect,Employer,passthrough_copy,P,False,Source.Prospect.Employer,,csv_empty,False,yes,ok
+Prospect,numberCreditCards,passthrough_copy,P,False,Source.Prospect.numberCreditCards,,csv_empty,False,yes,ok
+Prospect,NetWorth,passthrough_copy,P,False,Source.Prospect.NetWorth,,csv_empty,False,yes,ok
+Prospect,MarketingNameplate,conditional,P,False,Source.Prospect.Age; Source.Prospect.NetWorth; Source.Prospect.Income; Source.Prospect.NumberChildren; Source.Prospect.NumberCreditCards; Source.Prospect.NumberCars; Source.Prospect.CreditRating,Source.Prospect.NetWorth;Source.Prospect.Income;Source.Prospect.NumberChildren;Source.Prospect.NumberCreditCards;Source.Prospect.Age;Source.Prospect.CreditRating;Source.Prospect.NumberCars,covered,False,yes,ok

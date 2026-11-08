@@ -1,0 +1,8 @@
+prompts ready (25 columns, 0s)
+25 calls to make (0 already done)
+[10/25] DimCustomer.MarketingNameplate nemotron #0 ok
+[17/25] DimCustomer.IsCurrent nemotron #0 ERROR failed after 3 attempts: null content (finish_reason=length)
+[20/25] FactHoldings.TradeID nemotron #0 ok
+[24/25] DimCompany.Industry nemotron #0 ERROR failed after 3 attempts: null content (finish_reason=length)
+[25/25] Financial.SK_CompanyID nemotron #0 ERROR failed after 3 attempts: null content (finish_reason=length)
+DONE

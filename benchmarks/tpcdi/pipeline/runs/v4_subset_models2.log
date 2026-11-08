@@ -1,0 +1,22 @@
+prompts ready (25 columns, 0s)
+100 calls to make (0 already done)
+[10/100] DimCompany.Industry mistral_large #0 ok
+[20/100] DimCustomer.NationalTaxRateDesc laguna #0 ok
+[30/100] DimTrade.Status laguna #0 ok
+[40/100] Prospect.MarketingNameplate laguna #0 ok
+[50/100] DimTrade.CashFlag nemotron_ultra #0 ok
+[60/100] DimAccount.Status nemotron_ultra #0 ok
+[70/100] DimCompany.AddressLine1 mistral_large #0 ok
+[75/100] DimCompany.FoundingDate gpt_oss #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[76/100] DimCompany.Industry gpt_oss #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[77/100] DimCustomer.IsCurrent gpt_oss #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[78/100] DimCompany.SK_CompanyID gpt_oss #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[79/100] FactCashBalances.SK_CustomerID gpt_oss #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[80/100] FactCashBalances.Cash gpt_oss #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[81/100] Prospect.MarketingNameplate mistral_large #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[82/100] DimTrade.SK_BrokerID gpt_oss #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[83/100] Prospect.IsCustomer gpt_oss #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[84/100] DimSecurity.SK_CompanyID gpt_oss #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[85/100] DimCustomer.NationalTaxRateDesc gpt_oss #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[86/100] DimCustomer.MarketingNameplate gpt_oss #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out
+[87/100] DimAccount.SK_CustomerID gpt_oss #0 ERROR failed after 3 attempts: TimeoutError: The read operation timed out

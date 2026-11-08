@@ -1,0 +1,266 @@
+[
+ {
+  "key": "DimAccount.SK_CustomerID",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTION_FAILED",
+  "error": "Invalid Input Error: More than one row returned by a subquery used as an expression - scalar subqueries can only return a single row.\n\nUse \"SET scalar_subquery_error_on_multiple_rows=false\" to revert to previous behavior of returning a random row.",
+  "expr": "(SELECT dc.SK_CustomerID FROM DimCustomer dc WHERE dc.CustomerID = TRY_CAST(Source.CustomerXML.C_ID AS INTEGER))"
+ },
+ {
+  "key": "DimAccount.Status",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 3331,
+  "total": 12339,
+  "probe_rows": 12339,
+  "match_pct": 27.0,
+  "expr": "CAST(COALESCE(ActionType, 'UNKNOWN') AS CHAR(10))"
+ },
+ {
+  "key": "DimBroker.Branch",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 4.82,
+  "status": "EXECUTED",
+  "matched": 4293,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 100.0,
+  "expr": "CAST(Source.HR.EmployeeBranch AS CHAR(50))"
+ },
+ {
+  "key": "DimBroker.FirstName",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 4293,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 100.0,
+  "expr": "CAST(COALESCE(EmployeeFirstName, '') AS CHAR(50))"
+ },
+ {
+  "key": "DimCompany.AddressLine1",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 1500,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 100.0,
+  "expr": "CAST(CMP.AddrLine1 AS CHAR(80))"
+ },
+ {
+  "key": "DimCompany.FoundingDate",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 6.8,
+  "status": "EXECUTED",
+  "matched": 1500,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 100.0,
+  "expr": "TRY_CAST(STRPTIME(NULLIF(CMP.FoundingDate, ''), '%Y%m%d') AS DATE)"
+ },
+ {
+  "key": "DimCompany.Industry",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 3 attempts: null content (finish_reason=length)"
+ },
+ {
+  "key": "DimCompany.SK_CompanyID",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTION_FAILED",
+  "error": "Binder Error: Referenced table \"CMP\" not found!\nCandidate tables: \"c\"\n\nLINE 1: SELECT CAST(CMP.CIK AS INT) AS SK_CompanyID, CAST(CompanyID AS INT)...\n                    ^",
+  "expr": "CAST(CMP.CIK AS INTEGER)"
+ },
+ {
+  "key": "DimCustomer.Email1",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 6440,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 100.0,
+  "expr": "CAST(Source.ContactInfoXML.C_PRIM_EMAIL AS CHAR(50))"
+ },
+ {
+  "key": "DimCustomer.IsCurrent",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 3 attempts: null content (finish_reason=length)"
+ },
+ {
+  "key": "DimCustomer.MarketingNameplate",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.87,
+  "status": "EXECUTION_FAILED",
+  "error": "Binder Error: No function matches the given name and argument types 'trim(DECIMAL(12,0))'. You might need to add explicit type casts.\n\tCandidate functions:\n\ttrim(VARCHAR) -> VARCHAR\n\ttrim(VARCHAR, VARCHAR) -> VARCHAR\n\n\nLINE 1: ....CreditRating, P.NetWorth, LEFT('NetWorth:' || COALESCE(NULLIF(TRIM(P.",
+  "expr": "LEFT(\n  'NetWorth:' || COALESCE(NULLIF(TRIM(Source.Prospect.NetWorth), ''), '0') ||\n  ', Income:' || COALESCE(NULLIF(TRIM(Source.Prospect.Income), ''), '0') ||\n  ', Children:' || COALESCE(NULLIF(TRIM(Source.Prospect.NumberChildren), ''), '0') ||\n  ', CreditCards:' || COALESCE(NULLIF(TRIM(Source.Prospect.NumberCreditCards), ''), '0') ||\n  ', Age:' || COALESCE(NULLIF(TRIM(Source.Prospect.Age), ''), '0') ||\n  ', CreditRating:' || COALESCE(NULLIF(TRIM(Source.Prospect.CreditRating), ''), '0') ||\n  ', Cars:' || COALESCE(NULLIF(TRIM(Source.Prospect.NumberCars), ''), '0'),\n  100\n)"
+ },
+ {
+  "key": "DimCustomer.NationalTaxRateDesc",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 16,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.25,
+  "expr": "CAST(Source.TaxRate.TX_NAME AS VARCHAR(50))"
+ },
+ {
+  "key": "DimSecurity.FirstTrade",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 1227,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 100.0,
+  "expr": "CAST(substring(FirstTradeDate, 1, 4) || '-' || substring(FirstTradeDate, 5, 2) || '-' || substring(FirstTradeDate, 7, 2) AS DATE)"
+ },
+ {
+  "key": "DimSecurity.SK_CompanyID",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 1227,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 100.0,
+  "expr": "DimCompany.SK_CompanyID"
+ },
+ {
+  "key": "DimTrade.CashFlag",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 982180,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 100.0,
+  "expr": "T_IS_CASH = '1'"
+ },
+ {
+  "key": "DimTrade.SK_BrokerID",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 271,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.03,
+  "expr": "CAST(T_EXEC_NAME AS INTEGER)"
+ },
+ {
+  "key": "DimTrade.Status",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 982180,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 100.0,
+  "expr": "COALESCE(ST_NAME, T_ST_ID)"
+ },
+ {
+  "key": "FactCashBalances.Cash",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTION_FAILED",
+  "error": "Binder Error: column \"CT_AMT\" must appear in the GROUP BY clause or must be part of an aggregate function.\nEither add it to the GROUP BY list, or use \"ANY_VALUE(CT_AMT)\" if the exact value of \"CT_AMT\" is not important.\n\nLINE 1: ..., CAST(1 AS DECIMAL(5, 0)) AS BatchID, CAST(COALESCE(TRY_CAST(CT_AMT ",
+  "expr": "COALESCE(TRY_CAST(CT_AMT AS NUMERIC(15,2)), 0.00)"
+ },
+ {
+  "key": "FactCashBalances.SK_CustomerID",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTION_FAILED",
+  "error": "Binder Error: column \"CT_CA_ID\" must appear in the GROUP BY clause or must be part of an aggregate function.\nEither add it to the GROUP BY list, or use \"ANY_VALUE(CT_CA_ID)\" if the exact value of \"CT_CA_ID\" is not important.\n\nLINE 1: ....SK_CustomerID FROM DimAccount AS da WHERE da.AccountID = CAST(",
+  "expr": "(SELECT da.SK_CustomerID FROM DimAccount da WHERE da.AccountID = CAST(CT_CA_ID AS INTEGER) AND da.IsCurrent = TRUE LIMIT 1)"
+ },
+ {
+  "key": "FactHoldings.CurrentPrice",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 930764,
+  "total": 930764,
+  "probe_rows": 930764,
+  "match_pct": 100.0,
+  "expr": "CAST(DimTrade.TradePrice AS INTEGER)"
+ },
+ {
+  "key": "FactHoldings.TradeID",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTION_FAILED",
+  "error": "Conversion Error: Could not convert string \"\" to DECIMAL(15,0)\n\nLINE 1: ...ateTimeID) AS INT) AS SK_TimeID, CAST(NULLIF(HH.HH_H_T_ID, '') AS INT) AS TradeID, CAST(HH.HH_T_ID AS INT) AS CurrentT...\n                                                                      ^",
+  "expr": "CAST(NULLIF(Source.HoldingHistory.HH_H_T_ID, '') AS INTEGER)"
+ },
+ {
+  "key": "Financial.FI_REVENUE",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 98576,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 100.0,
+  "expr": "CAST(Source.FinwireFIN.Revenue AS NUMERIC(15,2))"
+ },
+ {
+  "key": "Financial.SK_CompanyID",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 3 attempts: null content (finish_reason=length)"
+ },
+ {
+  "key": "Prospect.IsCustomer",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTION_FAILED",
+  "error": "Binder Error: Referenced table \"DC\" not found!\nCandidate tables: \"P\"\n\nLINE 1: ..., CAST(1 AS DECIMAL(5, 0)) AS BatchID, CAST(CASE WHEN NOT DC.SK_CustomerID IS NULL THEN TRUE ELSE FALSE END AS BOOLEAN...\n                                                                     ^",
+  "expr": "CASE WHEN DimCustomer.SK_CustomerID IS NOT NULL THEN TRUE ELSE FALSE END"
+ },
+ {
+  "key": "Prospect.MarketingNameplate",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.53,
+  "status": "EXECUTION_FAILED",
+  "error": "Invalid expression / Unexpected token. Line 1, Col: 1.\n  \u001b[4m)\u001b[0m",
+  "expr": ")"
+ }
+]

@@ -1,0 +1,26 @@
+{
+ "task_id": "financial",
+ "step": "recipe",
+ "grain": "One row per FinwireFIN financial report record: a company's financial results for a specific year and quarter (company \u00d7 fi_year \u00d7 fi_qtr).",
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM FinwireFIN AS fin"
+  }
+ ],
+ "combine": "none",
+ "group_by": null,
+ "decisions": {
+  "joins": [],
+  "stacked": false,
+  "deduplicated": false,
+  "aggregated": false
+ },
+ "assumptions": [
+  "The matcher is noisy and maps many target fields to many source columns; only the semantically correct FinwireFIN columns are used: CoNameOrCIK for company, Year/Quarter/QtrStartDate for the period, and Revenue/Earnings/EPS/DilutedEPS/Margin/Inventory/Assets/Liabilities/ShOut/DilutedShOut for the measures.",
+  "All FinwireFIN rows have RecType = 'FIN', so no RecType filter is required.",
+  "sk_companyid is sourced from CoNameOrCIK and resolved to the dimcompany surrogate key in a later formula step; no join to dimcompany is performed because no link is supplied and dimcompany is not available as a source table in this recipe step.",
+  "Each FinwireFIN row represents one distinct financial report, so one source row produces one target row; no stacking, deduplication, grouping, or aggregation is required.",
+  "No generated surrogate key is required in this recipe; sk_companyid is a foreign key sourced from CoNameOrCIK, not a key to be numbered here."
+ ]
+}

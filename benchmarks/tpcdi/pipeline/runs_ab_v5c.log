@@ -1,0 +1,21 @@
+prompts ready (210 columns, 0s)
+186 calls to make (0 already done)
+[10/186] DimCompany.CEO mistral_large #0 ok
+[20/186] DimCompany.AddressLine1 mistral_large #0 ok
+[30/186] DimCompany.City nemotron #0 ok
+[40/186] DimCustomer.LastName mistral_large #0 ok
+[50/186] DimCustomer.AddressLine2 mistral_large #0 ok
+[60/186] DimCustomer.Gender mistral_large #0 ok
+[70/186] DimCustomer.LocalTaxRateDesc nemotron #0 ok
+[80/186] DimCustomer.CreditRating mistral_large #0 ok
+[90/186] DimCustomer.MarketingNameplate nemotron #0 ok
+[100/186] DimAccount.AccountDesc nemotron #0 ok
+[110/186] DimSecurity.Status mistral_large #0 ok
+[120/186] DimSecurity.FirstTradeOnExchange mistral_large #0 ok
+[130/186] DimTrade.DT_Type nemotron #0 ok
+[140/186] DimTrade.SK_SecurityID nemotron #0 ok
+[150/186] DimTrade.Commission mistral_large #0 ok
+[160/186] Financial.FI_REVENUE mistral_large #0 ok
+[170/186] Financial.FI_BASIC_EPS nemotron #0 ok
+[180/186] Financial.FI_LIABILITY nemotron #0 ok
+DONE

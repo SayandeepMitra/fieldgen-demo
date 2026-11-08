@@ -1,0 +1,211 @@
+table,column,kind,tier,split
+DimAccount,AccountDesc,rename,clean_column,dev
+DimAccount,AccountID,rename,clean_column,test
+DimAccount,BatchID,constant,clean_column,test
+DimAccount,EffectiveDate,SCD history,audit_flagged,dev
+DimAccount,EndDate,SCD history,audit_flagged,dev
+DimAccount,IsCurrent,SCD history,audit_flagged,test
+DimAccount,SK_AccountID,generated_key,clean_column,test
+DimAccount,SK_BrokerID,lookup join,clean_column,test
+DimAccount,SK_CustomerID,lookup join,fk_entity_only,dev
+DimAccount,Status,conditional,audit_flagged,dev
+DimAccount,TaxStatus,rename,clean_column,dev
+DimBroker,BatchID,constant,clean,test
+DimBroker,Branch,rename,clean,test
+DimBroker,BrokerID,rename,clean,test
+DimBroker,EffectiveDate,value,clean,test
+DimBroker,EndDate,constant,clean,test
+DimBroker,FirstName,rename,clean,test
+DimBroker,IsCurrent,constant,clean,dev
+DimBroker,LastName,rename,clean,dev
+DimBroker,ManagerID,passthrough_copy,clean,test
+DimBroker,MiddleInitial,rename,weak,test
+DimBroker,Office,rename,clean,dev
+DimBroker,Phone,rename,clean,dev
+DimBroker,SK_BrokerID,generated_key,clean,dev
+DimCompany,AddressLine1,rename,clean,test
+DimCompany,AddressLine2,rename,clean,test
+DimCompany,BatchID,constant,clean,test
+DimCompany,CEO,rename,clean,dev
+DimCompany,City,passthrough_copy,clean,dev
+DimCompany,CompanyID,rename,clean,dev
+DimCompany,Country,passthrough_copy,clean,dev
+DimCompany,Description,passthrough_copy,clean,test
+DimCompany,EffectiveDate,SCD history,clean,test
+DimCompany,EndDate,SCD history,clean,dev
+DimCompany,FoundingDate,retype,clean,test
+DimCompany,Industry,lookup join,clean,dev
+DimCompany,IsCurrent,SCD history,clean,test
+DimCompany,Name,rename,clean,test
+DimCompany,PostalCode,passthrough_copy,clean,dev
+DimCompany,SK_CompanyID,generated_key,clean,dev
+DimCompany,SPrating,passthrough_copy,audit_flagged,test
+DimCompany,StateProv,rename,clean,dev
+DimCompany,Status,lookup join,clean,test
+DimCompany,isLowGrade,conditional,clean,dev
+DimCustomer,AddressLine1,rename,clean,test
+DimCustomer,AddressLine2,rename,weak,dev
+DimCustomer,AgencyID,lookup join,audit_flagged,dev
+DimCustomer,BatchID,constant,clean,dev
+DimCustomer,City,rename,clean,dev
+DimCustomer,Country,rename,clean,test
+DimCustomer,CreditRating,lookup join,audit_flagged,dev
+DimCustomer,CustomerID,rename,clean,test
+DimCustomer,DOB,passthrough_copy,clean,dev
+DimCustomer,EffectiveDate,SCD history,clean,test
+DimCustomer,Email1,rename,clean,test
+DimCustomer,Email2,rename,weak,dev
+DimCustomer,EndDate,SCD history,clean,dev
+DimCustomer,FirstName,rename,clean,dev
+DimCustomer,Gender,conditional,clean,dev
+DimCustomer,IsCurrent,SCD history,clean,test
+DimCustomer,LastName,rename,clean,dev
+DimCustomer,LocalTaxRate,lookup join,clean,dev
+DimCustomer,LocalTaxRateDesc,lookup join,clean,dev
+DimCustomer,MarketingNameplate,conditional,audit_flagged,dev
+DimCustomer,MiddleInitial,rename,weak,test
+DimCustomer,NationalTaxRate,lookup join,clean,dev
+DimCustomer,NationalTaxRateDesc,lookup join,clean,test
+DimCustomer,NetWorth,lookup join,audit_flagged,dev
+DimCustomer,Phone1,value,clean,dev
+DimCustomer,Phone2,value,weak,test
+DimCustomer,Phone3,value,weak,dev
+DimCustomer,PostalCode,rename,clean,test
+DimCustomer,SK_CustomerID,generated_key,clean,test
+DimCustomer,StateProv,rename,clean,dev
+DimCustomer,Status,conditional,audit_flagged,test
+DimCustomer,TaxID,rename,clean,test
+DimCustomer,Tier,passthrough_copy,clean,test
+DimDate,CalendarMonthDesc,passthrough_copy,clean,dev
+DimDate,CalendarMonthID,passthrough_copy,clean,test
+DimDate,CalendarQtrDesc,passthrough_copy,clean,test
+DimDate,CalendarQtrID,passthrough_copy,clean,test
+DimDate,CalendarWeekDesc,passthrough_copy,clean,test
+DimDate,CalendarWeekID,passthrough_copy,clean,test
+DimDate,CalendarYearDesc,passthrough_copy,clean,test
+DimDate,CalendarYearID,passthrough_copy,clean,dev
+DimDate,DateDesc,passthrough_copy,clean,test
+DimDate,DateValue,passthrough_copy,clean,dev
+DimDate,DayOfWeekDesc,passthrough_copy,clean,test
+DimDate,DayOfWeekNum,passthrough_copy,clean,dev
+DimDate,FiscalQtrDesc,passthrough_copy,clean,dev
+DimDate,FiscalQtrID,passthrough_copy,clean,test
+DimDate,FiscalYearDesc,passthrough_copy,clean,test
+DimDate,FiscalYearID,passthrough_copy,clean,test
+DimDate,HolidayFlag,value,clean,dev
+DimDate,SK_DateID,passthrough_copy,clean,dev
+DimSecurity,BatchID,constant,clean,test
+DimSecurity,Dividend,retype,clean,dev
+DimSecurity,EffectiveDate,SCD history,clean,dev
+DimSecurity,EndDate,SCD history,clean,test
+DimSecurity,ExchangeID,rename,clean,test
+DimSecurity,FirstTrade,retype,clean,dev
+DimSecurity,FirstTradeOnExchange,retype,clean,dev
+DimSecurity,IsCurrent,SCD history,clean,dev
+DimSecurity,Issue,rename,clean,dev
+DimSecurity,Name,passthrough_copy,clean,dev
+DimSecurity,SK_CompanyID,lookup join,known_defect,test
+DimSecurity,SK_SecurityID,generated_key,clean,dev
+DimSecurity,SharesOutstanding,retype,clean,test
+DimSecurity,Status,lookup join,clean,dev
+DimSecurity,Symbol,passthrough_copy,clean,dev
+DimTime,HourDesc,passthrough_copy,clean,dev
+DimTime,HourID,passthrough_copy,clean,test
+DimTime,MarketHoursFlag,value,clean,dev
+DimTime,MinuteDesc,passthrough_copy,clean,dev
+DimTime,MinuteID,passthrough_copy,clean,dev
+DimTime,OfficeHoursFlag,value,clean,test
+DimTime,SK_TimeID,passthrough_copy,clean,test
+DimTime,SecondDesc,passthrough_copy,clean,dev
+DimTime,SecondID,passthrough_copy,clean,dev
+DimTime,TimeValue,passthrough_copy,clean,test
+DimTrade,BatchID,constant,clean_column,dev
+DimTrade,BidPrice,rename,clean_column,dev
+DimTrade,CashFlag,value,clean_column,test
+DimTrade,Commission,rename,clean_column,dev
+DimTrade,DT_Type,lookup join,clean_column,test
+DimTrade,ExecutedBy,rename,clean_column,dev
+DimTrade,Fee,rename,clean_column,test
+DimTrade,Quantity,rename,clean_column,test
+DimTrade,SK_AccountID,constant,known_defect,test
+DimTrade,SK_BrokerID,constant,known_defect,dev
+DimTrade,SK_CloseDateID,lookup join,weak,dev
+DimTrade,SK_CloseTimeID,lookup join,weak,test
+DimTrade,SK_CompanyID,constant,known_defect,dev
+DimTrade,SK_CreateDateID,lookup join,known_defect,test
+DimTrade,SK_CreateTimeID,lookup join,known_defect,test
+DimTrade,SK_CustomerID,constant,known_defect,dev
+DimTrade,SK_SecurityID,constant,known_defect,dev
+DimTrade,Status,lookup join,clean_column,test
+DimTrade,Tax,rename,clean_column,test
+DimTrade,TradeID,passthrough_copy,clean_column,dev
+DimTrade,TradePrice,rename,clean_column,dev
+FactCashBalances,BatchID,constant,clean,dev
+FactCashBalances,Cash,aggregate,known_defect,dev
+FactCashBalances,SK_AccountID,copies_generated_key,clean,dev
+FactCashBalances,SK_CustomerID,copies_generated_key,fk_entity_only,dev
+FactCashBalances,SK_DateID,lookup join,clean,dev
+FactHoldings,BatchID,constant,clean_column,test
+FactHoldings,CurrentHolding,rename,clean_column,dev
+FactHoldings,CurrentPrice,value,known_defect,dev
+FactHoldings,CurrentTradeID,rename,clean_column,test
+FactHoldings,SK_AccountID,copies_generated_key,known_defect,dev
+FactHoldings,SK_CompanyID,copies_generated_key,known_defect,test
+FactHoldings,SK_CustomerID,copies_generated_key,known_defect,test
+FactHoldings,SK_DateID,lookup join,known_defect,dev
+FactHoldings,SK_SecurityID,copies_generated_key,known_defect,test
+FactHoldings,SK_TimeID,lookup join,known_defect,test
+FactHoldings,TradeID,rename,clean_column,dev
+Financial,FI_ASSETS,retype,clean,dev
+Financial,FI_BASIC_EPS,retype,clean,test
+Financial,FI_DILUT_EPS,retype,clean,dev
+Financial,FI_INVENTORY,retype,clean,test
+Financial,FI_LIABILITY,retype,clean,dev
+Financial,FI_MARGIN,retype,clean,dev
+Financial,FI_NET_EARN,retype,clean,dev
+Financial,FI_OUT_BASIC,retype,clean,test
+Financial,FI_OUT_DILUT,retype,clean,dev
+Financial,FI_QTR,retype,clean,test
+Financial,FI_QTR_START_DATE,retype,clean,test
+Financial,FI_REVENUE,retype,clean,test
+Financial,FI_YEAR,retype,clean,test
+Financial,SK_CompanyID,lookup join,clean,test
+Industry,IN_ID,passthrough_copy,clean,test
+Industry,IN_NAME,passthrough_copy,clean,dev
+Industry,IN_SC_ID,passthrough_copy,clean,dev
+Prospect,AddressLine1,passthrough_copy,clean,test
+Prospect,AddressLine2,passthrough_copy,weak,test
+Prospect,Age,passthrough_copy,clean,test
+Prospect,AgencyID,passthrough_copy,clean,test
+Prospect,BatchID,constant,clean,test
+Prospect,City,passthrough_copy,clean,test
+Prospect,Country,passthrough_copy,clean,dev
+Prospect,CreditRating,passthrough_copy,clean,dev
+Prospect,Employer,passthrough_copy,clean,dev
+Prospect,FirstName,passthrough_copy,clean,test
+Prospect,Gender,passthrough_copy,weak,test
+Prospect,Income,passthrough_copy,clean,test
+Prospect,IsCustomer,conditional,known_defect,test
+Prospect,LastName,passthrough_copy,clean,dev
+Prospect,MaritalStatus,passthrough_copy,clean,dev
+Prospect,MarketingNameplate,conditional,audit_flagged,test
+Prospect,MiddleInitial,passthrough_copy,weak,test
+Prospect,NetWorth,passthrough_copy,clean,test
+Prospect,OwnOrRentFlag,passthrough_copy,clean,dev
+Prospect,Phone,passthrough_copy,clean,dev
+Prospect,PostalCode,passthrough_copy,clean,dev
+Prospect,SK_RecordDateID,lookup join,clean,dev
+Prospect,SK_UpdateDateID,lookup join,clean,test
+Prospect,State,passthrough_copy,clean,dev
+Prospect,numberCars,passthrough_copy,clean,dev
+Prospect,numberChildren,passthrough_copy,clean,test
+Prospect,numberCreditCards,passthrough_copy,clean,dev
+StatusType,ST_ID,passthrough_copy,clean,test
+StatusType,ST_NAME,passthrough_copy,clean,dev
+TaxRate,TX_ID,passthrough_copy,clean,test
+TaxRate,TX_NAME,passthrough_copy,clean,test
+TaxRate,TX_RATE,passthrough_copy,clean,test
+TradeType,TT_ID,passthrough_copy,clean,test
+TradeType,TT_IS_MRKT,passthrough_copy,clean,dev
+TradeType,TT_IS_SELL,passthrough_copy,clean,dev
+TradeType,TT_NAME,passthrough_copy,clean,dev

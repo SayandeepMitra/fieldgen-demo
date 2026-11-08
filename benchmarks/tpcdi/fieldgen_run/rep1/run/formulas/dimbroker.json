@@ -1,0 +1,38 @@
+{
+ "brokerid": {
+  "b1": "CAST(h.EmployeeID AS INT)"
+ },
+ "managerid": {
+  "b1": "CAST(h.ManagerID AS INT)"
+ },
+ "firstname": {
+  "b1": "CAST(h.EmployeeFirstName AS CHAR(50))"
+ },
+ "lastname": {
+  "b1": "CAST(h.EmployeeLastName AS CHAR(50))"
+ },
+ "middleinitial": {
+  "b1": "CAST(h.EmployeeMI AS CHAR(1))"
+ },
+ "branch": {
+  "b1": "CAST(h.EmployeeBranch AS CHAR(50))"
+ },
+ "office": {
+  "b1": "CAST(h.EmployeeOffice AS CHAR(50))"
+ },
+ "batchid": {
+  "b1": "CAST(NULL AS INTEGER)"
+ },
+ "effectivedate": {
+  "b1": "CAST(NULL AS DATE)"
+ },
+ "enddate": {
+  "b1": "CAST('9999-12-31' AS DATE)"
+ },
+ "phone": {
+  "b1": "CAST(h.EmployeePhone AS CHAR(14))"
+ },
+ "iscurrent": {
+  "b1": "CAST(TRUE AS BOOLEAN)"
+ }
+}

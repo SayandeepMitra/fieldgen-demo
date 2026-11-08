@@ -1,0 +1,37 @@
+{
+ "task_id": "dimaccount",
+ "step": "recipe",
+ "grain": "One row per version of an account (natural key accountid with a specific effective date), identified by surrogate key sk_accountid.",
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM AccountXML AS a INNER JOIN CustomerXML AS c ON a.Customer_Id = c.Customer_Id INNER JOIN ActionXML AS act ON c.Action_Id = act.Action_Id WHERE act.ActionType IN ('NEW','ADDACCT','UPDACCT','CLOSEACCT')"
+  }
+ ],
+ "combine": "none",
+ "group_by": null,
+ "decisions": {
+  "joins": [
+   "INNER JOIN CustomerXML ON AccountXML.Customer_Id = CustomerXML.Customer_Id (supplied link)",
+   "INNER JOIN ActionXML ON CustomerXML.Action_Id = ActionXML.Action_Id (supplied link)"
+  ],
+  "stacked": false,
+  "deduplicated": false,
+  "aggregated": false
+ },
+ "assumptions": [
+  "Only account-related actions (NEW, ADDACCT, UPDACCT, CLOSEACCT) produce dimaccount rows; other action types are ignored.",
+  "The natural broker key CA_B_ID and natural customer key Customer_Id are available for later mapping to surrogate keys sk_brokerid and sk_customerid.",
+  "BatchID for the historical load is a constant (1) and will be set by a later formula.",
+  "Type 2 attributes (iscurrent, effectivedate, enddate) are derived from the action timestamp and account ordering in a later step."
+ ],
+ "keys": [
+  {
+   "column": "sk_accountid",
+   "order_by": [
+    "accountid",
+    "effectivedate"
+   ]
+  }
+ ]
+}

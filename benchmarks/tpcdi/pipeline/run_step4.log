@@ -1,0 +1,2 @@
+RUN pass 1 errors/total=6 1260
+RUN pass 2 errors/total=0 1260

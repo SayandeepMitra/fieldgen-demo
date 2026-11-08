@@ -1,0 +1,753 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{upquote}
+\usepackage{textcomp}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!60!black]{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+\titlespacing*{\subsubsection}{0pt}{8pt}{3pt}
+\setlist[itemize]{leftmargin=1.4em,itemsep=2pt,topsep=3pt}
+\setlist[enumerate]{leftmargin=1.8em,itemsep=2pt,topsep=3pt}
+\renewcommand{\arraystretch}{1.15}
+
+\newcommand{\code}[1]{\texttt{\small #1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\newmdenv[linewidth=1pt,linecolor=blue!40!black,backgroundcolor=blue!4,
+  innertopmargin=7pt,innerbottommargin=7pt,innerleftmargin=9pt,
+  innerrightmargin=9pt,skipabove=8pt,skipbelow=8pt]{taskbox}
+\newmdenv[linewidth=1pt,linecolor=orange!60!black,backgroundcolor=orange!6,
+  innertopmargin=7pt,innerbottommargin=7pt,innerleftmargin=9pt,
+  innerrightmargin=9pt,skipabove=8pt,skipbelow=8pt]{warnbox}
+\newmdenv[linewidth=0.8pt,linecolor=black!35,backgroundcolor=black!3,
+  innertopmargin=6pt,innerbottommargin=6pt,innerleftmargin=8pt,
+  innerrightmargin=8pt,skipabove=6pt,skipbelow=6pt]{notebox}
+
+\lstdefinestyle{sh}{basicstyle=\ttfamily\small, breaklines=true,
+  columns=fullflexible, backgroundcolor=\color{black!5}, frame=single,
+  framesep=5pt, rulecolor=\color{black!30}, xleftmargin=2pt,
+  showstringspaces=false, aboveskip=6pt, belowskip=6pt, upquote=true}
+\lstdefinestyle{sql}{basicstyle=\ttfamily\small, language=SQL, breaklines=true,
+  columns=fullflexible, keywordstyle=\color{blue!60!black}\bfseries,
+  commentstyle=\color{green!35!black}\itshape, stringstyle=\color{red!55!black},
+  backgroundcolor=\color{black!5}, frame=single, framesep=5pt,
+  rulecolor=\color{black!30}, xleftmargin=2pt, showstringspaces=false,
+  aboveskip=6pt, belowskip=6pt}
+
+\pagestyle{fancy}\fancyhf{}
+\rhead{\small Benchmark Evaluation}
+\lhead{\small TPC-DI \& MIMIC-IV$\rightarrow$OMOP}
+\cfoot{\thepage}
+
+\title{\vspace{-1.5cm}\textbf{Benchmark Evaluation: TPC-DI and MIMIC-IV $\rightarrow$ OMOP}\\[4pt]
+\large Scope, known findings, and work plan}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-1.2cm}
+
+
+
+% ======================================================================
+\section{Background and scope}
+
+\subsection{The research problem}
+
+Companies frequently have to move data from one database to another --- for example, when
+two companies merge, or when an old system is replaced. The old database and the new one
+usually store the same information in \emph{different shapes}. Someone has to write a
+program that reads the old data and writes it into the new shape. That program is called a
+\textbf{transformation} (or \textbf{ETL}, see glossary).
+
+Our research concerns generating such programs automatically and verifying their
+correctness. That requires examples to evaluate against; this document covers sourcing and
+preparing them.
+
+\subsection{The four things we need}
+
+For each example we need all four of these. If any one is missing, the example is not
+usable.
+
+\begin{center}
+\begin{tabular}{@{}clL{9.2cm}@{}}
+\toprule
+\textbf{Symbol} & \textbf{Name} & \textbf{What it is} \\
+\midrule
+$S$ & Source schema & The \emph{structure} of the old database --- which tables exist, which columns they have, what type each column is. Written as SQL \code{CREATE TABLE} statements. \\
+$D$ & Source data & The actual rows sitting in the old database. \\
+$T$ & Target schema & The structure of the new database. Also \code{CREATE TABLE} statements. \\
+--- & Transformation & The program (usually SQL) that reads $D$ and fills the new database. This is the ``correct answer'' we compare against. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Two candidate sources are under evaluation:
+
+\begin{enumerate}
+\item \textbf{TPC-DI} --- a financial-trading benchmark. Section~\ref{sec:tpcdi}.
+\item \textbf{MIMIC-IV $\rightarrow$ OMOP} --- a hospital-data conversion. Section~\ref{sec:mimic}.
+\end{enumerate}
+
+\subsection{Terminology}
+
+\begin{center}
+\small
+\begin{longtable}{@{}L{3.3cm}L{12.4cm}@{}}
+\toprule
+\textbf{Term} & \textbf{Meaning} \\
+\midrule
+\endhead
+\textbf{DDL} & ``Data Definition Language''. The SQL commands that create structure, i.e.\ \code{CREATE TABLE}. As opposed to commands that read or write data. \\
+\textbf{Surrogate key} & An identifier \emph{invented} by the transformation, which does not exist in the source. Usually just 1, 2, 3, \ldots. Important: two correct transformations may number them differently, and \emph{both are right}. \\
+\textbf{ETL} & ``Extract, Transform, Load''. The general name for a program that reads data from one place, changes its shape, and writes it somewhere else. \\
+\textbf{Star schema} & A common warehouse design. A few large ``fact'' tables recording events (trades, sales), surrounded by smaller ``dimension'' tables describing things (customers, dates). Named because a diagram looks like a star. \\
+\textbf{SCD Type 2} & ``Slowly Changing Dimension, Type 2''. A way of keeping history. When a customer moves house, you do \emph{not} overwrite the old address. You mark the old row as finished (\code{EndDate}) and add a new row marked current (\code{IsCurrent = true}). One real customer becomes several rows. \\
+\textbf{DuckDB} & A database that lives in one file on your laptop. No server to install and run --- one \code{pip install} and you are done. We use it because it is the least setup. \\
+\textbf{dbt} & A tool where each output table is defined by one SQL file. Useful to us because it means the transformation for each table is a separate, readable file rather than one huge script. \\
+\textbf{Scale factor (SF)} & A dial on a data generator saying how much data to make. SF=10 for TPC-DI is roughly 1\,GB. Always start at the smallest. \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\subsection{Environment}
+
+The toolchain assumes Linux. On Windows, use WSL.
+
+\begin{lstlisting}[style=sh]
+# 1. Open PowerShell AS ADMINISTRATOR, run this, then restart the computer:
+wsl --install -d Ubuntu-22.04
+
+# 2. After restart, open "Ubuntu" from the Start menu and set a username/password.
+
+# 3. Inside Ubuntu, run:
+sudo apt update
+sudo apt install -y git python3 python3-venv python3-pip unzip
+
+# 4. Verify:
+git --version
+python3 --version
+\end{lstlisting}
+
+VS Code with the WSL extension (\url{https://code.visualstudio.com/}) is convenient for
+reading the SQL files.
+
+\begin{notebox}
+All work goes under \code{\textasciitilde/benchmark/}:
+\begin{lstlisting}[style=sh]
+mkdir -p ~/benchmark
+cd ~/benchmark
+\end{lstlisting}
+\end{notebox}
+
+\subsection{Record of work}
+
+Keep \code{\textasciitilde/benchmark/FINDINGS.md} updated per task: what was run, what
+happened, and the verdict. Paste error messages verbatim. This file is the primary
+deliverable.
+
+% ======================================================================
+\clearpage
+\section{Benchmark 1: TPC-DI}
+\label{sec:tpcdi}
+
+\subsection{What TPC-DI is}
+
+TPC is an organisation that publishes standard tests for database systems. TPC-DI is their
+test for data integration. It describes an imaginary stockbroking company:
+
+\begin{itemize}
+\item \textbf{The source} is a messy pile of files --- customer records, trade records,
+  financial statements --- in several different formats. This is our $D$.
+\item \textbf{The target} is a clean data warehouse with 20 tables. This is our $T$.
+\item \textbf{The rules} for getting from one to the other are written in a
+  specification document, in English prose. Note: \emph{prose, not code}. TPC gives the
+  requirements; other people have written the actual programs.
+\end{itemize}
+
+\subsection{What we already know (verified)}
+
+\begin{center}
+\begin{tabular}{@{}L{4.2cm}L{11.3cm}@{}}
+\toprule
+\textbf{Finding} & \textbf{Detail} \\
+\midrule
+$T$ is ready & The target schema has been extracted, converted to portable SQL, and
+tested. It loads cleanly on DuckDB: \textbf{20 tables, 30 foreign keys, 241 columns}.
+File: \code{tpcdi\_target\_schema.sql} (supplied with this document). \\
+\addlinespace[2pt]
+The work is non-trivial & Of the 241 target columns, \textbf{97 (40\%) need more than a
+straight copy} from the source. Breakdown: 30 need surrogate-key lookups, 15 are SCD~Type~2
+history bookkeeping, 11 are derived calendar labels, 11 need lookup joins, 4 need window
+functions over history, and the rest are conditionals and arithmetic. \\
+\addlinespace[2pt]
+Five tables keep history & \code{DimCustomer}, \code{DimCompany}, \code{DimSecurity},
+\code{DimBroker}, \code{DimAccount} all use SCD~Type~2. \\
+\addlinespace[2pt]
+Four tables are trivial & \code{Industry}, \code{StatusType}, \code{TaxRate},
+\code{TradeType} are pure copies. Useful as an easy baseline. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{What is missing}
+
+\begin{center}
+\begin{tabular}{@{}cL{5.2cm}L{8.0cm}@{}}
+\toprule
+& \textbf{Missing piece} & \textbf{Why} \\
+\midrule
+$S$ & The source schema & TPC-DI's source is \emph{files}, not a database. Somebody has to write \code{CREATE TABLE} statements for each file. \\
+$D$ & The source data & Must be generated by a program. \\
+--- & The transformation & TPC publishes rules in English, not code. Third parties have written implementations. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Repositories to investigate}
+
+\begin{center}
+\small
+\begin{tabular}{@{}cL{4.6cm}L{8.6cm}@{}}
+\toprule
+\textbf{\#} & \textbf{Repository} & \textbf{Why it matters} \\
+\midrule
+R1 & \href{https://github.com/abroniewski/TPC-DI-MS-SQL-Benchmark}{abroniewski/ TPC-DI-MS-SQL-Benchmark} & \textbf{Investigate this first.} Appears to contain both a source-schema script and a single SQL file with all the transformations. If true, it solves two of our three missing pieces. \\
+\addlinespace[2pt]
+R2 & \href{https://github.com/haydarai/tpcdi-kit}{haydarai/tpcdi-kit} & Appears to be a data generator. If it works without registering with TPC, it solves the third piece. \\
+\addlinespace[2pt]
+R3 & \href{https://github.com/rlsalcido24/dbtpcdi}{rlsalcido24/dbtpcdi} & A dbt implementation targeting several database systems, so its SQL should be more portable. \\
+\addlinespace[2pt]
+R4 & \href{https://github.com/shannon-barrow/databricks-tpc-di}{shannon-barrow/ databricks-tpc-di} & The largest and best-maintained implementation, but built for the Databricks cloud platform. May not run on a laptop. \\
+\addlinespace[2pt]
+R5 & \href{https://github.com/detobel36/tpc-di}{detobel36/tpc-di} & Where our target schema came from. Its transformations are in a format we cannot read easily (SSIS), so only the schema file is useful. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{warnbox}
+The ``Why it matters'' column records expectations drawn from repository descriptions,
+not verified facts --- these files have not been opened. Confirming or refuting each
+expectation is the purpose of tasks A1--A3.
+\end{warnbox}
+
+% ----------------------------------------------------------------------
+\subsection{TPC-DI tasks}
+
+\begin{taskbox}
+\textbf{Task A1 --- Clone the repositories and look inside} \hfill \emph{2 hours}
+\end{taskbox}
+
+\textbf{Goal.} Establish the contents of each repository.
+
+\textbf{Steps.} From \code{\textasciitilde/benchmark}:
+
+\begin{lstlisting}[style=sh]
+cd ~/benchmark
+mkdir -p tpcdi && cd tpcdi
+git clone https://github.com/abroniewski/TPC-DI-MS-SQL-Benchmark.git
+git clone https://github.com/haydarai/tpcdi-kit.git
+git clone https://github.com/rlsalcido24/dbtpcdi.git
+\end{lstlisting}
+
+Now list what is inside each. From \code{\textasciitilde/benchmark/tpcdi}:
+
+\begin{lstlisting}[style=sh]
+find TPC-DI-MS-SQL-Benchmark -type f | head -50
+find tpcdi-kit -type f | head -50
+find dbtpcdi -type f -name "*.sql" | head -50
+\end{lstlisting}
+
+\textbf{Deliverable.} In \code{FINDINGS.md}, paste the file listings. Then answer:
+
+\begin{enumerate}
+\item Does \code{TPC-DI-MS-SQL-Benchmark} contain a file named
+  \code{CreateDBTableSchema.sql}? What is its full path?
+\item Does it contain \code{historical\_load.sql}? What is its full path?
+\item How many lines does each have? Use \code{wc -l \textless filename\textgreater}.
+\item Does \code{tpcdi-kit} contain a README explaining how to generate data? Does the
+  README mention needing to register or download anything from tpc.org?
+\end{enumerate}
+
+\vspace{4pt}
+\begin{taskbox}
+\textbf{Task A2 --- Read the source schema file} \hfill \emph{2 hours}
+\end{taskbox}
+
+\textbf{Goal.} Determine whether \code{CreateDBTableSchema.sql} supplies $S$.
+
+\textbf{Steps.} Open the file in an editor.
+
+For each \code{CREATE TABLE} statement you find, record: the table name, the number of
+columns, and the first three column names with their types.
+
+\textbf{Example of what a good answer looks like:}
+
+\begin{lstlisting}[style=sql]
+CREATE TABLE source.Customer (
+    CustomerID   INT,
+    TaxID        CHAR(20),
+    Status       CHAR(10),
+    ...
+);
+\end{lstlisting}
+\begin{center}\small
+\begin{tabular}{@{}lcl@{}}
+\toprule
+Table & Columns & First three columns \\
+\midrule
+\code{source.Customer} & 23 & \code{CustomerID INT}, \code{TaxID CHAR(20)}, \code{Status CHAR(10)} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Deliverable.} A table in \code{FINDINGS.md} listing every source table, and a
+one-line verdict: \emph{``This file does / does not give us $S$.''}
+
+\vspace{4pt}
+\begin{taskbox}
+\textbf{Task A3 --- Classify the transformations} \hfill \emph{1 day. This is the most important task.}
+\end{taskbox}
+
+\textbf{Goal.} Characterise the transformation classes TPC-DI requires. This determines
+whether we adopt the benchmark.
+
+\textbf{Rationale.} If most target columns are plain copies, the benchmark will not
+discriminate between methods. The distribution across transformation classes is the
+deciding measure.
+
+\textbf{The categories.} Every target column falls into exactly one of these:
+
+\begin{center}\small
+\begin{tabular}{@{}lL{7.4cm}L{5.0cm}@{}}
+\toprule
+\textbf{Category} & \textbf{What it means} & \textbf{Example} \\
+\midrule
+copy & Value taken unchanged from one source column & \code{CustomerID} \\
+rename & Same value, different column name & \code{cust\_id} $\rightarrow$ \code{CustomerID} \\
+retype & Value converted to a different type & text \code{'2024-01-05'} $\rightarrow$ a date \\
+concat & Two or more source columns glued together & \code{first\_name || ' ' || last\_name} \\
+conditional & Value depends on a test & \code{CASE WHEN rating < 'BBB' THEN 1 ELSE 0 END} \\
+arithmetic & Value computed by calculation & \code{revenue / earnings} \\
+lookup join & Value fetched from another table & status code \code{'ACTV'} $\rightarrow$ \code{'Active'} \\
+aggregate & Value summarises many rows & \code{SUM}, \code{COUNT}, \code{MAX} \\
+window & Value depends on a range of other rows & highest price in the last 52 weeks \\
+key generation & A number invented by the transformation & \code{ROW\_NUMBER()} \\
+SCD history & The \code{IsCurrent} / \code{EffectiveDate} / \code{EndDate} columns & --- \\
+constant & A fixed value, not from the source & \code{BatchID = 1} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Steps.}
+
+\begin{enumerate}
+\item Open \code{historical\_load.sql} in VS Code.
+\item Find the part that fills \code{DimCustomer}. Search for
+  \code{INSERT INTO DimCustomer} or \code{DimCustomer AS}.
+\item For \emph{every column} it produces, decide which category it belongs to.
+\item Do the same for \code{DimAccount} and \code{FactMarketHistory}.
+\end{enumerate}
+
+\textbf{Deliverable.} A spreadsheet, \code{tpcdi\_transformations.csv}, with these columns:
+
+\begin{center}\small
+\begin{tabular}{@{}lllll@{}}
+\toprule
+\code{target\_table} & \code{target\_column} & \code{category} & \code{source\_columns} & \code{sql\_snippet} \\
+\midrule
+DimCustomer & CustomerID & copy & Customer.CustomerID & \code{c.CustomerID} \\
+DimCustomer & Status & lookup join & Customer.Status & \code{JOIN StatusType st ON ...} \\
+DimCustomer & IsCurrent & SCD history & --- & \code{CASE WHEN ... THEN 1} \\
+DimCustomer & MarketingNameplate & conditional & NetWorth, Income, \ldots & \code{CASE WHEN ...} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Plus a count of how many columns fell into each category.
+
+\begin{notebox}
+\textbf{Cross-check.} Analysis of the target schema alone gave approximately 60\% plain
+copies and 40\% more complex. A materially different count from the actual SQL means one of
+the two analyses is wrong; report the discrepancy.
+\end{notebox}
+
+\vspace{4pt}
+\begin{taskbox}
+\textbf{Task A4 --- Find out how to get the data} \hfill \emph{half a day}
+\end{taskbox}
+
+\textbf{Goal.} Determine whether we can generate $D$ without registering with TPC.
+
+\textbf{Context.} The official generator, \code{DIGen.jar}, requires registration and a
+licence agreement with TPC. Several third-party replacements exist; the question is whether
+any of them works standalone.
+
+\textbf{Steps.}
+
+\begin{enumerate}
+\item Open the README of \code{tpcdi-kit} (R2). Does it include the generator itself, or
+  does it tell you to download \code{DIGen.jar} from TPC first?
+\item If it includes a generator, follow its instructions and try to produce data at the
+  smallest scale factor.
+\item Report exactly what files were produced, their names, and their sizes. Use:
+\begin{lstlisting}[style=sh]
+ls -lh <output-folder>
+\end{lstlisting}
+\item Open one of the produced files with \code{head -5 \textless filename\textgreater}
+  (shows the first 5 lines) and paste those lines into \code{FINDINGS.md}.
+\end{enumerate}
+
+If registration proves unavoidable, stop and report --- licence agreements require a
+supervisor decision.
+
+\vspace{4pt}
+\begin{taskbox}
+\textbf{Task A5 --- Load the target schema} \hfill \emph{1 hour}
+\end{taskbox}
+
+\textbf{Goal.} Confirm the extracted target schema loads in your environment.
+
+\textbf{Steps.} Copy \code{tpcdi\_target\_schema.sql} into
+\code{\textasciitilde/benchmark/tpcdi/}. Then create a script file. Type this command
+exactly --- it writes a small Python program into a file called \code{load\_target.py}:
+
+\begin{lstlisting}[style=sh]
+cd ~/benchmark/tpcdi
+pip install duckdb
+
+cat > load_target.py << 'ENDOFFILE'
+import duckdb, re
+
+sql = open('tpcdi_target_schema.sql').read()
+sql = re.sub(r'^\s*--.*', '', sql, flags=re.M)     # remove comment lines
+
+con = duckdb.connect('tpcdi.duckdb')
+for statement in sql.split(';'):
+    statement = statement.strip()
+    if statement:
+        con.execute(statement)
+
+count = con.execute('SELECT count(*) FROM information_schema.tables').fetchone()[0]
+print('tables created:', count)
+ENDOFFILE
+
+python3 load_target.py
+\end{lstlisting}
+
+
+
+\textbf{Expected output:} \code{tables created: 20}
+
+If you get a different number, or an error, paste it verbatim into \code{FINDINGS.md}.
+
+% ======================================================================
+\clearpage
+\section{Benchmark 2: MIMIC-IV $\rightarrow$ OMOP}
+\label{sec:mimic}
+
+\subsection{What this is}
+
+\textbf{MIMIC} is a database of real hospital intensive-care records from a Boston
+hospital, released for research. \textbf{OMOP CDM} (``Common Data Model'') is a standard
+structure that medical researchers have agreed on, so that studies can run the same way on
+data from different hospitals.
+
+Converting MIMIC into OMOP is a genuine, real-world migration. Somebody has already written
+the conversion, and published it. That makes it a promising example for us.
+
+\subsection{Two versions --- use the right one}
+
+\begin{center}
+\begin{tabular}{@{}L{3.6cm}L{5.4cm}L{5.4cm}@{}}
+\toprule
+& \textbf{\href{https://github.com/MIT-LCP/mimic-omop}{MIT-LCP/mimic-omop}} & \textbf{\href{https://github.com/MIT-LCP/mimic-iv-demo-omop}{MIT-LCP/mimic-iv-demo-omop}} \\
+\midrule
+Data version & MIMIC-III & MIMIC-IV, demo subset \\
+Access & Requires credentialing: an online ethics course plus an application. Takes weeks. & \textbf{Open. No application needed.} \\
+Language & PostgreSQL & SQL, run by a Python script \\
+\midrule
+\textbf{Use this one?} & Not for now & \textbf{Yes --- start here} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{warnbox}
+MIMIC-III access requires credentialing and a supervisor decision. The demo subset is
+open and sufficient to assess the benchmark's suitability.
+\end{warnbox}
+
+\subsection{What we already know (from reading documentation only)}
+
+\begin{center}
+\begin{tabular}{@{}L{4.0cm}L{11.5cm}@{}}
+\toprule
+\textbf{Finding} & \textbf{Detail} \\
+\midrule
+It is staged & The conversion happens in named steps. Tables are prefixed by role:
+\code{src\_} (a snapshot of the source), \code{lk\_..\_clean} (cleaned), \code{lk\_..\_concept}
+(codes mapped), \code{lk\_..\_mapped} (joined together), \code{cdm\_} (the final target).
+This is useful --- each step is separately inspectable. \\
+\addlinespace[2pt]
+It is many-to-one & In the MIMIC-III version, one target table is often built from several
+source tables. For example the \code{MEASUREMENT} table draws on five different source
+tables. This is the kind of complexity we want. \\
+\addlinespace[2pt]
+It uses a vocabulary & Medical codes in the source (e.g.\ \code{'44054006'}) must be
+translated into OMOP's numeric concept IDs (e.g.\ \code{201826}) by looking them up in a
+large reference table downloaded separately. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{notebox}
+\textbf{About the vocabulary.} At first this looked like a problem, because the answer is
+not derivable from the source and target schemas alone. But if we \emph{load the vocabulary
+table as part of the source database}, then looking up a code becomes an ordinary join
+against a source table --- which is exactly the kind of transformation we are studying. So
+this is acceptable. Just be aware the vocabulary file is large.
+\end{notebox}
+
+% ----------------------------------------------------------------------
+\subsection{MIMIC tasks}
+
+\begin{taskbox}
+\textbf{Task B1 --- Clone and survey} \hfill \emph{2 hours}
+\end{taskbox}
+
+\begin{lstlisting}[style=sh]
+cd ~/benchmark
+mkdir -p mimic && cd mimic
+git clone https://github.com/MIT-LCP/mimic-iv-demo-omop.git
+cd mimic-iv-demo-omop
+find . -type f -name "*.sql" | sort
+find . -type f -name "*.md" | sort
+\end{lstlisting}
+
+\textbf{Deliverable.} In \code{FINDINGS.md}:
+
+\begin{enumerate}
+\item The complete list of \code{.sql} files, with their folder paths.
+\item How many files are in each folder.
+\item The contents of the main README, summarised in your own words in 5--10 lines:
+  what does this repository claim to do, and what does it say you need to run it?
+\end{enumerate}
+
+\vspace{4pt}
+\begin{taskbox}
+\textbf{Task B2 --- Find out where the data comes from} \hfill \emph{half a day}
+\end{taskbox}
+
+\textbf{Goal.} Locate $D$.
+
+\textbf{Context.} The repository holds the conversion code; the data is hosted separately
+on PhysioNet. The demo subset is openly downloadable.
+
+\textbf{Steps.}
+
+\begin{enumerate}
+\item Read the repository README and find where it says the data comes from.
+\item Go to \url{https://physionet.org/content/mimic-iv-demo/} and check: can the files be
+  downloaded without logging in? Look for a ``Files'' section at the bottom of the page.
+\item If yes, download them into \code{\textasciitilde/benchmark/mimic/data/}.
+\item List what you got and how big each file is: \code{ls -lh}.
+\item Show the first 3 lines of two of the CSV files using \code{head -3}.
+\end{enumerate}
+
+\textbf{Deliverable.} A table in \code{FINDINGS.md} listing every data file, its size, its
+number of columns, and its column names.
+
+\begin{notebox}
+\textbf{Also establish} whether the conversion requires the OMOP vocabulary files from
+\url{https://athena.ohdsi.org/}, which need a free account. Report the requirement and the
+approximate size; the account decision sits with the supervisor.
+\end{notebox}
+
+\vspace{4pt}
+\begin{taskbox}
+\textbf{Task B3 --- Identify $S$, $T$, and the transformation} \hfill \emph{1 day}
+\end{taskbox}
+
+\textbf{Goal.} Map the files in the repository onto our four pieces.
+
+\textbf{Steps.} Go through the \code{.sql} files you listed in B1 and sort each one into
+a bucket:
+
+\begin{center}\small
+\begin{tabular}{@{}lL{7.0cm}L{5.4cm}@{}}
+\toprule
+\textbf{Bucket} & \textbf{How to recognise it} & \textbf{Corresponds to} \\
+\midrule
+source structure & \code{CREATE TABLE} statements for MIMIC tables (names like \code{patients}, \code{admissions}) & $S$ \\
+target structure & \code{CREATE TABLE} statements for OMOP tables (names like \code{person}, \code{visit\_occurrence}) & $T$ \\
+transformation & \code{INSERT INTO ... SELECT ...} statements & the reference program \\
+helper & Anything else --- config, cleanup, tests & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Deliverable.} A table in \code{FINDINGS.md}: file path, bucket, and a one-line
+description. Then state clearly which of the four pieces we now have and which we are
+still missing.
+
+\vspace{4pt}
+\begin{taskbox}
+\textbf{Task B4 --- Classify the transformations} \hfill \emph{1 day. Most important MIMIC task.}
+\end{taskbox}
+
+\textbf{Goal.} Apply the Task A3 classification to this benchmark.
+
+\textbf{Steps.} Pick three target tables. Suggested: \code{person} (simplest),
+\code{visit\_occurrence} (medium), \code{measurement} (most complex). Find the SQL that
+fills each, and classify every output column using the \emph{same category list as
+Task~A3}.
+
+Add one extra category specific to this benchmark:
+
+\begin{center}\small
+\begin{tabular}{@{}lL{11.8cm}@{}}
+\toprule
+vocabulary lookup & The value comes from joining the large OMOP \code{concept} reference
+table to translate a medical code into a numeric ID. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Deliverable.} \code{mimic\_transformations.csv}, same columns as
+\code{tpcdi\_transformations.csv}, plus counts per category.
+
+Also answer: \textbf{for each of the three tables, how many different source tables does it
+read from?} This tells us how ``many-to-one'' the conversion is, which is a property we
+particularly want.
+
+\vspace{4pt}
+\begin{taskbox}
+\textbf{Task B5 --- Try to run it} \hfill \emph{1--2 days. Attempt only after B1--B4.}
+\end{taskbox}
+
+\textbf{Goal.} Get the conversion running end to end, so we have a working $D$ and the
+converted output side by side.
+
+\textbf{Steps.} Follow the repository's own instructions. The code targets a specific
+environment, so adaptation will be needed.
+
+\textbf{On failure}, record in \code{FINDINGS.md}:
+
+\begin{enumerate}
+\item The exact command you ran.
+\item The complete error message, copied and pasted, not summarised.
+\item What you tried in response.
+\end{enumerate}
+
+\begin{notebox}
+\textbf{Optional.} The classification in B4 is what decides whether we adopt this
+benchmark. Cap this task at two days; if it is still blocked, report the blocker and move
+on.
+\end{notebox}
+
+% ======================================================================
+\clearpage
+\section{What to report back}
+
+\subsection{Deliverables checklist}
+
+\begin{center}
+\begin{tabular}{@{}clL{8.0cm}c@{}}
+\toprule
+& \textbf{File} & \textbf{Contents} & \textbf{From task} \\
+\midrule
+1 & \code{FINDINGS.md} & Everything you ran and what happened, task by task & all \\
+2 & \code{tpcdi\_transformations.csv} & Every target column classified & A3 \\
+3 & \code{mimic\_transformations.csv} & Every target column classified & B4 \\
+4 & \code{tpcdi\_source\_schema.sql} & The source schema, if R1 provides it & A2 \\
+5 & \code{sample\_data/} & A few small sample data files from each benchmark & A4, B2 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Questions the report must answer}
+
+For \textbf{each} of the two benchmarks, answer these explicitly. Answer each directly, with the evidence that supports it.
+
+\begin{enumerate}
+\item \textbf{Do we have all four pieces?} For $S$, $D$, $T$ and the transformation:
+  yes or no, and where each one is.
+\item \textbf{How varied are the transformations?} Give the count per category. State the
+  percentage that are plain copies.
+\item \textbf{How many-to-one is it?} For your three sampled target tables, how many
+  source tables does each one read?
+\item \textbf{What blocks us?} Registration, licences, missing files, code that will not
+  run --- list each blocker and how long it would take to clear.
+\end{enumerate}
+
+\subsection{Interpretation of results}
+
+\begin{center}
+\begin{tabular}{@{}L{5.6cm}L{9.6cm}@{}}
+\toprule
+\textbf{Outcome} & \textbf{What it means} \\
+\midrule
+Under 30\% of columns are plain copies, and tables read from 2+ sources & Excellent. Use this benchmark. \\
+30--70\% plain copies & Usable. We will select the interesting subset of tables. \\
+Over 70\% plain copies & Too easy on its own. We would need to combine it with another source. \\
+Blocked by registration or licensing & Report it. The supervisor decides. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Working notes}
+
+\begin{itemize}
+\item \textbf{Registration and licensing decisions sit with the supervisor.} This covers
+  tpc.org, PhysioNet credentialing, and Athena. Report what is required rather than
+  signing up.
+\item \textbf{Error messages go into the report verbatim}, not paraphrased.
+\item \textbf{Negative findings are results.} ``This repository does not contain the
+  transformation SQL'' resolves an open question and should be reported as such.
+\item \textbf{Every claim in this document about repository contents is an expectation
+  drawn from README text, not a verified fact.} Some will be wrong. Establishing which is
+  the point of tasks A1--A3 and B1--B4.
+\item \textbf{Flag blockers early.} A day lost to a setup problem is worth a message.
+\end{itemize}
+
+\subsection{Suggested order and timing}
+
+\begin{center}
+\begin{tabular}{@{}clL{7.6cm}c@{}}
+\toprule
+\textbf{Day} & \textbf{Task} & \textbf{What} & \textbf{Hours} \\
+\midrule
+1 & Setup & Install WSL, Ubuntu, Python, git, VS Code & 3 \\
+1 & A1 & Clone TPC-DI repos, list contents & 2 \\
+1 & B1 & Clone MIMIC repo, list contents & 2 \\
+2 & A2 & Read the TPC-DI source schema file & 2 \\
+2 & A5 & Load the target schema into DuckDB & 1 \\
+2 & B2 & Find and download the MIMIC demo data & 4 \\
+3 & A3 & \textbf{Classify TPC-DI transformations} & 7 \\
+4 & B3 & Sort MIMIC files into buckets & 4 \\
+4 & A4 & Investigate the TPC-DI data generator & 3 \\
+5 & B4 & \textbf{Classify MIMIC transformations} & 7 \\
+6--7 & B5 & Try to run the MIMIC conversion (optional) & 10 \\
+7 & --- & Write up and present findings & 3 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+A3 and B4 are the deciding tasks; the remainder is preparation for them.
+
+\end{document}

@@ -1,0 +1,59 @@
+target_table,target_column,category,source_columns,sql_snippet,notes
+DimCustomer,SK_CustomerID,key generation,—,"IDENTITY(1,1) auto-assigned by SQL Server on INSERT (not in the SELECT list)",surrogate key
+DimCustomer,CustomerID,rename,Source.CustomerXML.C_ID,CXML.C_ID AS CustomerID,
+DimCustomer,TaxID,rename,Source.CustomerXML.C_TAX_ID,TRIM( CXML.C_TAX_ID ) AS TaxID,TRIM() whitespace cleanup only; no type change
+DimCustomer,Status,conditional,Source.ActionXML.ActionType,"'ACTIVE' AS [Status] FROM CustomersNew WHERE ActionType='NEW' ... 'INACTIVE' AS [Status] ... WHERE ActionType='INACT'",branches on ActionType via separate CTEs unioned together
+DimCustomer,LastName,rename,Source.NameXML.C_L_NAME,TRIM( NXML.C_L_NAME ) AS LastName,
+DimCustomer,FirstName,rename,Source.NameXML.C_F_NAME,TRIM( NXML.C_F_NAME ) AS FirstName,
+DimCustomer,MiddleInitial,rename,Source.NameXML.C_M_NAME,TRIM( NXML.C_M_NAME ) AS MiddleInitial,
+DimCustomer,Gender,conditional,Source.CustomerXML.C_GNDR,"TRIM(UPPER(CASE WHEN C_GNDR NOT IN ('m','f') OR C_GNDR IS NULL THEN 'u' ELSE C_GNDR END)) AS Gender",
+DimCustomer,Tier,copy,Source.CustomerXML.C_TIER,CXML.C_TIER AS Tier,
+DimCustomer,DOB,copy,Source.CustomerXML.C_DOB,CXML.C_DOB AS DOB,
+DimCustomer,AddressLine1,rename,Source.AddressXML.C_ADLINE1,TRIM( ADXML.C_ADLINE1 ) AS AddressLine1,
+DimCustomer,AddressLine2,rename,Source.AddressXML.C_ADLINE2,TRIM( ADXML.C_ADLINE2 ) AS AddressLine2,
+DimCustomer,PostalCode,rename,Source.AddressXML.C_ZIPCODE,TRIM( ADXML.C_ZIPCODE ) AS PostalCode,
+DimCustomer,City,rename,Source.AddressXML.C_CITY,TRIM( ADXML.C_CITY ) AS City,
+DimCustomer,StateProv,rename,Source.AddressXML.C_STATE_PROV,TRIM( ADXML.C_STATE_PROV ) AS StateProv,
+DimCustomer,Country,rename,Source.AddressXML.C_CTRY,TRIM( ADXML.C_CTRY ) AS Country,
+DimCustomer,Phone1,concat,"Source.C_PHONE_1_XML.C_CTRY_CODE, C_AREA_CODE, C_LOCAL, C_EXT","CASE WHEN ... THEN '+' + C_CTRY_CODE + ' (' + C_AREA_CODE + ') ' + C_LOCAL ... END (then appended with C_EXT1 if present)",multi-branch CASE + concatenation
+DimCustomer,Phone2,concat,"Source.C_PHONE_2_XML.C_CTRY_CODE, C_AREA_CODE, C_LOCAL, C_EXT",same pattern as Phone1 against C_PHONE_2_XML,
+DimCustomer,Phone3,concat,"Source.C_PHONE_3_XML.C_CTRY_CODE, C_AREA_CODE, C_LOCAL, C_EXT",same pattern as Phone1 against C_PHONE_3_XML,
+DimCustomer,Email1,rename,Source.ContactInfoXML.C_PRIM_EMAIL,TRIM( CCIN.C_PRIM_EMAIL ) AS Email1,
+DimCustomer,Email2,rename,Source.ContactInfoXML.C_ALT_EMAIL,TRIM( CCIN.C_ALT_EMAIL ) AS Email2,
+DimCustomer,NationalTaxRateDesc,lookup join,"Source.TaxInfoXML.C_NAT_TX_ID -> Source.TaxRate.TX_NAME","LEFT JOIN Source.TaxRate TR ON TXML.C_NAT_TX_ID = TR.TX_ID ... TRIM(TR.TX_NAME)",
+DimCustomer,NationalTaxRate,lookup join,"Source.TaxInfoXML.C_NAT_TX_ID -> Source.TaxRate.TX_RATE",TR.TX_RATE AS NationalTaxRate,same join as NationalTaxRateDesc
+DimCustomer,LocalTaxRateDesc,lookup join,"Source.TaxInfoXML.C_LCL_TX_ID -> Source.TaxRate.TX_NAME","LEFT JOIN Source.TaxRate TR2 ON TXML.C_LCL_TX_ID = TR2.TX_ID ... TRIM(TR2.TX_NAME)",second self-join of TaxRate
+DimCustomer,LocalTaxRate,lookup join,"Source.TaxInfoXML.C_LCL_TX_ID -> Source.TaxRate.TX_RATE",TR2.TX_RATE AS LocalTaxRate,
+DimCustomer,AgencyID,lookup join,Source.Prospect.AgencyID,"LEFT JOIN Source.Prospect P ON fuzzy match of TRIM/UPPER(FirstName,LastName,AddressLine1/2,PostalCode) ... TRIM(P.AgencyID)",join key is a name/address match, not an ID
+DimCustomer,CreditRating,lookup join,Source.Prospect.CreditRating,P.CreditRating,same Prospect join
+DimCustomer,NetWorth,lookup join,Source.Prospect.NetWorth,P.NetWorth,same Prospect join
+DimCustomer,MarketingNameplate,conditional,"Source.Prospect.NetWorth, Income, NumberChildren, NumberCreditCards, Age, CreditRating, NumberCars","CASE WHEN P.NetWorth>1000000 OR P.Income>200000 THEN 'HighValue' WHEN P.NumberChildren>3 OR P.NumberCreditCards>5 THEN 'Expenses' WHEN P.Age>45 THEN 'Boomer' WHEN P.Income<50000 OR P.CreditRating<600 OR P.NetWorth<100000 THEN 'MoneyAlert' WHEN P.NumberCars>3 OR P.NumberCreditCards>7 THEN 'Spender' WHEN P.Age<25 AND P.NetWorth>1000000 THEN 'Inherited' END",6-branch CASE over 6 different Prospect columns
+DimCustomer,IsCurrent,SCD history,—,CASE WHEN LEAD( ActionTS ) OVER ( PARTITION BY CustomerID ORDER BY ActionTS ASC ) IS NULL THEN 1 ELSE 0 END,window function (LEAD) over ActionTS history
+DimCustomer,BatchID,constant,—,1 AS BatchID,
+DimCustomer,EffectiveDate,SCD history,Source.ActionXML.ActionTS,ActionTS AS EffectiveDate,
+DimCustomer,EndDate,SCD history,—,"COALESCE( LEAD( ActionTS ) OVER ( PARTITION BY CustomerID ORDER BY ActionTS ASC ), '9999-12-31 00:00:00' ) AS EndDate",window function (LEAD) + COALESCE default
+DimAccount,SK_AccountID,key generation,—,"IDENTITY(1,1) auto-assigned by SQL Server on INSERT",surrogate key
+DimAccount,AccountID,rename,Source.AccountXML.CA_ID,Acc.CA_ID AS AccountID,
+DimAccount,SK_BrokerID,lookup join,Source.AccountXML.CA_B_ID -> DimBroker.SK_BrokerID,INNER JOIN dbo.DimBroker Br ON Acc.CA_B_ID = Br.BrokerID,surrogate-key lookup against an already-loaded target dimension
+DimAccount,SK_CustomerID,lookup join,Source.CustomerXML.C_ID -> DimCustomer.SK_CustomerID,"INNER JOIN dbo.DimCustomer DimC ON C.C_ID = DimC.CustomerID WHERE Act.ActionTS BETWEEN DimC.EffectiveDate AND DimC.EndDate",surrogate-key lookup gated by the customer's SCD-current window
+DimAccount,Status,conditional,Source.ActionXML.ActionType,"'ACTIVE' AS [Status] WHERE ActionType IN ('NEW','ADDACCT') ... 'INACTIVE' AS [Status] ... WHERE ActionType='CLOSEACCT'",
+DimAccount,AccountDesc,rename,Source.AccountXML.CA_NAME,"Acc.CA_NAME AS AccountDesc (COALESCE(UpdAcct.AccountDesc, NewAcct.AccountDesc) on update rows)",COALESCE only bridges NEW vs UPDACCT versions, no value transform otherwise
+DimAccount,TaxStatus,rename,Source.AccountXML.CA_TAX_ST,Acc.CA_TAX_ST AS TaxStatus,same COALESCE-across-update-history pattern as AccountDesc
+DimAccount,IsCurrent,SCD history,—,CASE WHEN LEAD( ActionTS ) OVER ( PARTITION BY AccountID ORDER BY ActionTS ASC ) IS NULL THEN 1 ELSE 0 END,
+DimAccount,BatchID,constant,—,1 AS BatchID,
+DimAccount,EffectiveDate,SCD history,Source.ActionXML.ActionTS,ActionTS AS EffectiveDate,
+DimAccount,EndDate,SCD history,—,"COALESCE( LEAD( ActionTS ) OVER ( PARTITION BY AccountID ORDER BY ActionTS ASC ), '9999-12-31 00:00:00' ) AS EndDate",
+FactMarketHistory,SK_SecurityID,lookup join,Source.DailyMarket.DM_S_SYMB -> DimSecurity.Symbol,"--DS.SK_SecurityID, (commented out; join to DimSecurity DS also commented out of FROM clause)",NOT IMPLEMENTED — entire INSERT is commented out in historical_load.sql; category inferred from the dead code
+FactMarketHistory,SK_CompanyID,lookup join,DimSecurity.SK_CompanyID,--DS.SK_CompanyID, (commented out),NOT IMPLEMENTED — see note above
+FactMarketHistory,SK_DateID,lookup join,Source.DailyMarket.DM_DATE -> DimDate.DateValue,DD1.SK_DateID AS SK_DateID ... DM.DM_DATE = DD1.DateValue,commented out along with the rest of the statement
+FactMarketHistory,PERatio,arithmetic,"Source.DailyMarket.DM_CLOSE, Source.FinwireFIN.EPS (via window SUM as EPSSum)",DM.DM_CLOSE / CE.EPSSum AS PERatio,depends on a 4-quarter trailing SUM window (EPSSum) computed in a separate CTE
+FactMarketHistory,Yield,arithmetic,"Source.DailyMarket.DM_CLOSE, DimSecurity.Dividend","--dividend / DM_CLOSE * 100 AS Yield, (line itself commented out; not even present in the dead SELECT list)",NOT IMPLEMENTED AT ALL — no live or dead code produces this column; category is inferred purely from the target-schema semantics and a stray comment
+FactMarketHistory,FiftyTwoWeekHigh,window,Source.DailyMarket.DM_HIGH,MAX(DM_HIGH) OVER(PARTITION BY DM_S_SYMB ORDER BY DM_DATE ROWS BETWEEN 364 PRECEDING AND CURRENT ROW),commented out
+FactMarketHistory,SK_FiftyTwoWeekHighDate,lookup join,Source.DailyMarket.DM_DATE (of the 52wk-high row) -> DimDate.DateValue,DD2.SK_DateID AS SK_FiftyTwoWeekHighDate,commented out; compound with the window column above
+FactMarketHistory,FiftyTwoWeekLow,window,Source.DailyMarket.DM_LOW,MIN(DM_LOW) OVER(PARTITION BY DM_S_SYMB ORDER BY DM_DATE ROWS BETWEEN 364 PRECEDING AND CURRENT ROW),commented out
+FactMarketHistory,SK_FiftyTwoWeekLowDate,lookup join,Source.DailyMarket.DM_DATE (of the 52wk-low row) -> DimDate.DateValue,DD3.SK_DateID AS SK_FiftyTwoWeekLowDate,commented out
+FactMarketHistory,ClosePrice,copy,Source.DailyMarket.DM_CLOSE,DM.DM_CLOSE AS ClosePrice,commented out
+FactMarketHistory,DayHigh,copy,Source.DailyMarket.DM_HIGH,DM.DM_HIGH AS DayHigh,commented out
+FactMarketHistory,DayLow,copy,Source.DailyMarket.DM_LOW,DM.DM_LOW AS DayLow,commented out
+FactMarketHistory,Volume,copy,Source.DailyMarket.DM_VOL,DM.DM_VOL AS Volume,commented out
+FactMarketHistory,BatchID,constant,—,1 AS BatchID,commented out

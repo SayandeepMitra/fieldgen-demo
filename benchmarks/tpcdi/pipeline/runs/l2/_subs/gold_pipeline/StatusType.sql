@@ -1,0 +1,1 @@
+INSERT INTO StatusType (ST_ID, ST_NAME) SELECT ST_ID, ST_NAME FROM Source.StatusType;

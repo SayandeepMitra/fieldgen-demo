@@ -1,0 +1,1472 @@
+{
+ "DimDate.SK_DateID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.DateValue": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.DateDesc": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.CalendarYearID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.CalendarYearDesc": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.CalendarQtrID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.CalendarQtrDesc": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.CalendarMonthID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.CalendarMonthDesc": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.CalendarWeekID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.CalendarWeekDesc": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.DayOfWeekNum": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.DayOfWeekDesc": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.FiscalYearID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.FiscalYearDesc": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.FiscalQtrID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.FiscalQtrDesc": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimDate.HolidayFlag": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 25933,
+  "probe_rows": 25933,
+  "match_pct": 0.0
+ },
+ "DimTime.SK_TimeID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 86400,
+  "probe_rows": 86400,
+  "match_pct": 0.0
+ },
+ "DimTime.TimeValue": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 86400,
+  "probe_rows": 86400,
+  "match_pct": 0.0
+ },
+ "DimTime.HourID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 86400,
+  "probe_rows": 86400,
+  "match_pct": 0.0
+ },
+ "DimTime.HourDesc": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 86400,
+  "probe_rows": 86400,
+  "match_pct": 0.0
+ },
+ "DimTime.MinuteID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 86400,
+  "probe_rows": 86400,
+  "match_pct": 0.0
+ },
+ "DimTime.MinuteDesc": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 86400,
+  "probe_rows": 86400,
+  "match_pct": 0.0
+ },
+ "DimTime.SecondID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 86400,
+  "probe_rows": 86400,
+  "match_pct": 0.0
+ },
+ "DimTime.SecondDesc": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 86400,
+  "probe_rows": 86400,
+  "match_pct": 0.0
+ },
+ "DimTime.MarketHoursFlag": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 86400,
+  "probe_rows": 86400,
+  "match_pct": 0.0
+ },
+ "DimTime.OfficeHoursFlag": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 86400,
+  "probe_rows": 86400,
+  "match_pct": 0.0
+ },
+ "StatusType.ST_ID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6,
+  "probe_rows": 6,
+  "match_pct": 0.0
+ },
+ "StatusType.ST_NAME": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6,
+  "probe_rows": 6,
+  "match_pct": 0.0
+ },
+ "TaxRate.TX_ID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 320,
+  "probe_rows": 320,
+  "match_pct": 0.0
+ },
+ "TaxRate.TX_NAME": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 320,
+  "probe_rows": 320,
+  "match_pct": 0.0
+ },
+ "TaxRate.TX_RATE": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 320,
+  "probe_rows": 320,
+  "match_pct": 0.0
+ },
+ "TradeType.TT_ID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 5,
+  "probe_rows": 5,
+  "match_pct": 0.0
+ },
+ "TradeType.TT_NAME": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 5,
+  "probe_rows": 5,
+  "match_pct": 0.0
+ },
+ "TradeType.TT_IS_SELL": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 5,
+  "probe_rows": 5,
+  "match_pct": 0.0
+ },
+ "TradeType.TT_IS_MRKT": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 5,
+  "probe_rows": 5,
+  "match_pct": 0.0
+ },
+ "Industry.IN_ID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 102,
+  "probe_rows": 102,
+  "match_pct": 0.0
+ },
+ "Industry.IN_NAME": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 102,
+  "probe_rows": 102,
+  "match_pct": 0.0
+ },
+ "Industry.IN_SC_ID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 102,
+  "probe_rows": 102,
+  "match_pct": 0.0
+ },
+ "DimBroker.SK_BrokerID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 0.0
+ },
+ "DimBroker.BrokerID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 0.0
+ },
+ "DimBroker.ManagerID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 0.0
+ },
+ "DimBroker.FirstName": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 0.0
+ },
+ "DimBroker.LastName": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 0.0
+ },
+ "DimBroker.MiddleInitial": {
+  "status": "EXECUTED",
+  "matched": 2729,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 63.57
+ },
+ "DimBroker.Branch": {
+  "status": "EXECUTED",
+  "matched": 207,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 4.82
+ },
+ "DimBroker.Office": {
+  "status": "EXECUTED",
+  "matched": 205,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 4.78
+ },
+ "DimBroker.Phone": {
+  "status": "EXECUTED",
+  "matched": 201,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 4.68
+ },
+ "DimBroker.IsCurrent": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 0.0
+ },
+ "DimBroker.BatchID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 0.0
+ },
+ "DimBroker.EffectiveDate": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 0.0
+ },
+ "DimBroker.EndDate": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 0.0
+ },
+ "DimCompany.SK_CompanyID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.CompanyID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.Status": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.Name": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.Industry": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.SPrating": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.isLowGrade": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.CEO": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.Description": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.FoundingDate": {
+  "status": "EXECUTED",
+  "matched": 102,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 6.8
+ },
+ "DimCompany.AddressLine1": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.AddressLine2": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.PostalCode": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.City": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.StateProv": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.Country": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.IsCurrent": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.BatchID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.EffectiveDate": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCompany.EndDate": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.0
+ },
+ "DimCustomer.SK_CustomerID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.CustomerID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.TaxID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.Status": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.LastName": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.FirstName": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.MiddleInitial": {
+  "status": "EXECUTED",
+  "matched": 4167,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 64.7
+ },
+ "DimCustomer.Gender": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.Tier": {
+  "status": "EXECUTED",
+  "matched": 276,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 4.29
+ },
+ "DimCustomer.DOB": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.AddressLine1": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.AddressLine2": {
+  "status": "EXECUTED",
+  "matched": 5695,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 88.43
+ },
+ "DimCustomer.PostalCode": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.City": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.StateProv": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.Country": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.Phone1": {
+  "status": "EXECUTED",
+  "matched": 104,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 1.61
+ },
+ "DimCustomer.Phone2": {
+  "status": "EXECUTED",
+  "matched": 1345,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 20.89
+ },
+ "DimCustomer.Phone3": {
+  "status": "EXECUTED",
+  "matched": 4321,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 67.1
+ },
+ "DimCustomer.Email1": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.Email2": {
+  "status": "EXECUTED",
+  "matched": 2961,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 45.98
+ },
+ "DimCustomer.NationalTaxRateDesc": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.NationalTaxRate": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.LocalTaxRateDesc": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.LocalTaxRate": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.AgencyID": {
+  "status": "EXECUTED",
+  "matched": 12,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.19
+ },
+ "DimCustomer.CreditRating": {
+  "status": "EXECUTED",
+  "matched": 328,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 5.09
+ },
+ "DimCustomer.NetWorth": {
+  "status": "EXECUTED",
+  "matched": 343,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 5.33
+ },
+ "DimCustomer.MarketingNameplate": {
+  "status": "EXECUTED",
+  "matched": 56,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.87
+ },
+ "DimCustomer.IsCurrent": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.BatchID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.EffectiveDate": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimCustomer.EndDate": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.0
+ },
+ "DimAccount.SK_AccountID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 12339,
+  "probe_rows": 12339,
+  "match_pct": 0.0
+ },
+ "DimAccount.AccountID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 12339,
+  "probe_rows": 12339,
+  "match_pct": 0.0
+ },
+ "DimAccount.SK_BrokerID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 12339,
+  "probe_rows": 12339,
+  "match_pct": 0.0
+ },
+ "DimAccount.SK_CustomerID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 12339,
+  "probe_rows": 12339,
+  "match_pct": 0.0
+ },
+ "DimAccount.Status": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 12339,
+  "probe_rows": 12339,
+  "match_pct": 0.0
+ },
+ "DimAccount.AccountDesc": {
+  "status": "EXECUTED",
+  "matched": 550,
+  "total": 12339,
+  "probe_rows": 12339,
+  "match_pct": 4.46
+ },
+ "DimAccount.TaxStatus": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 12339,
+  "probe_rows": 12339,
+  "match_pct": 0.0
+ },
+ "DimAccount.IsCurrent": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 12339,
+  "probe_rows": 12339,
+  "match_pct": 0.0
+ },
+ "DimAccount.BatchID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 12339,
+  "probe_rows": 12339,
+  "match_pct": 0.0
+ },
+ "DimAccount.EffectiveDate": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 12339,
+  "probe_rows": 12339,
+  "match_pct": 0.0
+ },
+ "DimAccount.EndDate": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 12339,
+  "probe_rows": 12339,
+  "match_pct": 0.0
+ },
+ "DimSecurity.SK_SecurityID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 0.0
+ },
+ "DimSecurity.Symbol": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 0.0
+ },
+ "DimSecurity.Issue": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 0.0
+ },
+ "DimSecurity.Status": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 0.0
+ },
+ "DimSecurity.Name": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 0.0
+ },
+ "DimSecurity.ExchangeID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 0.0
+ },
+ "DimSecurity.SK_CompanyID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 0.0
+ },
+ "DimSecurity.SharesOutstanding": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 0.0
+ },
+ "DimSecurity.FirstTrade": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 0.0
+ },
+ "DimSecurity.FirstTradeOnExchange": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 0.0
+ },
+ "DimSecurity.Dividend": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 0.0
+ },
+ "DimSecurity.IsCurrent": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 0.0
+ },
+ "DimSecurity.BatchID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 0.0
+ },
+ "DimSecurity.EffectiveDate": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 0.0
+ },
+ "DimSecurity.EndDate": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 0.0
+ },
+ "DimTrade.TradeID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0
+ },
+ "DimTrade.SK_BrokerID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0
+ },
+ "DimTrade.SK_CreateDateID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0
+ },
+ "DimTrade.SK_CreateTimeID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0
+ },
+ "DimTrade.SK_CloseDateID": {
+  "status": "EXECUTED",
+  "matched": 597058,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 60.79
+ },
+ "DimTrade.SK_CloseTimeID": {
+  "status": "EXECUTED",
+  "matched": 597058,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 60.79
+ },
+ "DimTrade.Status": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0
+ },
+ "DimTrade.DT_Type": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0
+ },
+ "DimTrade.CashFlag": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0
+ },
+ "DimTrade.SK_SecurityID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0
+ },
+ "DimTrade.SK_CompanyID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0
+ },
+ "DimTrade.Quantity": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0
+ },
+ "DimTrade.BidPrice": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0
+ },
+ "DimTrade.SK_CustomerID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0
+ },
+ "DimTrade.SK_AccountID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0
+ },
+ "DimTrade.ExecutedBy": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0
+ },
+ "DimTrade.TradePrice": {
+  "status": "EXECUTED",
+  "matched": 51416,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 5.23
+ },
+ "DimTrade.Fee": {
+  "status": "EXECUTED",
+  "matched": 51416,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 5.23
+ },
+ "DimTrade.Commission": {
+  "status": "EXECUTED",
+  "matched": 51416,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 5.23
+ },
+ "DimTrade.Tax": {
+  "status": "EXECUTED",
+  "matched": 51416,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 5.23
+ },
+ "DimTrade.BatchID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0
+ },
+ "FactCashBalances.SK_CustomerID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 330485,
+  "probe_rows": 330485,
+  "match_pct": 0.0
+ },
+ "FactCashBalances.SK_AccountID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 330485,
+  "probe_rows": 330485,
+  "match_pct": 0.0
+ },
+ "FactCashBalances.SK_DateID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 330485,
+  "probe_rows": 330485,
+  "match_pct": 0.0
+ },
+ "FactCashBalances.BatchID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 330485,
+  "probe_rows": 330485,
+  "match_pct": 0.0
+ },
+ "FactCashBalances.Cash": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 330485,
+  "probe_rows": 330485,
+  "match_pct": 0.0
+ },
+ "FactHoldings.SK_CustomerID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 930764,
+  "probe_rows": 930764,
+  "match_pct": 0.0
+ },
+ "FactHoldings.SK_AccountID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 930764,
+  "probe_rows": 930764,
+  "match_pct": 0.0
+ },
+ "FactHoldings.SK_SecurityID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 930764,
+  "probe_rows": 930764,
+  "match_pct": 0.0
+ },
+ "FactHoldings.SK_CompanyID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 930764,
+  "probe_rows": 930764,
+  "match_pct": 0.0
+ },
+ "FactHoldings.CurrentPrice": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 930764,
+  "probe_rows": 930764,
+  "match_pct": 0.0
+ },
+ "FactHoldings.SK_DateID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 930764,
+  "probe_rows": 930764,
+  "match_pct": 0.0
+ },
+ "FactHoldings.SK_TimeID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 930764,
+  "probe_rows": 930764,
+  "match_pct": 0.0
+ },
+ "FactHoldings.TradeID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 930764,
+  "probe_rows": 930764,
+  "match_pct": 0.0
+ },
+ "FactHoldings.CurrentTradeID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 930764,
+  "probe_rows": 930764,
+  "match_pct": 0.0
+ },
+ "FactHoldings.CurrentHolding": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 930764,
+  "probe_rows": 930764,
+  "match_pct": 0.0
+ },
+ "FactHoldings.BatchID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 930764,
+  "probe_rows": 930764,
+  "match_pct": 0.0
+ },
+ "Financial.SK_CompanyID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 0.0
+ },
+ "Financial.FI_YEAR": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 0.0
+ },
+ "Financial.FI_QTR": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 0.0
+ },
+ "Financial.FI_QTR_START_DATE": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 0.0
+ },
+ "Financial.FI_REVENUE": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 0.0
+ },
+ "Financial.FI_NET_EARN": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 0.0
+ },
+ "Financial.FI_BASIC_EPS": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 0.0
+ },
+ "Financial.FI_DILUT_EPS": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 0.0
+ },
+ "Financial.FI_MARGIN": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 0.0
+ },
+ "Financial.FI_INVENTORY": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 0.0
+ },
+ "Financial.FI_ASSETS": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 0.0
+ },
+ "Financial.FI_LIABILITY": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 0.0
+ },
+ "Financial.FI_OUT_BASIC": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 0.0
+ },
+ "Financial.FI_OUT_DILUT": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 0.0
+ },
+ "Prospect.AgencyID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 0.0
+ },
+ "Prospect.SK_RecordDateID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 0.0
+ },
+ "Prospect.SK_UpdateDateID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 0.0
+ },
+ "Prospect.BatchID": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 0.0
+ },
+ "Prospect.IsCustomer": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 0.0
+ },
+ "Prospect.LastName": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 0.0
+ },
+ "Prospect.FirstName": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 0.0
+ },
+ "Prospect.MiddleInitial": {
+  "status": "EXECUTED",
+  "matched": 8391,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 56.01
+ },
+ "Prospect.Gender": {
+  "status": "EXECUTED",
+  "matched": 7875,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 52.56
+ },
+ "Prospect.AddressLine1": {
+  "status": "EXECUTED",
+  "matched": 553,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 3.69
+ },
+ "Prospect.AddressLine2": {
+  "status": "EXECUTED",
+  "matched": 4741,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 31.64
+ },
+ "Prospect.PostalCode": {
+  "status": "EXECUTED",
+  "matched": 464,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 3.1
+ },
+ "Prospect.City": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 0.0
+ },
+ "Prospect.State": {
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 0.0
+ },
+ "Prospect.Country": {
+  "status": "EXECUTED",
+  "matched": 647,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 4.32
+ },
+ "Prospect.Phone": {
+  "status": "EXECUTED",
+  "matched": 781,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 5.21
+ },
+ "Prospect.Income": {
+  "status": "EXECUTED",
+  "matched": 740,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 4.94
+ },
+ "Prospect.numberCars": {
+  "status": "EXECUTED",
+  "matched": 766,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 5.11
+ },
+ "Prospect.numberChildren": {
+  "status": "EXECUTED",
+  "matched": 756,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 5.05
+ },
+ "Prospect.MaritalStatus": {
+  "status": "EXECUTED",
+  "matched": 749,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 5.0
+ },
+ "Prospect.Age": {
+  "status": "EXECUTED",
+  "matched": 792,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 5.29
+ },
+ "Prospect.CreditRating": {
+  "status": "EXECUTED",
+  "matched": 756,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 5.05
+ },
+ "Prospect.OwnOrRentFlag": {
+  "status": "EXECUTED",
+  "matched": 703,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 4.69
+ },
+ "Prospect.Employer": {
+  "status": "EXECUTED",
+  "matched": 772,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 5.15
+ },
+ "Prospect.numberCreditCards": {
+  "status": "EXECUTED",
+  "matched": 764,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 5.1
+ },
+ "Prospect.NetWorth": {
+  "status": "EXECUTED",
+  "matched": 799,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 5.33
+ },
+ "Prospect.MarketingNameplate": {
+  "status": "EXECUTED",
+  "matched": 80,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 0.53
+ }
+}

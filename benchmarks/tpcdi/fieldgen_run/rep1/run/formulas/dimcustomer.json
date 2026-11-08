@@ -1,0 +1,98 @@
+{
+ "customerid": {
+  "b1": "CAST(c.C_ID AS INTEGER)"
+ },
+ "taxid": {
+  "b1": "CAST(COALESCE(c.C_TAX_ID, '') AS CHAR(20))"
+ },
+ "status": {
+  "b1": "act.ActionType"
+ },
+ "lastname": {
+  "b1": "CAST(COALESCE(n.C_L_NAME, '') AS CHAR(30))"
+ },
+ "firstname": {
+  "b1": "CAST(n.C_F_NAME AS CHAR(30))"
+ },
+ "middleinitial": {
+  "b1": "CAST(n.C_M_NAME AS CHAR(1))"
+ },
+ "gender": {
+  "b1": "c.C_GNDR"
+ },
+ "tier": {
+  "b1": "TRY_CAST(c.C_TIER AS INTEGER)"
+ },
+ "addressline2": {
+  "b1": "CAST(a.C_ADLINE2 AS VARCHAR(80))"
+ },
+ "city": {
+  "b1": "CAST(COALESCE(a.C_CITY, '') AS CHAR(25))"
+ },
+ "stateprov": {
+  "b1": "CAST(COALESCE(a.C_STATE_PROV, '') AS CHAR(20))"
+ },
+ "country": {
+  "b1": "a.C_CTRY"
+ },
+ "phone1": {
+  "b1": "CAST(SUBSTRING(p1.C_CTRY_CODE || p1.C_AREA_CODE || p1.C_LOCAL || p1.C_EXT, 1, 30) AS CHAR(30))"
+ },
+ "dob": {
+  "b1": "COALESCE(c.C_DOB, CAST('1900-01-01' AS DATE))"
+ },
+ "addressline1": {
+  "b1": "CAST(COALESCE(a.C_ADLINE1, '') AS VARCHAR(80))"
+ },
+ "postalcode": {
+  "b1": "CAST(COALESCE(a.C_ZIPCODE, '') AS CHAR(12))"
+ },
+ "phone2": {
+  "b1": "LEFT(CONCAT(p2.C_CTRY_CODE, p2.C_AREA_CODE, p2.C_LOCAL, p2.C_EXT), 30)"
+ },
+ "phone3": {
+  "b1": "LEFT(CASE WHEN p3.C_LOCAL IS NOT NULL THEN CONCAT(CASE WHEN p3.C_CTRY_CODE IS NOT NULL THEN p3.C_CTRY_CODE || '-' END, CASE WHEN p3.C_AREA_CODE IS NOT NULL THEN p3.C_AREA_CODE || '-' END, p3.C_LOCAL, CASE WHEN p3.C_EXT IS NOT NULL THEN ' ext ' || p3.C_EXT END) END, 30)"
+ },
+ "email1": {
+  "b1": "CAST(ci.C_PRIM_EMAIL AS CHAR(50))"
+ },
+ "email2": {
+  "b1": "CAST(ci.C_ALT_EMAIL AS VARCHAR(50))"
+ },
+ "nationaltaxratedesc": {
+  "b1": "tr_nat.TX_NAME"
+ },
+ "nationaltaxrate": {
+  "b1": "tr_nat.TX_RATE"
+ },
+ "localtaxratedesc": {
+  "b1": "tr_loc.TX_NAME"
+ },
+ "localtaxrate": {
+  "b1": "tr_loc.TX_RATE"
+ },
+ "agencyid": {
+  "b1": "CAST(NULL AS CHAR(30))"
+ },
+ "creditrating": {
+  "b1": "CAST(NULL AS INTEGER)"
+ },
+ "networth": {
+  "b1": "CAST(NULL AS DECIMAL(10))"
+ },
+ "marketingnameplate": {
+  "b1": "CAST(NULL AS VARCHAR(100))"
+ },
+ "iscurrent": {
+  "b1": "COALESCE(act.ActionType = 'NEW', FALSE)"
+ },
+ "batchid": {
+  "b1": "CAST(NULL AS INTEGER)"
+ },
+ "effectivedate": {
+  "b1": "CAST(TRY_CAST(REPLACE(REPLACE(act.ActionTS, 'T', ' '), 't', ' ') AS TIMESTAMP) AS DATE)"
+ },
+ "enddate": {
+  "b1": "CAST('9999-12-31' AS DATE)"
+ }
+}

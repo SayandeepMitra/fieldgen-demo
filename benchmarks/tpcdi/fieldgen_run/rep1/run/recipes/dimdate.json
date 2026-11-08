@@ -1,0 +1,22 @@
+{
+ "task_id": "dimdate",
+ "step": "recipe",
+ "grain": "One row per date, identified by sk_dateid (source Date.SK_DateID; DateValue is the source primary key).",
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM Date AS b1"
+  }
+ ],
+ "combine": "none",
+ "group_by": null,
+ "decisions": {
+  "joins": [],
+  "stacked": false,
+  "deduplicated": false,
+  "aggregated": false
+ },
+ "assumptions": [
+  "All target fields come from the single Date table; no joins are required because there are no supplied links and every matched column lives in Date. DateValue is unique (primary key) and SK_DateID is distinct, so each source row yields exactly one target row with no de-duplication, stacking, or aggregation. HolidayFlag is stored as VARCHAR ('true'/'false') and will be cast to boolean in the formula step."
+ ]
+}

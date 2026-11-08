@@ -1,0 +1,28 @@
+{
+ "task_id": "factcashbalances",
+ "step": "recipe",
+ "grain": "One row per CashTransaction row (CT_NAME), representing a cash record for an account on a specific date.",
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM CashTransaction AS ct"
+  }
+ ],
+ "combine": "none",
+ "group_by": null,
+ "decisions": {
+  "joins": [],
+  "stacked": false,
+  "deduplicated": false,
+  "aggregated": false
+ },
+ "assumptions": [
+  "Only CashTransaction is listed as a source table; no dimension tables (dimcustomer, dimaccount, dimdate) and no inter-table links are provided, so foreign-key surrogate keys cannot be resolved through joins.",
+  "CT_CA_ID is used as the source for sk_accountid and, per the matcher, also for sk_customerid, even though CT_CA_ID semantically identifies an account rather than a customer.",
+  "CT_DTS is used as the source for sk_dateid (date portion of the timestamp).",
+  "CT_AMT is used as the source for cash.",
+  "batchid is a constant value of 1 for the Historical Load phase and is not sourced from any CashTransaction column.",
+  "CT_NAME is the primary key of CashTransaction and is unique across all 361856 rows, so no de-duplication is required.",
+  "No joins are performed because no links between source tables are supplied and no other source tables are available."
+ ]
+}

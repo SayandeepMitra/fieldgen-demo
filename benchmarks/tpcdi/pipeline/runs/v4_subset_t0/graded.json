@@ -1,0 +1,770 @@
+[
+ {
+  "key": "DimAccount.SK_CustomerID",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimAccount.SK_CustomerID",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 12339,
+  "total": 12339,
+  "probe_rows": 12339,
+  "match_pct": 100.0,
+  "expr": "DimC.SK_CustomerID"
+ },
+ {
+  "key": "DimAccount.SK_CustomerID",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 12339,
+  "total": 12339,
+  "probe_rows": 12339,
+  "match_pct": 100.0,
+  "expr": "DimC.SK_CustomerID"
+ },
+ {
+  "key": "DimAccount.Status",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimAccount.Status",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimAccount.Status",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 12339,
+  "total": 12339,
+  "probe_rows": 12339,
+  "match_pct": 100.0,
+  "expr": "CAST('Active' AS CHAR(10))"
+ },
+ {
+  "key": "DimBroker.Branch",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 4.82,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimBroker.Branch",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 4.82,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimBroker.Branch",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 4.82,
+  "status": "EXECUTED",
+  "matched": 4293,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 100.0,
+  "expr": "CAST(EmployeeBranch AS CHAR(50))"
+ },
+ {
+  "key": "DimBroker.FirstName",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimBroker.FirstName",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 4293,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 100.0,
+  "expr": "CAST(HR.EmployeeFirstName AS CHAR(50))"
+ },
+ {
+  "key": "DimBroker.FirstName",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 4293,
+  "total": 4293,
+  "probe_rows": 4293,
+  "match_pct": 100.0,
+  "expr": "CAST(HR.EmployeeFirstName AS CHAR(50))"
+ },
+ {
+  "key": "DimCompany.AddressLine1",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimCompany.AddressLine1",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimCompany.AddressLine1",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 1500,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 100.0,
+  "expr": "CMP.AddrLine1"
+ },
+ {
+  "key": "DimCompany.FoundingDate",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 6.8,
+  "status": "EXECUTED",
+  "matched": 1500,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 100.0,
+  "expr": "CASE\n  WHEN CMP.FoundingDate IS NULL OR CMP.FoundingDate = '' THEN NULL\n  ELSE CAST(\n         SUBSTR(CMP.FoundingDate,1,4) || '-' ||\n         SUBSTR(CMP.FoundingDate,5,2) || '-' ||\n         SUBSTR(CMP.FoundingDate,7,2)\n       AS DATE)\nEND"
+ },
+ {
+  "key": "DimCompany.FoundingDate",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 6.8,
+  "status": "EXECUTED",
+  "matched": 102,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 6.8,
+  "expr": "TRY_CAST(CMP.FoundingDate AS DATE)"
+ },
+ {
+  "key": "DimCompany.FoundingDate",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 6.8,
+  "status": "EXECUTED",
+  "matched": 1500,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 100.0,
+  "expr": "CAST(STRPTIME(NULLIF(CMP.FoundingDate, ''), '%Y%m%d') AS DATE)"
+ },
+ {
+  "key": "DimCompany.Industry",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimCompany.Industry",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 1500,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 100.0,
+  "expr": "I.IN_NAME"
+ },
+ {
+  "key": "DimCompany.Industry",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 1500,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 100.0,
+  "expr": "I.IN_NAME"
+ },
+ {
+  "key": "DimCompany.SK_CompanyID",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 5,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 0.33,
+  "expr": "row_number() over (order by c.EffectiveDate)"
+ },
+ {
+  "key": "DimCompany.SK_CompanyID",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimCompany.SK_CompanyID",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 1500,
+  "total": 1500,
+  "probe_rows": 1500,
+  "match_pct": 100.0,
+  "expr": "CAST(ROW_NUMBER() OVER (ORDER BY c.CompanyID, c.EffectiveDate) AS INTEGER)"
+ },
+ {
+  "key": "DimCustomer.Email1",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimCustomer.Email1",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimCustomer.Email1",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 6440,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 100.0,
+  "expr": "LEFT(CCIN.C_PRIM_EMAIL, 50)"
+ },
+ {
+  "key": "DimCustomer.IsCurrent",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimCustomer.IsCurrent",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 6440,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 100.0,
+  "expr": "(ActionTS = MAX(ActionTS) OVER (PARTITION BY CustomerID))"
+ },
+ {
+  "key": "DimCustomer.IsCurrent",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 6440,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 100.0,
+  "expr": "ActionTS = MAX(ActionTS) OVER (PARTITION BY CustomerID)"
+ },
+ {
+  "key": "DimCustomer.MarketingNameplate",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.87,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimCustomer.MarketingNameplate",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.87,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimCustomer.MarketingNameplate",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.87,
+  "status": "EXECUTED",
+  "matched": 12,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 0.19,
+  "expr": "NULLIF(\n  LEFT(\n    TRIM(\n      COALESCE('Age ' || CAST(P.Age AS VARCHAR) || ' ', '') ||\n      COALESCE('NetWorth ' || CAST(P.NetWorth AS VARCHAR) || ' ', '') ||\n      COALESCE('Income ' || CAST(P.Income AS VARCHAR) || ' ', '') ||\n      COALESCE('Children ' || CAST(P.NumberChildren AS VARCHAR) || ' ', '') ||\n      COALESCE('CreditCards ' || CAST(P.NumberCreditCards AS VARCHAR) || ' ', '') ||\n      COALESCE('Cars ' || CAST(P.NumberCars AS VARCHAR) || ' ', '') ||\n      COALESCE('CreditRating ' || CAST(P.CreditRating AS VARCHAR), '')\n    ), 100\n  ), ''\n)"
+ },
+ {
+  "key": "DimCustomer.NationalTaxRateDesc",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 6440,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 100.0,
+  "expr": "TR.TX_NAME"
+ },
+ {
+  "key": "DimCustomer.NationalTaxRateDesc",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 6440,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 100.0,
+  "expr": "TR.TX_NAME"
+ },
+ {
+  "key": "DimCustomer.NationalTaxRateDesc",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 6440,
+  "total": 6440,
+  "probe_rows": 6440,
+  "match_pct": 100.0,
+  "expr": "LEFT(TR.TX_NAME, 50)"
+ },
+ {
+  "key": "DimSecurity.FirstTrade",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimSecurity.FirstTrade",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 1227,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 100.0,
+  "expr": "CAST(STRPTIME(F.FirstTradeDate, '%Y%m%d') AS DATE)"
+ },
+ {
+  "key": "DimSecurity.FirstTrade",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 1227,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 100.0,
+  "expr": "CAST(STRPTIME(F.FirstTradeDate, '%Y%m%d') AS DATE)"
+ },
+ {
+  "key": "DimSecurity.SK_CompanyID",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimSecurity.SK_CompanyID",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 1227,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 100.0,
+  "expr": "DimCo.SK_CompanyID"
+ },
+ {
+  "key": "DimSecurity.SK_CompanyID",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 1227,
+  "total": 1227,
+  "probe_rows": 1227,
+  "match_pct": 100.0,
+  "expr": "DimCo.SK_CompanyID"
+ },
+ {
+  "key": "DimTrade.CashFlag",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimTrade.CashFlag",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 982180,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 100.0,
+  "expr": "CASE WHEN T.T_IS_CASH = '1' THEN TRUE ELSE FALSE END"
+ },
+ {
+  "key": "DimTrade.CashFlag",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 982180,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 100.0,
+  "expr": "T.T_IS_CASH = '1'"
+ },
+ {
+  "key": "DimTrade.SK_BrokerID",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimTrade.SK_BrokerID",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0,
+  "expr": "CAST(-1 AS INTEGER)"
+ },
+ {
+  "key": "DimTrade.SK_BrokerID",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 0.0,
+  "expr": "NULL"
+ },
+ {
+  "key": "DimTrade.Status",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "DimTrade.Status",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 982180,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 100.0,
+  "expr": "CAST(ST.ST_NAME AS CHAR(10))"
+ },
+ {
+  "key": "DimTrade.Status",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 982180,
+  "total": 982180,
+  "probe_rows": 982180,
+  "match_pct": 100.0,
+  "expr": "ST.ST_NAME"
+ },
+ {
+  "key": "FactCashBalances.Cash",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "FactCashBalances.Cash",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 330485,
+  "total": 330485,
+  "probe_rows": 330485,
+  "match_pct": 100.0,
+  "expr": "CAST(COALESCE(SUM(CT.CT_AMT), 0) AS NUMERIC(15,2))"
+ },
+ {
+  "key": "FactCashBalances.Cash",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 330485,
+  "total": 330485,
+  "probe_rows": 330485,
+  "match_pct": 100.0,
+  "expr": "CAST(COALESCE(SUM(CT.CT_AMT), 0) AS NUMERIC(15,2))"
+ },
+ {
+  "key": "FactCashBalances.SK_CustomerID",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "FactCashBalances.SK_CustomerID",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 330485,
+  "total": 330485,
+  "probe_rows": 330485,
+  "match_pct": 100.0,
+  "expr": "DA.SK_CustomerID"
+ },
+ {
+  "key": "FactCashBalances.SK_CustomerID",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 330485,
+  "total": 330485,
+  "probe_rows": 330485,
+  "match_pct": 100.0,
+  "expr": "DA.SK_CustomerID"
+ },
+ {
+  "key": "FactHoldings.CurrentPrice",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "FactHoldings.CurrentPrice",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "FactHoldings.CurrentPrice",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 930764,
+  "total": 930764,
+  "probe_rows": 930764,
+  "match_pct": 100.0,
+  "expr": "CASE WHEN DT.TradePrice > 0 THEN CAST(DT.TradePrice AS INTEGER) END"
+ },
+ {
+  "key": "FactHoldings.TradeID",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "FactHoldings.TradeID",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: null content (finish_reason=length)"
+ },
+ {
+  "key": "FactHoldings.TradeID",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 930764,
+  "total": 930764,
+  "probe_rows": 930764,
+  "match_pct": 100.0,
+  "expr": "CAST(HH.HH_H_T_ID AS INTEGER)"
+ },
+ {
+  "key": "Financial.FI_REVENUE",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "Financial.FI_REVENUE",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 98576,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 100.0,
+  "expr": "CAST(F.Revenue AS NUMERIC(15,2))"
+ },
+ {
+  "key": "Financial.FI_REVENUE",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 98576,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 100.0,
+  "expr": "CAST(F.Revenue AS NUMERIC(15,2))"
+ },
+ {
+  "key": "Financial.SK_CompanyID",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "Financial.SK_CompanyID",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "Financial.SK_CompanyID",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 98576,
+  "total": 98576,
+  "probe_rows": 98576,
+  "match_pct": 100.0,
+  "expr": "COALESCE(\n  (SELECT d.SK_CompanyID FROM DimCompany d WHERE d.CompanyID = DS.CIK AND d.IsCurrent LIMIT 1),\n  (SELECT d.SK_CompanyID FROM DimCompany d WHERE d.Name = DS.CoName AND d.IsCurrent LIMIT 1)\n)"
+ },
+ {
+  "key": "Prospect.IsCustomer",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "Prospect.IsCustomer",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "NO_ANSWER",
+  "error": "failed after 5 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "Prospect.IsCustomer",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.0,
+  "status": "EXECUTED",
+  "matched": 10741,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 71.69,
+  "expr": "EXISTS (\n    SELECT 1\n    FROM DimCustomer C\n    WHERE UPPER(C.FirstName) IS NOT DISTINCT FROM UPPER(P.FirstName)\n      AND UPPER(C.LastName) IS NOT DISTINCT FROM UPPER(P.LastName)\n      AND UPPER(C.AddressLine1) IS NOT DISTINCT FROM UPPER(P.AddressLine1)\n      AND UPPER(C.AddressLine2) IS NOT DISTINCT FROM UPPER(P.AddressLine2)\n      AND UPPER(C.PostalCode) IS NOT DISTINCT FROM UPPER(P.PostalCode)\n)"
+ },
+ {
+  "key": "Prospect.MarketingNameplate",
+  "model": "gpt_oss",
+  "repeat": 0,
+  "null_baseline": 0.53,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "Prospect.MarketingNameplate",
+  "model": "mistral_large",
+  "repeat": 0,
+  "null_baseline": 0.53,
+  "status": "NO_ANSWER",
+  "error": "failed after 2 attempts: TimeoutError: The read operation timed out"
+ },
+ {
+  "key": "Prospect.MarketingNameplate",
+  "model": "nemotron",
+  "repeat": 0,
+  "null_baseline": 0.53,
+  "status": "EXECUTED",
+  "matched": 0,
+  "total": 14982,
+  "probe_rows": 14982,
+  "match_pct": 0.0,
+  "expr": "CAST(CONCAT_WS('|', CAST(P.Age AS VARCHAR), CAST(P.NetWorth AS VARCHAR), CAST(P.Income AS VARCHAR), CAST(P.NumberChildren AS VARCHAR), CAST(P.NumberCreditCards AS VARCHAR), CAST(P.NumberCars AS VARCHAR), CAST(P.CreditRating AS VARCHAR)) AS CHAR(100))"
+ }
+]

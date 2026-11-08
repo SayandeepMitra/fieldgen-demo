@@ -1,0 +1,40 @@
+C2 {'summary': {'tables_graded': 16, 'tables_rows_correct': 0, 'tables_rows_correct_sound_reference': '0/13', 'columns_exact_all': '0/210', 'columns_exact_core171': '0/171', 'columns_exact_hard37': '0/37', 'constraint_violations': {'not_null_cells': 0, 'dangling_fk_cells': 0}, 'defective_reference_tables_flagged': ['DimAccount', 'DimTrade', 'FactHoldings']}, 'pass': True}
+  DimAccount         OK     rows=   12339    0.0s 
+{'key': 'DimAccount.IsCurrent', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 79.69, 'L2_pct_ref': 79.95, 'agree': False}
+  DimAccount         OK     rows=   12339    0.0s 
+{'key': 'DimAccount.TaxStatus', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 96.65, 'L2_pct_ref': 96.653, 'agree': True}
+  DimCompany         OK     rows=    1500    0.0s 
+{'key': 'DimCompany.AddressLine2', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 9.87, 'L2_pct_ref': 9.867, 'agree': True}
+  DimCompany         OK     rows=    1500    0.0s 
+{'key': 'DimCompany.EndDate', 'kind': 'plain', 'model': 'nemotron', 'L1_match_pct': 73.07, 'L2_pct_ref': 73.067, 'agree': True}
+  DimCompany         OK     rows=    1500    0.0s 
+{'key': 'DimCompany.FoundingDate', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 6.8, 'L2_pct_ref': 6.8, 'agree': True}
+  DimCompany         OK     rows=    1500    0.0s 
+{'key': 'DimCompany.isLowGrade', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 89.8, 'L2_pct_ref': 89.8, 'agree': True}
+  DimCustomer        OK     rows=    6440    0.0s 
+{'key': 'DimCustomer.AddressLine1', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 95.57, 'L2_pct_ref': 95.575, 'agree': True}
+  DimCustomer        OK     rows=    6440    0.0s 
+{'key': 'DimCustomer.City', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 95.62, 'L2_pct_ref': 95.621, 'agree': True}
+  DimCustomer        OK     rows=    6440    0.0s 
+{'key': 'DimCustomer.Country', 'kind': 'plain', 'model': 'nemotron', 'L1_match_pct': 94.5, 'L2_pct_ref': 94.503, 'agree': True}
+  DimCustomer        OK     rows=    6440    0.0s 
+{'key': 'DimCustomer.DOB', 'kind': 'plain', 'model': 'nemotron', 'L1_match_pct': 78.59, 'L2_pct_ref': 78.587, 'agree': True}
+  DimCustomer        OK     rows=    6440    0.0s 
+{'key': 'DimCustomer.FirstName', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 78.59, 'L2_pct_ref': 78.587, 'agree': True}
+  DimCustomer        OK     rows=    6440    0.0s 
+{'key': 'DimCustomer.Gender', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 82.2, 'L2_pct_ref': 82.205, 'agree': True}
+  DimCustomer        OK     rows=    6440    0.0s 
+{'key': 'DimCustomer.LastName', 'kind': 'plain', 'model': 'nemotron', 'L1_match_pct': 78.59, 'L2_pct_ref': 78.587, 'agree': True}
+  DimCustomer        OK     rows=    6440    0.0s 
+{'key': 'DimCustomer.MiddleInitial', 'kind': 'plain', 'model': 'nemotron', 'L1_match_pct': 27.8, 'L2_pct_ref': 27.795, 'agree': True}
+  DimCustomer        OK     rows=    6440    0.0s 
+{'key': 'DimCustomer.NetWorth', 'kind': 'plain', 'model': 'nemotron', 'L1_match_pct': 74.52, 'L2_pct_ref': 74.519, 'agree': True}
+  DimCustomer        OK     rows=    6440    0.1s 
+{'key': 'DimCustomer.Phone1', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 89.57, 'L2_pct_ref': 89.565, 'agree': True}
+  DimCustomer        OK     rows=    6440    0.0s 
+{'key': 'DimCustomer.Phone2', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 92.02, 'L2_pct_ref': 92.019, 'agree': True}
+  DimCustomer        OK     rows=    6440    0.0s 
+{'key': 'DimCustomer.Phone3', 'kind': 'plain', 'model': 'mistral_large', 'L1_match_pct': 96.88, 'L2_pct_ref': 96.879, 'agree': True}
+  DimTrade           OK     rows=  982180    0.8s 
+{'key': 'DimTrade.SK_AccountID', 'kind': 'fk', 'model': 'mistral_large', 'L1_match_pct': 0.13, 'L2_pct_ref': 0.473, 'agree': False}
+17/18

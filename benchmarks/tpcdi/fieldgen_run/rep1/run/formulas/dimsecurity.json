@@ -1,0 +1,42 @@
+{
+ "symbol": {
+  "b1": "sec.Symbol"
+ },
+ "issue": {
+  "b1": "CAST(sec.IssueType AS CHAR(6))"
+ },
+ "status": {
+  "b1": "CAST(sec.Status AS CHAR(10))"
+ },
+ "name": {
+  "b1": "CAST(sec.Name AS CHAR(70))"
+ },
+ "exchangeid": {
+  "b1": "CAST(sec.ExID AS CHAR(6))"
+ },
+ "sk_companyid": {
+  "b1": "CAST(hash(sec.CoNameOrCIK) % 2147483648 AS INT)"
+ },
+ "sharesoutstanding": {
+  "b1": "CAST(sec.ShOut AS INTEGER)"
+ },
+ "firsttrade": {
+  "b1": "try_cast(substr(sec.FirstTradeDate, 1, 4) || '-' || substr(sec.FirstTradeDate, 5, 2) || '-' || substr(sec.FirstTradeDate, 7, 2) AS DATE)"
+ },
+ "firsttradeonexchange": {
+  "b1": "CAST(strptime(sec.FirstTradeExchg, '%Y%m%d') AS DATE)"
+ },
+ "dividend": {
+  "b1": "CAST(CAST(sec.Dividend AS DOUBLE) AS INTEGER)"
+ },
+ "iscurrent": null,
+ "batchid": {
+  "b1": "CAST(NULL AS DECIMAL(5))"
+ },
+ "effectivedate": {
+  "b1": "make_date(CAST(SUBSTRING(sec.PTS, 1, 4) AS INTEGER), CAST(SUBSTRING(sec.PTS, 5, 2) AS INTEGER), CAST(SUBSTRING(sec.PTS, 7, 2) AS INTEGER))"
+ },
+ "enddate": {
+  "b1": "CAST('9999-12-31' AS DATE)"
+ }
+}

@@ -1,0 +1,98 @@
+{
+ "DimDate": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ },
+ "DimTime": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ },
+ "StatusType": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ },
+ "TaxRate": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ },
+ "TradeType": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ },
+ "Industry": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ },
+ "DimBroker": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ },
+ "DimCompany": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ },
+ "DimCustomer": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ },
+ "DimAccount": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ },
+ "DimSecurity": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ },
+ "DimTrade": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ },
+ "FactCashBalances": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ },
+ "FactHoldings": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ },
+ "Financial": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ },
+ "Prospect": {
+  "status": "NO_FILE",
+  "error": "",
+  "rows": 0,
+  "seconds": 0
+ }
+}

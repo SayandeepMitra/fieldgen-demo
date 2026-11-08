@@ -1,0 +1,81 @@
+config: /Users/kaustubhvasekar/Documents/GradStudy/IITH/Sem-1/AI4DB/Project/benchmark/fieldgen_run/rep1/pkg/config.yaml
+hint    source/tables.json: no descriptions yet for the 243 source columns (descriptions help the model).
+hint    target/reference_tables.json: no lookup tables listed. That is fine if the source has no code lists or vocabularies.
+hint    source/tables.json: primary keys of 27 table(s) were proposed by `fieldgen init`; confirm them (AccountXML, ActionXML, AddressXML, BatchDate, ...).
+hint    source/links.json: 143 link(s) were proposed by `fieldgen init` (marked proposed in the note); confirm or delete them.
+run folder: /Users/kaustubhvasekar/Documents/GradStudy/IITH/Sem-1/AI4DB/Project/benchmark/fieldgen_run/rep1/run | model: nvidia/nemotron-3.5-super-vl-120b-a12b | stages: recipes_and_formulas | domain_knowledge: required
+WARNING untested setting: requests_per_minute = 8
+WARNING untested setting: concurrency = 1
+building the field cards ...
+WARNING text data check: 1 quoted value(s) in the domain text are not in the data (see report.md)
+recipe step: 16 of 16 tables to do
+served model of first reply: private/nvidia/nemotron-3.5-super-120b-a12b
+  industry: recipe ok
+  statustype: recipe ok
+  taxrate: recipe ok
+  tradetype: recipe ok
+  dimdate: recipe ok
+  dimtime: recipe ok
+  dimbroker: recipe ok
+  dimcustomer: recipe ok
+  dimaccount: recipe ok
+  dimcompany: recipe ok
+  dimsecurity: recipe ok
+  dimtrade: recipe ok
+  factcashbalances: recipe ok
+  factholdings: recipe ok
+  financial: recipe ok
+  prospect: recipe ok
+Traceback (most recent call last):
+  File "/Users/kaustubhvasekar/Documents/GradStudy/IITH/Sem-1/AI4DB/Project/benchmark/fieldgen_run/run_fieldgen.py", line 7, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/private/tmp/claude-501/-Users-kaustubhvasekar-Documents-GradStudy-IITH-Sem-1-AI4DB-Project/f63cd0f1-9d88-4073-b305-3ed8f8809cdd/scratchpad/fieldgen/fieldgen-demo-main/src/fieldgen/cli.py", line 81, in main
+    a = ap.parse_args(argv); return a.f(a)
+                                    ~~~^^^
+  File "/private/tmp/claude-501/-Users-kaustubhvasekar-Documents-GradStudy-IITH-Sem-1-AI4DB-Project/f63cd0f1-9d88-4073-b305-3ed8f8809cdd/scratchpad/fieldgen/fieldgen-demo-main/src/fieldgen/cli.py", line 40, in cmd_generate
+    try: summary = generate(a.package, s, out)
+                   ~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/claude-501/-Users-kaustubhvasekar-Documents-GradStudy-IITH-Sem-1-AI4DB-Project/f63cd0f1-9d88-4073-b305-3ed8f8809cdd/scratchpad/fieldgen/fieldgen-demo-main/src/fieldgen/pipeline.py", line 111, in generate
+    dump = DumpView(package_dir); src_tables = {r["relation"] for r in dump.sf.values()}; pool = G.make_pool(str(package_dir)); fdone = {r["task_id"] for r in _read_jsonl(form_path)}
+                                                                                                 ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/claude-501/-Users-kaustubhvasekar-Documents-GradStudy-IITH-Sem-1-AI4DB-Project/f63cd0f1-9d88-4073-b305-3ed8f8809cdd/scratchpad/fieldgen/fieldgen-demo-main/src/fieldgen/guardrail.py", line 257, in make_pool
+    n = workers or max(1, (os.cpu_count() or 2) // 2); ram = [int(l.split()[1]) for l in open("/proc/meminfo") if l.startswith("MemTotal")][0] * 1024
+                                                                                         ~~~~^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/proc/meminfo'
+
+real	10m30.111s
+user	0m41.198s
+sys	0m1.628s
+config: /Users/kaustubhvasekar/Documents/GradStudy/IITH/Sem-1/AI4DB/Project/benchmark/fieldgen_run/rep1/pkg/config.yaml
+hint    source/tables.json: no descriptions yet for the 243 source columns (descriptions help the model).
+hint    target/reference_tables.json: no lookup tables listed. That is fine if the source has no code lists or vocabularies.
+hint    source/tables.json: primary keys of 27 table(s) were proposed by `fieldgen init`; confirm them (AccountXML, ActionXML, AddressXML, BatchDate, ...).
+hint    source/links.json: 143 link(s) were proposed by `fieldgen init` (marked proposed in the note); confirm or delete them.
+run folder: /Users/kaustubhvasekar/Documents/GradStudy/IITH/Sem-1/AI4DB/Project/benchmark/fieldgen_run/rep1/run | model: nvidia/nemotron-3.5-super-vl-120b-a12b | stages: recipes_and_formulas | domain_knowledge: required
+WARNING untested setting: requests_per_minute = 8
+WARNING untested setting: concurrency = 1
+WARNING text data check: 1 quoted value(s) in the domain text are not in the data (see report.md)
+recipe step: 0 of 16 tables to do
+formula step: 205 columns to do
+served model of first reply: private/nvidia/nemotron-3.5-super-120b-a12b
+config: /Users/kaustubhvasekar/Documents/GradStudy/IITH/Sem-1/AI4DB/Project/benchmark/fieldgen_run/rep1/pkg/config.yaml
+hint    source/tables.json: no descriptions yet for the 243 source columns (descriptions help the model).
+hint    target/reference_tables.json: no lookup tables listed. That is fine if the source has no code lists or vocabularies.
+hint    source/tables.json: primary keys of 27 table(s) were proposed by `fieldgen init`; confirm them (AccountXML, ActionXML, AddressXML, BatchDate, ...).
+hint    source/links.json: 143 link(s) were proposed by `fieldgen init` (marked proposed in the note); confirm or delete them.
+run folder: /Users/kaustubhvasekar/Documents/GradStudy/IITH/Sem-1/AI4DB/Project/benchmark/fieldgen_run/rep1/run | model: nvidia/nemotron-3.5-super-vl-120b-a12b | stages: recipes_and_formulas | domain_knowledge: required
+WARNING untested setting: requests_per_minute = 8
+WARNING untested setting: concurrency = 1
+WARNING text data check: 1 quoted value(s) in the domain text are not in the data (see report.md)
+recipe step: 0 of 16 tables to do
+formula step: 205 columns to do
+served model of first reply: private/nvidia/nemotron-3.5-super-120b-a12b
+served model id(s): private/nvidia/nemotron-3.5-super-120b-a12b | seconds: 797
+STOPPED: more than 15% of the last 50 calls failed
+served model id(s): private/nvidia/nemotron-3.5-super-120b-a12b | seconds: 1573
+STOPPED: more than 15% of the last 50 calls failed
+
+real	26m16.391s
+user	0m30.960s
+sys	0m1.704s

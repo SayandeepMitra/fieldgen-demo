@@ -1,0 +1,14 @@
+{
+ "tt_id": {
+  "b1": "CAST(b1.TT_ID AS CHAR(3))"
+ },
+ "tt_name": {
+  "b1": "CAST(b1.TT_NAME AS CHAR(12))"
+ },
+ "tt_is_sell": {
+  "b1": "b1.TT_IS_SELL"
+ },
+ "tt_is_mrkt": {
+  "b1": "b1.TT_IS_MRKT"
+ }
+}

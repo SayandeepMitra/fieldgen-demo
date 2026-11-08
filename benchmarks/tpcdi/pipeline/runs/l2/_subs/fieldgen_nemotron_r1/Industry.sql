@@ -1,0 +1,1 @@
+SELECT "in_id", "in_name", "in_sc_id" FROM (SELECT TRY_CAST((CAST(b1.IN_ID AS TEXT)) AS TEXT) AS "in_id", TRY_CAST((CAST(b1.IN_NAME AS TEXT)) AS TEXT) AS "in_name", TRY_CAST((CAST(b1.IN_SC_ID AS TEXT)) AS TEXT) AS "in_sc_id" FROM "Source"."Industry" AS b1);

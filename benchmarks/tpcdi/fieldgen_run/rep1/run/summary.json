@@ -1,0 +1,56 @@
+{
+ "tables_to_build": [
+  "industry",
+  "statustype",
+  "taxrate",
+  "tradetype",
+  "dimdate",
+  "dimtime",
+  "dimbroker",
+  "dimcustomer",
+  "dimaccount",
+  "dimcompany",
+  "dimsecurity",
+  "dimtrade",
+  "factcashbalances",
+  "factholdings",
+  "financial",
+  "prospect"
+ ],
+ "recipes_valid": [
+  "dimaccount",
+  "dimbroker",
+  "dimcompany",
+  "dimcustomer",
+  "dimdate",
+  "dimsecurity",
+  "dimtime",
+  "dimtrade",
+  "factcashbalances",
+  "factholdings",
+  "financial",
+  "industry",
+  "prospect",
+  "statustype",
+  "taxrate",
+  "tradetype"
+ ],
+ "built": [],
+ "served_models": [
+  "private/nvidia/nemotron-3.5-super-120b-a12b"
+ ],
+ "stopped": null,
+ "warnings": [
+  "untested setting: requests_per_minute = 4",
+  "untested setting: concurrency = 1",
+  "text data check: quoted value not in data: 'type 2' (in: You are writing the Historical Load of the TPC-DI data warehouse: the first load of an emp)"
+ ],
+ "seconds": 198,
+ "stats": {
+  "recipe_runs": 0,
+  "formula_runs": 6
+ },
+ "text_data_check_lines": 1,
+ "stages": "recipes_and_formulas",
+ "dropped_expert_lines": []
+}

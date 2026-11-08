@@ -1,0 +1,12 @@
+Recipe for dimcompany
+Grain: One row per company version (per FinwireCMP record); natural key companyid (CIK) may have multiple rows ordered by effectivedate.
+Combine: none
+Branch b1:
+  FROM FinwireCMP AS f INNER JOIN Industry AS i ON f.IndustryID = i.IN_ID INNER JOIN StatusType AS s ON f.Status = s.ST_ID
+Generated key sk_companyid, numbered in the order of: companyid, effectivedate
+Decisions: joins: ['Inner join Industry to resolve industry name from IndustryID.', 'Inner join StatusType to resolve status description from Status.']; stacked: False; deduplicated: False; aggregated: False
+Assumption: No supplied links exist; joins on FinwireCMP.IndustryID = Industry.IN_ID and FinwireCMP.Status = StatusType.ST_ID are assumed based on domain knowledge.
+Assumption: Each FinwireCMP row is a distinct company version; PTS is unique so the join produces no duplicate target rows.
+Assumption: BatchID is constant 1 for the historical load and will be set by a later formula step.
+Assumption: SCD2 attributes (iscurrent, effectivedate, enddate) are computed in a later step by ordering rows per companyid by effectivedate.
+Assumption: sk_companyid is a generated surrogate key assigned over the combined rows ordered by companyid, effectivedate.

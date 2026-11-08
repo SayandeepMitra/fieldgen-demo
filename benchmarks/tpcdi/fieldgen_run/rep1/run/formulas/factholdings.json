@@ -1,0 +1,35 @@
+{
+ "tradeid": {
+  "b1": "CAST(hh.HH_H_T_ID AS INT)"
+ },
+ "sk_customerid": {
+  "b1": "CAST(NULL AS INTEGER)"
+ },
+ "sk_accountid": {
+  "b1": "CAST(t.T_CA_ID AS INT)"
+ },
+ "sk_securityid": {
+  "b1": "CAST(NULL AS INTEGER)"
+ },
+ "sk_companyid": {
+  "b1": "CAST(NULL AS INTEGER)"
+ },
+ "sk_dateid": {
+  "b1": "CAST(strftime(t.T_DTS, '%Y%m%d') AS INTEGER)"
+ },
+ "sk_timeid": {
+  "b1": "CAST(strftime(t.T_DTS, '%Y%m%d') AS INTEGER)"
+ },
+ "currentprice": {
+  "b1": "CAST(t.T_TRADE_PRICE AS INT)"
+ },
+ "currentholding": {
+  "b1": "hh.HH_AFTER_QTY"
+ },
+ "batchid": {
+  "b1": "CAST(NULL AS DECIMAL(5))"
+ },
+ "currenttradeid": {
+  "b1": "CAST(hh.HH_T_ID AS INT)"
+ }
+}

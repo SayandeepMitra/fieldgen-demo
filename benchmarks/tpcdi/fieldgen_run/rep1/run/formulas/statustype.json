@@ -1,0 +1,8 @@
+{
+ "st_id": {
+  "b1": "CAST(st.ST_ID AS CHAR(4))"
+ },
+ "st_name": {
+  "b1": "CAST(st.ST_NAME AS CHAR(10))"
+ }
+}

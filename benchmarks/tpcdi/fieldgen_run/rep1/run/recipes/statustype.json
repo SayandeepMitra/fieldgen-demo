@@ -1,0 +1,23 @@
+{
+ "task_id": "statustype",
+ "step": "recipe",
+ "grain": "One row per status type, identified by st_id (source StatusType.ST_ID).",
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM StatusType AS st"
+  }
+ ],
+ "combine": "none",
+ "group_by": null,
+ "decisions": {
+  "joins": [],
+  "stacked": false,
+  "deduplicated": false,
+  "aggregated": false
+ },
+ "assumptions": [
+  "StatusType.ST_ID is the source primary key and is unique, so each source row produces exactly one target row and no de-duplication is needed.",
+  "No joins are required because both target fields (st_id, st_name) come directly from StatusType."
+ ]
+}

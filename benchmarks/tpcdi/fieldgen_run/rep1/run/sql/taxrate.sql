@@ -1,0 +1,1 @@
+SELECT "tx_id", "tx_name", "tx_rate" FROM (SELECT TRY_CAST((CAST(t1.TX_ID AS CHAR(4))) AS char(4)) AS "tx_id", TRY_CAST((CAST(t1.TX_NAME AS CHAR(50))) AS char(50)) AS "tx_name", TRY_CAST((t1.TX_RATE) AS decimal(6, 5)) AS "tx_rate" FROM TaxRate AS t1)

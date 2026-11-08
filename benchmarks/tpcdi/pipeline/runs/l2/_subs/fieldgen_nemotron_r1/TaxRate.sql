@@ -1,0 +1,1 @@
+SELECT "tx_id", "tx_name", "tx_rate" FROM (SELECT TRY_CAST((CAST(t1.TX_ID AS TEXT)) AS TEXT) AS "tx_id", TRY_CAST((CAST(t1.TX_NAME AS TEXT)) AS TEXT) AS "tx_name", TRY_CAST((t1.TX_RATE) AS DECIMAL(6, 5)) AS "tx_rate" FROM "Source"."TaxRate" AS t1);

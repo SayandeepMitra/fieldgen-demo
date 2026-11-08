@@ -1,0 +1,9 @@
+Recipe for tradetype
+Grain: One row per trade type code (TT_ID), representing a distinct trade type such as Limit Buy, Limit Sell, Market Buy, Market Sell, or Stop Loss.
+Combine: none
+Branch b1:
+  FROM TradeType AS b1
+Decisions: joins: []; stacked: False; deduplicated: False; aggregated: False
+Assumption: All target fields are sourced from the TradeType table, so no joins to other source tables are required.
+Assumption: TradeType.TT_ID is the primary key and is unique across the 5 source rows, so no de-duplication is needed.
+Assumption: The Historical Load reads all rows from the Batch 1 TradeType source file.

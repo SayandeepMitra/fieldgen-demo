@@ -1,0 +1,23 @@
+prompts ready (210 columns, 0s)
+204 calls to make (324 already done)
+[10/204] DimCustomer.SK_CustomerID nemotron #0 ok
+[20/204] DimCustomer.Tier nemotron #0 ok
+[30/204] DimCustomer.Phone3 nemotron #0 ok
+[40/204] DimCustomer.AgencyID nemotron #0 ok
+[50/204] DimCustomer.EndDate nemotron #0 ok
+[60/204] DimAccount.EffectiveDate nemotron #0 ok
+[70/204] DimSecurity.SharesOutstanding nemotron #0 ok
+[80/204] DimSecurity.IsCurrent nemotron #0 ok
+[90/204] DimTrade.Status nemotron #0 ok
+[100/204] DimTrade.Quantity nemotron #0 ok
+[110/204] DimTrade.SK_AccountID nemotron #0 ok
+[120/204] FactCashBalances.BatchID nemotron #0 ok
+[130/204] FactHoldings.SK_TimeID nemotron #0 ok
+[140/204] Financial.SK_CompanyID nemotron #0 ok
+[150/204] DimCustomer.SK_CustomerID mistral_large #0 ok
+[160/204] DimSecurity.BatchID mistral_large #0 ok
+[170/204] DimTrade.SK_CloseDateID mistral_large #0 ok
+[180/204] DimTrade.ExecutedBy mistral_large #0 ok
+[190/204] FactHoldings.SK_AccountID mistral_large #0 ok
+[200/204] FactHoldings.CurrentHolding mistral_large #0 ok
+DONE

@@ -1,0 +1,211 @@
+table,column,kind,tier,null_control_pct,table_rowset_ok,reasons
+DimAccount,AccountDesc,rename,clean_column,4.46,False,column ok; table row set deviates: F10
+DimAccount,AccountID,rename,clean_column,0,False,column ok; table row set deviates: F10
+DimAccount,BatchID,constant,clean_column,0,False,column ok; table row set deviates: F10
+DimAccount,EffectiveDate,SCD history,audit_flagged,0,False,audit/invariant F09
+DimAccount,EndDate,SCD history,audit_flagged,0,False,audit/invariant F09
+DimAccount,IsCurrent,SCD history,audit_flagged,0,False,audit/invariant F09
+DimAccount,SK_AccountID,generated_key,clean_column,0,False,column ok; table row set deviates: F10
+DimAccount,SK_BrokerID,lookup join,clean_column,0,False,column ok; table row set deviates: F10
+DimAccount,SK_CustomerID,lookup join,fk_entity_only,0,False,FK points at a date-invalid VERSION of the right entity (F05): valid only under same-entity grading
+DimAccount,Status,conditional,audit_flagged,0,False,audit/invariant F01
+DimAccount,TaxStatus,rename,clean_column,0,False,column ok; table row set deviates: F10
+DimBroker,BatchID,constant,clean,0,True,
+DimBroker,Branch,rename,clean,4.82,True,
+DimBroker,BrokerID,rename,clean,0,True,
+DimBroker,EffectiveDate,value,clean,0,True,
+DimBroker,EndDate,constant,clean,0,True,
+DimBroker,FirstName,rename,clean,0,True,
+DimBroker,IsCurrent,constant,clean,0,True,
+DimBroker,LastName,rename,clean,0,True,
+DimBroker,ManagerID,passthrough_copy,clean,0,True,
+DimBroker,MiddleInitial,rename,weak,63.57,True,NULL control already scores 63.57%
+DimBroker,Office,rename,clean,4.78,True,
+DimBroker,Phone,rename,clean,4.68,True,
+DimBroker,SK_BrokerID,generated_key,clean,0,True,
+DimCompany,AddressLine1,rename,clean,0,True,
+DimCompany,AddressLine2,rename,clean,0,True,
+DimCompany,BatchID,constant,clean,0,True,
+DimCompany,CEO,rename,clean,0,True,
+DimCompany,City,passthrough_copy,clean,0,True,
+DimCompany,CompanyID,rename,clean,0,True,
+DimCompany,Country,passthrough_copy,clean,0,True,
+DimCompany,Description,passthrough_copy,clean,0,True,
+DimCompany,EffectiveDate,SCD history,clean,0,True,
+DimCompany,EndDate,SCD history,clean,0,True,
+DimCompany,FoundingDate,retype,clean,6.8,True,
+DimCompany,Industry,lookup join,clean,0,True,
+DimCompany,IsCurrent,SCD history,clean,0,True,
+DimCompany,Name,rename,clean,0,True,
+DimCompany,PostalCode,passthrough_copy,clean,0,True,
+DimCompany,SK_CompanyID,generated_key,clean,0,True,
+DimCompany,SPrating,passthrough_copy,audit_flagged,0,True,audit/invariant F03
+DimCompany,StateProv,rename,clean,0,True,
+DimCompany,Status,lookup join,clean,0,True,
+DimCompany,isLowGrade,conditional,clean,0,True,
+DimCustomer,AddressLine1,rename,clean,0,True,
+DimCustomer,AddressLine2,rename,weak,88.43,True,NULL control already scores 88.43%
+DimCustomer,AgencyID,lookup join,audit_flagged,0.19,True,audit/invariant F08
+DimCustomer,BatchID,constant,clean,0,True,
+DimCustomer,City,rename,clean,0,True,
+DimCustomer,Country,rename,clean,0,True,
+DimCustomer,CreditRating,lookup join,audit_flagged,5.09,True,audit/invariant F08
+DimCustomer,CustomerID,rename,clean,0,True,
+DimCustomer,DOB,passthrough_copy,clean,0,True,
+DimCustomer,EffectiveDate,SCD history,clean,0,True,
+DimCustomer,Email1,rename,clean,0,True,
+DimCustomer,Email2,rename,weak,45.98,True,NULL control already scores 45.98%
+DimCustomer,EndDate,SCD history,clean,0,True,
+DimCustomer,FirstName,rename,clean,0,True,
+DimCustomer,Gender,conditional,clean,0,True,
+DimCustomer,IsCurrent,SCD history,clean,0,True,
+DimCustomer,LastName,rename,clean,0,True,
+DimCustomer,LocalTaxRate,lookup join,clean,0,True,
+DimCustomer,LocalTaxRateDesc,lookup join,clean,0,True,
+DimCustomer,MarketingNameplate,conditional,audit_flagged,0.87,True,audit/invariant F08
+DimCustomer,MiddleInitial,rename,weak,64.7,True,NULL control already scores 64.7%
+DimCustomer,NationalTaxRate,lookup join,clean,0,True,
+DimCustomer,NationalTaxRateDesc,lookup join,clean,0,True,
+DimCustomer,NetWorth,lookup join,audit_flagged,5.33,True,audit/invariant F08
+DimCustomer,Phone1,value,clean,1.61,True,
+DimCustomer,Phone2,value,weak,20.89,True,NULL control already scores 20.89%
+DimCustomer,Phone3,value,weak,67.1,True,NULL control already scores 67.1%
+DimCustomer,PostalCode,rename,clean,0,True,
+DimCustomer,SK_CustomerID,generated_key,clean,0,True,
+DimCustomer,StateProv,rename,clean,0,True,
+DimCustomer,Status,conditional,audit_flagged,0,True,audit/invariant F02
+DimCustomer,TaxID,rename,clean,0,True,
+DimCustomer,Tier,passthrough_copy,clean,4.29,True,
+DimDate,CalendarMonthDesc,passthrough_copy,clean,0,True,
+DimDate,CalendarMonthID,passthrough_copy,clean,0,True,
+DimDate,CalendarQtrDesc,passthrough_copy,clean,0,True,
+DimDate,CalendarQtrID,passthrough_copy,clean,0,True,
+DimDate,CalendarWeekDesc,passthrough_copy,clean,0,True,
+DimDate,CalendarWeekID,passthrough_copy,clean,0,True,
+DimDate,CalendarYearDesc,passthrough_copy,clean,0,True,
+DimDate,CalendarYearID,passthrough_copy,clean,0,True,
+DimDate,DateDesc,passthrough_copy,clean,0,True,
+DimDate,DateValue,passthrough_copy,clean,0,True,
+DimDate,DayOfWeekDesc,passthrough_copy,clean,0,True,
+DimDate,DayOfWeekNum,passthrough_copy,clean,0,True,
+DimDate,FiscalQtrDesc,passthrough_copy,clean,0,True,
+DimDate,FiscalQtrID,passthrough_copy,clean,0,True,
+DimDate,FiscalYearDesc,passthrough_copy,clean,0,True,
+DimDate,FiscalYearID,passthrough_copy,clean,0,True,
+DimDate,HolidayFlag,value,clean,0,True,
+DimDate,SK_DateID,passthrough_copy,clean,0,True,
+DimSecurity,BatchID,constant,clean,0,True,
+DimSecurity,Dividend,retype,clean,0,True,
+DimSecurity,EffectiveDate,SCD history,clean,0,True,
+DimSecurity,EndDate,SCD history,clean,0,True,
+DimSecurity,ExchangeID,rename,clean,0,True,
+DimSecurity,FirstTrade,retype,clean,0,True,
+DimSecurity,FirstTradeOnExchange,retype,clean,0,True,
+DimSecurity,IsCurrent,SCD history,clean,0,True,
+DimSecurity,Issue,rename,clean,0,True,
+DimSecurity,Name,passthrough_copy,clean,0,True,
+DimSecurity,SK_CompanyID,lookup join,known_defect,0,True,"rule_reliable=no: fragile varchar-based join predicate, flagged by the original author as needing improvement | FK points at a date-invalid VERSION of the right entity (F04): valid only under same-entity grading"
+DimSecurity,SK_SecurityID,generated_key,clean,0,True,
+DimSecurity,SharesOutstanding,retype,clean,0,True,
+DimSecurity,Status,lookup join,clean,0,True,
+DimSecurity,Symbol,passthrough_copy,clean,0,True,
+DimTime,HourDesc,passthrough_copy,clean,0,True,
+DimTime,HourID,passthrough_copy,clean,0,True,
+DimTime,MarketHoursFlag,value,clean,0,True,
+DimTime,MinuteDesc,passthrough_copy,clean,0,True,
+DimTime,MinuteID,passthrough_copy,clean,0,True,
+DimTime,OfficeHoursFlag,value,clean,0,True,
+DimTime,SK_TimeID,passthrough_copy,clean,0,True,
+DimTime,SecondDesc,passthrough_copy,clean,0,True,
+DimTime,SecondID,passthrough_copy,clean,0,True,
+DimTime,TimeValue,passthrough_copy,clean,0,True,
+DimTrade,BatchID,constant,clean_column,0,False,column ok; table row set deviates: F11
+DimTrade,BidPrice,rename,clean_column,0,False,column ok; table row set deviates: F11
+DimTrade,CashFlag,value,clean_column,0,False,column ok; table row set deviates: F11
+DimTrade,Commission,rename,clean_column,5.23,False,column ok; table row set deviates: F11
+DimTrade,DT_Type,lookup join,clean_column,0,False,column ok; table row set deviates: F11
+DimTrade,ExecutedBy,rename,clean_column,0,False,column ok; table row set deviates: F11
+DimTrade,Fee,rename,clean_column,5.23,False,column ok; table row set deviates: F11
+DimTrade,Quantity,rename,clean_column,0,False,column ok; table row set deviates: F11
+DimTrade,SK_AccountID,constant,known_defect,0,False,rule_reliable=no: hardcoded placeholder constant | audit/invariant I01
+DimTrade,SK_BrokerID,constant,known_defect,0,False,"rule_reliable=no: hardcoded placeholder constant, not a real FK lookup | audit/invariant I01"
+DimTrade,SK_CloseDateID,lookup join,weak,60.79,False,NULL control already scores 60.79%
+DimTrade,SK_CloseTimeID,lookup join,weak,60.79,False,NULL control already scores 60.79%
+DimTrade,SK_CompanyID,constant,known_defect,0,False,rule_reliable=no: hardcoded placeholder constant | audit/invariant I01
+DimTrade,SK_CreateDateID,lookup join,known_defect,0,False,"rule_reliable=no: non-exhaustive CASE in the original, patched with an added fallback"
+DimTrade,SK_CreateTimeID,lookup join,known_defect,0,False,"rule_reliable=no: same non-exhaustive CASE, same patch"
+DimTrade,SK_CustomerID,constant,known_defect,0,False,rule_reliable=no: hardcoded placeholder constant | audit/invariant I01
+DimTrade,SK_SecurityID,constant,known_defect,0,False,rule_reliable=no: hardcoded placeholder constant | audit/invariant I01
+DimTrade,Status,lookup join,clean_column,0,False,column ok; table row set deviates: F11
+DimTrade,Tax,rename,clean_column,5.23,False,column ok; table row set deviates: F11
+DimTrade,TradeID,passthrough_copy,clean_column,0,False,column ok; table row set deviates: F11
+DimTrade,TradePrice,rename,clean_column,5.23,False,column ok; table row set deviates: F11
+FactCashBalances,BatchID,constant,clean,0,True,
+FactCashBalances,Cash,aggregate,known_defect,0,True,"rule_reliable=no: daily net sum, not a true running balance, per the author's own unresolved TODO"
+FactCashBalances,SK_AccountID,copies_generated_key,clean,0,True,
+FactCashBalances,SK_CustomerID,copies_generated_key,fk_entity_only,0,True,FK points at a date-invalid VERSION of the right entity (F06): valid only under same-entity grading
+FactCashBalances,SK_DateID,lookup join,clean,0,True,
+FactHoldings,BatchID,constant,clean_column,0,False,column ok; table row set deviates: F12
+FactHoldings,CurrentHolding,rename,clean_column,0,False,column ok; table row set deviates: F12
+FactHoldings,CurrentPrice,value,known_defect,0,False,rule_reliable=no: author explicitly flagged their own uncertainty about this field choice
+FactHoldings,CurrentTradeID,rename,clean_column,0,False,column ok; table row set deviates: F12
+FactHoldings,SK_AccountID,copies_generated_key,known_defect,0,False,rule_reliable=no: inherited from DimTrade's unreliable SK_AccountID | audit/invariant I01
+FactHoldings,SK_CompanyID,copies_generated_key,known_defect,0,False,rule_reliable=no: inherited from DimTrade's unreliable SK_CompanyID | audit/invariant I01
+FactHoldings,SK_CustomerID,copies_generated_key,known_defect,0,False,rule_reliable=no: inherited from DimTrade's unreliable SK_CustomerID | audit/invariant I01
+FactHoldings,SK_DateID,lookup join,known_defect,0,False,rule_reliable=no: patched to avoid NULLs from an unfiltered join to DimTrade
+FactHoldings,SK_SecurityID,copies_generated_key,known_defect,0,False,rule_reliable=no: inherited from DimTrade's unreliable SK_SecurityID | audit/invariant I01
+FactHoldings,SK_TimeID,lookup join,known_defect,0,False,rule_reliable=no: same patch as SK_DateID
+FactHoldings,TradeID,rename,clean_column,0,False,column ok; table row set deviates: F12
+Financial,FI_ASSETS,retype,clean,0,True,
+Financial,FI_BASIC_EPS,retype,clean,0,True,
+Financial,FI_DILUT_EPS,retype,clean,0,True,
+Financial,FI_INVENTORY,retype,clean,0,True,
+Financial,FI_LIABILITY,retype,clean,0,True,
+Financial,FI_MARGIN,retype,clean,0,True,
+Financial,FI_NET_EARN,retype,clean,0,True,
+Financial,FI_OUT_BASIC,retype,clean,0,True,
+Financial,FI_OUT_DILUT,retype,clean,0,True,
+Financial,FI_QTR,retype,clean,0,True,
+Financial,FI_QTR_START_DATE,retype,clean,0,True,
+Financial,FI_REVENUE,retype,clean,0,True,
+Financial,FI_YEAR,retype,clean,0,True,
+Financial,SK_CompanyID,lookup join,clean,0,True,
+Industry,IN_ID,passthrough_copy,clean,0,True,
+Industry,IN_NAME,passthrough_copy,clean,0,True,
+Industry,IN_SC_ID,passthrough_copy,clean,0,True,
+Prospect,AddressLine1,passthrough_copy,clean,3.69,True,
+Prospect,AddressLine2,passthrough_copy,weak,31.64,True,NULL control already scores 31.64%
+Prospect,Age,passthrough_copy,clean,5.29,True,
+Prospect,AgencyID,passthrough_copy,clean,0,True,
+Prospect,BatchID,constant,clean,0,True,
+Prospect,City,passthrough_copy,clean,0,True,
+Prospect,Country,passthrough_copy,clean,4.32,True,
+Prospect,CreditRating,passthrough_copy,clean,5.05,True,
+Prospect,Employer,passthrough_copy,clean,5.15,True,
+Prospect,FirstName,passthrough_copy,clean,0,True,
+Prospect,Gender,passthrough_copy,weak,52.56,True,NULL control already scores 52.56%
+Prospect,Income,passthrough_copy,clean,4.94,True,
+Prospect,IsCustomer,conditional,known_defect,0,True,"rule_reliable=no: type-mismatch bug in the original (COUNT(*) into a BOOLEAN column), patched to COUNT(*)>0"
+Prospect,LastName,passthrough_copy,clean,0,True,
+Prospect,MaritalStatus,passthrough_copy,clean,5.0,True,
+Prospect,MarketingNameplate,conditional,audit_flagged,0.53,True,audit/invariant F07
+Prospect,MiddleInitial,passthrough_copy,weak,56.01,True,NULL control already scores 56.01%
+Prospect,NetWorth,passthrough_copy,clean,5.33,True,
+Prospect,OwnOrRentFlag,passthrough_copy,clean,4.69,True,
+Prospect,Phone,passthrough_copy,clean,5.21,True,
+Prospect,PostalCode,passthrough_copy,clean,3.1,True,
+Prospect,SK_RecordDateID,lookup join,clean,0,True,
+Prospect,SK_UpdateDateID,lookup join,clean,0,True,
+Prospect,State,passthrough_copy,clean,0,True,
+Prospect,numberCars,passthrough_copy,clean,5.11,True,
+Prospect,numberChildren,passthrough_copy,clean,5.05,True,
+Prospect,numberCreditCards,passthrough_copy,clean,5.1,True,
+StatusType,ST_ID,passthrough_copy,clean,0,True,
+StatusType,ST_NAME,passthrough_copy,clean,0,True,
+TaxRate,TX_ID,passthrough_copy,clean,0,True,
+TaxRate,TX_NAME,passthrough_copy,clean,0,True,
+TaxRate,TX_RATE,passthrough_copy,clean,0,True,
+TradeType,TT_ID,passthrough_copy,clean,0,True,
+TradeType,TT_IS_MRKT,passthrough_copy,clean,0,True,
+TradeType,TT_IS_SELL,passthrough_copy,clean,0,True,
+TradeType,TT_NAME,passthrough_copy,clean,0,True,

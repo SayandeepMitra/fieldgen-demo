@@ -1,0 +1,16 @@
+DimDate
+DimTime
+StatusType
+TaxRate
+TradeType
+Industry
+DimBroker
+DimCompany
+DimCustomer
+DimAccount
+DimSecurity
+DimTrade
+FactCashBalances
+FactHoldings
+Financial
+Prospect

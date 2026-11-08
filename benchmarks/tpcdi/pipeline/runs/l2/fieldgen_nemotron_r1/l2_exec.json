@@ -1,0 +1,98 @@
+{
+ "DimDate": {
+  "status": "OK",
+  "error": "",
+  "rows": 25933,
+  "seconds": 0.0
+ },
+ "DimTime": {
+  "status": "OK",
+  "error": "",
+  "rows": 86400,
+  "seconds": 0.0
+ },
+ "StatusType": {
+  "status": "OK",
+  "error": "",
+  "rows": 6,
+  "seconds": 0.0
+ },
+ "TaxRate": {
+  "status": "OK",
+  "error": "",
+  "rows": 320,
+  "seconds": 0.0
+ },
+ "TradeType": {
+  "status": "OK",
+  "error": "",
+  "rows": 5,
+  "seconds": 0.0
+ },
+ "Industry": {
+  "status": "OK",
+  "error": "",
+  "rows": 102,
+  "seconds": 0.0
+ },
+ "DimBroker": {
+  "status": "OK",
+  "error": "",
+  "rows": 15000,
+  "seconds": 0.0
+ },
+ "DimCompany": {
+  "status": "ERROR",
+  "error": "Invalid Input Error: Could not parse string \"\" according to format specifier \"%Y%m%d\"  ^ Error: Expected a number",
+  "rows": 0,
+  "seconds": 0.0
+ },
+ "DimCustomer": {
+  "status": "OK",
+  "error": "",
+  "rows": 14572,
+  "seconds": 0.0
+ },
+ "DimAccount": {
+  "status": "OK",
+  "error": "",
+  "rows": 12860,
+  "seconds": 0.0
+ },
+ "DimSecurity": {
+  "status": "OK",
+  "error": "",
+  "rows": 2400,
+  "seconds": 0.0
+ },
+ "DimTrade": {
+  "status": "OK",
+  "error": "",
+  "rows": 390978,
+  "seconds": 0.2
+ },
+ "FactCashBalances": {
+  "status": "OK",
+  "error": "",
+  "rows": 361856,
+  "seconds": 0.0
+ },
+ "FactHoldings": {
+  "status": "OK",
+  "error": "",
+  "rows": 362342,
+  "seconds": 0.1
+ },
+ "Financial": {
+  "status": "OK",
+  "error": "",
+  "rows": 98576,
+  "seconds": 0.2
+ },
+ "Prospect": {
+  "status": "OK",
+  "error": "",
+  "rows": 14982,
+  "seconds": 0.0
+ }
+}

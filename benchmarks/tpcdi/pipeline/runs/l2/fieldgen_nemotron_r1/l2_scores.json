@@ -1,0 +1,1587 @@
+{
+ "tables": {
+  "DimDate": {
+   "ref_rows": 25933,
+   "cand_rows": 25933,
+   "matched_rows": 25933,
+   "cand_duplicate_rows": 0,
+   "ref_identity_repeats": 0,
+   "recall": 100.0,
+   "precision": 100.0,
+   "rows_correct": true,
+   "columns": {
+    "DateDesc": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "CalendarYearID": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "CalendarYearDesc": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "CalendarQtrID": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "CalendarQtrDesc": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "CalendarMonthID": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "CalendarMonthDesc": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "CalendarWeekID": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "CalendarWeekDesc": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "DayOfWeekNum": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "DayOfWeekDesc": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "FiscalYearID": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "FiscalYearDesc": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "FiscalQtrID": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "FiscalQtrDesc": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "HolidayFlag": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "DateValue": {
+     "agree_matched": 25933,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "identity": true
+    },
+    "SK_DateID": {
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "generated_key": true
+    }
+   },
+   "status": "OK",
+   "own_sk": {
+    "column": "SK_DateID",
+    "unique_not_null": true
+   },
+   "constraints": {
+    "not_null_violations": {},
+    "dangling_fk": {}
+   },
+   "exec": {
+    "status": "OK",
+    "error": "",
+    "rows": 25933,
+    "seconds": 0.0
+   }
+  },
+  "DimTime": {
+   "ref_rows": 86400,
+   "cand_rows": 86400,
+   "matched_rows": 86400,
+   "cand_duplicate_rows": 0,
+   "ref_identity_repeats": 0,
+   "recall": 100.0,
+   "precision": 100.0,
+   "rows_correct": true,
+   "columns": {
+    "HourID": {
+     "agree_matched": 86400,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "HourDesc": {
+     "agree_matched": 86400,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "MinuteID": {
+     "agree_matched": 86400,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "MinuteDesc": {
+     "agree_matched": 86400,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "SecondID": {
+     "agree_matched": 86400,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "SecondDesc": {
+     "agree_matched": 86400,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "MarketHoursFlag": {
+     "agree_matched": 86400,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "OfficeHoursFlag": {
+     "agree_matched": 86400,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "TimeValue": {
+     "agree_matched": 86400,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "identity": true
+    },
+    "SK_TimeID": {
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "generated_key": true
+    }
+   },
+   "status": "OK",
+   "own_sk": {
+    "column": "SK_TimeID",
+    "unique_not_null": true
+   },
+   "constraints": {
+    "not_null_violations": {},
+    "dangling_fk": {}
+   },
+   "exec": {
+    "status": "OK",
+    "error": "",
+    "rows": 86400,
+    "seconds": 0.0
+   }
+  },
+  "StatusType": {
+   "ref_rows": 6,
+   "cand_rows": 6,
+   "matched_rows": 6,
+   "cand_duplicate_rows": 0,
+   "ref_identity_repeats": 0,
+   "recall": 100.0,
+   "precision": 100.0,
+   "rows_correct": true,
+   "columns": {
+    "ST_NAME": {
+     "agree_matched": 6,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "ST_ID": {
+     "agree_matched": 6,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "identity": true
+    }
+   },
+   "status": "OK",
+   "constraints": {
+    "not_null_violations": {},
+    "dangling_fk": {}
+   },
+   "exec": {
+    "status": "OK",
+    "error": "",
+    "rows": 6,
+    "seconds": 0.0
+   }
+  },
+  "TaxRate": {
+   "ref_rows": 320,
+   "cand_rows": 320,
+   "matched_rows": 320,
+   "cand_duplicate_rows": 0,
+   "ref_identity_repeats": 0,
+   "recall": 100.0,
+   "precision": 100.0,
+   "rows_correct": true,
+   "columns": {
+    "TX_NAME": {
+     "agree_matched": 320,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "TX_RATE": {
+     "agree_matched": 320,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "TX_ID": {
+     "agree_matched": 320,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "identity": true
+    }
+   },
+   "status": "OK",
+   "constraints": {
+    "not_null_violations": {},
+    "dangling_fk": {}
+   },
+   "exec": {
+    "status": "OK",
+    "error": "",
+    "rows": 320,
+    "seconds": 0.0
+   }
+  },
+  "TradeType": {
+   "ref_rows": 5,
+   "cand_rows": 5,
+   "matched_rows": 5,
+   "cand_duplicate_rows": 0,
+   "ref_identity_repeats": 0,
+   "recall": 100.0,
+   "precision": 100.0,
+   "rows_correct": true,
+   "columns": {
+    "TT_NAME": {
+     "agree_matched": 5,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "TT_IS_SELL": {
+     "agree_matched": 5,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "TT_IS_MRKT": {
+     "agree_matched": 5,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "TT_ID": {
+     "agree_matched": 5,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "identity": true
+    }
+   },
+   "status": "OK",
+   "constraints": {
+    "not_null_violations": {},
+    "dangling_fk": {}
+   },
+   "exec": {
+    "status": "OK",
+    "error": "",
+    "rows": 5,
+    "seconds": 0.0
+   }
+  },
+  "Industry": {
+   "ref_rows": 102,
+   "cand_rows": 102,
+   "matched_rows": 102,
+   "cand_duplicate_rows": 0,
+   "ref_identity_repeats": 0,
+   "recall": 100.0,
+   "precision": 100.0,
+   "rows_correct": true,
+   "columns": {
+    "IN_NAME": {
+     "agree_matched": 102,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "IN_SC_ID": {
+     "agree_matched": 102,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "IN_ID": {
+     "agree_matched": 102,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "identity": true
+    }
+   },
+   "status": "OK",
+   "constraints": {
+    "not_null_violations": {},
+    "dangling_fk": {}
+   },
+   "exec": {
+    "status": "OK",
+    "error": "",
+    "rows": 102,
+    "seconds": 0.0
+   }
+  },
+  "DimBroker": {
+   "ref_rows": 4293,
+   "cand_rows": 15000,
+   "matched_rows": 4293,
+   "cand_duplicate_rows": 0,
+   "ref_identity_repeats": 0,
+   "recall": 100.0,
+   "precision": 28.62,
+   "rows_correct": false,
+   "columns": {
+    "ManagerID": {
+     "agree_matched": 4293,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "FirstName": {
+     "agree_matched": 4293,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "LastName": {
+     "agree_matched": 4293,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "MiddleInitial": {
+     "agree_matched": 4293,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "Branch": {
+     "agree_matched": 4293,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "Office": {
+     "agree_matched": 4293,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "Phone": {
+     "agree_matched": 4293,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "IsCurrent": {
+     "agree_matched": 4293,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "BatchID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "EffectiveDate": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "EndDate": {
+     "agree_matched": 4293,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "BrokerID": {
+     "agree_matched": 4293,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "identity": true
+    },
+    "SK_BrokerID": {
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "generated_key": true
+    }
+   },
+   "status": "OK",
+   "own_sk": {
+    "column": "SK_BrokerID",
+    "unique_not_null": true
+   },
+   "constraints": {
+    "not_null_violations": {
+     "BatchID": 15000,
+     "EffectiveDate": 15000
+    },
+    "dangling_fk": {}
+   },
+   "exec": {
+    "status": "OK",
+    "error": "",
+    "rows": 15000,
+    "seconds": 0.0
+   }
+  },
+  "DimCompany": {
+   "ref_rows": 1500,
+   "cand_rows": 0,
+   "matched_rows": 0,
+   "cand_duplicate_rows": 0,
+   "ref_identity_repeats": 404,
+   "recall": 0.0,
+   "precision": null,
+   "rows_correct": false,
+   "columns": {
+    "Status": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "Name": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "Industry": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "SPrating": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "isLowGrade": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "CEO": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "AddressLine1": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "AddressLine2": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "PostalCode": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "City": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "StateProv": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "Country": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "Description": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "FoundingDate": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "IsCurrent": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "BatchID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "EffectiveDate": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "EndDate": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "CompanyID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null,
+     "identity": true
+    },
+    "SK_CompanyID": {
+     "pct_ref": 0.0,
+     "pct_matched": 0.0,
+     "generated_key": true
+    }
+   },
+   "status": "ERROR",
+   "own_sk": {
+    "column": "SK_CompanyID",
+    "unique_not_null": false
+   },
+   "constraints": {
+    "not_null_violations": {},
+    "dangling_fk": {}
+   },
+   "exec": {
+    "status": "ERROR",
+    "error": "Invalid Input Error: Could not parse string \"\" according to format specifier \"%Y%m%d\"  ^ Error: Expected a number",
+    "rows": 0,
+    "seconds": 0.0
+   }
+  },
+  "DimCustomer": {
+   "ref_rows": 6440,
+   "cand_rows": 14572,
+   "matched_rows": 6440,
+   "cand_duplicate_rows": 8132,
+   "ref_identity_repeats": 1712,
+   "recall": 100.0,
+   "precision": 44.194,
+   "rows_correct": false,
+   "columns": {
+    "TaxID": {
+     "agree_matched": 4728,
+     "pct_ref": 73.416,
+     "pct_matched": 73.416
+    },
+    "Status": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "LastName": {
+     "agree_matched": 4728,
+     "pct_ref": 73.416,
+     "pct_matched": 73.416
+    },
+    "FirstName": {
+     "agree_matched": 4728,
+     "pct_ref": 73.416,
+     "pct_matched": 73.416
+    },
+    "MiddleInitial": {
+     "agree_matched": 5844,
+     "pct_ref": 90.745,
+     "pct_matched": 90.745
+    },
+    "Gender": {
+     "agree_matched": 1107,
+     "pct_ref": 17.189,
+     "pct_matched": 17.189
+    },
+    "Tier": {
+     "agree_matched": 5199,
+     "pct_ref": 80.73,
+     "pct_matched": 80.73
+    },
+    "DOB": {
+     "agree_matched": 4728,
+     "pct_ref": 73.416,
+     "pct_matched": 73.416
+    },
+    "AddressLine1": {
+     "agree_matched": 5169,
+     "pct_ref": 80.264,
+     "pct_matched": 80.264
+    },
+    "AddressLine2": {
+     "agree_matched": 6212,
+     "pct_ref": 96.46,
+     "pct_matched": 96.46
+    },
+    "PostalCode": {
+     "agree_matched": 5177,
+     "pct_ref": 80.388,
+     "pct_matched": 80.388
+    },
+    "City": {
+     "agree_matched": 5187,
+     "pct_ref": 80.543,
+     "pct_matched": 80.543
+    },
+    "StateProv": {
+     "agree_matched": 5178,
+     "pct_ref": 80.404,
+     "pct_matched": 80.404
+    },
+    "Country": {
+     "agree_matched": 5180,
+     "pct_ref": 80.435,
+     "pct_matched": 80.435
+    },
+    "Phone1": {
+     "agree_matched": 104,
+     "pct_ref": 1.615,
+     "pct_matched": 1.615
+    },
+    "Phone2": {
+     "agree_matched": 2003,
+     "pct_ref": 31.102,
+     "pct_matched": 31.102
+    },
+    "Phone3": {
+     "agree_matched": 4981,
+     "pct_ref": 77.345,
+     "pct_matched": 77.345
+    },
+    "Email1": {
+     "agree_matched": 5185,
+     "pct_ref": 80.512,
+     "pct_matched": 80.512
+    },
+    "Email2": {
+     "agree_matched": 5511,
+     "pct_ref": 85.575,
+     "pct_matched": 85.575
+    },
+    "NationalTaxRateDesc": {
+     "agree_matched": 4728,
+     "pct_ref": 73.416,
+     "pct_matched": 73.416
+    },
+    "NationalTaxRate": {
+     "agree_matched": 4728,
+     "pct_ref": 73.416,
+     "pct_matched": 73.416
+    },
+    "LocalTaxRateDesc": {
+     "agree_matched": 4728,
+     "pct_ref": 73.416,
+     "pct_matched": 73.416
+    },
+    "LocalTaxRate": {
+     "agree_matched": 4728,
+     "pct_ref": 73.416,
+     "pct_matched": 73.416
+    },
+    "AgencyID": {
+     "agree_matched": 12,
+     "pct_ref": 0.186,
+     "pct_matched": 0.186
+    },
+    "CreditRating": {
+     "agree_matched": 328,
+     "pct_ref": 5.093,
+     "pct_matched": 5.093
+    },
+    "NetWorth": {
+     "agree_matched": 343,
+     "pct_ref": 5.326,
+     "pct_matched": 5.326
+    },
+    "MarketingNameplate": {
+     "agree_matched": 56,
+     "pct_ref": 0.87,
+     "pct_matched": 0.87
+    },
+    "IsCurrent": {
+     "agree_matched": 3748,
+     "pct_ref": 58.199,
+     "pct_matched": 58.199
+    },
+    "BatchID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "EffectiveDate": {
+     "agree_matched": 5462,
+     "pct_ref": 84.814,
+     "pct_matched": 84.814
+    },
+    "EndDate": {
+     "agree_matched": 4728,
+     "pct_ref": 73.416,
+     "pct_matched": 73.416
+    },
+    "CustomerID": {
+     "agree_matched": 6440,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "identity": true
+    },
+    "SK_CustomerID": {
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "generated_key": true
+    }
+   },
+   "status": "OK",
+   "own_sk": {
+    "column": "SK_CustomerID",
+    "unique_not_null": true
+   },
+   "constraints": {
+    "not_null_violations": {
+     "FirstName": 9844,
+     "BatchID": 14572
+    },
+    "dangling_fk": {}
+   },
+   "exec": {
+    "status": "OK",
+    "error": "",
+    "rows": 14572,
+    "seconds": 0.0
+   }
+  },
+  "DimAccount": {
+   "ref_rows": 12339,
+   "cand_rows": 12860,
+   "matched_rows": 12339,
+   "cand_duplicate_rows": 521,
+   "ref_identity_repeats": 3331,
+   "recall": 100.0,
+   "precision": 95.949,
+   "rows_correct": false,
+   "coarse_key": [
+    "AccountID"
+   ],
+   "coarse_pct_ref": {
+    "SK_BrokerID": 0.0,
+    "SK_CustomerID": 0.0,
+    "Status": 89.594,
+    "AccountDesc": 100.0,
+    "TaxStatus": 100.0,
+    "IsCurrent": 73.004,
+    "BatchID": 0.0,
+    "EffectiveDate": 100.0,
+    "EndDate": 73.012
+   },
+   "columns": {
+    "SK_BrokerID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "SK_CustomerID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "Status": {
+     "agree_matched": 11054,
+     "pct_ref": 89.586,
+     "pct_matched": 89.586
+    },
+    "AccountDesc": {
+     "agree_matched": 10565,
+     "pct_ref": 85.623,
+     "pct_matched": 85.623
+    },
+    "TaxStatus": {
+     "agree_matched": 10813,
+     "pct_ref": 87.633,
+     "pct_matched": 87.633
+    },
+    "IsCurrent": {
+     "agree_matched": 9008,
+     "pct_ref": 73.004,
+     "pct_matched": 73.004
+    },
+    "BatchID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "EffectiveDate": {
+     "agree_matched": 10951,
+     "pct_ref": 88.751,
+     "pct_matched": 88.751
+    },
+    "EndDate": {
+     "agree_matched": 7799,
+     "pct_ref": 63.206,
+     "pct_matched": 63.206
+    },
+    "AccountID": {
+     "agree_matched": 12339,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "identity": true
+    },
+    "SK_AccountID": {
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "generated_key": true
+    }
+   },
+   "status": "OK",
+   "own_sk": {
+    "column": "SK_AccountID",
+    "unique_not_null": true
+   },
+   "constraints": {
+    "not_null_violations": {
+     "BatchID": 12860
+    },
+    "dangling_fk": {
+     "SK_BrokerID": 1805,
+     "SK_CustomerID": 14
+    }
+   },
+   "exec": {
+    "status": "OK",
+    "error": "",
+    "rows": 12860,
+    "seconds": 0.0
+   }
+  },
+  "DimSecurity": {
+   "ref_rows": 1227,
+   "cand_rows": 2400,
+   "matched_rows": 1227,
+   "cand_duplicate_rows": 99,
+   "ref_identity_repeats": 152,
+   "recall": 100.0,
+   "precision": 51.125,
+   "rows_correct": false,
+   "columns": {
+    "Issue": {
+     "agree_matched": 1202,
+     "pct_ref": 97.963,
+     "pct_matched": 97.963
+    },
+    "Status": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "Name": {
+     "agree_matched": 1182,
+     "pct_ref": 96.333,
+     "pct_matched": 96.333
+    },
+    "ExchangeID": {
+     "agree_matched": 1189,
+     "pct_ref": 96.903,
+     "pct_matched": 96.903
+    },
+    "SK_CompanyID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "SharesOutstanding": {
+     "agree_matched": 1182,
+     "pct_ref": 96.333,
+     "pct_matched": 96.333
+    },
+    "FirstTrade": {
+     "agree_matched": 1181,
+     "pct_ref": 96.251,
+     "pct_matched": 96.251
+    },
+    "FirstTradeOnExchange": {
+     "agree_matched": 1181,
+     "pct_ref": 96.251,
+     "pct_matched": 96.251
+    },
+    "Dividend": {
+     "agree_matched": 1183,
+     "pct_ref": 96.414,
+     "pct_matched": 96.414
+    },
+    "IsCurrent": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "BatchID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "EffectiveDate": {
+     "agree_matched": 1181,
+     "pct_ref": 96.251,
+     "pct_matched": 96.251
+    },
+    "EndDate": {
+     "agree_matched": 1075,
+     "pct_ref": 87.612,
+     "pct_matched": 87.612
+    },
+    "Symbol": {
+     "agree_matched": 1227,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "identity": true
+    },
+    "SK_SecurityID": {
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "generated_key": true
+    }
+   },
+   "status": "OK",
+   "own_sk": {
+    "column": "SK_SecurityID",
+    "unique_not_null": true
+   },
+   "constraints": {
+    "not_null_violations": {
+     "IsCurrent": 2400,
+     "BatchID": 2400
+    },
+    "dangling_fk": {
+     "SK_CompanyID": 2400
+    }
+   },
+   "exec": {
+    "status": "OK",
+    "error": "",
+    "rows": 2400,
+    "seconds": 0.0
+   }
+  },
+  "DimTrade": {
+   "ref_rows": 982180,
+   "cand_rows": 390978,
+   "matched_rows": 390978,
+   "cand_duplicate_rows": 0,
+   "ref_identity_repeats": 591202,
+   "recall": 39.807,
+   "precision": 100.0,
+   "rows_correct": false,
+   "coarse_key": [
+    "TradeID"
+   ],
+   "coarse_pct_ref": {
+    "SK_BrokerID": 0.0,
+    "SK_CreateDateID": 76.695,
+    "SK_CreateTimeID": 0.0,
+    "SK_CloseDateID": 39.211,
+    "SK_CloseTimeID": 60.789,
+    "Status": 0.0,
+    "DT_Type": 100.0,
+    "CashFlag": 100.0,
+    "SK_SecurityID": 0.0,
+    "SK_CompanyID": 0.0,
+    "Quantity": 100.0,
+    "BidPrice": 100.0,
+    "SK_CustomerID": 0.0,
+    "SK_AccountID": 0.473,
+    "ExecutedBy": 100.0,
+    "TradePrice": 100.0,
+    "Fee": 100.0,
+    "Commission": 100.0,
+    "Tax": 100.0,
+    "BatchID": 0.0
+   },
+   "columns": {
+    "SK_BrokerID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "SK_CreateDateID": {
+     "agree_matched": 162456,
+     "pct_ref": 16.54,
+     "pct_matched": 41.551
+    },
+    "SK_CreateTimeID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "SK_CloseDateID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "SK_CloseTimeID": {
+     "agree_matched": 390978,
+     "pct_ref": 39.807,
+     "pct_matched": 100.0
+    },
+    "Status": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "DT_Type": {
+     "agree_matched": 390978,
+     "pct_ref": 39.807,
+     "pct_matched": 100.0
+    },
+    "CashFlag": {
+     "agree_matched": 390978,
+     "pct_ref": 39.807,
+     "pct_matched": 100.0
+    },
+    "SK_SecurityID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "SK_CompanyID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "Quantity": {
+     "agree_matched": 390978,
+     "pct_ref": 39.807,
+     "pct_matched": 100.0
+    },
+    "BidPrice": {
+     "agree_matched": 390978,
+     "pct_ref": 39.807,
+     "pct_matched": 100.0
+    },
+    "SK_CustomerID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "SK_AccountID": {
+     "agree_matched": 1818,
+     "pct_ref": 0.185,
+     "pct_matched": 0.465
+    },
+    "ExecutedBy": {
+     "agree_matched": 390978,
+     "pct_ref": 39.807,
+     "pct_matched": 100.0
+    },
+    "TradePrice": {
+     "agree_matched": 390978,
+     "pct_ref": 39.807,
+     "pct_matched": 100.0
+    },
+    "Fee": {
+     "agree_matched": 390978,
+     "pct_ref": 39.807,
+     "pct_matched": 100.0
+    },
+    "Commission": {
+     "agree_matched": 390978,
+     "pct_ref": 39.807,
+     "pct_matched": 100.0
+    },
+    "Tax": {
+     "agree_matched": 390978,
+     "pct_ref": 39.807,
+     "pct_matched": 100.0
+    },
+    "BatchID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "TradeID": {
+     "agree_matched": 390978,
+     "pct_ref": 39.807,
+     "pct_matched": 100.0,
+     "identity": true
+    }
+   },
+   "status": "OK",
+   "constraints": {
+    "not_null_violations": {
+     "SK_SecurityID": 390978,
+     "SK_CompanyID": 390978,
+     "SK_CustomerID": 390978,
+     "BatchID": 390978
+    },
+    "dangling_fk": {
+     "SK_CreateTimeID": 390978,
+     "SK_AccountID": 200
+    }
+   },
+   "exec": {
+    "status": "OK",
+    "error": "",
+    "rows": 390978,
+    "seconds": 0.2
+   }
+  },
+  "FactCashBalances": {
+   "ref_rows": 330485,
+   "cand_rows": 361856,
+   "matched_rows": 32387,
+   "cand_duplicate_rows": 18142,
+   "ref_identity_repeats": 24,
+   "recall": 9.8,
+   "precision": 8.95,
+   "rows_correct": false,
+   "columns": {
+    "SK_CustomerID": {
+     "agree_matched": 255,
+     "pct_ref": 0.077,
+     "pct_matched": 0.787
+    },
+    "Cash": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "BatchID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "SK_AccountID": {
+     "agree_matched": 32387,
+     "pct_ref": 9.8,
+     "pct_matched": 100.0,
+     "identity": true
+    },
+    "SK_DateID": {
+     "agree_matched": 32387,
+     "pct_ref": 9.8,
+     "pct_matched": 100.0,
+     "identity": true
+    }
+   },
+   "status": "OK",
+   "constraints": {
+    "not_null_violations": {},
+    "dangling_fk": {
+     "SK_CustomerID": 180,
+     "SK_AccountID": 180
+    }
+   },
+   "exec": {
+    "status": "OK",
+    "error": "",
+    "rows": 361856,
+    "seconds": 0.0
+   }
+  },
+  "FactHoldings": {
+   "ref_rows": 930764,
+   "cand_rows": 362342,
+   "matched_rows": 362342,
+   "cand_duplicate_rows": 0,
+   "ref_identity_repeats": 568422,
+   "recall": 38.93,
+   "precision": 100.0,
+   "rows_correct": false,
+   "coarse_key": [
+    "TradeID",
+    "CurrentTradeID"
+   ],
+   "coarse_pct_ref": {
+    "SK_CustomerID": 0.0,
+    "SK_AccountID": 0.47,
+    "SK_SecurityID": 0.0,
+    "SK_CompanyID": 0.0,
+    "SK_DateID": 77.841,
+    "SK_TimeID": 0.0,
+    "CurrentPrice": 100.0,
+    "CurrentHolding": 100.0,
+    "BatchID": 0.0
+   },
+   "columns": {
+    "SK_CustomerID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "SK_AccountID": {
+     "agree_matched": 1678,
+     "pct_ref": 0.18,
+     "pct_matched": 0.463
+    },
+    "SK_SecurityID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "SK_CompanyID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "SK_DateID": {
+     "agree_matched": 156476,
+     "pct_ref": 16.812,
+     "pct_matched": 43.185
+    },
+    "SK_TimeID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "CurrentPrice": {
+     "agree_matched": 362342,
+     "pct_ref": 38.93,
+     "pct_matched": 100.0
+    },
+    "CurrentHolding": {
+     "agree_matched": 362342,
+     "pct_ref": 38.93,
+     "pct_matched": 100.0
+    },
+    "BatchID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "TradeID": {
+     "agree_matched": 362342,
+     "pct_ref": 38.93,
+     "pct_matched": 100.0,
+     "identity": true
+    },
+    "CurrentTradeID": {
+     "agree_matched": 362342,
+     "pct_ref": 38.93,
+     "pct_matched": 100.0,
+     "identity": true
+    }
+   },
+   "status": "OK",
+   "constraints": {
+    "not_null_violations": {
+     "SK_CustomerID": 362342,
+     "SK_SecurityID": 362342,
+     "SK_CompanyID": 362342
+    },
+    "dangling_fk": {
+     "SK_AccountID": 180,
+     "SK_TimeID": 362342
+    }
+   },
+   "exec": {
+    "status": "OK",
+    "error": "",
+    "rows": 362342,
+    "seconds": 0.1
+   }
+  },
+  "Financial": {
+   "ref_rows": 98576,
+   "cand_rows": 98576,
+   "matched_rows": 0,
+   "cand_duplicate_rows": 0,
+   "ref_identity_repeats": 0,
+   "recall": 0.0,
+   "precision": 0.0,
+   "rows_correct": false,
+   "columns": {
+    "FI_QTR_START_DATE": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "FI_REVENUE": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "FI_NET_EARN": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "FI_BASIC_EPS": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "FI_DILUT_EPS": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "FI_MARGIN": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "FI_INVENTORY": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "FI_ASSETS": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "FI_LIABILITY": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "FI_OUT_BASIC": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "FI_OUT_DILUT": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null
+    },
+    "SK_CompanyID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null,
+     "identity": true
+    },
+    "FI_YEAR": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null,
+     "identity": true
+    },
+    "FI_QTR": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": null,
+     "identity": true
+    }
+   },
+   "status": "OK",
+   "constraints": {
+    "not_null_violations": {},
+    "dangling_fk": {
+     "SK_CompanyID": 98576
+    }
+   },
+   "exec": {
+    "status": "OK",
+    "error": "",
+    "rows": 98576,
+    "seconds": 0.2
+   }
+  },
+  "Prospect": {
+   "ref_rows": 14982,
+   "cand_rows": 14982,
+   "matched_rows": 14982,
+   "cand_duplicate_rows": 0,
+   "ref_identity_repeats": 0,
+   "recall": 100.0,
+   "precision": 100.0,
+   "rows_correct": true,
+   "columns": {
+    "SK_RecordDateID": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "SK_UpdateDateID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "BatchID": {
+     "agree_matched": 0,
+     "pct_ref": 0.0,
+     "pct_matched": 0.0
+    },
+    "IsCustomer": {
+     "agree_matched": 14502,
+     "pct_ref": 96.796,
+     "pct_matched": 96.796
+    },
+    "LastName": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "FirstName": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "MiddleInitial": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "Gender": {
+     "agree_matched": 14842,
+     "pct_ref": 99.066,
+     "pct_matched": 99.066
+    },
+    "AddressLine1": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "AddressLine2": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "PostalCode": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "City": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "State": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "Country": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "Phone": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "Income": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "numberCars": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "numberChildren": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "MaritalStatus": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "Age": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "CreditRating": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "OwnOrRentFlag": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "Employer": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "numberCreditCards": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "NetWorth": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0
+    },
+    "MarketingNameplate": {
+     "agree_matched": 80,
+     "pct_ref": 0.534,
+     "pct_matched": 0.534
+    },
+    "AgencyID": {
+     "agree_matched": 14982,
+     "pct_ref": 100.0,
+     "pct_matched": 100.0,
+     "identity": true
+    }
+   },
+   "status": "OK",
+   "constraints": {
+    "not_null_violations": {
+     "SK_UpdateDateID": 14982,
+     "BatchID": 14982
+    },
+    "dangling_fk": {}
+   },
+   "exec": {
+    "status": "OK",
+    "error": "",
+    "rows": 14982,
+    "seconds": 0.0
+   }
+  }
+ },
+ "summary": {
+  "tables_graded": 16,
+  "tables_rows_correct": 7,
+  "tables_rows_correct_sound_reference": "7/13",
+  "columns_exact_all": "78/210",
+  "columns_exact_core171": "75/171",
+  "columns_exact_hard37": "7/37",
+  "columns_exact_core": "75/171",
+  "columns_exact_hard": "7/37",
+  "constraint_violations": {
+   "not_null_cells": 2752978,
+   "dangling_fk_cells": 856855
+  },
+  "defective_reference_tables_flagged": [
+   "DimAccount",
+   "DimTrade",
+   "FactHoldings"
+  ]
+ },
+ "audit": {
+  "applicable": 78,
+  "ok": 34,
+  "not_ok": 44
+ }
+}

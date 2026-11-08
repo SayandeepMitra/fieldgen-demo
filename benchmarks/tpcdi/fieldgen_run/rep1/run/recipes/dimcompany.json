@@ -1,0 +1,38 @@
+{
+ "task_id": "dimcompany",
+ "step": "recipe",
+ "grain": "One row per company version (per FinwireCMP record); natural key companyid (CIK) may have multiple rows ordered by effectivedate.",
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM FinwireCMP AS f INNER JOIN Industry AS i ON f.IndustryID = i.IN_ID INNER JOIN StatusType AS s ON f.Status = s.ST_ID"
+  }
+ ],
+ "combine": "none",
+ "group_by": null,
+ "decisions": {
+  "joins": [
+   "Inner join Industry to resolve industry name from IndustryID.",
+   "Inner join StatusType to resolve status description from Status."
+  ],
+  "stacked": false,
+  "deduplicated": false,
+  "aggregated": false
+ },
+ "assumptions": [
+  "No supplied links exist; joins on FinwireCMP.IndustryID = Industry.IN_ID and FinwireCMP.Status = StatusType.ST_ID are assumed based on domain knowledge.",
+  "Each FinwireCMP row is a distinct company version; PTS is unique so the join produces no duplicate target rows.",
+  "BatchID is constant 1 for the historical load and will be set by a later formula step.",
+  "SCD2 attributes (iscurrent, effectivedate, enddate) are computed in a later step by ordering rows per companyid by effectivedate.",
+  "sk_companyid is a generated surrogate key assigned over the combined rows ordered by companyid, effectivedate."
+ ],
+ "keys": [
+  {
+   "column": "sk_companyid",
+   "order_by": [
+    "companyid",
+    "effectivedate"
+   ]
+  }
+ ]
+}

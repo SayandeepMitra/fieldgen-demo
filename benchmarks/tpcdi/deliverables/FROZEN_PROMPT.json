@@ -1,0 +1,12 @@
+{
+ "frozen_on": "2026-11-05",
+ "prompt": "scope-contract v5a (= v4 + spec Clause 4.4.1/4.4.2 load/SCD2 conventions; no spec descriptions, no intermediate-scope note)",
+ "prompts_file": "benchmark/pipeline/runs/ab_v5a/prompts.json",
+ "prompts_sha256": "9697fc93a136afe532385b2eaed533a1740de3e2c07aea2e46a47bac3fcb12ec",
+ "scope_prompt_sha256": "e6c4ae9c3ec9efda998f136e80e173f1a273659ea5c036553c87d61674083f88",
+ "split_file": "benchmark/deliverables/tpcdi_split.csv",
+ "baseline_untuned": "v4 (frozen before any failure inspection)",
+ "tuned_on": "dev split informed by failures seen on all 210 columns; test split is NOT independent for v5a",
+ "ablation_core171_exact (mistral/nemotron)": {"v4": "147/144", "v4_rerun": "144/145", "v5b_desc": "147/145", "v5a_conv": "153/152", "v5c_note": "143/139"},
+ "noise_floor_net_columns": 4
+}

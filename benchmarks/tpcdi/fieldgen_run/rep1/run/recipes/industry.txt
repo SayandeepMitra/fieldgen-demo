@@ -1,0 +1,6 @@
+Recipe for industry
+Grain: One row per industry, identified by the source industry code IN_ID.
+Combine: none
+Branch b1:
+  FROM Industry AS b1
+Decisions: joins: []; stacked: False; deduplicated: False; aggregated: False

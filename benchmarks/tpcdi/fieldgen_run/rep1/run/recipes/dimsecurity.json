@@ -1,0 +1,34 @@
+{
+ "task_id": "dimsecurity",
+ "step": "recipe",
+ "grain": "One row per FinwireSEC record (security version)",
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM FinwireSEC sec LEFT JOIN StatusType st ON sec.Status = st.ST_ID"
+  }
+ ],
+ "combine": "none",
+ "group_by": null,
+ "decisions": {
+  "joins": [
+   "LEFT JOIN StatusType st ON sec.Status = st.ST_ID"
+  ],
+  "stacked": false,
+  "deduplicated": false,
+  "aggregated": false
+ },
+ "assumptions": [
+  "StatusType is joined to translate FinwireSEC.Status code to a descriptive status name; this join condition is not a supplied link.",
+  "sk_companyid cannot be resolved from the listed source tables and will require a lookup to dimcompany in a later step."
+ ],
+ "keys": [
+  {
+   "column": "sk_securityid",
+   "order_by": [
+    "symbol",
+    "effectivedate"
+   ]
+  }
+ ]
+}

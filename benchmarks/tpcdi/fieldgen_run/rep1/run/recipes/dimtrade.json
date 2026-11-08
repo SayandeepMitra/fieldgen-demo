@@ -1,0 +1,28 @@
+{
+ "task_id": "dimtrade",
+ "step": "recipe",
+ "grain": "one row per trade (Trade.T_ID)",
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM Trade t LEFT JOIN StatusType st ON t.T_ST_ID = st.ST_ID LEFT JOIN TradeType tt ON t.T_TT_ID = tt.TT_ID"
+  }
+ ],
+ "combine": "none",
+ "group_by": null,
+ "decisions": {
+  "joins": [
+   "left join StatusType on trade status id",
+   "left join TradeType on trade type id"
+  ],
+  "stacked": false,
+  "deduplicated": false,
+  "aggregated": false
+ },
+ "assumptions": [
+  "Trade.T_ID is the natural key for dimtrade grain.",
+  "Status and type descriptions are obtained from StatusType and TradeType via many-to-one links.",
+  "TradeHistory is not required for the dimtrade grain; close date/time are left nullable.",
+  "Surrogate keys for broker, date, time, security, company, customer, account are resolved in a later step and are not part of this recipe."
+ ]
+}

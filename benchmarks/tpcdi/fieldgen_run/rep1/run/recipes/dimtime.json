@@ -1,0 +1,23 @@
+{
+ "task_id": "dimtime",
+ "step": "recipe",
+ "grain": "One row per time value (one second of a day), identified by SK_TimeID / TimeValue.",
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM Time AS t"
+  }
+ ],
+ "combine": "none",
+ "group_by": null,
+ "decisions": {
+  "joins": [],
+  "stacked": false,
+  "deduplicated": false,
+  "aggregated": false
+ },
+ "assumptions": [
+  "All target columns come from the single Time table, so no joins to other source tables are required.",
+  "Time.SK_TimeID is unique (86400 distinct values) and matches the target grain, so no de-duplication or generated surrogate key is needed."
+ ]
+}

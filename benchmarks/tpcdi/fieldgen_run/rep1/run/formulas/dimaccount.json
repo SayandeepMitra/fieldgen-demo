@@ -1,0 +1,32 @@
+{
+ "accountid": {
+  "b1": "CAST(a.CA_ID AS INTEGER)"
+ },
+ "sk_brokerid": {
+  "b1": "COALESCE(CAST(a.CA_B_ID AS INT), 0)"
+ },
+ "sk_customerid": {
+  "b1": "CAST(c.C_ID AS INTEGER)"
+ },
+ "status": {
+  "b1": "CASE WHEN act.ActionType = 'CLOSEACCT' THEN 'closed' ELSE 'active' END"
+ },
+ "accountdesc": {
+  "b1": "a.CA_NAME"
+ },
+ "taxstatus": {
+  "b1": "CAST(COALESCE(a.CA_TAX_ST, 0) AS INTEGER)"
+ },
+ "iscurrent": {
+  "b1": "TRUE"
+ },
+ "batchid": {
+  "b1": "CAST(NULL AS INTEGER)"
+ },
+ "effectivedate": {
+  "b1": "CAST(SUBSTRING(act.ActionTS, 1, 10) AS DATE)"
+ },
+ "enddate": {
+  "b1": "CASE WHEN act.ActionType = 'CLOSEACCT' THEN CAST(act.ActionTS AS DATE) ELSE CAST('9999-12-31' AS DATE) END"
+ }
+}

@@ -1,0 +1,7 @@
+Recipe for dimdate
+Grain: One row per date, identified by sk_dateid (source Date.SK_DateID; DateValue is the source primary key).
+Combine: none
+Branch b1:
+  FROM Date AS b1
+Decisions: joins: []; stacked: False; deduplicated: False; aggregated: False
+Assumption: All target fields come from the single Date table; no joins are required because there are no supplied links and every matched column lives in Date. DateValue is unique (primary key) and SK_DateID is distinct, so each source row yields exactly one target row with no de-duplication, stacking, or aggregation. HolidayFlag is stored as VARCHAR ('true'/'false') and will be cast to boolean in the formula step.

@@ -1,0 +1,44 @@
+# fieldgen's root .gitignore ignores runs/ and run/; the benchmark's graded results (small JSON/CSV) and the generated SQL are results worth keeping
+!runs/
+!run/
+
+# databases, sandboxes and backups: rebuilt by scripts (see README.md)
+*.duckdb
+*.duckdb.wal
+*.duckdb.bak*
+*.bak*
+pipeline/runs/**/sandbox*.duckdb
+pipeline/runs/**/_base/
+pipeline/runs/**/*.flag
+
+# TPC-DI kit (TPC and bankmark licences), generated data, third-party clones: obtain them yourself. Only our loader scripts under tpcdi/work are kept.
+tpcdi/*
+!tpcdi/work/
+tpcdi/work/*
+!tpcdi/work/*.py
+!tpcdi/work/*.sh
+!tpcdi/work/*.sql
+
+# TPC-DI specification PDF (TPC document, download from tpc.org; see spec/SOURCE.md)
+spec/*.pdf
+
+# fieldgen run: keep scripts, the write-up and the generated SQL; drop package copies of the source data, the virtualenv, the abandoned replicate
+fieldgen_run/venv/
+fieldgen_run/base_pkg/
+fieldgen_run/rep2/
+fieldgen_run/rep1/pkg/
+fieldgen_run/rep1/run/built_parquet/
+fieldgen_run/rep1/run/work/
+
+# data-bearing outputs, left out like fieldgen's own run outputs (prompts contain samples of the TPC-DI data; see ../../LICENSES.md). Rebuild prompts: run_v4.py --prompts-only
+sample_data/
+pipeline/runs/**/prompts.json
+fieldgen_run/rep1/*.jsonl
+fieldgen_run/rep1/run/*.jsonl
+
+# secrets and environments
+.env
+pipeline/.env
+.venv/
+__pycache__/
+.DS_Store

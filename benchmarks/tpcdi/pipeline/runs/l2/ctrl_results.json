@@ -1,0 +1,177 @@
+{
+ "C2_empty": {
+  "summary": {
+   "tables_graded": 16,
+   "tables_rows_correct": 0,
+   "tables_rows_correct_sound_reference": "0/13",
+   "columns_exact_all": "0/210",
+   "columns_exact_core171": "0/171",
+   "columns_exact_hard37": "0/37",
+   "constraint_violations": {
+    "not_null_cells": 0,
+    "dangling_fk_cells": 0
+   },
+   "defective_reference_tables_flagged": [
+    "DimAccount",
+    "DimTrade",
+    "FactHoldings"
+   ]
+  },
+  "pass": true
+ },
+ "C3_swap_consistency": [
+  {
+   "key": "DimAccount.IsCurrent",
+   "kind": "plain",
+   "model": "mistral_large",
+   "L1_match_pct": 79.69,
+   "L2_pct_ref": 79.95,
+   "agree": false
+  },
+  {
+   "key": "DimAccount.TaxStatus",
+   "kind": "plain",
+   "model": "mistral_large",
+   "L1_match_pct": 96.65,
+   "L2_pct_ref": 96.653,
+   "agree": true
+  },
+  {
+   "key": "DimCompany.AddressLine2",
+   "kind": "plain",
+   "model": "mistral_large",
+   "L1_match_pct": 9.87,
+   "L2_pct_ref": 9.867,
+   "agree": true
+  },
+  {
+   "key": "DimCompany.EndDate",
+   "kind": "plain",
+   "model": "nemotron",
+   "L1_match_pct": 73.07,
+   "L2_pct_ref": 73.067,
+   "agree": true
+  },
+  {
+   "key": "DimCompany.FoundingDate",
+   "kind": "plain",
+   "model": "mistral_large",
+   "L1_match_pct": 6.8,
+   "L2_pct_ref": 6.8,
+   "agree": true
+  },
+  {
+   "key": "DimCompany.isLowGrade",
+   "kind": "plain",
+   "model": "mistral_large",
+   "L1_match_pct": 89.8,
+   "L2_pct_ref": 89.8,
+   "agree": true
+  },
+  {
+   "key": "DimCustomer.AddressLine1",
+   "kind": "plain",
+   "model": "mistral_large",
+   "L1_match_pct": 95.57,
+   "L2_pct_ref": 95.575,
+   "agree": true
+  },
+  {
+   "key": "DimCustomer.City",
+   "kind": "plain",
+   "model": "mistral_large",
+   "L1_match_pct": 95.62,
+   "L2_pct_ref": 95.621,
+   "agree": true
+  },
+  {
+   "key": "DimCustomer.Country",
+   "kind": "plain",
+   "model": "nemotron",
+   "L1_match_pct": 94.5,
+   "L2_pct_ref": 94.503,
+   "agree": true
+  },
+  {
+   "key": "DimCustomer.DOB",
+   "kind": "plain",
+   "model": "nemotron",
+   "L1_match_pct": 78.59,
+   "L2_pct_ref": 78.587,
+   "agree": true
+  },
+  {
+   "key": "DimCustomer.FirstName",
+   "kind": "plain",
+   "model": "mistral_large",
+   "L1_match_pct": 78.59,
+   "L2_pct_ref": 78.587,
+   "agree": true
+  },
+  {
+   "key": "DimCustomer.Gender",
+   "kind": "plain",
+   "model": "mistral_large",
+   "L1_match_pct": 82.2,
+   "L2_pct_ref": 82.205,
+   "agree": true
+  },
+  {
+   "key": "DimCustomer.LastName",
+   "kind": "plain",
+   "model": "nemotron",
+   "L1_match_pct": 78.59,
+   "L2_pct_ref": 78.587,
+   "agree": true
+  },
+  {
+   "key": "DimCustomer.MiddleInitial",
+   "kind": "plain",
+   "model": "nemotron",
+   "L1_match_pct": 27.8,
+   "L2_pct_ref": 27.795,
+   "agree": true
+  },
+  {
+   "key": "DimCustomer.NetWorth",
+   "kind": "plain",
+   "model": "nemotron",
+   "L1_match_pct": 74.52,
+   "L2_pct_ref": 74.519,
+   "agree": true
+  },
+  {
+   "key": "DimCustomer.Phone1",
+   "kind": "plain",
+   "model": "mistral_large",
+   "L1_match_pct": 89.57,
+   "L2_pct_ref": 89.565,
+   "agree": true
+  },
+  {
+   "key": "DimCustomer.Phone2",
+   "kind": "plain",
+   "model": "mistral_large",
+   "L1_match_pct": 92.02,
+   "L2_pct_ref": 92.019,
+   "agree": true
+  },
+  {
+   "key": "DimCustomer.Phone3",
+   "kind": "plain",
+   "model": "mistral_large",
+   "L1_match_pct": 96.88,
+   "L2_pct_ref": 96.879,
+   "agree": true
+  },
+  {
+   "key": "DimTrade.SK_AccountID",
+   "kind": "fk",
+   "model": "mistral_large",
+   "L1_match_pct": 0.13,
+   "L2_pct_ref": 0.473,
+   "agree": false
+  }
+ ],
+ "C3_plain_agree": "17/18"
+}

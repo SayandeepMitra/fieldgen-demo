@@ -1,0 +1,12 @@
+Recipe for dimbroker
+Grain: one row per broker (natural key brokerid)
+Combine: none
+Branch b1:
+  FROM HR AS h
+Generated key sk_brokerid, numbered in the order of: brokerid
+Decisions: joins: []; stacked: False; deduplicated: False; aggregated: False
+Assumption: HR.EmployeeID is the natural key brokerid and is unique per broker.
+Assumption: HR.ManagerID references another employee's EmployeeID and may be NULL.
+Assumption: No join to Date is required for the initial load; effectivedate and enddate will be derived in the formula step (effectivedate = batch start date, enddate = 9999-12-31).
+Assumption: batchid = 1 for the Historical Load phase.
+Assumption: iscurrent = TRUE for all rows in the initial load.

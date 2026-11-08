@@ -1,0 +1,17 @@
+{
+ "sk_customerid": {
+  "b1": "CAST(ct.CT_CA_ID AS INT)"
+ },
+ "sk_accountid": {
+  "b1": "CAST(ct.CT_CA_ID AS INTEGER)"
+ },
+ "sk_dateid": {
+  "b1": "CAST(strftime(ct.CT_DTS, '%Y%m%d') AS INTEGER)"
+ },
+ "cash": {
+  "b1": "CAST(ct.CT_AMT AS DECIMAL(15,2))"
+ },
+ "batchid": {
+  "b1": "CAST(NULL AS DECIMAL(5))"
+ }
+}
