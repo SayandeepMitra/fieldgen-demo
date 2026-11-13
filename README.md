@@ -1,73 +1,137 @@
-# fieldgen: LLM-written SQL for database conversion (student project)
+# fieldgen: SQL for database conversion, written by a language model
 
-fieldgen asks a language model to write SQL that converts the tables of one database (source) into the tables of another data model (target). Step 1: a **recipe** per target table (which source tables, joins, grouping). Step 2: one SQL **formula** per target column. The tool runs the SQL on DuckDB and scores the result against a reference.
-This folder holds the tool (fieldgen-fix, commit d8acdbf: v1.2-demo plus the changes below), two datasets (Synthea to OMOP, TPC-DI to a warehouse), the saved model answers of the runs, and the results.
+fieldgen writes SQL that turns the tables of a source database into the tables of a target schema.
+A language model writes the SQL. The tool checks every answer on the real data and asks again when an answer is wrong.
+It ran on two datasets: the Synthea sample data converted to the OMOP common data model, and TPC-DI data converted to a data warehouse schema.
+This folder holds the tool, the dataset setup scripts, the saved model answers of three runs, and the results.
 
-1. Tool = fieldgen-demo v1.2-demo + one new default and four off-by-default options. **Column knowledge** (`formula_docs`, on): each formula prompt shows the documented rules of its column.
-2. Off by default: `history_pattern`, `history_tables`, `history_auto` (ways to tell the tool to build a current state from event records) and `formula_length_retry`.
-3. Synthea to OMOP: column knowledge raised the correct tables from 11 to 13 of 18 and the correct columns from 54 to 57.
-4. TPC-DI DimCustomer (28 columns): 10 correct with the plain tool, 22 with a package-given history wrapper, 23 with a prepared source plus column knowledge.
-5. Each result is one run of one model. Differences of one or two columns are within run-to-run variation.
-6. The replays here reproduce the recorded scores exactly, without a key or network: the model's saved answers are fed through the tool's own pipeline.
-7. No data, databases or TPC text are in this folder; the datasets need setup (below).
-8. Licences: see `LICENSES.md` and `NOTICE` (from fieldgen-demo). The owner has not chosen a licence for our own code yet.
-9. Details of every run: `results/RESULTS.md`; config of every run: `results/configs/`.
-10. Python 3.10 or newer; `pip install -r requirements.txt`.
+Authors: [Names]. Course: [Course]. Year: [Year].
+
+## How it works
+
+1. Prepare a package: source data, target schema, matched columns, target documentation, and optional expert text (`init`, `check`).
+2. Recipe step (model): for each target table, the model chooses the source tables, the joins and the grouping.
+3. Formula step (model): for each target column, the model writes one SQL expression.
+4. Build: the tool joins the recipe and the formulas into one query per table and runs it on DuckDB (`execute`).
+5. Score: the tables are compared with the answer key, the reference data that only the scorer reads (`test`).
+
+The checks run in steps 2 and 3. A recipe that does not run, or a formula that fails a check on the data, goes back to the model with the error text.
+A recipe gets up to two such follow-ups. A formula gets one for a wrong answer and up to two for failed checks.
+The tool never reads the answer key while it generates.
 
 ## Results
 
-| experiment | what | result (single run) |
+Every number is a single run of one model. Details of all runs are in `results/RESULTS.md`.
+
+Synthea to OMOP (18 scored tables). Column knowledge means that each formula prompt shows the documented rules of its column.
+
+| version | tables with correct rows | columns correct (in those tables) |
 |---|---|---|
-| Synthea to OMOP, v1.2-demo | default tool | 11 of 18 tables with correct rows, 54 L2 columns |
-| Synthea to OMOP, column knowledge | `formula_docs` on | **13 of 18**, **57** L2 columns |
-| TPC-DI DimCustomer, run 1 | default tool, documentation only | 10 of 28 columns |
-| TPC-DI DimCustomer, run 6 | history wrapper given in the package config | 22 of 28 |
-| TPC-DI DimCustomer, run 10 | prepared source + expert text + column knowledge | **23 of 28** |
+| stable version (v1.2-demo) | 11 of 18 | 54 |
+| with column knowledge | 13 of 18 | 57 |
 
-All ten TPC-DI runs and what changed in each: `results/RESULTS.md`.
+TPC-DI, table DimCustomer (28 columns):
 
-## Quick start
+| run | what changed | columns correct |
+|---|---|---|
+| 1 | stable version, documentation only | 10 of 28 |
+| 6 | the package names the key and the order of the event records; the tool takes the latest non-empty value per column | 22 of 28 |
+| 9 | source prepared with one row per customer action, new expert text | 19 of 28 |
+| 10 | run 9 plus column knowledge | 23 of 28 |
 
-**Level 1: tests (offline, about 1 minute).**
+## Setup
+
+You need Python 3.10 or newer.
+
 ```
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
+```
+
+## Running
+
+Commands are run from this folder.
+
+**a) Tests (offline, about 1 minute).**
+```
 pytest tests/
 ```
 
-**Level 2: replay (no key, no network).** Feeds the saved answers through the tool's own generate, execute and test, prints the score table and compares it with the recorded run. Needs the data of the dataset once:
+**b) Replay of saved model answers (no API key, no network).**
+`run_demo.py` gives the saved answers to the tool's own generate, execute and test steps. It prints a score table and compares it with the recorded run.
+It needs the dataset once. For Synthea, set up the data (see below), then:
 ```
-# Synthea: follow datasets/synthea_omop/SETUP.md (copy data from dbt-synthea), then
-python run_demo.py --dataset synthea                       # expect 13 of 18 tables, 57 L2 columns
-# TPC-DI: follow datasets/tpcdi/README.md (build the data and the packages into a work folder), then
-python run_demo.py --dataset tpcdi --run run10 --work WORK # expect 23 of 28 columns
-python run_demo.py --dataset tpcdi --run run6  --work WORK # expect 22 of 28 columns
+python run_demo.py --dataset synthea
 ```
+This takes about 2 minutes and should print 13 of 18 tables and 57 columns. For TPC-DI, build the packages first (see below), then:
+```
+python run_demo.py --dataset tpcdi --run run10 --work WORK     # 23 of 28 columns
+python run_demo.py --dataset tpcdi --run run6  --work WORK     # 22 of 28 columns
+```
+Each TPC-DI replay takes about 10 minutes. `WORK` is the folder you gave to `make_package.py`.
 
-**Level 3: live run with your own key.** The default endpoint is the free NVIDIA one; it records inputs and outputs, so check the licence of your data first. The key is read from the environment only.
+**c) Live run with your own key.**
+The default endpoint is the NVIDIA API. The key is read only from the environment variable `NVIDIA_API_KEY`.
+That endpoint records inputs and outputs. Your prompts contain samples of the source data, so check the rules for your data first.
 ```
-export NVIDIA_API_KEY=...                                  # your NVIDIA API key
-python -m fieldgen generate --package datasets/synthea_omop/package   # about 25 min; then execute, then test
+export NVIDIA_API_KEY=...
+python -m fieldgen generate --package datasets/synthea_omop/package
 python -m fieldgen execute  --package datasets/synthea_omop/package
 python -m fieldgen test     --package datasets/synthea_omop/package
 ```
-Settings come from `config.yaml` (package folder first, then the current folder); every option is explained in `docs/config.md`.
+`generate` takes about 20 to 25 minutes for Synthea (19 tables) and about 8 to 13 minutes for DimCustomer alone.
+The other commands are `init` (create a package) and `check` (validate a package without model calls).
+Settings are in `config.yaml` and explained in `docs/config.md`.
 
-## Known limits
+## Datasets
 
-- Each result is one run of one model; differences of one or two columns are within run-to-run variation.
-- `history_auto` (off by default) expects `column` or `table.column` names; alias forms such as `c.C_ID` are not resolved.
-- The saved TPC-DI answers in `replay/answers/` have their free-text `assumptions` lists emptied (they may quote the TPC-DI specification); recipes, expressions and all other fields are unchanged, and the replays still reproduce the recorded scores.
+**Synthea to OMOP** (`datasets/synthea_omop/`). The package is included. The data and the answer key are not (see `LICENSES.md`).
+`datasets/synthea_omop/SETUP.md` has the steps. In short: clone dbt-synthea, then run
+```
+python datasets/synthea_omop/tools/fill_source_data.py /path/to/dbt-synthea
+python datasets/synthea_omop/tools/export_reference.py /path/to/dbt-synthea/synthea_omop_etl.duckdb
+```
+The first command copies the source data (a few seconds). The second needs the dbt-synthea tables, which you build with `dbt seed` and `dbt run` (see the dbt-synthea README).
+
+**TPC-DI** (`datasets/tpcdi/`). No TPC-DI data and no specification text are included.
+Get the data yourself: generate it with DIGen from tpc.org at scale factor 3. Get the TPC-DI specification (PDF) from tpc.org and extract its text to one file.
+`datasets/tpcdi/README.md` explains both, the expected row counts, and the text format of the specification file.
+Then run the four build commands in this order:
+```
+cd datasets/tpcdi
+python build_source.py  --data OUT/Batch1 --repo SCHEMA_REPO --out WORK/source
+python build_gold.py    --source-db WORK/source/tpcdi_source.duckdb --target-ddl WORK/source/target_ddl.sql --out WORK/gold
+python build_history.py --source-db WORK/source/tpcdi_source.duckdb --out WORK/source_hist.duckdb
+python make_package.py  --work WORK --spec SPEC_TEXT_FILE
+```
+`OUT` is the DIGen output folder and `SCHEMA_REPO` is the TPC-DI-MS-SQL-Benchmark folder that contains `Helpers/`. The four commands take about 1 minute.
+The result is in `WORK/packages/run6` and `WORK/packages/run10`. Go back to the project folder before you run `run_demo.py`, and use an absolute path for `WORK` so that both folders find it.
 
 ## Folder layout
 
-```
-fieldgen/         the tool (Python package; run with python -m fieldgen)
-tests/, pytest.ini, config.yaml, requirements.txt, docs/   tests, shipped settings, pinned packages, tool documentation
-datasets/synthea_omop/   the Synthea to OMOP package as fieldgen-demo ships it (data not included; SETUP.md)
-datasets/tpcdi/          scripts that build the TPC-DI data, gold tables and packages from DIGen output and the spec (nothing included)
-replay/answers/          the model's saved answers (recipes, formulas) of three runs: no prompts
-replay/recorded/         the scores of the live runs, for the comparison
-run_demo.py              replay, execute, test, score table
-results/                 RESULTS.md and the config of each run
-LICENSES.md, NOTICE      licence notes from fieldgen-demo
-```
+- `fieldgen/`: the tool (a Python package).
+- `tests/`: offline tests.
+- `docs/`: tool documentation (the config options are in `docs/config.md`).
+- `config.yaml`: the shipped settings. Column knowledge is on; the history options are off.
+- `datasets/synthea_omop/`: the Synthea to OMOP package, the answer-key scripts, `SETUP.md`.
+- `datasets/tpcdi/`: scripts that build the TPC-DI data, the gold tables and the packages; expert text and gold SQL.
+- `replay/`: the saved model answers (recipes and formulas, no prompts) and the recorded scores.
+- `results/`: `RESULTS.md` and the `config.yaml` of each run.
+- `run_demo.py`: the replay script.
+- `requirements.txt`, `pytest.ini`, `LICENSES.md`, `NOTICE`.
+
+## Known limits
+
+- Each result is a single run of one model. A difference of one or two columns is within the variation between runs.
+- The recipes and formulas fit the dataset they were made for. A new dataset needs a new run.
+- `history_tables` (off by default) needs the package to name the key, the order and the tiebreak column of the event records. The tool does not find them.
+- Some lookups cannot be written. TPC-DI matches Prospect records on the customer's current values, which needs a subquery. The formula checker rejects subqueries, so these columns stay wrong (agencyid, creditrating, networth).
+- `history_auto` (off by default) expects `column` or `table.column` names. Alias forms such as `c.C_ID` are not resolved.
+- Rules that are not in the documentation or the expert text are not applied (for example the marketing nameplate tags in TPC-DI).
+- In the saved TPC-DI answers in `replay/answers/`, the free-text `assumptions` lists are emptied, because they may quote the TPC-DI specification. Recipes, expressions and all other fields are unchanged, and the replays still match the recorded scores.
+- The default endpoint is free and records inputs and outputs.
+
+## Licences
+
+See `LICENSES.md` and `NOTICE`. Data and vocabularies that the licences leave out are not in this folder.
