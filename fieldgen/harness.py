@@ -37,9 +37,9 @@ class Harness:
         self.ttypes = {t["name"]: {c["name"]: c["type"] for c in t["columns"]} for t in self.pkg.target.tables}
         self.recipes, self.fields = {}, {}; self._ref4 = {}
         for f in glob.glob(reference_dir + "recipes/*.json"):
-            r = json.load(open(f)); self.recipes[r["table"]] = r
+            r = json.load(open(f, encoding="utf-8")); self.recipes[r["table"]] = r
         for f in glob.glob(reference_dir + "fields/*.json"):
-            g = json.load(open(f)); self.fields[g["task_id"]] = g
+            g = json.load(open(f, encoding="utf-8")); self.fields[g["task_id"]] = g
         for f in sorted(glob.glob(reference_dir + "reference_data/*.csv")):
             t = os.path.basename(f)[:-4]
             if t not in self.ttypes: continue
@@ -47,7 +47,7 @@ class Harness:
             self.con.execute(f'CREATE TABLE ref."{t}" ({cols})'); self.con.execute(f"COPY ref.\"{t}\" FROM '{f}' (HEADER true)")
         al = reference_dir + "alignment.json"
         if os.path.exists(al):      # minimum reference format: reference tables + the source columns that identify each row (docs/reference_format.md)
-            for t, a_ in json.load(open(al)).items():
+            for t, a_ in json.load(open(al, encoding="utf-8")).items():
                 if t not in self.ttypes: continue
                 alts = a_["source"] if a_["source"] and isinstance(a_["source"][0], list) else [a_["source"]]
                 src = [f"b{i + 1}:{x}" for i, alt in enumerate(alts) for x in alt]; ref = [x if x.startswith("r.") else f"r.{x}" for x in a_["reference"]]
@@ -288,8 +288,8 @@ class Harness:
 
     # ---------- a whole cell
     def evaluate_cell(self, cell_dir, attempt="final"):
-        recs = [json.loads(l) for l in open(cell_dir + "recipes.jsonl")]
-        flds = [json.loads(l) for l in open(cell_dir + "fields.jsonl")]
+        recs = [json.loads(l) for l in open(cell_dir + "recipes.jsonl", encoding="utf-8")]
+        flds = [json.loads(l) for l in open(cell_dir + "fields.jsonl", encoding="utf-8")]
         pick = lambda r: (r.get("first") if attempt == "first" and r.get("first") else r)
         out = {"recipes": {}, "fields": {}, "tables": {}, "tokens": {"in": 0, "out": 0}, "retry_tokens": {"in": 0, "out": 0}, "retries": 0, "attempt": attempt}
         for r in recs:

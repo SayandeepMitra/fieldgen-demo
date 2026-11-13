@@ -4,6 +4,9 @@ import csv, json, os, re, shutil, threading
 from pathlib import Path
 import pytest
 
+if os.environ.get("FIELDGEN_START_METHOD"):          # e.g. FIELDGEN_START_METHOD=spawn pytest tests/  (what macOS and Windows use)
+    import multiprocessing; multiprocessing.set_start_method(os.environ["FIELDGEN_START_METHOD"], force=True)
+
 def _w(p, obj):
     p.parent.mkdir(parents=True, exist_ok=True); p.write_text(json.dumps(obj, indent=1), encoding="utf-8")
 def _csv(p, header, rows):

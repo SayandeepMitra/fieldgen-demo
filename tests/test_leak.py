@@ -12,7 +12,7 @@ FORBIDDEN_TEXT = re.compile(r"(?<!reads_)reference_data|alignment\.json|referenc
 def test_generator_modules_do_not_import_or_name_the_reference_side():
     gen = [p for p in SRC.glob("*.py") if p.stem not in SCORING and p.stem != "__init__"]; assert len(gen) > 20
     for p in gen:
-        txt = p.read_text(); assert not FORBIDDEN_IMPORT.search(txt), (p.name, FORBIDDEN_IMPORT.search(txt).group(0))
+        txt = p.read_text(encoding="utf-8"); assert not FORBIDDEN_IMPORT.search(txt), (p.name, FORBIDDEN_IMPORT.search(txt).group(0))
         assert not FORBIDDEN_TEXT.search(txt), (p.name, FORBIDDEN_TEXT.search(txt).group(0))
 
 def test_run_never_opens_a_reference_path(tmp_path, package, reference_full, fake_endpoint, monkeypatch):

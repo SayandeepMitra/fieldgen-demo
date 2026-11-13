@@ -11,6 +11,6 @@ for line in open(run / "calls.jsonl", encoding="utf-8"):
     assert c["tag"] not in answers, c["tag"]
     answers[c["tag"]] = {"text": c["raw_response"], "finish_reason": c.get("finish_reason") or "stop"}
 here = Path(__file__).parent
-(here / "answers" / f"{name}.json").write_text(json.dumps({"model": json.loads(open(run / "calls.jsonl").readline())["model"], "answers": answers}, indent=1), encoding="utf-8")
+(here / "answers" / f"{name}.json").write_text(json.dumps({"model": json.loads(open(run / "calls.jsonl", encoding="utf-8").readline())["model"], "answers": answers}, indent=1), encoding="utf-8")
 shutil.copy(run / "scores.json", here / "recorded" / f"{name}.json")
 print(name, len(answers), "answers")

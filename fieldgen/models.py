@@ -18,8 +18,8 @@ class ModelCfg:
         return {k: v for k, v in self.__dict__.items()}
 
 def load_models(path):
-    raw = yaml.safe_load(open(path))["models"]
+    raw = yaml.safe_load(open(path, encoding="utf-8"))["models"]
     return {n: ModelCfg(name=n, **c) for n, c in raw.items()}
 
 def load_run(path):
-    return yaml.safe_load(open(path))
+    return yaml.safe_load(open(path, encoding="utf-8"))

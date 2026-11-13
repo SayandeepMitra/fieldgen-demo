@@ -21,7 +21,7 @@ def test_no_key_in_the_repository():
     assert not hits, hits
 
 def test_gitignore_covers_secrets_and_runs():
-    g = (ROOT / ".gitignore").read_text().split()
+    g = (ROOT / ".gitignore").read_text(encoding="utf-8").split()
     for x in (".env", "runs/", "*.key", "*.duckdb"): assert x in g
 
 def test_run_outputs_contain_no_key_or_headers(tmp_path, package, fake_endpoint):

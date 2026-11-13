@@ -166,7 +166,7 @@ def execute(package_dir, settings, out_dir, log=print):
     built = build_tables(con, str(db), specs) if specs else []
     res = {"sample_rows": n, "tables": [{k: b[k] for k in ("table", "ok", "rows", "error", "dropped_window_formulas")} for b in built]}
     (out / "execute.json").write_text(json.dumps(res, indent=1), encoding="utf-8")
-    summ = json.loads((out / "summary.json").read_text()) if (out / "summary.json").exists() else {"served_models": [], "seconds": 0, "tables_to_build": list(recipes), "warnings": [], "built": [], "stopped": None, "stages": s.stages}
+    summ = json.loads((out / "summary.json").read_text(encoding="utf-8")) if (out / "summary.json").exists() else {"served_models": [], "seconds": 0, "tables_to_build": list(recipes), "warnings": [], "built": [], "stopped": None, "stages": s.stages}
     summ["built"] = res["tables"]; write_report(out, s, summ, execution=res)
     log(f"executed on {'all rows' if n == 'all' else f'the first {n} rows of each source table'}: {sum(b['ok'] for b in built)} of {len(built)} tables built into {db}")
     return res

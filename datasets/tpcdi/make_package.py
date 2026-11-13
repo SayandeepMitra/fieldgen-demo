@@ -48,7 +48,7 @@ def write_field_docs(spec_path, pkg):
      "dimtime": ("3.2.7 DimTime", "4.5.7 DimTime"), "industry": ("3.2.13 Industry", "4.5.13 Industry"),
      "statustype": ("3.2.16 StatusType", "4.5.16 StatusType"), "taxrate": ("3.2.17 TaxRate", "4.5.17 TaxRate"),
      "tradetype": ("3.2.18 TradeType", "4.5.18 TradeType")}
-    tables = json.load(open(PKG / "target/tables.json"))
+    tables = json.load(open(PKG / "target/tables.json", encoding="utf-8"))
 
     tcols = {t["name"]: [c["name"] for c in t["columns"]] for t in tables}
     def section_end(i, pat):
@@ -103,7 +103,7 @@ def write_field_docs(spec_path, pkg):
     ALIAS = {"dayofweeknumeric": "dayofweeknum"}  # repo DDL name -> spec field name
     docs = {"tables": {}, "fields": {}}
     count = collections.Counter(); excluded = []
-    old_docs = json.load(open(PKG / "target/field_docs.json"))
+    old_docs = json.load(open(PKG / "target/field_docs.json", encoding="utf-8"))
     for table, (h3, h45) in T.items():
         clause3, d3 = section3(table); cl = clauses(table)
         allc = set(norm(c) for c in tcols[table]) | {norm(x) for x in ["SK_BrokerID","SK_CompanyID","SK_CustomerID","IsCurrent","BatchID","EffectiveDate","EndDate","State_Prov"]}
@@ -156,7 +156,7 @@ def write_field_docs(spec_path, pkg):
             docs["fields"][f"{table}.{c}"] = {"guidance": g, "conventions": "\n".join(conv) or None,
                 "ddl": old_docs["fields"][f"{table}.{c}"]["ddl"]}
             count[table] += 1 + len(conv)
-    json.dump(docs, open(PKG / "target/field_docs.json", "w"), indent=1, ensure_ascii=False)
+    json.dump(docs, open(PKG / "target/field_docs.json", "w", encoding="utf-8"), indent=1, ensure_ascii=False)
     return docs
 
 
@@ -226,6 +226,7 @@ def write_matches(pkg, db, mapcol=lambda tab, col: (tab, col)):
                 e = {"relation": rel, "column": c}
                 if e not in new[key]: new[key].append(e)
     wj(pkg / "matches/matches.json", new)
+    con.close()
     return sum(1 for v in new.values() if v), len(new), missing
 
 

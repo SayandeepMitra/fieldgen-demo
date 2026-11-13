@@ -6,7 +6,7 @@ P = str(PROMPTS_DIR) + "/"
 _env = jinja2.Environment(loader=jinja2.FileSystemLoader(P), keep_trailing_newline=True, undefined=jinja2.Undefined)
 
 def _msgs(system, template, **kw):
-    return [{"role": "system", "content": open(P + system).read().strip()}, {"role": "user", "content": _env.get_template(template).render(**kw)}]
+    return [{"role": "system", "content": (PROMPTS_DIR / system).read_text(encoding="utf-8").strip()}, {"role": "user", "content": _env.get_template(template).render(**kw)}]
 
 def step1_messages(task): return _msgs("v2_step1_system.md", "v2_step1_user.md", task=task)
 def step2_messages(ftask): return _msgs("v2_step2_system.md", "v2_step2_user.md", task=ftask)

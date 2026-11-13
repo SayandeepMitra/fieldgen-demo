@@ -58,7 +58,7 @@ class MonitoredClient(FlaggedClient):
             if self.sh.check_first and len(self.sh.finished) == self.sh.first_n:
                 bad = [f for f in self.sh.finished if f["finish_reason"] == "length" or f["empty_content"]]
                 if len(bad) >= self.sh.bad_limit:
-                    if self.sh.report: json.dump({"first_calls": self.sh.finished, "bad": len(bad)}, open(self.sh.report, "w"), indent=1)
+                    if self.sh.report: json.dump({"first_calls": self.sh.finished, "bad": len(bad)}, open(self.sh.report, "w", encoding="utf-8"), indent=1)
                     self.sh.abort = f"{len(bad)} of the first {self.sh.first_n} calls ended with finish_reason length or empty content"
                     raise Stop(self.sh.abort)
         return out
@@ -75,6 +75,6 @@ class Client400(MonitoredClient):
             if "http 400" in str(e):
                 size = sum(len(m["content"]) for m in messages)
                 if self.report:
-                    with _REPORT_LOCK: json.dump({"tag": tag, "input_chars": size, "error": str(e)[:200]}, open(self.report, "w"), indent=1)      # two workers can fail together
+                    with _REPORT_LOCK: json.dump({"tag": tag, "input_chars": size, "error": str(e)[:200]}, open(self.report, "w", encoding="utf-8"), indent=1)      # two workers can fail together
                 raise Stop(f"HTTP 400 on {tag} (input {size} chars; the response body is not logged)")
             raise

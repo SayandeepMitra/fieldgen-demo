@@ -33,9 +33,9 @@ class Step1ViewV3(Step1View):
         self.root = Path(pkg_root); self.con = con; self.domain = Domain(pkg_root if use_domain else None); self.use_domain = use_domain
         self.shown = None; self.matched = set(); self._lazy = False; self._overlap = {}
         ref = self.root / "target" / "reference_tables.json"
-        self.lookups = sorted({r["source_relation"] for r in json.load(open(ref))["reference_tables"]}) if ref.exists() else []
+        self.lookups = sorted({r["source_relation"] for r in json.load(open(ref, encoding="utf-8"))["reference_tables"]}) if ref.exists() else []
         fd = self.root / "target" / "field_docs.json"
-        self.field_docs = json.load(open(fd))["fields"] if fd.exists() else {}
+        self.field_docs = json.load(open(fd, encoding="utf-8"))["fields"] if fd.exists() else {}
         self.by_child = {}
         for l in self.links:
             for i, c in enumerate(l["child_columns"]): self.by_child.setdefault((l["child"], c), []).append((l, l["parent_columns"][i]))

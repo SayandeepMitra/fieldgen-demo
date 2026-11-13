@@ -10,11 +10,11 @@ def test_full_run_writes_recipes_formulas_sql_tables_and_report(tmp_path, packag
     out = tmp_path / "run"; summ = run(package, settings(), out)
     assert summ["recipes_valid"] == ["client", "purchase"] and [b["ok"] for b in summ["built"]] == [True, True] and summ["served_models"] == ["fake/served"]
     for t in ("client", "purchase"):
-        assert (out / "recipes" / f"{t}.json").exists() and "Grain:" in (out / "recipes" / f"{t}.txt").read_text() and (out / "sql" / f"{t}.sql").exists() and (out / "formulas" / f"{t}.json").exists()
+        assert (out / "recipes" / f"{t}.json").exists() and "Grain:" in (out / "recipes" / f"{t}.txt").read_text(encoding="utf-8") and (out / "sql" / f"{t}.sql").exists() and (out / "formulas" / f"{t}.json").exists()
     con = duckdb.connect(str(out / "tables.duckdb"), read_only=True)
     assert con.execute("select client_name, client_id from client order by client_id").fetchall()[0] == ("Ann Lee", 1)       # generated key numbered in the order of client_name
-    assert con.execute("select count(*), sum(amount) from purchase").fetchone() == (6, 152.74)
-    rep = (out / "report.md").read_text(); assert "fake/served" in rep and "Tables built" in rep and "Not tested" in rep
+    assert con.execute("select count(*), sum(amount) from purchase").fetchone() == (6, 152.74); con.close()
+    rep = (out / "report.md").read_text(encoding="utf-8"); assert "fake/served" in rep and "Tables built" in rep and "Not tested" in rep
 
 def test_recipes_only_stage_builds_no_tables(tmp_path, package, fake_endpoint):
     out = tmp_path / "run"; summ = run(package, settings(stages="recipes"), out)
@@ -31,7 +31,7 @@ def test_http_400_stops_and_records_the_input_size(tmp_path, package, monkeypatc
     monkeypatch.setenv("FIELDGEN_TEST_KEY", "dummy-not-a-key"); monkeypatch.setattr(llm.Client, "_http", lambda self, body: (400, {"error": "too long"}, {}))
     orig = llm.Client.__init__; monkeypatch.setattr(llm.Client, "__init__", lambda self, cfg, calls_path=None, transport=None, sleep=None: orig(self, cfg, calls_path=calls_path, transport=transport, sleep=lambda s: None))
     out = tmp_path / "run"; summ = run(package, settings(stages="recipes"), out)
-    assert "HTTP 400" in summ["stopped"] and json.loads((out / "stop_400.json").read_text())["input_chars"] > 100 and "stopped early" in (out / "report.md").read_text()
+    assert "HTTP 400" in summ["stopped"] and json.loads((out / "stop_400.json").read_text(encoding="utf-8"))["input_chars"] > 100 and "stopped early" in (out / "report.md").read_text(encoding="utf-8")
 
 def test_missing_key_stops_before_any_call(tmp_path, package, monkeypatch):
     monkeypatch.delenv("FIELDGEN_TEST_KEY", raising=False)
@@ -64,7 +64,7 @@ def test_execute_sample_rows_uses_the_first_rows_of_each_source_table(tmp_path, 
 def test_generate_alone_writes_sql_but_runs_no_sql(tmp_path, package, fake_endpoint):
     from fieldgen.pipeline import generate
     out = tmp_path / "run"; generate(package, settings(), out)
-    assert (out / "sql" / "purchase.sql").read_text().startswith("SELECT") and not (out / "tables.duckdb").exists() and "Not executed yet" in (out / "report.md").read_text()
+    assert (out / "sql" / "purchase.sql").read_text(encoding="utf-8").startswith("SELECT") and not (out / "tables.duckdb").exists() and "Not executed yet" in (out / "report.md").read_text(encoding="utf-8")
 
 def test_execute_needs_a_generated_run_and_formulas(tmp_path, package, fake_endpoint):
     from fieldgen.pipeline import execute

@@ -31,7 +31,7 @@ class Client:
 
     def _log(self, rec):
         if not self.calls_path: return
-        with self._lock, open(self.calls_path, "a") as f: f.write(json.dumps(rec, default=str) + "\n")
+        with self._lock, open(self.calls_path, "a", encoding="utf-8") as f: f.write(json.dumps(rec, default=str) + "\n")
 
     def _one(self, messages, params, tag):
         body = {"model": self.cfg.model, "messages": messages, **params}

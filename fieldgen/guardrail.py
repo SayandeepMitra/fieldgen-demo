@@ -254,7 +254,8 @@ def check_in_worker(spec):
 
 def make_pool(pkg_root, workers=None):
     import os, multiprocessing as mp, concurrent.futures as cf
-    n = workers or max(1, (os.cpu_count() or 2) // 2); ram = [int(l.split()[1]) for l in open("/proc/meminfo") if l.startswith("MemTotal")][0] * 1024
+    from fieldgen.sysinfo import total_ram_bytes
+    n = workers or max(1, (os.cpu_count() or 2) // 2); ram = total_ram_bytes()
     mem = int(0.7 * ram / n) // 2 ** 20; thr = max(1, (os.cpu_count() or 2) // n)
     return cf.ProcessPoolExecutor(max_workers=n, mp_context=mp.get_context("spawn"), initializer=init_worker, initargs=(str(pkg_root), mem, thr))
 

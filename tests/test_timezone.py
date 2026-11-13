@@ -24,11 +24,11 @@ def test_prompts_are_identical_in_other_machine_time_zones(tmp_path, package):
     out = {}
     for zone in ("UTC", "America/New_York", "Pacific/Auckland", "Asia/Kolkata"):
         env = {**os.environ, "TZ": zone, "PYTHONPATH": os.pathsep.join(sys.path)}
-        r = subprocess.run([sys.executable, "-c", SCRIPT, str(package), str(tmp_path / f"w_{zone.replace('/', '_')}")], capture_output=True, text=True, env=env, timeout=300)
+        r = subprocess.run([sys.executable, "-c", SCRIPT, str(package), str(tmp_path / f"w_{zone.replace('/', '_')}")], capture_output=True, text=True, encoding="utf-8", env=env, timeout=300)
         assert r.returncode == 0, r.stderr[-400:]; out[zone] = r.stdout.split()
     assert len({v[0] for v in out.values()}) == 1, out                      # the same prompt bytes in every zone
     assert all(v[1] == "True" and v[2] == "True" for v in out.values())      # the column and its +05:30 text are really in the prompt
 
 def test_the_export_script_pins_utc():
-    src = (Path(__file__).resolve().parent.parent / "datasets/synthea_omop/tools/export_reference.py").read_text()
+    src = (Path(__file__).resolve().parent.parent / "datasets/synthea_omop/tools/export_reference.py").read_text(encoding="utf-8")
     assert "SET TimeZone='UTC'" in src

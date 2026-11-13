@@ -7,15 +7,15 @@ def test_good_package_is_valid(package):
     r = check_package(package); assert r["ok"], r["errors"]; assert r["checks"]["source_tables"] == 3 and r["checks"]["target_tables"] == 3
 
 def _edit(package, rel, fn):
-    p = package / rel; obj = json.loads(p.read_text()); fn(obj); p.write_text(json.dumps(obj))
+    p = package / rel; obj = json.loads(p.read_text(encoding="utf-8")); fn(obj); p.write_text(json.dumps(obj), encoding="utf-8")
 
 def test_missing_data_file(package):
     (package / "source/data/orders.csv").unlink(); assert any("missing data file" in e for e in check_package(package)["errors"])
 
 def test_wrong_header_and_row_count(package):
-    p = package / "source/data/state_codes.csv"; rows = list(csv.reader(open(p))); rows[0][1] = "name"; csv.writer(open(p, "w", newline="")).writerows(rows)
+    p = package / "source/data/state_codes.csv"; rows = list(csv.reader(open(p, encoding="utf-8"))); rows[0][1] = "name"; csv.writer(open(p, "w", newline="", encoding="utf-8")).writerows(rows)
     errs = check_package(package)["errors"]; assert any("header" in e for e in errs)
-    p.write_text("code,label\nTX,Texas\n"); assert any("row count" in e for e in check_package(package)["errors"])
+    p.write_text("code,label\nTX,Texas\n", encoding="utf-8"); assert any("row count" in e for e in check_package(package)["errors"])
 
 def test_unknown_link_column(package):
     _edit(package, "source/links.json", lambda o: o[0].update(child_columns=["nope"])); assert any("nope" in e for e in check_package(package)["errors"])
@@ -47,6 +47,6 @@ def test_cli_exit_codes(package, tmp_path, capsys):      # `fieldgen check` is t
 def test_reference_leak_is_found(package, reference_full):
     from fieldgen.check_reference import leak_check
     assert leak_check(package, reference_full) == []
-    p = reference_full / "recipes/purchase.json"; g = json.loads(p.read_text()); g["branches"][0]["from"] = "FROM orders o JOIN state_codes s ON o.state_code = s.code AND o.amount > 1"; p.write_text(json.dumps(g))
+    p = reference_full / "recipes/purchase.json"; g = json.loads(p.read_text(encoding="utf-8")); g["branches"][0]["from"] = "FROM orders o JOIN state_codes s ON o.state_code = s.code AND o.amount > 1"; p.write_text(json.dumps(g), encoding="utf-8")
     _edit(package, "source/links.json", lambda o: o[0].update(evidence=g["branches"][0]["from"]))
     assert any("reference string" in h for h in leak_check(package, reference_full))

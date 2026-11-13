@@ -65,14 +65,14 @@ def main():
     if not (pkg / "manifest.json").exists(): sys.exit(f"no package at {pkg}")
     if not any((pkg / "source/data").glob("*.csv")): sys.exit(f"no source data in {pkg}/source/data (see the dataset's README / SETUP.md)")
     os.chdir(ROOT)                                       # the tool reads config.yaml from the package folder, else from the current folder
-    answers = json.load(open(f))["answers"]
+    answers = json.load(open(f, encoding="utf-8"))["answers"]
     used = install_stand_in(answers)
     from fieldgen import cli
     for cmd in ("generate", "execute", "test"):
         print(f"===== {cmd}", flush=True)
         rc = cli.main([cmd, "--package", str(pkg)])
         if rc: sys.exit(f"{cmd} ended with exit code {rc}")
-    scores = json.load(open(pkg.parent / "run" / "scores.json")); rec = json.load(open(ROOT / "replay/recorded" / f"{name}.json"))
+    scores = json.load(open(pkg.parent / "run" / "scores.json", encoding="utf-8")); rec = json.load(open(ROOT / "replay/recorded" / f"{name}.json", encoding="utf-8"))
     now, was = l2_table(scores), l2_table(rec)
     print(f"\nscore table, run '{name}' (replay vs recorded live run)\n{'table':24s} rows  L2 columns   recorded")
     for t in now:

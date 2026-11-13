@@ -29,13 +29,15 @@ A table gets at most 8 recipe calls. A formula gets at most 4 calls. If every tr
 
 ## 2. Setup
 
-You need Python 3.10 or newer.
+You need Python 3.10 or newer on Linux, macOS or Windows. Create a virtual environment in the project folder and install the requirements.
+You can activate the environment or call its Python directly; the commands in this README work either way (replace `python` by the path shown).
 
-```
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
+| System | Create and install | Python of the environment |
+|---|---|---|
+| Linux, macOS | `python3 -m venv .venv` then `.venv/bin/python -m pip install -r requirements.txt` | `.venv/bin/python` (or `source .venv/bin/activate`, then `python`) |
+| Windows (PowerShell) | `py -3 -m venv .venv` then `.venv\Scripts\python -m pip install -r requirements.txt` | `.venv\Scripts\python` (or `.venv\Scripts\Activate.ps1`, then `python`) |
+
+If PowerShell refuses to run `Activate.ps1`, call `.venv\Scripts\python` instead.
 
 ## 3. Running
 
@@ -62,8 +64,14 @@ The last line says "identical to the recorded run: YES" when it worked. `WORK` i
 The default endpoint is the NVIDIA API. The key is read only from the environment variable `NVIDIA_API_KEY`.
 That endpoint records inputs and outputs. Your prompts contain samples of the source data, so check the rules for your data first.
 Set up the dataset first (section 5).
+Set the key in the same terminal before you start (it lasts until the terminal is closed):
+
+| System | Command |
+|---|---|
+| Linux, macOS | `export NVIDIA_API_KEY=...` |
+| Windows (PowerShell) | `$env:NVIDIA_API_KEY = "..."` |
+
 ```
-export NVIDIA_API_KEY=...
 python -m fieldgen generate --package datasets/synthea_omop/package
 python -m fieldgen execute  --package datasets/synthea_omop/package
 python -m fieldgen test     --package datasets/synthea_omop/package

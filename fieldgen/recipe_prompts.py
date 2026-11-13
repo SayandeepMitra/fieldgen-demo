@@ -31,5 +31,5 @@ def _history(task, s):
     return t
 
 def recipe_messages(task, s):
-    system = (PROMPTS_DIR / ("v3_step1_system.md" if s.join_rules_in_prompt else "v2_step1_system.md")).read_text().strip()
+    system = (PROMPTS_DIR / ("v3_step1_system.md" if s.join_rules_in_prompt else "v2_step1_system.md")).read_text(encoding="utf-8").strip()
     return [{"role": "system", "content": system}, {"role": "user", "content": _env.get_template("v3_step1_user.md").render(task=task, history=_history(task, s))}]

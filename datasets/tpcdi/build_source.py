@@ -46,7 +46,7 @@ hdr = """-- Source DDL for DuckDB (schema Source), derived from repo Helpers/Scr
 CREATE SCHEMA IF NOT EXISTS Source;
 """
 ddl = hdr + "\n".join(f"\nCREATE TABLE Source.{t} (\n{clean_cols(block('Source.'+t))}\n);" for t in SRC) + "\n"
-open(f"{O}/source_ddl.sql", "w").write(ddl)
+open(f"{O}/source_ddl.sql", "w", encoding="utf-8").write(ddl)
 
 # target DDL
 TGT_KEEP = ["DimDate","DimTime","StatusType","TaxRate","TradeType","Industry"]
@@ -77,8 +77,8 @@ for t in TGT_KEEP + list(TGT_DROP):
     if t in UNIQ: cs = [c + " UNIQUE" if colname(c) == UNIQ[t] else c for c in cs]
     counts[t] = (before, len(cs))
     tdd.append(f"\nCREATE TABLE {t} (\n  " + ",\n  ".join(cs) + "\n);")
-open(f"{O}/target_ddl.sql", "w").write("\n".join(tdd) + "\n")
-m = duckdb.connect(":memory:"); m.execute(open(f"{O}/target_ddl.sql").read())
+open(f"{O}/target_ddl.sql", "w", encoding="utf-8").write("\n".join(tdd) + "\n")
+m = duckdb.connect(":memory:"); m.execute(open(f"{O}/target_ddl.sql", encoding="utf-8").read())
 tgt_ok = m.execute("select count(*) from information_schema.tables").fetchone()[0]
 
 
@@ -103,7 +103,7 @@ stage("plain files loaded")
 # Prospect.Gender: single space -> NULL (logged)
 gender_fixed = con.execute("select count(*) from Source.Prospect where Gender is not null and trim(Gender)=''").fetchone()[0]
 con.execute("update Source.Prospect set Gender=NULL where Gender is not null and trim(Gender)=''")
-con.execute("insert into Source.BatchDate values (?)", [open(f"{D}/BatchDate.txt").read().strip()])
+con.execute("insert into Source.BatchDate values (?)", [open(f"{D}/BatchDate.txt", encoding="utf-8").read().strip()])
 import csv, tempfile
 def ins(t, rs):  # bulk insert: dump rows to a temp CSV (local /tmp) and load with read_csv
     if not rs: return
@@ -113,7 +113,7 @@ def ins(t, rs):  # bulk insert: dump rows to a temp CSV (local /tmp) and load wi
         with open(p, "w", newline="", encoding="utf-8") as fh: csv.writer(fh).writerows(rs)
         con.execute(f"insert into Source.{t} select * from read_csv('{p}', header=false, columns={{{spec}}}, "
                     f"quote='\"', nullstr='', strict_mode=false)")
-sch = [l.split(",") for l in open(f"{R}/Helpers/Datasets/CMP_Records_Schema.csv").read().splitlines()[1:] if l.strip()]
+sch = [l.split(",") for l in open(f"{R}/Helpers/Datasets/CMP_Records_Schema.csv", encoding="utf-8").read().splitlines()[1:] if l.strip()]
 rows = []
 for f in sorted(g for g in glob.glob(f"{D}/FINWIRE*") if not g.endswith("_audit.csv")):
     for line in open(f, encoding="latin-1", newline=""):
@@ -170,6 +170,6 @@ res["empty_string_cells"] = chk
 res["cik_sample"] = [r[0] for r in con.execute("select CIK from Source.FinwireCMP limit 3").fetchall()]
 res["col_counts"] = {t: len(tcols(t)) for t in SRC}
 res["build_seconds"] = round(time.time() - T0, 1)
-json.dump(res, open(f"{O}/results.json","w"), indent=1, default=str)
+json.dump(res, open(f"{O}/results.json","w", encoding="utf-8"), indent=1, default=str)
 con.execute("CHECKPOINT"); con.execute("USE memory"); con.execute("DETACH srcdb"); con.close()
 stage("done")

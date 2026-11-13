@@ -5,8 +5,8 @@ from sqlglot import exp
 from fieldgen.json_extract import extract_json
 from fieldgen.paths import SCHEMAS_DIR
 D = str(SCHEMAS_DIR / "v2") + "/"
-RECIPE_SCHEMA = json.load(open(D + "recipe.schema.json"))
-OUTPUT_SCHEMA = json.load(open(D + "output.schema.json"))
+RECIPE_SCHEMA = json.load(open(D + "recipe.schema.json", encoding="utf-8"))
+OUTPUT_SCHEMA = json.load(open(D + "output.schema.json", encoding="utf-8"))
 # the optional recipe field `history` is accepted only with history_auto on; with it off the recipe schema is exactly the v1.2-demo schema
 RECIPE_SCHEMA_HISTORY = {**RECIPE_SCHEMA, "properties": {**RECIPE_SCHEMA["properties"], "history": {"anyOf": [{"type": "null"}, {"type": "object", "required": ["key", "order", "tiebreak"], "additionalProperties": False,
                          "properties": {"key": {"type": "string", "minLength": 1}, "order": {"type": "string", "minLength": 1}, "tiebreak": {"type": "string", "minLength": 1}}}]}}}

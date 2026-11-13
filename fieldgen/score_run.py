@@ -1,12 +1,14 @@
 """The scorer behind `fieldgen test` (reference side): scores a finished run against a reference folder. Never imported by the generator.
 Per target table: does the recipe build the rows of the reference (recipe layer; an alias assignment is tried when a table appears under several aliases)? Per scored column (reference kind 'value'
 and a matched source column): L0-L3 and, with score_levels L2_and_L4 and a full reference (reference expressions given), L4 on perturbed data. L2 is the headline measure."""
-import concurrent.futures as cf, itertools, json, multiprocessing as mp, os
+import concurrent.futures as cf, itertools, json, os
+from fieldgen.sysinfo import process_context
 from pathlib import Path
 
 def _limit_duckdb():
     import duckdb
-    nw = max(1, (os.cpu_count() or 2) // 2); ram = [int(l.split()[1]) for l in open("/proc/meminfo") if l.startswith("MemTotal")][0] * 1024 if os.path.exists("/proc/meminfo") else 8 * 2**30
+    from fieldgen.sysinfo import total_ram_bytes
+    nw = max(1, (os.cpu_count() or 2) // 2); ram = total_ram_bytes()
     mem = int(0.7 * ram / nw); thr = max(1, (os.cpu_count() or 2) // nw); o = duckdb.connect
     def conn(*a, **k):
         cfg = dict(k.pop("config", {}) or {}); cfg.update({"memory_limit": f"{mem // 2**20}MB", "threads": thr})
@@ -55,7 +57,7 @@ def score_run(package_dir, reference_dir, run_dir, s, levels=None):
     tables = [t for t in recs if t in ref_tables]
     units = [(str(package_dir), str(reference_dir), t, recs[t].get("recipe"), {k: v for k, v in finals.items() if k.startswith(t + ".")}, want_l4) for t in tables]
     nw = max(1, min(len(units), (os.cpu_count() or 2) // 2)); res = []
-    with cf.ProcessPoolExecutor(max_workers=nw, mp_context=mp.get_context("fork")) as ex: res = list(ex.map(_unit, units))
+    with cf.ProcessPoolExecutor(max_workers=nw, mp_context=process_context()) as ex: res = list(ex.map(_unit, units))
     res = {r["table"]: r for r in res}; fields = {tid: f for r in res.values() for tid, f in r["fields"].items()}
     good = [t for t, r in res.items() if r["recipe_rows_correct"]]; in_good = [tid for tid in fields if tid.split(".")[0] in good]
     l2 = sum(bool(f["L2"]) for f in fields.values()); l2g = sum(bool(fields[t]["L2"]) for t in in_good); l4 = sum(f["L4"] is True for f in fields.values()); full = any(r["full_reference"] for r in res.values())
@@ -68,6 +70,6 @@ def score_run(package_dir, reference_dir, run_dir, s, levels=None):
     for t, r in sorted(res.items()):
         f = r["fields"]; L.append(f"| {t} | {'yes' if r['recipe_rows_correct'] else '**no**'}{' (alias assignment)' if r['assignment'] else ''} | {len(f)} | {sum(bool(x['L2']) for x in f.values())} | {sum(x['L4'] is True for x in f.values()) if want_l4 else '-'} |")
     L += ["", "Wrong columns (L2):", ""] + [f"- {tid}: {f.get('error') or 'value differs from the reference'}" for tid, f in sorted(fields.items()) if not f["L2"]][:60]
-    summary = json.loads((run_dir / "summary.json").read_text()) if (run_dir / "summary.json").exists() else {"served_models": [], "seconds": 0, "tables_to_build": [], "warnings": [], "built": [], "stopped": None}
-    exe = json.loads((run_dir / "execute.json").read_text()) if (run_dir / "execute.json").exists() else None
+    summary = json.loads((run_dir / "summary.json").read_text(encoding="utf-8")) if (run_dir / "summary.json").exists() else {"served_models": [], "seconds": 0, "tables_to_build": [], "warnings": [], "built": [], "stopped": None}
+    exe = json.loads((run_dir / "execute.json").read_text(encoding="utf-8")) if (run_dir / "execute.json").exists() else None
     write_report(run_dir, s, summary, scores=L, execution=exe); score["headline_lines"] = L; return score

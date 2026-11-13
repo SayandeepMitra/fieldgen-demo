@@ -154,7 +154,7 @@ def init_package(package_dir, source, target, log=print):
     d = root / "domain"; d.mkdir(exist_ok=True); (d / "domain_knowledge.md").write_text(RULES_TEMPLATE, encoding="utf-8"); (d / "flow_text.md").write_text(FLOW_TEMPLATE, encoding="utf-8")
     _w(d / "descriptions_supplement.json", []); _w(d / "value_meanings.json", []); _w(d / "domain_text.json", {"doc_label": "Target documentation", "empty_markers": ["", "NA"]})
     pkg = load_package(root); keys, links = propose_keys_and_links(pkg)
-    tabs = json.loads((root / "source" / "tables.json").read_text())
+    tabs = json.loads((root / "source" / "tables.json").read_text(encoding="utf-8"))
     for t in tabs:
         t["pk"] = keys.get(t["name"], []); t["business_ids"] = list(t["pk"]); t["pk_provenance"] = {"source": "proposed", "note": "proposed by fieldgen init; confirm"} if t["pk"] else {"source": "none found: TODO"}
         for c in t["columns"]:

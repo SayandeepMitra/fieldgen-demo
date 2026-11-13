@@ -22,8 +22,8 @@ con.execute(f"ATTACH '{a.source_db}' AS srcdb (READ_ONLY)"); con.execute(f"ATTAC
 con.execute("CREATE SCHEMA Source")                       # staging copy of the source tables, dropped at the end
 for (t,) in con.execute("select table_name from information_schema.tables where table_catalog='srcdb' and table_schema='Source'").fetchall():
     con.execute(f"CREATE TABLE gold.Source.{t} AS SELECT * FROM srcdb.Source.{t}")
-con.execute("USE gold.main"); con.execute(open(a.target_ddl).read())      # empty target tables
-for t in TABLES: con.execute(open(f"{a.sql}/{t}.sql").read())
+con.execute("USE gold.main"); con.execute(open(a.target_ddl, encoding="utf-8").read())      # empty target tables
+for t in TABLES: con.execute(open(f"{a.sql}/{t}.sql", encoding="utf-8").read())
 bad = 0
 for t in TABLES:
     n = con.execute(f"select count(*) from {t}").fetchone()[0]; k = con.execute(f"select count(distinct {KEY[t]}) from {t}").fetchone()[0]
