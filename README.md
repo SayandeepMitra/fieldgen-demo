@@ -52,7 +52,7 @@ It needs the dataset first (section 5). Expected result in the last lines:
 
 | command | time | expected |
 |---|---|---|
-| `python run_demo.py --dataset synthea` | about 2 min | 13 of 18 tables with correct rows, 57 columns correct |
+| `python run_demo.py --dataset synthea` | about 2 min | 13 of 18 tables with correct rows, 57 of 95 columns correct |
 | `python run_demo.py --dataset tpcdi --run run10 --work WORK` | about 10 min | 23 of 28 columns correct |
 | `python run_demo.py --dataset tpcdi --run run6 --work WORK` | about 10 min | 22 of 28 columns correct |
 
@@ -61,12 +61,14 @@ The last line says "identical to the recorded run: YES" when it worked. `WORK` i
 **Live run with your own key.**
 The default endpoint is the NVIDIA API. The key is read only from the environment variable `NVIDIA_API_KEY`.
 That endpoint records inputs and outputs. Your prompts contain samples of the source data, so check the rules for your data first.
+Set up the dataset first (section 5).
 ```
 export NVIDIA_API_KEY=...
 python -m fieldgen generate --package datasets/synthea_omop/package
 python -m fieldgen execute  --package datasets/synthea_omop/package
 python -m fieldgen test     --package datasets/synthea_omop/package
 ```
+For TPC-DI, use the same commands with `--package WORK/packages/run10` (or `run6`).
 `generate` takes about 20 to 25 minutes for Synthea (19 tables built, 18 scored) and about 8 to 13 minutes for the TPC-DI table DimCustomer alone.
 Settings are in `config.yaml`; see `docs/config.md`.
 
@@ -188,7 +190,20 @@ python make_package.py  --work WORK --spec SPEC_TEXT_FILE
 `OUT` is the DIGen output folder and `SCHEMA_REPO` is the TPC-DI-MS-SQL-Benchmark folder that contains `Helpers/`. The four commands take about 1 minute.
 The result is in `WORK/packages/run6` and `WORK/packages/run10`. Go back to the project folder before you run `run_demo.py`.
 
-## 6. Files
+## 6. Not in this repository
+
+| item | why not included | how to get it |
+|---|---|---|
+| Synthea source data and vocabulary | the licences of the sample data and the vocabulary files are unclear or restricted (`LICENSES.md`) | section 5 and `datasets/synthea_omop/SETUP.md`: `fill_source_data.py` copies them from a dbt-synthea clone |
+| Synthea answer key (reference tables) | built from the Synthea data and the vocabulary files | section 5: build dbt-synthea, then `export_reference.py` |
+| TPC-DI data (DIGen, scale 3, Batch1) | TPC data; we do not publish it | generate it with DIGen from tpc.org; see `datasets/tpcdi/README.md`, then `build_source.py` |
+| TPC-DI specification text | TPC text; we do not publish it | download the PDF from tpc.org and extract the text; see `datasets/tpcdi/README.md`; `make_package.py --spec` reads it |
+| TPC-DI schema and reference SQL | a third-party repository | GitHub: abroniewski/TPC-DI-MS-SQL-Benchmark; pass its folder to `build_source.py --repo` |
+| TPC-DI answer key and packages | built from the data and the specification, which are not included | `build_gold.py` and `make_package.py` (section 5) |
+| Prompts and full run logs of the live runs | they contain specification text and data samples; a live run writes new ones to `run/` | run a live run (section 3). `replay/answers/` holds the model's answers only |
+| NVIDIA API key | it is personal | create your own key with NVIDIA and set `NVIDIA_API_KEY` |
+
+## 7. Files
 
 Top level:
 - `fieldgen/`: the tool (a Python package; run it with `python -m fieldgen`).
@@ -225,6 +240,6 @@ Top level:
 - `recorded/`: the scores of the live runs, used for the comparison.
 - `extract_answers.py`: copies the answers out of a finished run folder (only needed to make new answer files).
 
-## 7. More
+## 8. More
 
 Results and limits are in `results/RESULTS.md`. Licences are in `LICENSES.md` and `NOTICE`.
