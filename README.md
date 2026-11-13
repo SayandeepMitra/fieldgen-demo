@@ -52,6 +52,12 @@ python -m fieldgen test     --package datasets/synthea_omop/package
 ```
 Settings come from `config.yaml` (package folder first, then the current folder); every option is explained in `docs/config.md`.
 
+## Known limits
+
+- Each result is one run of one model; differences of one or two columns are within run-to-run variation.
+- `history_auto` (off by default) expects `column` or `table.column` names; alias forms such as `c.C_ID` are not resolved.
+- The saved TPC-DI answers in `replay/answers/` have their free-text `assumptions` lists emptied (they may quote the TPC-DI specification); recipes, expressions and all other fields are unchanged, and the replays still reproduce the recorded scores.
+
 ## Folder layout
 
 ```

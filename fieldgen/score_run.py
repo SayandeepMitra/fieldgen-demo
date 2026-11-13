@@ -1,4 +1,4 @@
-"""`fieldgen score` (reference side): scores a finished run against a reference folder. Never imported by the generator.
+"""The scorer behind `fieldgen test` (reference side): scores a finished run against a reference folder. Never imported by the generator.
 Per target table: does the recipe build the rows of the reference (recipe layer; an alias assignment is tried when a table appears under several aliases)? Per scored column (reference kind 'value'
 and a matched source column): L0-L3 and, with score_levels L2_and_L4 and a full reference (reference expressions given), L4 on perturbed data. L2 is the headline measure."""
 import concurrent.futures as cf, itertools, json, multiprocessing as mp, os

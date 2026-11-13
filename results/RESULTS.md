@@ -43,3 +43,5 @@ Still wrong in run 10: gender (NEW with no gender should give U), the three Pros
 5. What remains is outside the tool's checkers or the documentation: matches on current values (subqueries are rejected in formulas) and rules that are not written in the documentation (nameplate tags).
 
 Each number is one run of one model. Do not read a difference of one or two columns as an effect.
+
+Note on the replay answers: in `replay/answers/tpcdi_run6.json` and `tpcdi_run10.json` the free-text `assumptions` lists of the model's answers were emptied, because they may quote the TPC-DI specification. Recipes, expressions and all other fields are unchanged; the replays reproduce the recorded scores (run 6: 22 of 28, run 10: 23 of 28).

@@ -1,4 +1,4 @@
-"""`fieldgen run` (generator side): check the package, build the field cards, recipe step per target table, formula step per matched column, table build, report.
+"""`fieldgen generate` and `fieldgen execute` (generator side): check the package, build the field cards, recipe step per target table, formula step per matched column, table build, report.
 The generator reads only the package (manifest, source, target, matches, domain). It never reads a reference folder; scoring is a separate step (fieldgen.score_run)."""
 import concurrent.futures as cf, json, os, threading, time
 from pathlib import Path

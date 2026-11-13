@@ -1,4 +1,4 @@
-"""Reference side of `fieldgen check --reference`: checks that no reference expression leaked into the package files. Never imported by the generator."""
+"""Reference side of `fieldgen test` (the leak check before scoring): checks that no reference expression leaked into the package files. Never imported by the generator."""
 import glob, json, re
 from pathlib import Path
 
