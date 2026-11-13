@@ -1,0 +1,31 @@
+{
+ "task_id": "visit_occurrence.visit_source_concept_id",
+ "table": "visit_occurrence",
+ "column": "visit_source_concept_id",
+ "kind": "excluded",
+ "reference": {
+  "table": "visit_occurrence",
+  "column": "visit_source_concept_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "0"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:encounters.START"
+  ],
+  "reference": [
+   "r.visit_start_date"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": "constant not derivable (reference value [0])"
+}

@@ -1,0 +1,31 @@
+{
+ "task_id": "visit_occurrence.visit_occurrence_id",
+ "table": "visit_occurrence",
+ "column": "visit_occurrence_id",
+ "kind": "excluded",
+ "reference": {
+  "table": "visit_occurrence",
+  "column": "visit_occurrence_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "visit_occurrence_id"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:encounters.START"
+  ],
+  "reference": [
+   "r.visit_start_date"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": "reference derived from a generated key with tied order; not reproducible"
+}

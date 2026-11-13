@@ -1,0 +1,31 @@
+{
+ "task_id": "device_exposure.visit_occurrence_id",
+ "table": "device_exposure",
+ "column": "visit_occurrence_id",
+ "kind": "excluded",
+ "reference": {
+  "table": "device_exposure",
+  "column": "visit_occurrence_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "vd.visit_occurrence_id"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:devices.START"
+  ],
+  "reference": [
+   "r.device_exposure_start_date"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": "reference derived from a generated key with tied order; not reproducible"
+}

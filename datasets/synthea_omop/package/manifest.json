@@ -1,0 +1,40 @@
+{
+ "name": "synthea_omop",
+ "version": "1.0",
+ "source_row_counts": {
+  "allergies": 40,
+  "careplans": 49,
+  "claims": 1267,
+  "claims_transactions": 5228,
+  "conditions": 438,
+  "devices": 3,
+  "encounters": 604,
+  "imaging_studies": 1,
+  "immunizations": 29,
+  "medications": 663,
+  "observations": 990,
+  "organizations": 63,
+  "patients": 27,
+  "payer_transitions": 1051,
+  "payers": 10,
+  "procedures": 249,
+  "providers": 166,
+  "supplies": 72,
+  "concept_ancestor_seed": 115241,
+  "concept_class_seed": 423,
+  "concept_relationship_seed": 24860,
+  "concept_seed": 33207,
+  "concept_synonym_seed": 0,
+  "domain_seed": 50,
+  "drug_strength_seed": 0,
+  "relationship_seed": 696,
+  "source_to_concept_map_seed": 2,
+  "vocabulary_seed": 59,
+  "states": 51
+ },
+ "target_tables": 39,
+ "notes": [
+  "target dialect DuckDB",
+  "source timestamps carry a time zone; gold recipes were validated with TimeZone=UTC"
+ ]
+}

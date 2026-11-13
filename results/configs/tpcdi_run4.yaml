@@ -1,0 +1,4 @@
+# package settings (run 4: tool fixes on)
+domain_knowledge: required   # expert text in domain/flow_text.md (same as run 3)
+formula_docs: true           # fix 1 (fieldgen-fix, branch rules-and-history)
+history_pattern: true        # fix 2

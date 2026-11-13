@@ -1,0 +1,31 @@
+{
+ "task_id": "cost.currency_concept_id",
+ "table": "cost",
+ "column": "currency_concept_id",
+ "kind": "excluded",
+ "reference": {
+  "table": "cost",
+  "column": "currency_concept_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "44818668"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:@const"
+  ],
+  "reference": [
+   "1"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": "constant not derivable (reference value [44818668])"
+}

@@ -1,0 +1,458 @@
+[
+ {
+  "table": "concept_seed",
+  "column": null,
+  "text": "One row per concept, a standardized medical code. Concepts of all vocabularies are in this table.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_relationship_seed",
+  "column": null,
+  "text": "Links between pairs of concepts, each with a relationship type.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_ancestor_seed",
+  "column": null,
+  "text": "The concept hierarchy: each concept with all concepts below it.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_class_seed",
+  "column": null,
+  "text": "The classes a concept can have.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "domain_seed",
+  "column": null,
+  "text": "The domains a concept can belong to.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "vocabulary_seed",
+  "column": null,
+  "text": "The vocabularies (coding systems) whose concepts are in concept_seed.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "relationship_seed",
+  "column": null,
+  "text": "The relationship types used in concept_relationship_seed.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "source_to_concept_map_seed",
+  "column": null,
+  "text": "A custom mapping from codes of a source system to concepts, kept by the data owner.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_synonym_seed",
+  "column": null,
+  "text": "Alternative names of concepts.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "drug_strength_seed",
+  "column": null,
+  "text": "The strength of the ingredients of drug concepts.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_seed",
+  "column": "concept_id",
+  "text": "Unique number of the concept. Other tables refer to a concept by this number.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_seed",
+  "column": "concept_name",
+  "text": "Name of the concept.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_seed",
+  "column": "domain_id",
+  "text": "The domain the concept belongs to, for example Condition, Drug or Measurement. A concept belongs to one domain. Refers to domain_seed.domain_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_seed",
+  "column": "vocabulary_id",
+  "text": "The coding system the concept comes from, for example SNOMED, RxNorm or LOINC. Refers to vocabulary_seed.vocabulary_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_seed",
+  "column": "concept_class_id",
+  "text": "The class of the concept within its vocabulary. Refers to concept_class_seed.concept_class_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_seed",
+  "column": "standard_concept",
+  "text": "Whether the concept is a standard concept. S means standard, C means classification, empty means non-standard.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_seed",
+  "column": "concept_code",
+  "text": "The code of the concept as written in its coding system. A code is unique only within one vocabulary; the same code can exist in several vocabularies.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_seed",
+  "column": "valid_start_date",
+  "text": "First date on which the concept is valid.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_seed",
+  "column": "valid_end_date",
+  "text": "Date after which the concept is no longer valid.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_seed",
+  "column": "invalid_reason",
+  "text": "Why the concept stopped being valid: D means deprecated, U means replaced by another concept. NULL if the concept is still valid.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_relationship_seed",
+  "column": "concept_id_1",
+  "text": "The concept the relationship starts from. Refers to concept_seed.concept_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_relationship_seed",
+  "column": "concept_id_2",
+  "text": "The concept the relationship points to. Refers to concept_seed.concept_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_relationship_seed",
+  "column": "relationship_id",
+  "text": "The type of the relationship from concept_id_1 to concept_id_2, for example Is a, Maps to or Mapped from. A Maps to row links concept_id_1 to the standard concept concept_id_2 that represents it. Refers to relationship_seed.relationship_id. A standard concept has a Maps to row that points to itself.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_relationship_seed",
+  "column": "valid_start_date",
+  "text": "First date on which the relationship is valid.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_relationship_seed",
+  "column": "valid_end_date",
+  "text": "Date after which the relationship is no longer valid.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_relationship_seed",
+  "column": "invalid_reason",
+  "text": "Why the relationship stopped being valid: D means deprecated, U means replaced. NULL if still valid.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_ancestor_seed",
+  "column": "ancestor_concept_id",
+  "text": "A concept higher in the hierarchy. Refers to concept_seed.concept_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_ancestor_seed",
+  "column": "descendant_concept_id",
+  "text": "A concept below the ancestor in the hierarchy. Refers to concept_seed.concept_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_ancestor_seed",
+  "column": "min_levels_of_separation",
+  "text": "The smallest number of steps between ancestor and descendant.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_ancestor_seed",
+  "column": "max_levels_of_separation",
+  "text": "The largest number of steps between ancestor and descendant.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_class_seed",
+  "column": "concept_class_id",
+  "text": "Identifier of the concept class, as used in concept_seed.concept_class_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_class_seed",
+  "column": "concept_class_name",
+  "text": "Name of the concept class.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_class_seed",
+  "column": "concept_class_concept_id",
+  "text": "The concept that represents the class itself. Refers to concept_seed.concept_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "domain_seed",
+  "column": "domain_id",
+  "text": "Identifier of the domain, as used in concept_seed.domain_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "domain_seed",
+  "column": "domain_name",
+  "text": "Name of the domain.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "domain_seed",
+  "column": "domain_concept_id",
+  "text": "The concept that represents the domain itself. Refers to concept_seed.concept_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "vocabulary_seed",
+  "column": "vocabulary_id",
+  "text": "Identifier of the vocabulary, as used in concept_seed.vocabulary_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "vocabulary_seed",
+  "column": "vocabulary_name",
+  "text": "Name of the vocabulary.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "vocabulary_seed",
+  "column": "vocabulary_reference",
+  "text": "Where the vocabulary comes from.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "vocabulary_seed",
+  "column": "vocabulary_version",
+  "text": "Version of the vocabulary.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "vocabulary_seed",
+  "column": "vocabulary_concept_id",
+  "text": "The concept that represents the vocabulary itself. Refers to concept_seed.concept_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "relationship_seed",
+  "column": "relationship_id",
+  "text": "Identifier of the relationship type, as used in concept_relationship_seed.relationship_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "relationship_seed",
+  "column": "relationship_name",
+  "text": "Name of the relationship type.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "relationship_seed",
+  "column": "is_hierarchical",
+  "text": "Whether the relationship builds a hierarchy: 1 yes, 0 no.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "relationship_seed",
+  "column": "defines_ancestry",
+  "text": "Whether the relationship is used to build the concept hierarchy: 1 yes, 0 no.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "relationship_seed",
+  "column": "reverse_relationship_id",
+  "text": "The relationship type that describes the same link read from the other end.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "relationship_seed",
+  "column": "relationship_concept_id",
+  "text": "The concept that represents the relationship type itself. Refers to concept_seed.concept_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_synonym_seed",
+  "column": "concept_id",
+  "text": "The concept the synonym belongs to. Refers to concept_seed.concept_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_synonym_seed",
+  "column": "concept_synonym_name",
+  "text": "An alternative name of the concept.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "concept_synonym_seed",
+  "column": "language_concept_id",
+  "text": "The concept that represents the language of the synonym.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "drug_strength_seed",
+  "column": "drug_concept_id",
+  "text": "The drug concept the strength belongs to. Refers to concept_seed.concept_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "drug_strength_seed",
+  "column": "ingredient_concept_id",
+  "text": "The ingredient concept the strength is given for. Refers to concept_seed.concept_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "drug_strength_seed",
+  "column": "amount_value",
+  "text": "Amount of the ingredient in one unit of a drug given as an amount.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "drug_strength_seed",
+  "column": "amount_unit_concept_id",
+  "text": "Unit of amount_value. Refers to concept_seed.concept_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "drug_strength_seed",
+  "column": "numerator_value",
+  "text": "Amount of the ingredient for a drug given as a concentration.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "drug_strength_seed",
+  "column": "numerator_unit_concept_id",
+  "text": "Unit of numerator_value. Refers to concept_seed.concept_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "drug_strength_seed",
+  "column": "denominator_value",
+  "text": "Volume or amount the numerator refers to.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "drug_strength_seed",
+  "column": "denominator_unit_concept_id",
+  "text": "Unit of denominator_value. Refers to concept_seed.concept_id.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "drug_strength_seed",
+  "column": "box_size",
+  "text": "Number of units in a box.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "drug_strength_seed",
+  "column": "valid_start_date",
+  "text": "First date on which the strength record is valid.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "drug_strength_seed",
+  "column": "valid_end_date",
+  "text": "Date after which the strength record is no longer valid.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "drug_strength_seed",
+  "column": "invalid_reason",
+  "text": "Why the record stopped being valid: D deprecated, U replaced. Empty if still valid.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "source_to_concept_map_seed",
+  "column": "source_code",
+  "text": "The code as written in the source system.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "source_to_concept_map_seed",
+  "column": "source_concept_id",
+  "text": "The concept for the source code.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "source_to_concept_map_seed",
+  "column": "source_vocabulary_id",
+  "text": "The coding system of the source code.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "source_to_concept_map_seed",
+  "column": "source_code_description",
+  "text": "Text description of the source code.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "source_to_concept_map_seed",
+  "column": "target_concept_id",
+  "text": "The concept the source code is mapped to.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "source_to_concept_map_seed",
+  "column": "target_vocabulary_id",
+  "text": "The vocabulary of the target concept.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "source_to_concept_map_seed",
+  "column": "valid_start_date",
+  "text": "First date on which the concept is valid.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "source_to_concept_map_seed",
+  "column": "valid_end_date",
+  "text": "Date after which the concept is no longer valid.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "source_to_concept_map_seed",
+  "column": "invalid_reason",
+  "text": "Why the concept stopped being valid: D means deprecated, U means replaced by another concept. NULL if the concept is still valid.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "source_to_concept_map_seed",
+  "column": "source_domain_id",
+  "text": "The domain of the source concept.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "source_to_concept_map_seed",
+  "column": "target_domain_id",
+  "text": "The domain of the target concept.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "source_to_concept_map_seed",
+  "column": "target_concept_name",
+  "text": "Name of the target concept.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "source_to_concept_map_seed",
+  "column": "source_concept_class_id",
+  "text": "The class of the source concept.",
+  "provenance": "supplied by project expert"
+ },
+ {
+  "table": "source_to_concept_map_seed",
+  "column": "target_concept_class_id",
+  "text": "The class of the target concept.",
+  "provenance": "supplied by project expert"
+ }
+]

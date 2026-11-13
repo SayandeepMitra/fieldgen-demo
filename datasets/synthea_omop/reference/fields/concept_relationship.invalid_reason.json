@@ -1,0 +1,32 @@
+{
+ "task_id": "concept_relationship.invalid_reason",
+ "table": "concept_relationship",
+ "column": "invalid_reason",
+ "kind": "value",
+ "reference": {
+  "table": "concept_relationship",
+  "column": "invalid_reason"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "stg_vocabulary__concept_relationship.invalid_reason"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:concept_relationship_seed.concept_id_1"
+  ],
+  "reference": [
+   "r.concept_id_1"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null,
+ "passthrough": true
+}

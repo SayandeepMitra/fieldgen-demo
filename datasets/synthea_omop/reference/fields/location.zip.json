@@ -1,0 +1,36 @@
+{
+ "task_id": "location.zip",
+ "table": "location",
+ "column": "zip",
+ "kind": "value",
+ "reference": {
+  "table": "location",
+  "column": "zip"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "REPLACE(patients.ZIP, '-', '')"
+  },
+  {
+   "branch": "b2",
+   "expr": "REPLACE(organizations.ZIP, '-', '')"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.ADDRESS",
+   "b2:organizations.ADDRESS"
+  ],
+  "reference": [
+   "r.address_1"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": true,
+  "reason": "ZIP+4 values: strip hyphen or truncate to 5 digits",
+  "source": "assistant_proposal"
+ },
+ "exclusion_reason": null
+}

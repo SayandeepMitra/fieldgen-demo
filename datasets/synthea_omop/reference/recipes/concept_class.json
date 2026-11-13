@@ -1,0 +1,16 @@
+{
+ "table": "concept_class",
+ "grain": "one row per row of the reference program's result (inlined compiled reference program)",
+ "combine": "none",
+ "group_by": null,
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM (WITH cte_concept_class_lower AS (SELECT \"concept_class_id\" AS concept_class_id, \"concept_class_name\" AS concept_class_name, \"concept_class_concept_id\" AS concept_class_concept_id FROM concept_class_seed) SELECT * FROM cte_concept_class_lower) AS stg_vocabulary__concept_class"
+  }
+ ],
+ "table_roles": {
+  "concept_class_seed": "driver"
+ },
+ "passthrough": true
+}

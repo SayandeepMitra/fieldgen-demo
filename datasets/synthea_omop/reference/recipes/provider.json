@@ -1,0 +1,15 @@
+{
+ "table": "provider",
+ "grain": "one row per row of the reference program's result (inlined compiled reference program)",
+ "combine": "none",
+ "group_by": null,
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM (SELECT ROW_NUMBER() OVER (ORDER BY provider_state, provider_city, provider_zip, provider_id) AS provider_id, provider_name, CASE UPPER(provider_gender) WHEN 'M' THEN 8507 WHEN 'F' THEN 8532 END AS gender_concept_id, provider_id AS provider_source_value, provider_specialty AS specialty_source_value, provider_gender AS gender_source_value, CASE UPPER(provider_gender) WHEN 'M' THEN 8507 WHEN 'F' THEN 8532 END AS gender_source_concept_id FROM (WITH cte_providers_lower AS (SELECT \"Id\" AS id, \"ORGANIZATION\" AS organization, \"NAME\" AS \"name\", \"GENDER\" AS gender, \"SPECIALITY\" AS speciality, \"ADDRESS\" AS address, \"CITY\" AS city, \"STATE\" AS state, \"ZIP\" AS zip, \"LAT\" AS lat, \"LON\" AS lon, \"UTILIZATION\" AS utilization FROM providers), cte_providers_rename AS (SELECT id AS provider_id, organization AS organization_id, \"name\" AS provider_name, gender AS provider_gender, speciality AS provider_specialty, address AS provider_address, city AS provider_city, state AS provider_state, zip AS provider_zip, lat AS provider_latitude, lon AS provider_longitude, utilization AS provider_utilization FROM cte_providers_lower) SELECT * FROM cte_providers_rename) AS stg_synthea__providers) AS int__provider"
+  }
+ ],
+ "table_roles": {
+  "providers": "driver"
+ }
+}

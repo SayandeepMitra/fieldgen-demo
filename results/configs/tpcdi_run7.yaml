@@ -1,0 +1,7 @@
+# package settings (run 7: the model decides the history wrapper; recipe step only)
+domain_knowledge: required   # expert text in domain/flow_text.md (same as run 3)
+formula_docs: true
+history_pattern: false
+formula_length_retry: true
+history_auto: true           # the recipe prompt asks the model to set history {key, order, tiebreak} or null
+stages: recipes              # recipe step only

@@ -1,0 +1,31 @@
+{
+ "task_id": "observation_period.person_id",
+ "table": "observation_period",
+ "column": "person_id",
+ "kind": "excluded",
+ "reference": {
+  "table": "observation_period",
+  "column": "person_id"
+ },
+ "expressions": [
+  {
+   "branch": "reference",
+   "expr": "FROM encounters: int__encounters.person_id"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.Id"
+  ],
+  "reference": [
+   "(SELECT person_source_value FROM person WHERE person_id = r.person_id)"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled in PILOT.md",
+  "source": "pending"
+ },
+ "exclusion_reason": "reference takes the key from another target table's output (int__encounters); not expressible in source tables"
+}

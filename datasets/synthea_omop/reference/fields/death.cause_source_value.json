@@ -1,0 +1,31 @@
+{
+ "task_id": "death.cause_source_value",
+ "table": "death",
+ "column": "cause_source_value",
+ "kind": "value",
+ "reference": {
+  "table": "death",
+  "column": "cause_source_value"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "SUBSTRING(e.encounter_reason_code, 1, 50)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:encounters.START"
+  ],
+  "reference": [
+   "r.death_date"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

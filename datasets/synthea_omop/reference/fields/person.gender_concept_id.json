@@ -1,0 +1,31 @@
+{
+ "task_id": "person.gender_concept_id",
+ "table": "person",
+ "column": "gender_concept_id",
+ "kind": "value",
+ "reference": {
+  "table": "person",
+  "column": "gender_concept_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CASE WHEN UPPER(patients.GENDER) = 'M' THEN 8507 WHEN UPPER(patients.GENDER) = 'F' THEN 8532 ELSE 0 END"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.Id"
+  ],
+  "reference": [
+   "r.person_source_value"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "ELSE branch never fires on this data (only 'M' and 'F' occur); ambiguous only for unseen values",
+  "source": "assistant_proposal"
+ },
+ "exclusion_reason": null
+}

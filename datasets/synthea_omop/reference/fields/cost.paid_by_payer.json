@@ -1,0 +1,31 @@
+{
+ "task_id": "cost.paid_by_payer",
+ "table": "cost",
+ "column": "paid_by_payer",
+ "kind": "value",
+ "reference": {
+  "table": "cost",
+  "column": "paid_by_payer"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "paid_by_payer"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:@const"
+  ],
+  "reference": [
+   "1"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

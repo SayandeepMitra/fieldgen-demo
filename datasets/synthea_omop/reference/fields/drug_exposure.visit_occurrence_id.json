@@ -1,0 +1,31 @@
+{
+ "task_id": "drug_exposure.visit_occurrence_id",
+ "table": "drug_exposure",
+ "column": "visit_occurrence_id",
+ "kind": "excluded",
+ "reference": {
+  "table": "drug_exposure",
+  "column": "visit_occurrence_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "visit_occurrence_id"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:concept_seed.concept_id"
+  ],
+  "reference": [
+   "r.drug_source_concept_id"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": "reference derived from a generated key with tied order; not reproducible"
+}

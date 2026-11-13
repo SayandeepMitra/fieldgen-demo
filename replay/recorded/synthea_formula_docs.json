@@ -1,0 +1,862 @@
+{
+ "levels": "L2",
+ "headline": "tables with correct rows: 13 of 18 scored tables | L2 columns correct: 57 of 95 scored columns (57 of 65 in tables with correct rows)",
+ "tables": {
+  "person": {
+   "recipe_rows_correct": true,
+   "assignment": null,
+   "reason": null
+  },
+  "observation_period": {
+   "recipe_rows_correct": true,
+   "assignment": null,
+   "reason": null
+  },
+  "visit_occurrence": {
+   "recipe_rows_correct": true,
+   "assignment": null,
+   "reason": null
+  },
+  "visit_detail": {
+   "recipe_rows_correct": true,
+   "assignment": null,
+   "reason": null
+  },
+  "condition_occurrence": {
+   "recipe_rows_correct": true,
+   "assignment": {
+    "b1:concept_seed.concept_id": "cs"
+   },
+   "reason": "key unavailable in b1 (table concept_seed appears under 2 aliases)"
+  },
+  "drug_exposure": {
+   "recipe_rows_correct": false,
+   "assignment": null,
+   "reason": "key unavailable in b2 (absent)"
+  },
+  "procedure_occurrence": {
+   "recipe_rows_correct": true,
+   "assignment": {
+    "b1:concept_seed.concept_id": "src"
+   },
+   "reason": "key unavailable in b1 (table concept_seed appears under 2 aliases)"
+  },
+  "device_exposure": {
+   "recipe_rows_correct": true,
+   "assignment": null,
+   "reason": null
+  },
+  "measurement": {
+   "recipe_rows_correct": false,
+   "assignment": null,
+   "reason": "key multiset differs (missing 2, extra 0; rows 560 vs 562)"
+  },
+  "observation": {
+   "recipe_rows_correct": true,
+   "assignment": null,
+   "reason": null
+  },
+  "death": {
+   "recipe_rows_correct": false,
+   "assignment": null,
+   "reason": "key unavailable in b1 (absent)"
+  },
+  "location": {
+   "recipe_rows_correct": true,
+   "assignment": null,
+   "reason": null
+  },
+  "care_site": {
+   "recipe_rows_correct": true,
+   "assignment": null,
+   "reason": null
+  },
+  "provider": {
+   "recipe_rows_correct": true,
+   "assignment": null,
+   "reason": null
+  },
+  "payer_plan_period": {
+   "recipe_rows_correct": true,
+   "assignment": null,
+   "reason": null
+  },
+  "cost": {
+   "recipe_rows_correct": false,
+   "assignment": null,
+   "reason": "key multiset differs (missing 0, extra 134; rows 1545 vs 1411)"
+  },
+  "condition_era": {
+   "recipe_rows_correct": false,
+   "assignment": null,
+   "reason": "key multiset differs (missing 5, extra 0; rows 54 vs 59)"
+  },
+  "cdm_source": {
+   "recipe_rows_correct": true,
+   "assignment": null,
+   "reason": null
+  }
+ },
+ "fields": {
+  "person.day_of_birth": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "person.ethnicity_concept_id": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "person.ethnicity_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "person.gender_concept_id": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "person.gender_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "person.month_of_birth": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "person.person_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "person.race_concept_id": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "person.race_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "person.year_of_birth": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "observation_period.observation_period_end_date": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "observation_period.observation_period_start_date": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "visit_occurrence.visit_concept_id": {
+   "L0": true,
+   "L1": true,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "visit_occurrence.visit_end_date": {
+   "L0": true,
+   "L1": true,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "visit_occurrence.visit_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "visit_occurrence.visit_start_date": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "visit_detail.visit_detail_concept_id": {
+   "L0": true,
+   "L1": true,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "visit_detail.visit_detail_end_date": {
+   "L0": true,
+   "L1": true,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "visit_detail.visit_detail_end_datetime": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "visit_detail.visit_detail_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "visit_detail.visit_detail_start_date": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "visit_detail.visit_detail_start_datetime": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "condition_occurrence.condition_concept_id": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "condition_occurrence.condition_end_date": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "condition_occurrence.condition_source_concept_id": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "condition_occurrence.condition_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "condition_occurrence.condition_start_date": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "drug_exposure.days_supply": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": false,
+   "L4": false,
+   "error": "key unavailable in b2 (absent)"
+  },
+  "drug_exposure.drug_concept_id": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": false,
+   "L4": false,
+   "error": "key unavailable in b2 (absent)"
+  },
+  "drug_exposure.drug_exposure_end_date": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": false,
+   "L4": false,
+   "error": "key unavailable in b2 (absent)"
+  },
+  "drug_exposure.drug_exposure_end_datetime": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": false,
+   "L4": false,
+   "error": "key unavailable in b2 (absent)"
+  },
+  "drug_exposure.drug_exposure_start_date": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": false,
+   "L4": false,
+   "error": "key unavailable in b2 (absent)"
+  },
+  "drug_exposure.drug_exposure_start_datetime": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": false,
+   "L4": false,
+   "error": "key unavailable in b2 (absent)"
+  },
+  "drug_exposure.drug_source_concept_id": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": false,
+   "L4": false,
+   "error": "key unavailable in b2 (absent)"
+  },
+  "drug_exposure.drug_source_value": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": false,
+   "L4": false,
+   "error": "key unavailable in b2 (absent)"
+  },
+  "drug_exposure.verbatim_end_date": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": false,
+   "L4": false,
+   "error": "key unavailable in b2 (absent)"
+  },
+  "procedure_occurrence.procedure_concept_id": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "procedure_occurrence.procedure_date": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "procedure_occurrence.procedure_datetime": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "procedure_occurrence.procedure_end_date": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "procedure_occurrence.procedure_end_datetime": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "procedure_occurrence.procedure_source_concept_id": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "procedure_occurrence.procedure_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "device_exposure.device_concept_id": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "device_exposure.device_exposure_end_date": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "device_exposure.device_exposure_end_datetime": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "device_exposure.device_exposure_start_date": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "device_exposure.device_exposure_start_datetime": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "device_exposure.device_source_concept_id": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "device_exposure.device_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "device_exposure.unique_device_id": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "measurement.measurement_concept_id": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "measurement.measurement_date": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "measurement.measurement_datetime": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "measurement.measurement_source_concept_id": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "measurement.measurement_source_value": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "measurement.measurement_time": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "measurement.unit_concept_id": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "measurement.unit_source_value": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "measurement.value_as_concept_id": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "measurement.value_as_number": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "measurement.value_source_value": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "observation.observation_concept_id": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "observation.observation_date": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "observation.observation_datetime": {
+   "L0": true,
+   "L1": true,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "observation.observation_source_concept_id": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "observation.observation_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "death.cause_concept_id": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": false,
+   "L4": false,
+   "error": "key unavailable in b1 (absent)"
+  },
+  "death.cause_source_concept_id": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": false,
+   "L4": false,
+   "error": "key unavailable in b1 (absent)"
+  },
+  "death.cause_source_value": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": false,
+   "L4": false,
+   "error": "key unavailable in b1 (absent)"
+  },
+  "death.death_date": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": false,
+   "L4": false,
+   "error": "key unavailable in b1 (absent)"
+  },
+  "death.death_datetime": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": false,
+   "L4": false,
+   "error": "key unavailable in b1 (absent)"
+  },
+  "location.address_1": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "location.city": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "location.county": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "location.state": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "location.zip": {
+   "L0": true,
+   "L1": true,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "care_site.care_site_name": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "care_site.care_site_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "provider.gender_concept_id": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "provider.gender_source_concept_id": {
+   "L0": true,
+   "L1": true,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "provider.gender_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "provider.provider_name": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "provider.provider_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "provider.specialty_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "payer_plan_period.payer_plan_period_end_date": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "payer_plan_period.payer_plan_period_start_date": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "payer_plan_period.payer_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "payer_plan_period.plan_source_value": {
+   "L0": true,
+   "L1": true,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "cost.paid_by_payer": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "cost.total_cost": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "condition_era.condition_concept_id": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "condition_era.condition_era_end_date": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "condition_era.condition_era_start_date": {
+   "L0": true,
+   "L1": false,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "cdm_source.vocabulary_version": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  }
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "table": "concept_relationship",
+ "grain": "one row per row of the reference program's result (inlined compiled reference program)",
+ "combine": "none",
+ "group_by": null,
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM (WITH cte_concept_relationship_lower AS (SELECT \"concept_id_1\" AS concept_id_1, \"concept_id_2\" AS concept_id_2, \"relationship_id\" AS relationship_id, \"valid_start_date\" AS valid_start_date, \"valid_end_date\" AS valid_end_date, \"invalid_reason\" AS invalid_reason FROM concept_relationship_seed) SELECT concept_id_1, concept_id_2, relationship_id, valid_start_date, valid_end_date, CAST(invalid_reason AS TEXT) AS invalid_reason FROM cte_concept_relationship_lower) AS stg_vocabulary__concept_relationship"
+  }
+ ],
+ "table_roles": {
+  "concept_relationship_seed": "driver"
+ },
+ "passthrough": true
+}

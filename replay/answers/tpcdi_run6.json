@@ -1,0 +1,166 @@
+{
+ "model": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+ "answers": {
+  "step1:dimcustomer": {
+   "text": "{\"task_id\": \"dimcustomer\", \"step\": \"recipe\", \"grain\": \"One row per customer (customerid).\", \"branches\": [{\"id\": \"b1\", \"from\": \"FROM CustomerXML AS c INNER JOIN ActionXML AS a ON c.ActionSeq = a.ActionSeq LEFT JOIN NameXML AS n ON c.CustomerSeq = n.CustomerSeq LEFT JOIN AddressXML AS addr ON c.CustomerSeq = addr.CustomerSeq LEFT JOIN ContactInfoXML AS ci ON c.CustomerSeq = ci.CustomerSeq LEFT JOIN C_PHONE_1_XML AS p1 ON ci.ContactSeq = p1.ContactSeq LEFT JOIN C_PHONE_2_XML AS p2 ON ci.ContactSeq = p2.ContactSeq LEFT JOIN C_PHONE_3_XML AS p3 ON ci.ContactSeq = p3.ContactSeq LEFT JOIN TaxInfoXML AS ti ON c.CustomerSeq = ti.CustomerSeq LEFT JOIN TaxRate AS tr_nat ON ti.C_NAT_TX_ID = tr_nat.TX_ID LEFT JOIN TaxRate AS tr_loc ON ti.C_LCL_TX_ID = tr_loc.TX_ID LEFT JOIN Prospect AS pr ON upper(n.C_L_NAME) = upper(pr.LastName) AND upper(n.C_F_NAME) = upper(pr.FirstName) AND upper(addr.C_ADLINE1) = upper(pr.AddressLine1) AND upper(addr.C_ADLINE2) = upper(pr.AddressLine2) AND upper(addr.C_ZIPCODE) = upper(pr.PostalCode)\"}], \"combine\": \"none\", \"group_by\": null, \"decisions\": {\"joins\": [\"INNER JOIN ActionXML to get ActionType and ActionTS for each customer event\", \"LEFT JOIN NameXML, AddressXML, ContactInfoXML, phone XMLs, TaxInfoXML, TaxRate (national and local), and Prospect to attach customer attributes\"], \"stacked\": false, \"deduplicated\": false, \"aggregated\": false}, \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.customerid": {
+   "text": "{\"task_id\": \"dimcustomer.customerid\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(c.C_ID AS INTEGER)\"}], \"uses\": [\"c.C_ID\"], \"class\": \"retype\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.taxid": {
+   "text": "{\"task_id\": \"dimcustomer.taxid\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(COALESCE(c.C_TAX_ID, '') AS CHAR(20))\"}], \"uses\": [\"c.C_TAX_ID\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.status": {
+   "text": "{\"task_id\": \"dimcustomer.status\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CASE WHEN a.ActionType = 'INACT' THEN 'INACTIVE' ELSE 'ACTIVE' END\"}], \"uses\": [\"a.ActionType\"], \"class\": \"conditional\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.status:guard1": {
+   "text": "{\"task_id\": \"dimcustomer.status\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CASE WHEN upper(a.ActionType) = 'INACT' THEN 'INACTIVE' ELSE 'ACTIVE' END\"}], \"uses\": [\"a.ActionType\"], \"class\": \"conditional\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.lastname": {
+   "text": "{\"task_id\": \"dimcustomer.lastname\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(n.C_L_NAME AS CHAR(30))\"}], \"uses\": [\"n.C_L_NAME\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.firstname": {
+   "text": "{\"task_id\": \"dimcustomer.firstname\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(n.C_F_NAME AS CHAR(30))\"}], \"uses\": [\"n.C_F_NAME\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.middleinitial": {
+   "text": "{\"task_id\": \"dimcustomer.middleinitial\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(n.C_M_NAME AS CHAR(1))\"}], \"uses\": [\"n.C_M_NAME\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.tier": {
+   "text": "{\"task_id\": \"dimcustomer.tier\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(c.C_TIER AS INT)\"}], \"uses\": [\"c.C_TIER\"], \"class\": \"retype\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.tier:guard1": {
+   "text": "{\"task_id\": \"dimcustomer.tier\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"TRY_CAST(c.C_TIER AS INT)\"}], \"uses\": [\"c.C_TIER\"], \"class\": \"retype\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.gender": {
+   "text": "{\"task_id\": \"dimcustomer.gender\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(CASE WHEN c.C_GNDR IS NULL THEN NULL WHEN upper(c.C_GNDR) IN ('M','F') THEN upper(c.C_GNDR) ELSE 'U' END AS CHAR(1))\"}], \"uses\": [\"c.C_GNDR\"], \"class\": \"conditional\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.addressline1": {
+   "text": "{\"task_id\": \"dimcustomer.addressline1\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"COALESCE(addr.C_ADLINE1, '')\"}], \"uses\": [\"addr.C_ADLINE1\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.addressline2": {
+   "text": "{\"task_id\": \"dimcustomer.addressline2\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"addr.C_ADLINE2\"}], \"uses\": [\"addr.C_ADLINE2\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.dob": {
+   "text": "{\"task_id\": \"dimcustomer.dob\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"c.C_DOB\"}], \"uses\": [\"c.C_DOB\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.postalcode": {
+   "text": "{\"task_id\": \"dimcustomer.postalcode\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(COALESCE(addr.C_ZIPCODE, '') AS CHAR(12))\"}], \"uses\": [\"addr.C_ZIPCODE\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.city": {
+   "text": "{\"task_id\": \"dimcustomer.city\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"COALESCE(addr.C_CITY, '')\"}], \"uses\": [\"addr.C_CITY\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.country": {
+   "text": "{\"task_id\": \"dimcustomer.country\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(addr.C_CTRY AS CHAR(24))\"}], \"uses\": [\"addr.C_CTRY\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.phone1": {
+   "text": "{\"task_id\": \"dimcustomer.phone1\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(CASE\\n  WHEN p1.C_CTRY_CODE IS NOT NULL AND p1.C_AREA_CODE IS NOT NULL AND p1.C_LOCAL IS NOT NULL THEN\\n    '+' || p1.C_CTRY_CODE || ' (' || p1.C_AREA_CODE || ') ' || p1.C_LOCAL || COALESCE(p1.C_EXT, '')\\n  WHEN p1.C_CTRY_CODE IS NULL AND p1.C_AREA_CODE IS NOT NULL AND p1.C_LOCAL IS NOT NULL THEN\\n    '(' || p1.C_AREA_CODE || ') ' || p1.C_LOCAL || COALESCE(p1.C_EXT, '')\\n  WHEN p1.C_AREA_CODE IS NULL AND p1.C_LOCAL IS NOT NULL THEN\\n    p1.C_LOCAL || COALESCE(p1.C_EXT, '')\\n  ELSE NULL\\nEND AS char(30))\"}]}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.phone1:retry": {
+   "text": "{\"task_id\": \"dimcustomer.phone1\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(CASE\\n  WHEN p1.C_CTRY_CODE IS NOT NULL AND p1.C_AREA_CODE IS NOT NULL AND p1.C_LOCAL IS NOT NULL THEN\\n    '+' || p1.C_CTRY_CODE || ' (' || p1.C_AREA_CODE || ') ' || p1.C_LOCAL || COALESCE(p1.C_EXT, '')\\n  WHEN p1.C_CTRY_CODE IS NULL AND p1.C_AREA_CODE IS NOT NULL AND p1.C_LOCAL IS NOT NULL THEN\\n    '(' || p1.C_AREA_CODE || ') ' || p1.C_LOCAL || COALESCE(p1.C_EXT, '')\\n  WHEN p1.C_AREA_CODE IS NULL AND p1.C_LOCAL IS NOT NULL THEN\\n    p1.C_LOCAL || COALESCE(p1.C_EXT, '')\\n  ELSE NULL\\nEND AS char(30))\"}], \"uses\": [\"p1.C_CTRY_CODE\", \"p1.C_AREA_CODE\", \"p1.C_LOCAL\", \"p1.C_EXT\"], \"class\": \"multi_source_expr\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.stateprov": {
+   "text": "{\"task_id\": \"dimcustomer.stateprov\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(COALESCE(addr.C_STATE_PROV, 'UNKNOWN') AS CHAR(20))\"}], \"uses\": [\"addr.C_STATE_PROV\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.phone2": {
+   "text": "{\"task_id\": \"dimcustomer.phone2\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(CASE WHEN p2.C_CTRY_CODE IS NOT NULL AND p2.C_AREA_CODE IS NOT NULL AND p2.C_LOCAL IS NOT NULL THEN '+' || p2.C_CTRY_CODE || ' (' || p2.C_AREA_CODE || ') ' || p2.C_LOCAL || COALESCE(p2.C_EXT, '') WHEN p2.C_CTRY_CODE IS NULL AND p2.C_AREA_CODE IS NOT NULL AND p2.C_LOCAL IS NOT NULL THEN '(' || p2.C_AREA_CODE || ') ' || p2.C_LOCAL || COALESCE(p2.C_EXT, '') WHEN p2.C_AREA_CODE IS NULL AND p2.C_LOCAL IS NOT NULL THEN p2.C_LOCAL || COALESCE(p2.C_EXT, '') ELSE NULL END AS VARCHAR(30))\"}]}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.phone1:guard1": {
+   "text": "{\"task_id\": \"dimcustomer.phone1\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(LEFT(CASE\\n  WHEN p1.C_CTRY_CODE IS NOT NULL AND p1.C_AREA_CODE IS NOT NULL AND p1.C_LOCAL IS NOT NULL THEN\\n    '+' || p1.C_CTRY_CODE || ' (' || p1.C_AREA_CODE || ') ' || p1.C_LOCAL || COALESCE(p1.C_EXT, '')\\n  WHEN p1.C_CTRY_CODE IS NULL AND p1.C_AREA_CODE IS NOT NULL AND p1.C_LOCAL IS NOT NULL THEN\\n    '(' || p1.C_AREA_CODE || ') ' || p1.C_LOCAL || COALESCE(p1.C_EXT, '')\\n  WHEN p1.C_AREA_CODE IS NULL AND p1.C_LOCAL IS NOT NULL THEN\\n    p1.C_LOCAL || COALESCE(p1.C_EXT, '')\\n  ELSE NULL\\nEND, 30) AS char(30))\"}], \"uses\": [\"p1.C_CTRY_CODE\", \"p1.C_AREA_CODE\", \"p1.C_LOCAL\", \"p1.C_EXT\"], \"class\": \"multi_source_expr\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.phone2:retry": {
+   "text": "{\"task_id\": \"dimcustomer.phone2\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(CASE WHEN p2.C_CTRY_CODE IS NOT NULL AND p2.C_AREA_CODE IS NOT NULL AND p2.C_LOCAL IS NOT NULL THEN '+' || p2.C_CTRY_CODE || ' (' || p2.C_AREA_CODE || ') ' || p2.C_LOCAL || COALESCE(p2.C_EXT, '') WHEN p2.C_CTRY_CODE IS NULL AND p2.C_AREA_CODE IS NOT NULL AND p2.C_LOCAL IS NOT NULL THEN '(' || p2.C_AREA_CODE || ') ' || p2.C_LOCAL || COALESCE(p2.C_EXT, '') WHEN p2.C_AREA_CODE IS NULL AND p2.C_LOCAL IS NOT NULL THEN p2.C_LOCAL || COALESCE(p2.C_EXT, '') ELSE NULL END AS VARCHAR(30))\"}], \"uses\": [\"p2.C_CTRY_CODE\", \"p2.C_AREA_CODE\", \"p2.C_LOCAL\", \"p2.C_EXT\"], \"class\": \"concat\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.phone2:guard1": {
+   "text": "{\"task_id\": \"dimcustomer.phone2\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(LEFT(CASE WHEN p2.C_CTRY_CODE IS NOT NULL AND p2.C_AREA_CODE IS NOT NULL AND p2.C_LOCAL IS NOT NULL THEN '+' || p2.C_CTRY_CODE || ' (' || p2.C_AREA_CODE || ') ' || p2.C_LOCAL || COALESCE(p2.C_EXT, '') WHEN p2.C_CTRY_CODE IS NULL AND p2.C_AREA_CODE IS NOT NULL AND p2.C_LOCAL IS NOT NULL THEN '(' || p2.C_AREA_CODE || ') ' || p2.C_LOCAL || COALESCE(p2.C_EXT, '') WHEN p2.C_AREA_CODE IS NULL AND p2.C_LOCAL IS NOT NULL THEN p2.C_LOCAL || COALESCE(p2.C_EXT, '') ELSE NULL END, 30) AS VARCHAR(30))\"}], \"uses\": [\"p2.C_CTRY_CODE\", \"p2.C_AREA_CODE\", \"p2.C_LOCAL\", \"p2.C_EXT\"], \"class\": \"concat\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.phone3": {
+   "text": "{\"task_id\": \"dimcustomer.phone3\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(CASE\\n  WHEN p3.C_CTRY_CODE IS NOT NULL AND p3.C_AREA_CODE IS NOT NULL AND p3.C_LOCAL IS NOT NULL THEN\\n    '+' || p3.C_CTRY_CODE || ' (' || p3.C_AREA_CODE || ') ' || p3.C_LOCAL || COALESCE(p3.C_EXT, '')\\n  WHEN p3.C_CTRY_CODE IS NULL AND p3.C_AREA_CODE IS NOT NULL AND p3.C_LOCAL IS NOT NULL THEN\\n    '(' || p3.C_AREA_CODE || ') ' || p3.C_LOCAL || COALESCE(p3.C_EXT, '')\\n  WHEN p3.C_AREA_CODE IS NULL AND p3.C_LOCAL IS NOT NULL THEN\\n    p3.C_LOCAL || COALESCE(p3.C_EXT, '')\\n  ELSE NULL\\nEND AS CHAR(30))\"}]}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.phone3:retry": {
+   "text": "{\"task_id\": \"dimcustomer.phone3\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(CASE\\n  WHEN p3.C_CTRY_CODE IS NOT NULL AND p3.C_AREA_CODE IS NOT NULL AND p3.C_LOCAL IS NOT NULL THEN\\n    '+' || p3.C_CTRY_CODE || ' (' || p3.C_AREA_CODE || ') ' || p3.C_LOCAL || COALESCE(p3.C_EXT, '')\\n  WHEN p3.C_CTRY_CODE IS NULL AND p3.C_AREA_CODE IS NOT NULL AND p3.C_LOCAL IS NOT NULL THEN\\n    '(' || p3.C_AREA_CODE || ') ' || p3.C_LOCAL || COALESCE(p3.C_EXT, '')\\n  WHEN p3.C_AREA_CODE IS NULL AND p3.C_LOCAL IS NOT NULL THEN\\n    p3.C_LOCAL || COALESCE(p3.C_EXT, '')\\n  ELSE NULL\\nEND AS CHAR(30))\"}], \"uses\": [\"p3.C_CTRY_CODE\", \"p3.C_AREA_CODE\", \"p3.C_LOCAL\", \"p3.C_EXT\"], \"class\": \"concat\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.email1": {
+   "text": "{\"task_id\": \"dimcustomer.email1\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(ci.C_PRIM_EMAIL AS CHAR(50))\"}], \"uses\": [\"ci.C_PRIM_EMAIL\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.email2": {
+   "text": "{\"task_id\": \"dimcustomer.email2\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(ci.C_ALT_EMAIL AS CHAR(50))\"}], \"uses\": [\"ci.C_ALT_EMAIL\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.phone3:guard1": {
+   "text": "{\"task_id\": \"dimcustomer.phone3\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(LEFT(CASE\\n  WHEN p3.C_CTRY_CODE IS NOT NULL AND p3.C_AREA_CODE IS NOT NULL AND p3.C_LOCAL IS NOT NULL THEN\\n    '+' || p3.C_CTRY_CODE || ' (' || p3.C_AREA_CODE || ') ' || p3.C_LOCAL || COALESCE(p3.C_EXT, '')\\n  WHEN p3.C_CTRY_CODE IS NULL AND p3.C_AREA_CODE IS NOT NULL AND p3.C_LOCAL IS NOT NULL THEN\\n    '(' || p3.C_AREA_CODE || ') ' || p3.C_LOCAL || COALESCE(p3.C_EXT, '')\\n  WHEN p3.C_AREA_CODE IS NULL AND p3.C_LOCAL IS NOT NULL THEN\\n    p3.C_LOCAL || COALESCE(p3.C_EXT, '')\\n  ELSE NULL\\nEND, 30) AS CHAR(30))\"}], \"uses\": [\"p3.C_CTRY_CODE\", \"p3.C_AREA_CODE\", \"p3.C_LOCAL\", \"p3.C_EXT\"], \"class\": \"concat\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.nationaltaxratedesc": {
+   "text": "{\"task_id\": \"dimcustomer.nationaltaxratedesc\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"tr_nat.TX_NAME\"}], \"uses\": [\"tr_nat.TX_NAME\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.nationaltaxrate": {
+   "text": "{\"task_id\": \"dimcustomer.nationaltaxrate\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"tr_nat.TX_RATE\"}], \"uses\": [\"tr_nat.TX_RATE\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.localtaxratedesc": {
+   "text": "{\"task_id\": \"dimcustomer.localtaxratedesc\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"tr_loc.TX_NAME\"}], \"uses\": [\"ti.C_LCL_TX_ID\", \"tr_loc.TX_NAME\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.localtaxrate": {
+   "text": "{\"task_id\": \"dimcustomer.localtaxrate\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"tr_loc.TX_RATE\"}], \"uses\": [\"tr_loc.TX_RATE\"], \"class\": \"copy_or_rename\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.creditrating": {
+   "text": "{\"task_id\": \"dimcustomer.creditrating\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(pr.CreditRating AS INT)\"}], \"uses\": [\"pr.CreditRating\"], \"class\": \"retype\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.agencyid": {
+   "text": "{\"task_id\": \"dimcustomer.agencyid\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(CASE WHEN MAX(CASE WHEN a.ActionType IN ('UPDCUST','INACT') THEN 1 ELSE 0 END) = 1 THEN NULL ELSE MAX(pr.AgencyID) END AS CHAR(30))\"}], \"uses\": [\"a.ActionType\", \"pr.AgencyID\"], \"class\": \"conditional\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.networth": {
+   "text": "{\"task_id\": \"dimcustomer.networth\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(max_by(pr.NetWorth, a.ActionTS) AS DECIMAL(10))\"}], \"uses\": [\"pr.NetWorth\", \"a.ActionTS\"], \"class\": \"aggregate\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.networth:retry": {
+   "text": "{\"task_id\": \"dimcustomer.networth\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(pr.NetWorth AS DECIMAL(10))\"}], \"uses\": [\"pr.NetWorth\"], \"class\": \"retype\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.marketingnameplate": {
+   "text": "{\"task_id\": \"dimcustomer.marketingnameplate\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CAST(NULL AS VARCHAR(100))\"}], \"uses\": [], \"class\": \"null_placeholder\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.agencyid:retry": {
+   "text": "{\"task_id\": \"dimcustomer.agencyid\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CASE WHEN a.ActionType IN ('UPDCUST','INACT') THEN NULL ELSE CAST(pr.AgencyID AS CHAR(30)) END\"}], \"uses\": [\"a.ActionType\", \"pr.AgencyID\"], \"class\": \"conditional\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  },
+  "step2:dimcustomer.agencyid:guard1": {
+   "text": "{\"task_id\": \"dimcustomer.agencyid\", \"status\": \"answer\", \"expressions\": [{\"branch\": \"b1\", \"sql\": \"CASE WHEN upper(a.ActionType) IN ('UPDCUST','INACT') THEN NULL ELSE CAST(pr.AgencyID AS CHAR(30)) END\"}], \"uses\": [\"a.ActionType\", \"pr.AgencyID\"], \"class\": \"conditional\", \"assumptions\": []}",
+   "finish_reason": "stop"
+  }
+ },
+ "note": "the 'assumptions' lists of the model's answers were emptied (free text that may quote the TPC-DI specification); recipes, expressions and all other fields are unchanged"
+}

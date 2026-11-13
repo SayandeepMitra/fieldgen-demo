@@ -1,0 +1,77 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "Links",
+ "type": "array",
+ "items": {
+  "type": "object",
+  "required": [
+   "child",
+   "child_columns",
+   "parent",
+   "parent_columns",
+   "cardinality",
+   "provenance",
+   "support",
+   "weak"
+  ],
+  "additionalProperties": false,
+  "properties": {
+   "child": {
+    "type": "string"
+   },
+   "child_columns": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    },
+    "minItems": 1
+   },
+   "parent": {
+    "type": "string"
+   },
+   "parent_columns": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    },
+    "minItems": 1
+   },
+   "cardinality": {
+    "enum": [
+     "one_to_one",
+     "many_to_one",
+     "one_to_many",
+     "many_to_many"
+    ]
+   },
+   "provenance": {
+    "enum": [
+     "declared",
+     "supplemented",
+     "inferred"
+    ]
+   },
+   "coverage": {
+    "type": "number",
+    "minimum": 0,
+    "maximum": 1
+   },
+   "evidence": {
+    "type": "string"
+   },
+   "support": {
+    "enum": [
+     "dictionary",
+     "name",
+     "value_only"
+    ]
+   },
+   "weak": {
+    "type": "boolean"
+   },
+   "note": {
+    "type": "string"
+   }
+  }
+ }
+}

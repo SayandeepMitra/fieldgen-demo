@@ -1,0 +1,31 @@
+{
+ "task_id": "cost.total_cost",
+ "table": "cost",
+ "column": "total_cost",
+ "kind": "value",
+ "reference": {
+  "table": "cost",
+  "column": "total_cost"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "total_cost"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:@const"
+  ],
+  "reference": [
+   "1"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

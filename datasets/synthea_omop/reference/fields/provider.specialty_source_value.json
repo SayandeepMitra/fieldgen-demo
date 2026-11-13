@@ -1,0 +1,31 @@
+{
+ "task_id": "provider.specialty_source_value",
+ "table": "provider",
+ "column": "specialty_source_value",
+ "kind": "value",
+ "reference": {
+  "table": "provider",
+  "column": "specialty_source_value"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "SUBSTRING(specialty_source_value, 1, 50)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:providers.Id"
+  ],
+  "reference": [
+   "r.provider_source_value"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

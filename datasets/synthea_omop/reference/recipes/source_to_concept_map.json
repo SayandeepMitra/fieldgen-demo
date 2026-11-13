@@ -1,0 +1,16 @@
+{
+ "table": "source_to_concept_map",
+ "grain": "one row per row of the reference program's result (inlined compiled reference program)",
+ "combine": "none",
+ "group_by": null,
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM (WITH cte_stcm_lower AS (SELECT \"source_code\" AS source_code, \"source_concept_id\" AS source_concept_id, \"source_vocabulary_id\" AS source_vocabulary_id, \"source_code_description\" AS source_code_description, \"source_domain_id\" AS source_domain_id, \"source_concept_class_id\" AS source_concept_class_id, \"target_concept_id\" AS target_concept_id, \"target_concept_name\" AS target_concept_name, \"target_vocabulary_id\" AS target_vocabulary_id, \"target_domain_id\" AS target_domain_id, \"target_concept_class_id\" AS target_concept_class_id, \"valid_start_date\" AS valid_start_date, \"valid_end_date\" AS valid_end_date, \"invalid_reason\" AS invalid_reason FROM source_to_concept_map_seed) SELECT * FROM cte_stcm_lower) AS stg_vocabulary__source_to_concept_map"
+  }
+ ],
+ "table_roles": {
+  "source_to_concept_map_seed": "driver"
+ },
+ "passthrough": true
+}

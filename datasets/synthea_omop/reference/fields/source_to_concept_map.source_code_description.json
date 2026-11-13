@@ -1,0 +1,32 @@
+{
+ "task_id": "source_to_concept_map.source_code_description",
+ "table": "source_to_concept_map",
+ "column": "source_code_description",
+ "kind": "value",
+ "reference": {
+  "table": "source_to_concept_map",
+  "column": "source_code_description"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "source_code_description"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:source_to_concept_map_seed.source_code"
+  ],
+  "reference": [
+   "r.source_code"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null,
+ "passthrough": true
+}

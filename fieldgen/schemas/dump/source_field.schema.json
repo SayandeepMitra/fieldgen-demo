@@ -1,0 +1,290 @@
+{
+ "type": "object",
+ "properties": {
+  "relation": {
+   "type": "string"
+  },
+  "column": {
+   "type": "string"
+  },
+  "type": {
+   "type": "string"
+  },
+  "nullable": {
+   "type": "boolean"
+  },
+  "observed_min_length": {
+   "type": [
+    "integer",
+    "null"
+   ]
+  },
+  "observed_max_length": {
+   "type": [
+    "integer",
+    "null"
+   ]
+  },
+  "description": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "profile": {
+   "type": [
+    "object",
+    "null"
+   ]
+  },
+  "value_domain": {
+   "oneOf": [
+    {
+     "type": "object",
+     "properties": {
+      "kind": {
+       "const": "list"
+      },
+      "distinct": {
+       "type": "integer",
+       "maximum": 30
+      },
+      "values": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "value": {
+          "type": "string"
+         },
+         "count": {
+          "type": "integer"
+         }
+        },
+        "required": [
+         "value",
+         "count"
+        ],
+        "additionalProperties": false
+       }
+      }
+     },
+     "required": [
+      "kind",
+      "distinct",
+      "values"
+     ],
+     "additionalProperties": false
+    },
+    {
+     "type": "object",
+     "properties": {
+      "kind": {
+       "const": "omitted"
+      },
+      "distinct": {
+       "type": "integer",
+       "minimum": 31
+      }
+     },
+     "required": [
+      "kind",
+      "distinct"
+     ],
+     "additionalProperties": false
+    }
+   ]
+  },
+  "samples": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "value": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "kind": {
+      "enum": [
+       "random",
+       "shortest",
+       "longest",
+       "rarest",
+       "null",
+       "mixed_case",
+       "leading_zero"
+      ]
+     }
+    },
+    "required": [
+     "value",
+     "kind"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "format_observations": {
+   "type": "object",
+   "properties": {
+    "case_variants": {
+     "type": "integer"
+    },
+    "whitespace": {
+     "type": "object",
+     "properties": {
+      "leading_trailing": {
+       "type": "integer"
+      },
+      "double_internal": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "leading_trailing",
+      "double_internal"
+     ],
+     "additionalProperties": false
+    },
+    "separators": {
+     "type": "object"
+    },
+    "top_shapes": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "shape": {
+        "type": "string"
+       },
+       "count": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "shape",
+       "count"
+      ],
+      "additionalProperties": false
+     },
+     "maxItems": 5
+    }
+   },
+   "required": [
+    "case_variants",
+    "whitespace",
+    "separators",
+    "top_shapes"
+   ],
+   "additionalProperties": false
+  },
+  "keys": {
+   "type": "object",
+   "properties": {
+    "pk": {
+     "type": "boolean"
+    },
+    "unique": {
+     "type": "boolean"
+    },
+    "business_id": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "pk",
+    "unique",
+    "business_id"
+   ],
+   "additionalProperties": false
+  },
+  "reference_overlap": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "relation": {
+      "type": "string"
+     },
+     "column": {
+      "type": "string"
+     },
+     "exact_coverage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+     },
+     "ci_coverage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+     },
+     "group_values": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "value": {
+         "type": "string"
+        },
+        "count": {
+         "type": "integer"
+        }
+       },
+       "required": [
+        "value",
+        "count"
+       ],
+       "additionalProperties": false
+      }
+     },
+     "group_column": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "relation",
+     "column",
+     "exact_coverage",
+     "ci_coverage",
+     "group_values"
+    ],
+    "additionalProperties": false
+   },
+   "maxItems": 3
+  },
+  "provenance": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "string",
+    "enum": [
+     "documentation",
+     "ddl",
+     "data",
+     "declared",
+     "none"
+    ]
+   },
+   "minProperties": 5
+  }
+ },
+ "required": [
+  "relation",
+  "column",
+  "type",
+  "nullable",
+  "observed_min_length",
+  "observed_max_length",
+  "description",
+  "profile",
+  "value_domain",
+  "samples",
+  "format_observations",
+  "keys",
+  "reference_overlap",
+  "provenance"
+ ],
+ "additionalProperties": false,
+ "$schema": "http://json-schema.org/draft-07/schema#"
+}

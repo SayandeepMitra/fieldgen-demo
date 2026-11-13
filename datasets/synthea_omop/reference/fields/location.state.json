@@ -1,0 +1,36 @@
+{
+ "task_id": "location.state",
+ "table": "location",
+ "column": "state",
+ "kind": "value",
+ "reference": {
+  "table": "location",
+  "column": "state"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "states.state_abbreviation"
+  },
+  {
+   "branch": "b2",
+   "expr": "organizations.STATE"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.ADDRESS",
+   "b2:organizations.ADDRESS"
+  ],
+  "reference": [
+   "r.address_1"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not ambiguous once the row source is given",
+  "source": "assistant_proposal"
+ },
+ "exclusion_reason": null
+}

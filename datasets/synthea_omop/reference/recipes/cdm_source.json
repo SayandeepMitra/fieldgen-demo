@@ -1,0 +1,15 @@
+{
+ "table": "cdm_source",
+ "grain": "one row per row of the reference program's result (inlined compiled reference program)",
+ "combine": "none",
+ "group_by": null,
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM (WITH cte_vocabulary_lower AS (SELECT \"vocabulary_id\" AS vocabulary_id, \"vocabulary_name\" AS vocabulary_name, \"vocabulary_reference\" AS vocabulary_reference, \"vocabulary_version\" AS vocabulary_version, \"vocabulary_concept_id\" AS vocabulary_concept_id FROM vocabulary_seed) SELECT * FROM cte_vocabulary_lower) AS stg_vocabulary__vocabulary WHERE vocabulary_id = 'None'"
+  }
+ ],
+ "table_roles": {
+  "vocabulary_seed": "driver"
+ }
+}

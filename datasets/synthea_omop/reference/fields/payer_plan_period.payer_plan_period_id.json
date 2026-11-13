@@ -1,0 +1,31 @@
+{
+ "task_id": "payer_plan_period.payer_plan_period_id",
+ "table": "payer_plan_period",
+ "column": "payer_plan_period_id",
+ "kind": "keygen",
+ "reference": {
+  "table": "payer_plan_period",
+  "column": "payer_plan_period_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "ROW_NUMBER() OVER (ORDER BY pat.patient_id, pt.coverage_start_datetime)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:payer_transitions.END_YEAR"
+  ],
+  "reference": [
+   "r.payer_plan_period_end_date"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

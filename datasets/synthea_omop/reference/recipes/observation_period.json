@@ -1,0 +1,18 @@
+{
+ "table": "observation_period",
+ "grain": "one row per patient with at least one usable encounter",
+ "combine": "none",
+ "group_by": [
+  "patients.Id"
+ ],
+ "branches": [
+  {
+   "id": "b1",
+   "from": "FROM encounters INNER JOIN patients ON encounters.PATIENT = patients.Id WHERE encounters.Id NOT IN (SELECT Id FROM encounters GROUP BY Id HAVING COUNT(*) > 1)"
+  }
+ ],
+ "table_roles": {
+  "encounters": "driver",
+  "patients": "filter"
+ }
+}

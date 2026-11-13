@@ -1,0 +1,31 @@
+{
+ "task_id": "observation_period.period_type_concept_id",
+ "table": "observation_period",
+ "column": "period_type_concept_id",
+ "kind": "value",
+ "reference": {
+  "table": "observation_period",
+  "column": "period_type_concept_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "32882"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.Id"
+  ],
+  "reference": [
+   "(SELECT person_source_value FROM person WHERE person_id = r.person_id)"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled in PILOT.md",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

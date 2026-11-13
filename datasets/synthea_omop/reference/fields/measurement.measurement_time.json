@@ -1,0 +1,31 @@
+{
+ "task_id": "measurement.measurement_time",
+ "table": "measurement",
+ "column": "measurement_time",
+ "kind": "value",
+ "reference": {
+  "table": "measurement",
+  "column": "measurement_time"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(measurement_time AS TEXT)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:concept_seed.concept_id"
+  ],
+  "reference": [
+   "r.measurement_source_concept_id"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

@@ -1,0 +1,31 @@
+{
+ "task_id": "cdm_source.cdm_source_name",
+ "table": "cdm_source",
+ "column": "cdm_source_name",
+ "kind": "excluded",
+ "reference": {
+  "table": "cdm_source",
+  "column": "cdm_source_name"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "'dbt-synthea'"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:vocabulary_seed.vocabulary_version"
+  ],
+  "reference": [
+   "r.vocabulary_version"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": "constant not derivable (reference value [dbt-synthea])"
+}

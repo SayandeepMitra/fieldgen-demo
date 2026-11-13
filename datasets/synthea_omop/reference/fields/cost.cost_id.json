@@ -1,0 +1,31 @@
+{
+ "task_id": "cost.cost_id",
+ "table": "cost",
+ "column": "cost_id",
+ "kind": "keygen",
+ "reference": {
+  "table": "cost",
+  "column": "cost_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "ROW_NUMBER() OVER (ORDER BY cost_domain_id, cost_event_id)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:@const"
+  ],
+  "reference": [
+   "1"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

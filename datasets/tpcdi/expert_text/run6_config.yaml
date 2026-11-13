@@ -1,0 +1,8 @@
+# package settings (run 6: tool fixes + history wrapper)
+domain_knowledge: required   # expert text in domain/flow_text.md (same as run 3)
+formula_docs: true           # fix 1 (fieldgen-fix, branch rules-and-history)
+history_pattern: false       # run 4 guidance text: off (it would conflict with the history wrapper)
+formula_length_retry: true   # retry a formula call that ends length/empty once with double max_tokens
+# PACKAGE INPUT (like expert input, not measured by the tool): DimCustomer is built from events; this gives the key and the event order
+history_tables:
+  dimcustomer: {key: C_ID, order: ActionTS, tiebreak: ActionSeq}

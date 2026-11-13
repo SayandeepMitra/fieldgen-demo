@@ -1,0 +1,6 @@
+# package settings (run 10: run 9 + formula_docs)
+domain_knowledge: required   # expert text in domain/flow_text.md (same as run 9)
+formula_docs: true           # column rules shown in the formula prompts (fieldgen-fix, branch rules-and-history)
+history_pattern: false
+history_auto: false
+formula_length_retry: false

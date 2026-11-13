@@ -1,0 +1,31 @@
+{
+ "task_id": "care_site.care_site_id",
+ "table": "care_site",
+ "column": "care_site_id",
+ "kind": "keygen",
+ "reference": {
+  "table": "care_site",
+  "column": "care_site_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "ROW_NUMBER() OVER (ORDER BY org.organization_id)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:@const"
+  ],
+  "reference": [
+   "1"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

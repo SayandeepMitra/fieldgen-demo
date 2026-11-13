@@ -1,0 +1,33 @@
+{
+ "task_id": "procedure_occurrence.modifier_source_value",
+ "table": "procedure_occurrence",
+ "column": "modifier_source_value",
+ "kind": "placeholder",
+ "reference": {
+  "table": "procedure_occurrence",
+  "column": "modifier_source_value"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS TEXT)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:procedures.STOP",
+   "b1:concept_seed.concept_id"
+  ],
+  "reference": [
+   "r.procedure_end_datetime",
+   "r.procedure_source_concept_id"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

@@ -1,0 +1,237 @@
+{
+ "levels": "L2",
+ "headline": "tables with correct rows: 1 of 1 scored tables | L2 columns correct: 22 of 28 scored columns (22 of 28 in tables with correct rows)",
+ "tables": {
+  "dimcustomer": {
+   "recipe_rows_correct": true,
+   "assignment": null,
+   "reason": null
+  }
+ },
+ "fields": {
+  "dimcustomer.addressline1": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.addressline2": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.agencyid": {
+   "L0": true,
+   "L1": true,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.city": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.country": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.creditrating": {
+   "L0": true,
+   "L1": true,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.customerid": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.dob": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.email1": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.email2": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.firstname": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.gender": {
+   "L0": true,
+   "L1": true,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.lastname": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.localtaxrate": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.localtaxratedesc": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.marketingnameplate": {
+   "L0": true,
+   "L1": true,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.middleinitial": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.nationaltaxrate": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.nationaltaxratedesc": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.networth": {
+   "L0": true,
+   "L1": true,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.phone1": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.phone2": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.phone3": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.postalcode": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.stateprov": {
+   "L0": true,
+   "L1": true,
+   "L2": false,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.status": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.taxid": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  },
+  "dimcustomer.tier": {
+   "L0": true,
+   "L1": true,
+   "L2": true,
+   "L3": true,
+   "L4": false,
+   "error": null
+  }
+ }
+}

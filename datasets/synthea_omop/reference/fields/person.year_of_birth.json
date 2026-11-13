@@ -1,0 +1,31 @@
+{
+ "task_id": "person.year_of_birth",
+ "table": "person",
+ "column": "year_of_birth",
+ "kind": "value",
+ "reference": {
+  "table": "person",
+  "column": "year_of_birth"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(DATE_PART('year', patients.BIRTHDATE) AS INT)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.Id"
+  ],
+  "reference": [
+   "r.person_source_value"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not ambiguous once the row source is given",
+  "source": "assistant_proposal"
+ },
+ "exclusion_reason": null
+}

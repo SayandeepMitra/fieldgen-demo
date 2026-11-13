@@ -1,0 +1,31 @@
+{
+ "task_id": "visit_occurrence.discharged_to_concept_id",
+ "table": "visit_occurrence",
+ "column": "discharged_to_concept_id",
+ "kind": "placeholder",
+ "reference": {
+  "table": "visit_occurrence",
+  "column": "discharged_to_concept_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS INT)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:encounters.START"
+  ],
+  "reference": [
+   "r.visit_start_date"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

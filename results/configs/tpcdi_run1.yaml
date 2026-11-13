@@ -1,0 +1,2 @@
+# package settings (found first, before the current folder)
+domain_knowledge: optional   # no expert text for this package

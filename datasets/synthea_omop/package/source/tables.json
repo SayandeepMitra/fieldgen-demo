@@ -1,0 +1,2243 @@
+[
+ {
+  "name": "allergies",
+  "columns": [
+   {
+    "name": "START",
+    "type": "DATE",
+    "nullable": true,
+    "description": "The date the allergy was diagnosed."
+   },
+   {
+    "name": "STOP",
+    "type": "DATE",
+    "nullable": true,
+    "description": "The date the allergy ended, if applicable."
+   },
+   {
+    "name": "PATIENT",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Patient."
+   },
+   {
+    "name": "ENCOUNTER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Encounter when the allergy was diagnosed."
+   },
+   {
+    "name": "CODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Allergy code"
+   },
+   {
+    "name": "SYSTEM",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Terminology system of the Allergy code. `RxNorm` if this is a medication allergy, otherwise `SNOMED-CT`."
+   },
+   {
+    "name": "DESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the Allergy"
+   },
+   {
+    "name": "TYPE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Identify entry as an `allergy` or `intolerance`."
+   },
+   {
+    "name": "CATEGORY",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Identify the category as `drug`, `medication`, `food`, or `environment`."
+   },
+   {
+    "name": "REACTION1",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Optional SNOMED code of the patients reaction."
+   },
+   {
+    "name": "DESCRIPTION1",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Optional description of the `Reaction1` SNOMED code."
+   },
+   {
+    "name": "SEVERITY1",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Severity of the reaction: `MILD`, `MODERATE`, or `SEVERE`."
+   },
+   {
+    "name": "REACTION2",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Optional SNOMED code of the patients second reaction."
+   },
+   {
+    "name": "DESCRIPTION2",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Optional description of the `Reaction2` SNOMED code."
+   },
+   {
+    "name": "SEVERITY2",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Severity of the second reaction: `MILD`, `MODERATE`, or `SEVERE`."
+   }
+  ],
+  "pk": [
+   "START",
+   "CODE"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 40 rows"
+  },
+  "business_ids": [
+   "CODE"
+  ]
+ },
+ {
+  "name": "careplans",
+  "columns": [
+   {
+    "name": "Id",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Primary Key. Unique Identifier of the care plan."
+   },
+   {
+    "name": "START",
+    "type": "DATE",
+    "nullable": true,
+    "description": "The date the care plan was initiated."
+   },
+   {
+    "name": "STOP",
+    "type": "DATE",
+    "nullable": true,
+    "description": "The date the care plan ended, if applicable."
+   },
+   {
+    "name": "PATIENT",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Patient."
+   },
+   {
+    "name": "ENCOUNTER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Encounter when the care plan was initiated."
+   },
+   {
+    "name": "CODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Code from SNOMED-CT"
+   },
+   {
+    "name": "DESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the care plan."
+   },
+   {
+    "name": "REASONCODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Diagnosis code from SNOMED-CT that this care plan addresses."
+   },
+   {
+    "name": "REASONDESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the reason code."
+   }
+  ],
+  "pk": [
+   "Id"
+  ],
+  "pk_provenance": {
+   "source": "declared",
+   "evidence": "Synthea dictionary"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "claims",
+  "columns": [
+   {
+    "name": "Id",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Primary Key. Unique Identifier of the claim."
+   },
+   {
+    "name": "PATIENTID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Patient."
+   },
+   {
+    "name": "PROVIDERID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Provider."
+   },
+   {
+    "name": "PRIMARYPATIENTINSURANCEID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the primary Payer."
+   },
+   {
+    "name": "SECONDARYPATIENTINSURANCEID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the second Payer."
+   },
+   {
+    "name": "DEPARTMENTID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Placeholder for department."
+   },
+   {
+    "name": "PATIENTDEPARTMENTID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Placeholder for patient department."
+   },
+   {
+    "name": "DIAGNOSIS1",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "SNOMED-CT code corresponding to a diagnosis related to the claim."
+   },
+   {
+    "name": "DIAGNOSIS2",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "SNOMED-CT code corresponding to a diagnosis related to the claim."
+   },
+   {
+    "name": "DIAGNOSIS3",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "SNOMED-CT code corresponding to a diagnosis related to the claim."
+   },
+   {
+    "name": "DIAGNOSIS4",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "SNOMED-CT code corresponding to a diagnosis related to the claim."
+   },
+   {
+    "name": "DIAGNOSIS5",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "SNOMED-CT code corresponding to a diagnosis related to the claim."
+   },
+   {
+    "name": "DIAGNOSIS6",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "SNOMED-CT code corresponding to a diagnosis related to the claim."
+   },
+   {
+    "name": "DIAGNOSIS7",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "SNOMED-CT code corresponding to a diagnosis related to the claim."
+   },
+   {
+    "name": "DIAGNOSIS8",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "SNOMED-CT code corresponding to a diagnosis related to the claim."
+   },
+   {
+    "name": "REFERRINGPROVIDERID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Provider who made the referral."
+   },
+   {
+    "name": "APPOINTMENTID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Encounter."
+   },
+   {
+    "name": "CURRENTILLNESSDATE",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "The date the patient experienced symptoms."
+   },
+   {
+    "name": "SERVICEDATE",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "The date of the services on the claim."
+   },
+   {
+    "name": "SUPERVISINGPROVIDERID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the supervising Provider."
+   },
+   {
+    "name": "STATUS1",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Status of the claim from the Primary Insurance. `BILLED` or `CLOSED`."
+   },
+   {
+    "name": "STATUS2",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Status of the claim from the Secondary Insurance. `BILLED` or `CLOSED`."
+   },
+   {
+    "name": "STATUSP",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Status of the claim from the Patient. `BILLED` or `CLOSED`."
+   },
+   {
+    "name": "OUTSTANDING1",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Total amount of money owed by Primary Insurance."
+   },
+   {
+    "name": "OUTSTANDING2",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Total amount of money owed by Secondary Insurance."
+   },
+   {
+    "name": "OUTSTANDINGP",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Total amount of money owed by Patient."
+   },
+   {
+    "name": "LASTBILLEDDATE1",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "Date the claim was sent to Primary Insurance."
+   },
+   {
+    "name": "LASTBILLEDDATE2",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "Date the claim was sent to Secondary Insurance."
+   },
+   {
+    "name": "LASTBILLEDDATEP",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "Date the claim was sent to the Patient."
+   },
+   {
+    "name": "HEALTHCARECLAIMTYPEID1",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Type of claim: `1` is professional, `2` is institutional."
+   },
+   {
+    "name": "HEALTHCARECLAIMTYPEID2",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Type of claim: `1` is professional, `2` is institutional."
+   }
+  ],
+  "pk": [
+   "Id"
+  ],
+  "pk_provenance": {
+   "source": "declared",
+   "evidence": "Synthea dictionary"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "claims_transactions",
+  "columns": [
+   {
+    "name": "ID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Primary Key. Unique Identifier of the claim transaction."
+   },
+   {
+    "name": "CLAIMID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Claim."
+   },
+   {
+    "name": "CHARGEID",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Charge ID."
+   },
+   {
+    "name": "PATIENTID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Patient."
+   },
+   {
+    "name": "TYPE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "`CHARGE`: original line item. `PAYMENT`: payment made against a charge by an insurance company (aka Payer) or patient. `ADJUSTMENT`: change in the charge without a payment, made by an insurance company. `TRANSFERIN` and `TRANSFEROUT`: transfer of the balance from one insurance company to another, or to a patient."
+   },
+   {
+    "name": "AMOUNT",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Dollar amount for a `CHARGE` or `TRANSFERIN`."
+   },
+   {
+    "name": "METHOD",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Payment made by `CASH`, `CHECK`, `ECHECK`, `COPAY`, `SYSTEM` (adjustments without payment), or `CC` (credit card)."
+   },
+   {
+    "name": "FROMDATE",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "Transaction start date."
+   },
+   {
+    "name": "TODATE",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "Transaction end date."
+   },
+   {
+    "name": "PLACEOFSERVICE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Organization."
+   },
+   {
+    "name": "PROCEDURECODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "SNOMED-CT or other code (e.g. CVX for Vaccines) for the service."
+   },
+   {
+    "name": "MODIFIER1",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Unused. Modifier on procedure code."
+   },
+   {
+    "name": "MODIFIER2",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Unused. Modifier on procedure code."
+   },
+   {
+    "name": "DIAGNOSISREF1",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Number indicating which diagnosis code from the claim applies to this transaction, 1-8 are valid options."
+   },
+   {
+    "name": "DIAGNOSISREF2",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Number indicating which diagnosis code from the claim applies to this transaction, 1-8 are valid options."
+   },
+   {
+    "name": "DIAGNOSISREF3",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Number indicating which diagnosis code from the claim applies to this transaction, 1-8 are valid options."
+   },
+   {
+    "name": "DIAGNOSISREF4",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Number indicating which diagnosis code from the claim applies to this transaction, 1-8 are valid options."
+   },
+   {
+    "name": "UNITS",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Number of units of the service."
+   },
+   {
+    "name": "DEPARTMENTID",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Placeholder for department."
+   },
+   {
+    "name": "NOTES",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the service or transaction."
+   },
+   {
+    "name": "UNITAMOUNT",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Cost per unit."
+   },
+   {
+    "name": "TRANSFEROUTID",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "If the transaction is a `TRANSFERIN`, the Charge ID of the corresponding `TRANSFEROUT` row."
+   },
+   {
+    "name": "TRANSFERTYPE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "`1` if transferred to the primary insurance, `2` if transferred to the secondary insurance, or `p` if transferred to the patient."
+   },
+   {
+    "name": "PAYMENTS",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Dollar amount of a payment for a `PAYMENT` row."
+   },
+   {
+    "name": "ADJUSTMENTS",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Dollar amount of an adjustment for an `ADJUSTMENTS` row."
+   },
+   {
+    "name": "TRANSFERS",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Dollar amount of a transfer for a `TRANSFERIN` or `TRANSFEROUT` row."
+   },
+   {
+    "name": "OUTSTANDING",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Dollar amount left unpaid after this transaction was applied."
+   },
+   {
+    "name": "APPOINTMENTID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Encounter."
+   },
+   {
+    "name": "LINENOTE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Note."
+   },
+   {
+    "name": "PATIENTINSURANCEID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Payer Transitions table member ID."
+   },
+   {
+    "name": "FEESCHEDULEID",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Fixed to `1`."
+   },
+   {
+    "name": "PROVIDERID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Provider."
+   },
+   {
+    "name": "SUPERVISINGPROVIDERID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the supervising Provider."
+   }
+  ],
+  "pk": [
+   "ID"
+  ],
+  "pk_provenance": {
+   "source": "declared",
+   "evidence": "Synthea dictionary"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "conditions",
+  "columns": [
+   {
+    "name": "START",
+    "type": "DATE",
+    "nullable": true,
+    "description": "The date the condition was diagnosed."
+   },
+   {
+    "name": "STOP",
+    "type": "DATE",
+    "nullable": true,
+    "description": "The date the condition resolved, if applicable."
+   },
+   {
+    "name": "PATIENT",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Patient."
+   },
+   {
+    "name": "ENCOUNTER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Encounter when the condition was diagnosed."
+   },
+   {
+    "name": "CODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Diagnosis code from SNOMED-CT"
+   },
+   {
+    "name": "DESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the condition."
+   }
+  ],
+  "pk": [
+   "ENCOUNTER",
+   "CODE"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 438 rows"
+  },
+  "business_ids": [
+   "CODE"
+  ]
+ },
+ {
+  "name": "devices",
+  "columns": [
+   {
+    "name": "START",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "The date and time the device was associated to the patient."
+   },
+   {
+    "name": "STOP",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "The date and time the device was removed, if applicable."
+   },
+   {
+    "name": "PATIENT",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Patient."
+   },
+   {
+    "name": "ENCOUNTER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Encounter when the device was associated."
+   },
+   {
+    "name": "CODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Type of device, from SNOMED-CT"
+   },
+   {
+    "name": "DESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the device."
+   },
+   {
+    "name": "UDI",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "[Unique Device Identifier](https://www.fda.gov/medical-devices/unique-device-identification-system-udi-system/udi-basics) for the device."
+   }
+  ],
+  "pk": [
+   "START"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 3 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "encounters",
+  "columns": [
+   {
+    "name": "Id",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Primary Key. Unique Identifier of the encounter."
+   },
+   {
+    "name": "START",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "The date and time the encounter started."
+   },
+   {
+    "name": "STOP",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "The date and time the encounter concluded."
+   },
+   {
+    "name": "PATIENT",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Patient."
+   },
+   {
+    "name": "ORGANIZATION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Organization."
+   },
+   {
+    "name": "PROVIDER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Provider."
+   },
+   {
+    "name": "PAYER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Payer."
+   },
+   {
+    "name": "ENCOUNTERCLASS",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "The class of the encounter, such as `ambulatory`, `emergency`, `inpatient`, `wellness`, or `urgentcare`"
+   },
+   {
+    "name": "CODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Encounter code from SNOMED-CT"
+   },
+   {
+    "name": "DESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the type of encounter."
+   },
+   {
+    "name": "BASE_ENCOUNTER_COST",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The base cost of the encounter, **not** including any line item costs related to medications, immunizations, procedures, or other services."
+   },
+   {
+    "name": "TOTAL_CLAIM_COST",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The total cost of the encounter, including all line items."
+   },
+   {
+    "name": "PAYER_COVERAGE",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The amount of cost covered by the Payer."
+   },
+   {
+    "name": "REASONCODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Diagnosis code from SNOMED-CT, **only if** this encounter targeted a specific condition."
+   },
+   {
+    "name": "REASONDESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the reason code."
+   }
+  ],
+  "pk": [
+   "Id"
+  ],
+  "pk_provenance": {
+   "source": "declared",
+   "evidence": "Synthea dictionary"
+  },
+  "business_ids": [
+   "ENCOUNTERCLASS"
+  ]
+ },
+ {
+  "name": "imaging_studies",
+  "columns": [
+   {
+    "name": "Id",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Non-unique identifier of the imaging study. An imaging study may have multiple rows."
+   },
+   {
+    "name": "DATE",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "The date and time the imaging study was conducted."
+   },
+   {
+    "name": "PATIENT",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Patient."
+   },
+   {
+    "name": "ENCOUNTER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Encounter where the imaging study was conducted."
+   },
+   {
+    "name": "SERIES_UID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Imaging Study series DICOM UID."
+   },
+   {
+    "name": "BODYSITE_CODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "A SNOMED Body Structures code describing what part of the body the images in the series were taken of."
+   },
+   {
+    "name": "BODYSITE_DESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the body site."
+   },
+   {
+    "name": "MODALITY_CODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "A [DICOM-DCM](https://github.com/synthetichealth/synthea/wiki/Generic-Module-Framework%3A-Basics#dicom-dcm-codes) code describing the method used to take the images."
+   },
+   {
+    "name": "MODALITY_DESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the modality."
+   },
+   {
+    "name": "INSTANCE_UID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Imaging Study instance DICOM UID."
+   },
+   {
+    "name": "SOP_CODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "A [DICOM-SOP](https://github.com/synthetichealth/synthea/wiki/Generic-Module-Framework%3A-Basics#dicom-sop-codes) code describing the Subject-Object Pair (SOP) that constitutes the image."
+   },
+   {
+    "name": "SOP_DESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the SOP code."
+   },
+   {
+    "name": "PROCEDURE_CODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Procedure code from SNOMED-CT."
+   }
+  ],
+  "pk": [
+   "Id"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 1 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "immunizations",
+  "columns": [
+   {
+    "name": "DATE",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "The date the immunization was administered."
+   },
+   {
+    "name": "PATIENT",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Patient."
+   },
+   {
+    "name": "ENCOUNTER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Encounter where the immunization was administered."
+   },
+   {
+    "name": "CODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Immunization code from CVX."
+   },
+   {
+    "name": "DESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the immunization."
+   },
+   {
+    "name": "BASE_COST",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The line item cost of the immunization."
+   }
+  ],
+  "pk": [
+   "DATE",
+   "CODE"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 29 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "medications",
+  "columns": [
+   {
+    "name": "START",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "The date and time the medication was prescribed."
+   },
+   {
+    "name": "STOP",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "The date and time the prescription ended, if applicable."
+   },
+   {
+    "name": "PATIENT",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Patient."
+   },
+   {
+    "name": "PAYER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Payer."
+   },
+   {
+    "name": "ENCOUNTER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Encounter where the medication was prescribed."
+   },
+   {
+    "name": "CODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Medication code from RxNorm."
+   },
+   {
+    "name": "DESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the medication."
+   },
+   {
+    "name": "BASE_COST",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The line item cost of the medication."
+   },
+   {
+    "name": "PAYER_COVERAGE",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The amount covered or reimbursed by the Payer."
+   },
+   {
+    "name": "DISPENSES",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The number of times the prescription was filled."
+   },
+   {
+    "name": "TOTALCOST",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The total cost of the prescription, including all dispenses."
+   },
+   {
+    "name": "REASONCODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Diagnosis code from SNOMED-CT specifying why this medication was prescribed."
+   },
+   {
+    "name": "REASONDESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the reason code."
+   }
+  ],
+  "pk": [
+   "ENCOUNTER",
+   "CODE",
+   "BASE_COST"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 663 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "observations",
+  "columns": [
+   {
+    "name": "DATE",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "The date and time the observation was performed."
+   },
+   {
+    "name": "PATIENT",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Patient."
+   },
+   {
+    "name": "ENCOUNTER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Encounter where the observation was performed."
+   },
+   {
+    "name": "CATEGORY",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Observation category."
+   },
+   {
+    "name": "CODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Observation or Lab code from LOINC"
+   },
+   {
+    "name": "DESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the observation or lab."
+   },
+   {
+    "name": "VALUE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "The recorded value of the observation. Often numeric, but some values can be verbose, for example, multiple-choice questionnaire responses."
+   },
+   {
+    "name": "UNITS",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "The units of measure for the value."
+   },
+   {
+    "name": "TYPE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "The datatype of `Value`: `text` or `numeric`"
+   }
+  ],
+  "pk": [
+   "DATE",
+   "CODE"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 990 rows"
+  },
+  "business_ids": [
+   "CODE"
+  ]
+ },
+ {
+  "name": "organizations",
+  "columns": [
+   {
+    "name": "Id",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Primary key of the Organization."
+   },
+   {
+    "name": "NAME",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Name of the Organization."
+   },
+   {
+    "name": "ADDRESS",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Organization's street address without commas or newlines."
+   },
+   {
+    "name": "CITY",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Street address city."
+   },
+   {
+    "name": "STATE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Street address state abbreviation."
+   },
+   {
+    "name": "ZIP",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Street address zip or postal code."
+   },
+   {
+    "name": "LAT",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Latitude of Organization's address."
+   },
+   {
+    "name": "LON",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Longitude of Organization's address."
+   },
+   {
+    "name": "PHONE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Organization's phone number. Sometimes multiple numbers."
+   },
+   {
+    "name": "REVENUE",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The monetary revenue of the organization during the entire simulation."
+   },
+   {
+    "name": "UTILIZATION",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The number of Encounters performed by this Organization."
+   }
+  ],
+  "pk": [
+   "Id"
+  ],
+  "pk_provenance": {
+   "source": "declared",
+   "evidence": "Synthea dictionary"
+  },
+  "business_ids": [
+   "Id"
+  ]
+ },
+ {
+  "name": "patients",
+  "columns": [
+   {
+    "name": "Id",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Primary Key. Unique Identifier of the patient."
+   },
+   {
+    "name": "BIRTHDATE",
+    "type": "DATE",
+    "nullable": true,
+    "description": "The date the patient was born."
+   },
+   {
+    "name": "DEATHDATE",
+    "type": "DATE",
+    "nullable": true,
+    "description": "The date the patient died."
+   },
+   {
+    "name": "SSN",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Patient Social Security identifier."
+   },
+   {
+    "name": "DRIVERS",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Patient Drivers License identifier."
+   },
+   {
+    "name": "PASSPORT",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Patient Passport identifier."
+   },
+   {
+    "name": "PREFIX",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Name prefix, such as `Mr.`, `Mrs.`, `Dr.`, etc."
+   },
+   {
+    "name": "FIRST",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "First name of the patient."
+   },
+   {
+    "name": "LAST",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Last or surname of the patient."
+   },
+   {
+    "name": "SUFFIX",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Name suffix, such as `PhD`, `MD`, `JD`, etc."
+   },
+   {
+    "name": "MAIDEN",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Maiden name of the patient."
+   },
+   {
+    "name": "MARITAL",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Marital Status. `M` is married, `S` is single. Currently no support for divorce (`D`) or widowing (`W`)"
+   },
+   {
+    "name": "RACE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the patient's primary race."
+   },
+   {
+    "name": "ETHNICITY",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the patient's primary ethnicity."
+   },
+   {
+    "name": "GENDER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Gender. `M` is male, `F` is female."
+   },
+   {
+    "name": "BIRTHPLACE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Name of the town where the patient was born."
+   },
+   {
+    "name": "ADDRESS",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Patient's street address without commas or newlines."
+   },
+   {
+    "name": "CITY",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Patient's address city."
+   },
+   {
+    "name": "STATE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Patient's address state."
+   },
+   {
+    "name": "COUNTY",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Patient's address county."
+   },
+   {
+    "name": "ZIP",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Patient's zip code."
+   },
+   {
+    "name": "LAT",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Latitude of Patient's address."
+   },
+   {
+    "name": "LON",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Longitude of Patient's address."
+   },
+   {
+    "name": "HEALTHCARE_EXPENSES",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The total lifetime cost of healthcare to the patient (i.e. what the patient paid)."
+   },
+   {
+    "name": "HEALTHCARE_COVERAGE",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The total lifetime cost of healthcare services that were covered by Payers (i.e. what the insurance company paid)."
+   }
+  ],
+  "pk": [
+   "Id"
+  ],
+  "pk_provenance": {
+   "source": "declared",
+   "evidence": "Synthea dictionary"
+  },
+  "business_ids": [
+   "Id"
+  ]
+ },
+ {
+  "name": "payer_transitions",
+  "columns": [
+   {
+    "name": "PATIENT",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Patient."
+   },
+   {
+    "name": "MEMBERID",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Member ID for the Insurance Plan."
+   },
+   {
+    "name": "START_YEAR",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "The year the coverage started (inclusive)."
+   },
+   {
+    "name": "END_YEAR",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "The year the coverage ended (inclusive)."
+   },
+   {
+    "name": "PAYER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Payer."
+   },
+   {
+    "name": "SECONDARY_PAYER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Secondary Payer."
+   },
+   {
+    "name": "OWNERSHIP",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "The owner of the insurance policy. Legal values: `Guardian`, `Self`, `Spouse`."
+   },
+   {
+    "name": "OWNERNAME",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "The name of the insurance policy owner."
+   }
+  ],
+  "pk": [
+   "PATIENT",
+   "END_YEAR"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 1051 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "payers",
+  "columns": [
+   {
+    "name": "Id",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Primary key of the Payer (e.g. Insurance)."
+   },
+   {
+    "name": "NAME",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Name of the Payer."
+   },
+   {
+    "name": "ADDRESS",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Payer's street address without commas or newlines."
+   },
+   {
+    "name": "CITY",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Street address city."
+   },
+   {
+    "name": "STATE_HEADQUARTERED",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Street address state abbreviation."
+   },
+   {
+    "name": "ZIP",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Street address zip or postal code."
+   },
+   {
+    "name": "PHONE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Payer's phone number."
+   },
+   {
+    "name": "AMOUNT_COVERED",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The monetary amount paid to Organizations during the entire simulation."
+   },
+   {
+    "name": "AMOUNT_UNCOVERED",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The monetary amount not paid to Organizations during the entire simulation, and covered out of pocket by patients."
+   },
+   {
+    "name": "REVENUE",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The monetary revenue of the Payer during the entire simulation."
+   },
+   {
+    "name": "COVERED_ENCOUNTERS",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The number of Encounters paid for by this Payer."
+   },
+   {
+    "name": "UNCOVERED_ENCOUNTERS",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The number of Encounters not paid for by this Payer, and paid out of pocket by patients."
+   },
+   {
+    "name": "COVERED_MEDICATIONS",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The number of Medications paid for by this Payer."
+   },
+   {
+    "name": "UNCOVERED_MEDICATIONS",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The number of Medications not paid for by this Payer, and paid out of pocket by patients."
+   },
+   {
+    "name": "COVERED_PROCEDURES",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The number of Procedures paid for by this Payer."
+   },
+   {
+    "name": "UNCOVERED_PROCEDURES",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The number of Procedures not paid for by this Payer, and paid out of pocket by patients."
+   },
+   {
+    "name": "COVERED_IMMUNIZATIONS",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The number of Immunizations paid for by this Payer."
+   },
+   {
+    "name": "UNCOVERED_IMMUNIZATIONS",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The number of Immunizations not paid for by this Payer, and paid out of pocket by patients."
+   },
+   {
+    "name": "UNIQUE_CUSTOMERS",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The number of unique patients enrolled with this Payer during the entire simulation."
+   },
+   {
+    "name": "QOLS_AVG",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The average Quality of Life Scores (QOLS) for all patients enrolled with this Payer during the entire simulation."
+   },
+   {
+    "name": "MEMBER_MONTHS",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The total number of months that patients were enrolled with this Payer during the simulation and paid monthly premiums (if any)."
+   }
+  ],
+  "pk": [
+   "Id"
+  ],
+  "pk_provenance": {
+   "source": "declared",
+   "evidence": "Synthea dictionary"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "procedures",
+  "columns": [
+   {
+    "name": "START",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "The date and time the procedure was performed."
+   },
+   {
+    "name": "STOP",
+    "type": "TIMESTAMP WITH TIME ZONE",
+    "nullable": true,
+    "description": "The date and time the procedure was completed, if applicable."
+   },
+   {
+    "name": "PATIENT",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Patient."
+   },
+   {
+    "name": "ENCOUNTER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Encounter where the procedure was performed."
+   },
+   {
+    "name": "CODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Procedure code from SNOMED-CT"
+   },
+   {
+    "name": "DESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the procedure."
+   },
+   {
+    "name": "BASE_COST",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "The line item cost of the procedure."
+   },
+   {
+    "name": "REASONCODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Diagnosis code from SNOMED-CT specifying why this procedure was performed."
+   },
+   {
+    "name": "REASONDESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of the reason code."
+   }
+  ],
+  "pk": [
+   "START",
+   "CODE"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 249 rows"
+  },
+  "business_ids": [
+   "CODE"
+  ]
+ },
+ {
+  "name": "providers",
+  "columns": [
+   {
+    "name": "Id",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Primary key of the Provider/Clinician."
+   },
+   {
+    "name": "ORGANIZATION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Organization that employees this provider."
+   },
+   {
+    "name": "NAME",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "First and last name of the Provider."
+   },
+   {
+    "name": "GENDER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Gender. `M` is male, `F` is female."
+   },
+   {
+    "name": "SPECIALITY",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Provider speciality."
+   },
+   {
+    "name": "ADDRESS",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Provider's street address without commas or newlines."
+   },
+   {
+    "name": "CITY",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Street address city."
+   },
+   {
+    "name": "STATE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Street address state abbreviation."
+   },
+   {
+    "name": "ZIP",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Street address zip or postal code."
+   },
+   {
+    "name": "LAT",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Latitude of Provider's address."
+   },
+   {
+    "name": "LON",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Longitude of Provider's address."
+   },
+   {
+    "name": "UTILIZATION",
+    "type": "FLOAT",
+    "nullable": true
+   }
+  ],
+  "pk": [
+   "Id"
+  ],
+  "pk_provenance": {
+   "source": "declared",
+   "evidence": "Synthea dictionary"
+  },
+  "business_ids": [
+   "Id"
+  ]
+ },
+ {
+  "name": "supplies",
+  "columns": [
+   {
+    "name": "DATE",
+    "type": "DATE",
+    "nullable": true,
+    "description": "The date the supplies were used."
+   },
+   {
+    "name": "PATIENT",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Patient."
+   },
+   {
+    "name": "ENCOUNTER",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Foreign key to the Encounter when the supplies were used."
+   },
+   {
+    "name": "CODE",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Code for the type of supply used, from SNOMED-CT"
+   },
+   {
+    "name": "DESCRIPTION",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Description of supply used."
+   },
+   {
+    "name": "QUANTITY",
+    "type": "FLOAT",
+    "nullable": true,
+    "description": "Quantity of supply used."
+   }
+  ],
+  "pk": [
+   "DATE",
+   "CODE"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 72 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "concept_ancestor_seed",
+  "columns": [
+   {
+    "name": "ancestor_concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   },
+   {
+    "name": "descendant_concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   },
+   {
+    "name": "min_levels_of_separation",
+    "type": "INTEGER",
+    "nullable": true
+   },
+   {
+    "name": "max_levels_of_separation",
+    "type": "INTEGER",
+    "nullable": true
+   }
+  ],
+  "pk": [
+   "ancestor_concept_id",
+   "descendant_concept_id"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 115241 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "concept_class_seed",
+  "columns": [
+   {
+    "name": "concept_class_id",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "concept_class_name",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "concept_class_concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   }
+  ],
+  "pk": [
+   "concept_class_id"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 423 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "concept_relationship_seed",
+  "columns": [
+   {
+    "name": "concept_id_1",
+    "type": "INTEGER",
+    "nullable": true
+   },
+   {
+    "name": "concept_id_2",
+    "type": "INTEGER",
+    "nullable": true
+   },
+   {
+    "name": "relationship_id",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "valid_start_date",
+    "type": "DATE",
+    "nullable": true
+   },
+   {
+    "name": "valid_end_date",
+    "type": "DATE",
+    "nullable": true
+   },
+   {
+    "name": "invalid_reason",
+    "type": "VARCHAR",
+    "nullable": true
+   }
+  ],
+  "pk": [
+   "concept_id_1",
+   "concept_id_2",
+   "relationship_id"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 24860 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "concept_seed",
+  "columns": [
+   {
+    "name": "concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   },
+   {
+    "name": "concept_name",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "domain_id",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "vocabulary_id",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "concept_class_id",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "standard_concept",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "concept_code",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "valid_start_date",
+    "type": "DATE",
+    "nullable": true
+   },
+   {
+    "name": "valid_end_date",
+    "type": "DATE",
+    "nullable": true
+   },
+   {
+    "name": "invalid_reason",
+    "type": "VARCHAR",
+    "nullable": true
+   }
+  ],
+  "pk": [
+   "concept_id"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 33207 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "concept_synonym_seed",
+  "columns": [
+   {
+    "name": "concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   },
+   {
+    "name": "concept_synonym_name",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "language_concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   }
+  ],
+  "pk": [
+   "concept_id"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 0 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "domain_seed",
+  "columns": [
+   {
+    "name": "domain_id",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "domain_name",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "domain_concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   }
+  ],
+  "pk": [
+   "domain_id"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 50 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "drug_strength_seed",
+  "columns": [
+   {
+    "name": "drug_concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   },
+   {
+    "name": "ingredient_concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   },
+   {
+    "name": "amount_value",
+    "type": "FLOAT",
+    "nullable": true
+   },
+   {
+    "name": "amount_unit_concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   },
+   {
+    "name": "numerator_value",
+    "type": "FLOAT",
+    "nullable": true
+   },
+   {
+    "name": "numerator_unit_concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   },
+   {
+    "name": "denominator_value",
+    "type": "FLOAT",
+    "nullable": true
+   },
+   {
+    "name": "denominator_unit_concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   },
+   {
+    "name": "box_size",
+    "type": "INTEGER",
+    "nullable": true
+   },
+   {
+    "name": "valid_start_date",
+    "type": "DATE",
+    "nullable": true
+   },
+   {
+    "name": "valid_end_date",
+    "type": "DATE",
+    "nullable": true
+   },
+   {
+    "name": "invalid_reason",
+    "type": "VARCHAR",
+    "nullable": true
+   }
+  ],
+  "pk": [
+   "drug_concept_id"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 0 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "relationship_seed",
+  "columns": [
+   {
+    "name": "relationship_id",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "relationship_name",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "is_hierarchical",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "defines_ancestry",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "reverse_relationship_id",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "relationship_concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   }
+  ],
+  "pk": [
+   "relationship_id"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 696 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "source_to_concept_map_seed",
+  "columns": [
+   {
+    "name": "source_code",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "source_concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   },
+   {
+    "name": "source_vocabulary_id",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "source_code_description",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "source_domain_id",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "source_concept_class_id",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "target_concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   },
+   {
+    "name": "target_concept_name",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "target_vocabulary_id",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "target_domain_id",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "target_concept_class_id",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "valid_start_date",
+    "type": "DATE",
+    "nullable": true
+   },
+   {
+    "name": "valid_end_date",
+    "type": "DATE",
+    "nullable": true
+   },
+   {
+    "name": "invalid_reason",
+    "type": "VARCHAR",
+    "nullable": true
+   }
+  ],
+  "pk": [
+   "target_concept_id"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 2 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "vocabulary_seed",
+  "columns": [
+   {
+    "name": "vocabulary_id",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "vocabulary_name",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "vocabulary_reference",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "vocabulary_version",
+    "type": "VARCHAR",
+    "nullable": true
+   },
+   {
+    "name": "vocabulary_concept_id",
+    "type": "INTEGER",
+    "nullable": true
+   }
+  ],
+  "pk": [
+   "vocabulary_id"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 59 rows"
+  },
+  "business_ids": []
+ },
+ {
+  "name": "states",
+  "columns": [
+   {
+    "name": "state_name",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Full name of the state."
+   },
+   {
+    "name": "state_abbreviation",
+    "type": "VARCHAR",
+    "nullable": true,
+    "description": "Two-letter state code."
+   }
+  ],
+  "pk": [
+   "state_name"
+  ],
+  "pk_provenance": {
+   "source": "inferred",
+   "evidence": "unique and non-null on 51 rows"
+  },
+  "business_ids": [],
+  "description": "Lookup of US state names and their two-letter abbreviations (adapter-written; the source dictionary has no entry)."
+ }
+]

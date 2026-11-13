@@ -1,0 +1,31 @@
+{
+ "task_id": "provider.dea",
+ "table": "provider",
+ "column": "dea",
+ "kind": "placeholder",
+ "reference": {
+  "table": "provider",
+  "column": "dea"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS TEXT)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:providers.Id"
+  ],
+  "reference": [
+   "r.provider_source_value"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

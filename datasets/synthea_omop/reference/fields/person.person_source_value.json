@@ -1,0 +1,31 @@
+{
+ "task_id": "person.person_source_value",
+ "table": "person",
+ "column": "person_source_value",
+ "kind": "value",
+ "reference": {
+  "table": "person",
+  "column": "person_source_value"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "patients.Id"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.Id"
+  ],
+  "reference": [
+   "r.person_source_value"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not ambiguous once the row source is given",
+  "source": "assistant_proposal"
+ },
+ "exclusion_reason": null
+}

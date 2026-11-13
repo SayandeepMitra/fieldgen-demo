@@ -1,0 +1,32 @@
+{
+ "task_id": "vocabulary.vocabulary_reference",
+ "table": "vocabulary",
+ "column": "vocabulary_reference",
+ "kind": "value",
+ "reference": {
+  "table": "vocabulary",
+  "column": "vocabulary_reference"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "stg_vocabulary__vocabulary.vocabulary_reference"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:vocabulary_seed.vocabulary_id"
+  ],
+  "reference": [
+   "r.vocabulary_id"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null,
+ "passthrough": true
+}

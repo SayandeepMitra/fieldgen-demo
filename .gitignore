@@ -1,0 +1,17 @@
+.env
+*.key
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+runs/
+run/
+*.duckdb
+*.egg-info/
+build/
+dist/
+# data, databases, run outputs: never committed
+datasets/*/package/source/data/
+datasets/*/reference/reference_data/
+datasets/*/run/
+*.log

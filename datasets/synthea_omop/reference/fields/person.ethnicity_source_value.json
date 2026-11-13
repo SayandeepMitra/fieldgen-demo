@@ -1,0 +1,31 @@
+{
+ "task_id": "person.ethnicity_source_value",
+ "table": "person",
+ "column": "ethnicity_source_value",
+ "kind": "value",
+ "reference": {
+  "table": "person",
+  "column": "ethnicity_source_value"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "SUBSTRING(patients.ETHNICITY, 1, 50)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.Id"
+  ],
+  "reference": [
+   "r.person_source_value"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled in PILOT.md",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

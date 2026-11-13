@@ -1,0 +1,33 @@
+# fieldgen configuration. Every option is optional: a missing option has the default shown here (the tested default path).
+# See docs/config.md for what each option does, whether it was tested, and what we measured.
+model: nvidia/nemotron-3.5-super-vl-120b-a12b   # model id served by the endpoint
+reasoning_effort: low             # low | high | off
+stages: recipes_and_formulas      # recipes | recipes_and_formulas
+timeout_s: 900                    # per call
+requests_per_minute: 20
+concurrency: 2
+domain_knowledge: required        # required | optional | off
+reference: auto                   # auto | off  (auto: score at the end when a reference folder exists)
+data_profiling: true              # value lists, null rates and sample values of the source columns in the prompt
+computed_facts: true              # facts measured on the data (how many values of a source column are found in a lookup column, ...)
+measured_links: true              # add links between source columns and lookup columns that the data shows
+min_coverage: 0.5                 # share of distinct values found for a measured link
+documentation_conventions: true   # show the target documentation's conventions text for the target columns shown
+documentation_first: true         # the target documentation is used before the expert text when both exist
+source_labels: true               # every added line says where it comes from
+join_rules_in_prompt: true        # the system prompt explains how INNER and LEFT joins decide the rows
+retry_on_error: errors_and_invalid   # off | errors | errors_and_invalid
+max_retries: 2
+text_data_check: warn             # warn | off  (quoted values in the domain text must exist in the data)
+score_levels: L2                  # L2 | L2_and_L4 (L2_and_L4 switches robustness_check on)
+robustness_check: false           # true: `fieldgen test` also runs the L4 check on perturbed copies of the data (slower)
+formula_docs: true                # the formula prompt also shows the documented rules (conventions) of the target column; false = v1.2-demo formula prompts
+history_pattern: false            # true: generic guidance for sources with several records per key (latest non-empty value per column) in the recipe prompt, and in the formula prompt when the recipe is grouped (untested)
+history_tables: {}                # tables built from events: {table: {key: <source column>, order: <column>, tiebreak: <column>}}; the model writes one row per event and one formula per event row, the tool groups by the key and takes the latest non-empty value (untested)
+history_auto: false               # true: the recipe prompt asks the model to set a recipe field history {key, order, tiebreak} (or null) for tables built from partial-update events (untested)
+formula_length_retry: false       # true: a formula call that ends length or empty is asked once more with double max_tokens (untested)
+execute:
+  sample_rows: all                # all, or a number: `fieldgen execute` uses only the first N rows of each source table (a quick test)
+# endpoint (advanced). The key is read only from the environment variable named here.
+base_url: https://integrate.api.nvidia.com/v1
+api_key_env: NVIDIA_API_KEY

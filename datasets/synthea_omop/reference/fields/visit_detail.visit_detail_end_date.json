@@ -1,0 +1,31 @@
+{
+ "task_id": "visit_detail.visit_detail_end_date",
+ "table": "visit_detail",
+ "column": "visit_detail_end_date",
+ "kind": "value",
+ "reference": {
+  "table": "visit_detail",
+  "column": "visit_detail_end_date"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "visit_detail_end_date"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:encounters.START"
+  ],
+  "reference": [
+   "r.visit_detail_start_datetime"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

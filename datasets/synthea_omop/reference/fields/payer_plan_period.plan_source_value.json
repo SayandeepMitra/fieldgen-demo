@@ -1,0 +1,31 @@
+{
+ "task_id": "payer_plan_period.plan_source_value",
+ "table": "payer_plan_period",
+ "column": "plan_source_value",
+ "kind": "value",
+ "reference": {
+  "table": "payer_plan_period",
+  "column": "plan_source_value"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "SUBSTRING(pay.payer_name, 1, 50)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:payer_transitions.END_YEAR"
+  ],
+  "reference": [
+   "r.payer_plan_period_end_date"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

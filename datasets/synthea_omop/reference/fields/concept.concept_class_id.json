@@ -1,0 +1,32 @@
+{
+ "task_id": "concept.concept_class_id",
+ "table": "concept",
+ "column": "concept_class_id",
+ "kind": "value",
+ "reference": {
+  "table": "concept",
+  "column": "concept_class_id"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "stg_vocabulary__concept.concept_class_id"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:concept_seed.concept_id"
+  ],
+  "reference": [
+   "r.concept_id"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null,
+ "passthrough": true
+}

@@ -1,0 +1,33 @@
+{
+ "task_id": "condition_occurrence.condition_source_value",
+ "table": "condition_occurrence",
+ "column": "condition_source_value",
+ "kind": "value",
+ "reference": {
+  "table": "condition_occurrence",
+  "column": "condition_source_value"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "SUBSTRING(c.condition_code, 1, 50)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:conditions.START",
+   "b1:concept_seed.concept_id"
+  ],
+  "reference": [
+   "r.condition_start_date",
+   "r.condition_source_concept_id"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

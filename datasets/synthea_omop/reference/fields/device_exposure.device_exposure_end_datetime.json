@@ -1,0 +1,31 @@
+{
+ "task_id": "device_exposure.device_exposure_end_datetime",
+ "table": "device_exposure",
+ "column": "device_exposure_end_datetime",
+ "kind": "value",
+ "reference": {
+  "table": "device_exposure",
+  "column": "device_exposure_end_datetime"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "d.device_stop_datetime"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:devices.START"
+  ],
+  "reference": [
+   "r.device_exposure_start_date"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

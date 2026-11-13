@@ -1,0 +1,36 @@
+{
+ "task_id": "location.latitude",
+ "table": "location",
+ "column": "latitude",
+ "kind": "placeholder",
+ "reference": {
+  "table": "location",
+  "column": "latitude"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(NULL AS REAL)"
+  },
+  {
+   "branch": "b2",
+   "expr": "CAST(NULL AS REAL)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.ADDRESS",
+   "b2:organizations.ADDRESS"
+  ],
+  "reference": [
+   "r.address_1"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled in PILOT.md",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

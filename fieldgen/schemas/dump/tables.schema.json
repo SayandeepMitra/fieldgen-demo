@@ -1,0 +1,86 @@
+{
+ "type": "array",
+ "items": {
+  "type": "object",
+  "required": [
+   "side",
+   "name",
+   "row_count",
+   "primary_key",
+   "business_ids",
+   "grain_candidates",
+   "parents",
+   "children"
+  ],
+  "properties": {
+   "side": {
+    "enum": [
+     "source",
+     "target"
+    ]
+   },
+   "name": {
+    "type": "string"
+   },
+   "row_count": {
+    "type": [
+     "integer",
+     "null"
+    ]
+   },
+   "primary_key": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   },
+   "business_ids": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   },
+   "grain_candidates": {
+    "type": "array",
+    "items": {
+     "type": "object",
+     "required": [
+      "columns",
+      "kind",
+      "unique",
+      "provenance"
+     ]
+    }
+   },
+   "parents": {
+    "type": "array",
+    "items": {
+     "type": "object",
+     "required": [
+      "table",
+      "child_columns",
+      "parent_columns",
+      "cardinality",
+      "provenance",
+      "support"
+     ]
+    }
+   },
+   "children": {
+    "type": "array",
+    "items": {
+     "type": "object",
+     "required": [
+      "table",
+      "child_columns",
+      "parent_columns",
+      "cardinality",
+      "provenance",
+      "support"
+     ]
+    }
+   }
+  }
+ },
+ "$schema": "http://json-schema.org/draft-07/schema#"
+}

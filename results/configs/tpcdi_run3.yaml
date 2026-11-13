@@ -1,0 +1,2 @@
+# package settings (found first, before the current folder)
+domain_knowledge: required   # expert text in domain/flow_text.md (run 2)

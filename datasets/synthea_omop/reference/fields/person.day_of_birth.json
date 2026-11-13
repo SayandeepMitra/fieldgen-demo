@@ -1,0 +1,31 @@
+{
+ "task_id": "person.day_of_birth",
+ "table": "person",
+ "column": "day_of_birth",
+ "kind": "value",
+ "reference": {
+  "table": "person",
+  "column": "day_of_birth"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "CAST(DATE_PART('day', patients.BIRTHDATE) AS INT)"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:patients.Id"
+  ],
+  "reference": [
+   "r.person_source_value"
+  ]
+ },
+ "alignment_quality": "strong",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled in PILOT.md",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

@@ -1,0 +1,32 @@
+{
+ "task_id": "concept_relationship.concept_id_2",
+ "table": "concept_relationship",
+ "column": "concept_id_2",
+ "kind": "value",
+ "reference": {
+  "table": "concept_relationship",
+  "column": "concept_id_2"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "stg_vocabulary__concept_relationship.concept_id_2"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:concept_relationship_seed.concept_id_1"
+  ],
+  "reference": [
+   "r.concept_id_1"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null,
+ "passthrough": true
+}

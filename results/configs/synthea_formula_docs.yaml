@@ -1,0 +1,2 @@
+# Synthea check: v1.2-demo defaults except formula_docs
+formula_docs: true

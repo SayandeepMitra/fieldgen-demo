@@ -1,0 +1,31 @@
+{
+ "task_id": "observation.observation_datetime",
+ "table": "observation",
+ "column": "observation_datetime",
+ "kind": "value",
+ "reference": {
+  "table": "observation",
+  "column": "observation_datetime"
+ },
+ "expressions": [
+  {
+   "branch": "b1",
+   "expr": "observation_datetime"
+  }
+ ],
+ "alignment": {
+  "source": [
+   "b1:concept_seed.concept_id"
+  ],
+  "reference": [
+   "r.observation_source_concept_id"
+  ]
+ },
+ "alignment_quality": "weak",
+ "ambiguity": {
+  "ambiguous": false,
+  "reason": "not labelled",
+  "source": "pending"
+ },
+ "exclusion_reason": null
+}

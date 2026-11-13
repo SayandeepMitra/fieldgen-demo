@@ -1,0 +1,38 @@
+[
+ {
+  "table": "concept_seed",
+  "column": "standard_concept",
+  "value": "S",
+  "meaning": "Standard concept."
+ },
+ {
+  "table": "concept_seed",
+  "column": "standard_concept",
+  "value": "C",
+  "meaning": "Classification concept."
+ },
+ {
+  "table": "concept_seed",
+  "column": "invalid_reason",
+  "value": "D",
+  "meaning": "Deprecated, no replacement."
+ },
+ {
+  "table": "concept_seed",
+  "column": "invalid_reason",
+  "value": "U",
+  "meaning": "Replaced by another concept."
+ },
+ {
+  "table": "concept_relationship_seed",
+  "column": "relationship_id",
+  "value": "Maps to",
+  "meaning": "Links a concept to the standard concept that represents it (concept_id_1 maps to concept_id_2). A standard concept maps to itself."
+ },
+ {
+  "table": "concept_relationship_seed",
+  "column": "relationship_id",
+  "value": "Mapped from",
+  "meaning": "The same link read from the other end."
+ }
+]
