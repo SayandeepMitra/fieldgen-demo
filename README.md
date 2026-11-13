@@ -87,6 +87,7 @@ A package is one folder. `python -m fieldgen init --package DIR --source SRC --t
 | `target/field_docs.json` | required | column documentation (the source of column knowledge) |
 | `target/reference_tables.json` | required | lookup tables |
 | `target/field_domains.json` | optional | domain of a lookup column |
+| `target/provenance.json` | optional | not read by the tool; records which OMOP documentation version the column texts come from |
 | `matches/matches.json` | required | matches: source columns for each target column |
 | `domain/` | required while `domain_knowledge: required` (the default) | expert text |
 | `config.yaml` | optional | settings, including the history settings |
@@ -183,6 +184,7 @@ python build_gold.py    --source-db WORK/source/tpcdi_source.duckdb --target-ddl
 python build_history.py --source-db WORK/source/tpcdi_source.duckdb --out WORK/source_hist.duckdb
 python make_package.py  --work WORK --spec SPEC_TEXT_FILE
 ```
+`make_package.py` has more options (`--column-map`, `--expert-text`, `--fieldgen`); see `--help`.
 `OUT` is the DIGen output folder and `SCHEMA_REPO` is the TPC-DI-MS-SQL-Benchmark folder that contains `Helpers/`. The four commands take about 1 minute.
 The result is in `WORK/packages/run6` and `WORK/packages/run10`. Go back to the project folder before you run `run_demo.py`.
 

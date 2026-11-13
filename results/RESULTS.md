@@ -32,7 +32,7 @@ Run 1 and 2 built 9 tables; the DimCustomer columns of those runs are shown. Fro
 | 9b | run 9a, formulas too | 16-24 | 19 / 28 |
 | 10 | run 9b + `formula_docs` (rules shown to the formula step) | 21-25 | **23 / 28** |
 
-Still wrong in run 10: gender (NEW with no gender should give U), the three Prospect columns (the rule needs a match on current values; a plain `=` join was written), marketingnameplate (the tag list is not in the documentation given to the tool).
+Still wrong in run 10: gender (NEW with no gender should give U), the three Prospect columns (the rule needs a match on current values; a plain `=` join was written), marketingnameplate (we left its tag list out of the package by mistake).
 
 ## Main findings
 
