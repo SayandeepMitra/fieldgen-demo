@@ -45,3 +45,14 @@ Still wrong in run 10: gender (NEW with no gender should give U), the three Pros
 Each number is one run of one model. Do not read a difference of one or two columns as an effect.
 
 Note on the replay answers: in `replay/answers/tpcdi_run6.json` and `tpcdi_run10.json` the free-text `assumptions` lists of the model's answers were emptied, because they may quote the TPC-DI specification. Recipes, expressions and all other fields are unchanged; the replays reproduce the recorded scores (run 6: 22 of 28, run 10: 23 of 28).
+
+## Known limits
+
+- Each result is a single run of one model. A difference of one or two columns is within the variation between runs.
+- The recipes and formulas fit the dataset they were made for. A new dataset needs a new run.
+- `history_tables` (off by default) needs the package to name the key, the order and the tiebreak column of the event records. The tool does not find them.
+- Three Prospect columns (agencyid, creditrating, networth) are wrong in both TPC-DI replays. In run 10 the generated join compares with plain `=`, so customers with an empty address line are not matched. In the run 6 setup (raw event records) the match needs a subquery, and the formula checker rejects subqueries.
+- `history_auto` (off by default) expects `column` or `table.column` names. Alias forms such as `c.C_ID` are not resolved.
+- MarketingNameplate is wrong in every TPC-DI run because we left its tag list out of the package by mistake.
+- In the saved TPC-DI answers in `replay/answers/`, the free-text `assumptions` lists are emptied, because they may quote the TPC-DI specification. Recipes, expressions and all other fields are unchanged, and the replays still match the recorded scores.
+- The default endpoint is free and records inputs and outputs.
